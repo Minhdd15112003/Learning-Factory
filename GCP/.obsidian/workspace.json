@@ -125,8 +125,7 @@
               "title": "Source Control"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "horizontal",
@@ -139,7 +138,7 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "74ddfbb0795560a0",
+  "active": "dc9accb822e86f8b",
   "lastOpenFiles": [
     "SETUP GUIDE.md",
     "02 Chess Moves (Long-Term Planning)/Chess Moves (EXAMPLE).md",
