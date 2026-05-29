@@ -11,10 +11,15 @@
             "id": "74ddfbb0795560a0",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "CLAUDE.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "CLAUDE"
             }
           }
         ]
@@ -109,8 +114,19 @@
               "icon": "links-going-out",
               "title": "Outgoing links from SETUP GUIDE"
             }
+          },
+          {
+            "id": "dc9accb822e86f8b",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
