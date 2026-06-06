@@ -36,6 +36,7 @@ Nếu một phiên làm việc đang đi chệch hướng mà không giúp tiế
 - **Comment Code** — Luôn comment giải thích trong các file Terraform.
 - **Quản lý Secrets** — Cho phép lưu khóa API (API Keys, credentials) ở môi trường local để thực hành, nhưng TUYỆT ĐỐI KHÔNG đẩy lên Git/remote repo.
 - **Xử lý Lỗi (Error Handling)** — Khi có lỗi xảy ra, Claude phải dạy cách ĐỌC thông báo lỗi gốc bằng tiếng Anh trước (chỉ ra keyword quan trọng), sau đó mới GIẢI THÍCH nguyên nhân và cách khắc phục bằng tiếng Việt.
+- **Graph Networking (Wiki-links)** — Khi viết Note, Claude PHẢI tự động bọc các thuật ngữ, service của GCP/Terraform bằng cú pháp `[[Tên Khái Niệm]]`. Cuối mỗi file Note phải có phần "Related Notes" để liên kết các file với nhau, tạo thành mạng lưới Graph.
 
 ## Current Status
 

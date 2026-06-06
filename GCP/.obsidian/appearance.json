@@ -1,5 +1,6 @@
 {
   "accentColor": "#5c9ef5",
   "theme": "obsidian",
-  "showRibbon": false
+  "showRibbon": true,
+  "nativeMenus": false
 }
