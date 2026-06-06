@@ -137,8 +137,11 @@
       "graph:Open graph view": false
     }
   },
-  "active": "6990b12b0b8faaf3",
+  "active": "b6af00bc2f5595fd",
   "lastOpenFiles": [
+    "03 Projects/learn-terraform-gcp/02 Thuc hanh/01-main.tf",
+    "03 Projects/learn-terraform-gcp/02 Thuc hanh/00-provider.tf",
+    "03 Projects/learn-terraform-gcp/01 Ly thuyet/01-HCL-Va-Cac-Lenh-Co-Ban.md",
     "03 Projects/learn-terraform-gcp/COMMANDS.md",
     "SETUP GUIDE.md",
     "03 Projects/learn-terraform-gcp/CLAUDE.md",
@@ -161,7 +164,6 @@
     "03 Projects/(PROJECT TEMPLATE)/34.md",
     "03 Projects/(PROJECT TEMPLATE)/Untitled.md",
     "01 Journals/2026 Journals/12 December",
-    "01 Journals/2026 Journals/11 November",
     "Untitled.md",
     "03 Projects/Useful AI Skool/COMMANDS.md",
     "03 Projects/Useful AI Skool/CLAUDE.md",
