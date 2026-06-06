@@ -36,6 +36,7 @@ Google Cloud/
 ├── 01 Journals/           ←
 ├── 02 Chess Moves (Long-Term Planning)/ ←
 ├── 03 Projects/           ←
+│   └── learn-terraform-gcp/ ← Dự án học Terraform + GCP
 ├── 04 Reviews/            ←
 ├── 05 Skills/             ←
 ```
@@ -73,4 +74,6 @@ Google Cloud/
 
 ## My Current Projects & Overviews
 
-_No projects yet. Use the New Project skill to create your first project — it will automatically add it here._
+### learn-terraform-gcp — `03 Projects/learn-terraform-gcp/`
+**Status:** Just created
+Dự án học Terraform + GCP theo lộ trình từ cơ bản đến nâng cao, kết hợp lý thuyết và thực hành tự động hóa hạ tầng.

@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "05 Skills/new-project.md",
+                "file": "SETUP GUIDE.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "new-project"
+              "title": "SETUP GUIDE"
             }
           }
         ]
@@ -138,8 +138,18 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "02a1ff91e4a3bf2f",
+  "active": "b6af00bc2f5595fd",
   "lastOpenFiles": [
+    "03 Projects/learn-terraform-gcp/COMMANDS.md",
+    "03 Projects/learn-terraform-gcp/CLAUDE.md",
+    "03 Projects/learn-terraform-gcp/07 Iteration Logs",
+    "03 Projects/learn-terraform-gcp/06 Attachments",
+    "03 Projects/learn-terraform-gcp/05 Skills",
+    "03 Projects/learn-terraform-gcp/04 System",
+    "03 Projects/learn-terraform-gcp/03 Output",
+    "03 Projects/learn-terraform-gcp/02 Thuc hanh",
+    "03 Projects/learn-terraform-gcp/01 Ly thuyet",
+    "03 Projects/learn-terraform-gcp",
     "05 Skills/new-project.md",
     "CLAUDE.md",
     "05 Skills/weekly-update.md",
@@ -153,14 +163,6 @@
     "03 Projects/(PROJECT TEMPLATE)/Untitled.md",
     "01 Journals/2026 Journals/12 December",
     "01 Journals/2026 Journals/11 November",
-    "01 Journals/2026 Journals/10 October",
-    "01 Journals/2026 Journals/09 September",
-    "01 Journals/2026 Journals/08 August",
-    "01 Journals/2026 Journals/07 July",
-    "01 Journals/2026 Journals/06 June",
-    "01 Journals/2026 Journals/05 May",
-    "01 Journals/2026 Journals/04 April",
-    "01 Journals/2026 Journals/03 March",
     "Untitled.md",
     "03 Projects/Useful AI Skool/COMMANDS.md",
     "03 Projects/Useful AI Skool/CLAUDE.md",

@@ -4,21 +4,20 @@
   "title": "hello",
   "titleGenerationStatus": "failed",
   "createdAt": 1780044830530,
-  "updatedAt": 1780047430938,
-  "lastResponseAt": 1780047323680,
+  "updatedAt": 1780733155372,
+  "lastResponseAt": 1780733155372,
   "sessionId": "251ba1ba-75c7-4532-b795-55777d0e00ec",
   "providerState": {
     "providerSessionId": "251ba1ba-75c7-4532-b795-55777d0e00ec"
   },
   "usage": {
     "model": "opus",
-    "inputTokens": 15466,
+    "inputTokens": 24688,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 15373,
+    "cacheReadInputTokens": 15489,
     "contextWindow": 200000,
-    "contextTokens": 30839,
-    "percentage": 15,
+    "contextTokens": 40177,
+    "percentage": 20,
     "contextWindowIsAuthoritative": true
-  },
-  "resumeAtMessageId": "ad147d2d-7b8c-4471-9aee-c8752b7bc79c"
+  }
 }
