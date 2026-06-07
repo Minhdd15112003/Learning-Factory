@@ -45,7 +45,3 @@ learn-terraform-gcp/
 
 > **Last updated:** 2026-06-07
 > **Status:** Just created — getting started with Stage 1 (Nền tảng cơ bản).
-
----
-
-**Hệ thống hỗ trợ:** [[03 Projects/learn-terraform-gcp/01 Journals/Session-Log-Template.md|Session Log]] | [[03 Projects/learn-terraform-gcp/04 Reviews/Reasoning-Gaps.md|Reasoning Gaps]]
