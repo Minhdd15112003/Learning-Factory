@@ -1,9 +1,9 @@
 {
   "userName": "",
-  "permissionMode": "yolo",
+  "permissionMode": "normal",
   "model": "opus",
   "thinkingBudget": "medium",
-  "effortLevel": "xhigh",
+  "effortLevel": "high",
   "serviceTier": "default",
   "enableAutoTitleGeneration": true,
   "titleGenerationModel": "",
@@ -68,14 +68,14 @@
     "claude": "opus"
   },
   "savedProviderEffort": {
-    "claude": "xhigh"
+    "claude": "high"
   },
   "savedProviderServiceTier": {},
   "savedProviderThinkingBudget": {
     "claude": "medium"
   },
   "savedProviderPermissionMode": {
-    "claude": "yolo"
+    "claude": "normal"
   },
   "lastCustomModel": "",
   "maxTabs": 3,
