@@ -1,5 +1,7 @@
 > **Kế thừa từ:** [[CLAUDE.md]] — Hiến pháp chung của toàn bộ vault (Teaching Mechanics, Error Handling, Wiki-links rules).
 >
+> **Claude Instruction:** You MUST read the root `../../CLAUDE.md` first to load your core persona and teaching mechanics before answering any prompts in this directory.
+>
 > File này chỉ chứa các quy tắc và hiến pháp RIÊNG của project Terraform. Các quy tắc chung đã được định nghĩa ở file gốc.
 
 # learn-terraform-gcp — Project Constitution
