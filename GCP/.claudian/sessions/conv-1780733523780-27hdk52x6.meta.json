@@ -4,20 +4,21 @@
   "title": "tôi muốn tiếp tục học về terraform",
   "titleGenerationStatus": "failed",
   "createdAt": 1780733523781,
-  "updatedAt": 1780741397751,
-  "lastResponseAt": 1780741397751,
+  "updatedAt": 1780843812197,
+  "lastResponseAt": 1780843799822,
   "sessionId": "527155a0-f79a-481d-b38c-8d414c09fee4",
   "providerState": {
     "providerSessionId": "527155a0-f79a-481d-b38c-8d414c09fee4"
   },
   "usage": {
     "model": "opus",
-    "inputTokens": 27390,
+    "inputTokens": 31143,
     "cacheCreationInputTokens": 0,
     "cacheReadInputTokens": 0,
     "contextWindow": 200000,
-    "contextTokens": 27390,
-    "percentage": 14,
+    "contextTokens": 31143,
+    "percentage": 16,
     "contextWindowIsAuthoritative": true
-  }
+  },
+  "resumeAtMessageId": "1c3c5e42-5003-4160-911d-21c0be762237"
 }

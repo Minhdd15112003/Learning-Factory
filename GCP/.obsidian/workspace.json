@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CLAUDE.md",
+                "file": "03 Projects/learn-terraform-gcp/01 Ly thuyet/01-HCL-Va-Cac-Lenh-Co-Ban.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "CLAUDE"
+              "title": "01-HCL-Va-Cac-Lenh-Co-Ban"
             }
           }
         ]
@@ -79,7 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 292.5
   },
   "right": {
     "id": "4e3764906bb5c38d",
@@ -90,27 +90,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "b6af00bc2f5595fd",
-            "type": "leaf",
-            "state": {
-              "type": "claudian-view",
-              "state": {},
-              "icon": "bot",
-              "title": "Claudian"
-            }
-          },
-          {
             "id": "b1207d39e9985303",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CLAUDE.md",
+                "file": "03 Projects/learn-terraform-gcp/01 Ly thuyet/01-HCL-Va-Cac-Lenh-Co-Ban.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from CLAUDE"
+              "title": "Outgoing links from 01-HCL-Va-Cac-Lenh-Co-Ban"
             }
           },
           {
@@ -127,7 +117,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 482.5
+    "width": 620.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -137,11 +128,50 @@
       "graph:Open graph view": false
     }
   },
+  "floating": {
+    "id": "302fa1251cf01b36",
+    "type": "floating",
+    "children": [
+      {
+        "id": "158dad40eb8ffd9d",
+        "type": "window",
+        "children": [
+          {
+            "id": "4a017dab12e228fe",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "b6af00bc2f5595fd",
+                "type": "leaf",
+                "state": {
+                  "type": "claudian-view",
+                  "state": {},
+                  "icon": "bot",
+                  "title": "Claudian"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 162,
+        "y": 52,
+        "width": 1537,
+        "height": 801,
+        "maximize": true,
+        "zoom": 0
+      }
+    ]
+  },
   "active": "b6af00bc2f5595fd",
   "lastOpenFiles": [
+    "01 Journals/Session-Log-Template.md",
+    "01 Journals/Session-Log-Template.md.tmp.14500.07ca2d2cb88c",
+    "04 Reviews/Reasoning-Gaps.md",
+    "CLAUDE.md",
+    "03 Projects/learn-terraform-gcp/01 Ly thuyet/01-HCL-Va-Cac-Lenh-Co-Ban.md",
     "03 Projects/learn-terraform-gcp/02 Thuc hanh/01-main.tf",
     "03 Projects/learn-terraform-gcp/02 Thuc hanh/00-provider.tf",
-    "03 Projects/learn-terraform-gcp/01 Ly thuyet/01-HCL-Va-Cac-Lenh-Co-Ban.md",
     "03 Projects/learn-terraform-gcp/COMMANDS.md",
     "SETUP GUIDE.md",
     "03 Projects/learn-terraform-gcp/CLAUDE.md",
@@ -152,9 +182,7 @@
     "03 Projects/learn-terraform-gcp/03 Output",
     "03 Projects/learn-terraform-gcp/02 Thuc hanh",
     "03 Projects/learn-terraform-gcp/01 Ly thuyet",
-    "03 Projects/learn-terraform-gcp",
     "05 Skills/new-project.md",
-    "CLAUDE.md",
     "05 Skills/weekly-update.md",
     "GOALS.md",
     "02 Chess Moves (Long-Term Planning)/Chess Moves (EXAMPLE).md",
@@ -163,7 +191,6 @@
     "00 Notes/Videos/How to hyper-learn using SGNL.md",
     "03 Projects/(PROJECT TEMPLATE)/34.md",
     "03 Projects/(PROJECT TEMPLATE)/Untitled.md",
-    "01 Journals/2026 Journals/12 December",
     "Untitled.md",
     "03 Projects/Useful AI Skool/COMMANDS.md",
     "03 Projects/Useful AI Skool/CLAUDE.md",
