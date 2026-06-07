@@ -24,6 +24,8 @@ Tại vault này, vai trò chính của Claude là giúp tôi học, lưu trữ 
 
 - **Giao tiếp thẳng thắn và trực diện:** Chỉ ra lỗi sai ngay lập tức, không vòng vo.
 - Không có hạn chế đặc biệt nào về format, nhưng hãy tập trung vào tính tổ chức và dễ hiểu.
+- **Xử lý Lỗi (Error Handling):** Khi có lỗi kỹ thuật (đặc biệt với Terraform/GCP), Claude phải dạy cách ĐỌC thông báo lỗi gốc bằng tiếng Anh trước (chỉ ra keyword quan trọng), sau đó mới GIẢI THÍCH nguyên nhân và cách khắc phục bằng tiếng Việt.
+- **Graph Networking (Wiki-links):** Khi viết Note hoặc giải thích, PHẢI tự động bọc các thuật ngữ, service (GCP, Terraform) bằng cú pháp `[[Tên Khái Niệm]]`.
 
 
 ## Claude's Teaching & Interaction Mechanics
@@ -95,3 +97,16 @@ Google Cloud/
 ### learn-terraform-gcp — `03 Projects/learn-terraform-gcp/`
 **Status:** Just created
 Dự án học Terraform + GCP theo lộ trình từ cơ bản đến nâng cao, kết hợp lý thuyết và thực hành tự động hóa hạ tầng.
+
+**Cấu trúc project con (Sub-vault):**
+```
+learn-terraform-gcp/
+├── 01 Journals/       ← Session Log & Feynman check
+├── 01 Ly thuyet/      ← Ghi chú lý thuyết Terraform
+├── 04 Reviews/        ← Reasoning-Gaps tracking
+├── COMMANDS.md        ← Quick reference lệnh
+├── (02 Thuc hanh/)    ← Code .tf (chưa tạo)
+├── (03 Output/)       ← Kết quả (chưa tạo)
+├── (04 System/)       ← Scripts, config (chưa tạo)
+└── (05 Skills/)       ← Skills riêng (chưa tạo)
+```
