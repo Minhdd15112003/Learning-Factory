@@ -4,20 +4,20 @@
   "title": "tôi muốn cải thiện cơ chế dạy học của toàn bộ dự á...",
   "titleGenerationStatus": "failed",
   "createdAt": 1780844451172,
-  "updatedAt": 1780846325254,
-  "lastResponseAt": 1780846325253,
+  "updatedAt": 1780846469093,
+  "lastResponseAt": 1780846469093,
   "sessionId": "ae9b8bfe-f8fb-4676-8582-9af659557283",
   "providerState": {
     "providerSessionId": "ae9b8bfe-f8fb-4676-8582-9af659557283"
   },
   "usage": {
     "model": "opus",
-    "inputTokens": 25074,
+    "inputTokens": 41505,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 15550,
+    "cacheReadInputTokens": 0,
     "contextWindow": 200000,
-    "contextTokens": 40624,
-    "percentage": 20,
+    "contextTokens": 41505,
+    "percentage": 21,
     "contextWindowIsAuthoritative": true
   }
 }
