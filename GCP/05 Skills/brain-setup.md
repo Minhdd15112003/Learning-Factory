@@ -1,212 +1,78 @@
-# Skill: Brain Setup
+# Skill: Brain Setup (/brain-setup)
 
-Generate a personalized CLAUDE.md by scanning the vault structure and interviewing the user. The result is a fully populated context file that makes Claude an effective thinking partner for this vault.
+Tạo ra một Vault học tập mới (một "cỗ máy học tập" mới) nằm ngang hàng (cùng cấp) với thư mục hiện tại, kế thừa toàn bộ Framework phương pháp học (Socratic, Feynman, Day Update...) nhưng RỖNG nội dung.
 
-## When to Use
+## Khi nào sử dụng
 
-- User just copied the vault template and needs to set it up
-- CLAUDE.md is missing or contains only placeholder text
-- User explicitly asks to set up or initialize their vault
+- Khi user nói `/brain-setup`
+- Khi user muốn tạo một môi trường học tập hoàn toàn mới (VD: Học Golang, Học Tiếng Anh) tách biệt với Vault hiện tại.
 
-## How It Works
+## Cách thức hoạt động
 
-1. Scan the vault folder structure silently
-2. Interview the user in 5 rounds (one per CLAUDE.md section)
-3. Generate the full CLAUDE.md in the user's own voice
-4. Show it for review — make targeted edits until they're happy
-5. Write the file and suggest next steps
+### Bước 1: Phỏng vấn thu thập thông tin (Vault Identity)
+Hỏi user tuần tự các câu hỏi sau để định hình Vault mới:
+1. **Tên Vault mới là gì?** (Ví dụ: "Learn-Golang", "English-Mastery") -> Dùng làm tên thư mục.
+2. **Mục tiêu tối thượng của Vault này là gì?** (Ví dụ: "Trở thành Backend Dev bằng Go", "Giao tiếp tiếng Anh trôi chảy").
+3. **Mày tự đánh giá điểm yếu/điểm mù của mày trong lĩnh vực này là gì?** (Để Claude biết cách chỉnh đốn).
+4. **Mày có dự định tạo các Sub-projects nào trong này không?** (Ví dụ: Trong Golang sẽ có project "Build-API").
 
-If a CLAUDE.md already exists with real content, ask the user whether they want to start fresh or build on what's there.
+### Bước 2: Tạo Cấu trúc Thư mục mới
+Xác định thư mục cha của thư mục hiện tại. (Ví dụ CWD là `.../gcp-document/GCP`, thì thư mục cha là `.../gcp-document/`).
+Tạo thư mục mới: `.../gcp-document/[Tên-Vault-Mới]`
 
-## Phase 1: Scan the Vault
-
-Before asking anything, scan the folder structure:
-
+Tạo cấu trúc bên trong Vault mới bằng Bash:
 ```bash
-# Top-level folders
-ls -d */
-
-# Project subfolders
-ls -d "03 Projects"/*/ 2>&1 || echo "No projects yet"
+# Path: .../gcp-document/[Tên-Vault-Mới]
+mkdir -p "00 Notes" "01 Journals" "02 Chess Moves (Long-Term Planning)" "03 Projects" "04 Reviews" "05 Skills"
 ```
 
-Record:
-- Which system folders exist (Weekly Reviews, Books, Chess Moves, etc.)
-- Which project folders exist under `03 Projects/`
-- Whether CLAUDE.md or GOALS.md already exist
+### Bước 3: Clone Framework (Các công cụ cốt lõi)
+Copy các file nền tảng từ Vault hiện tại sang Vault mới (sử dụng Bash):
+1. **Skills:** Copy toàn bộ thư mục `05 Skills/` hiện tại sang Vault mới. (Giữ nguyên `day-update.md`, `learn-continue.md`, `weekly-update.md`, `new-project.md`).
+2. **Templates:** Copy `01 Journals/Session-Log-Template.md` và `04 Reviews/Reasoning-Gaps.md` sang Vault mới.
 
-You'll use this to auto-populate the Folder Structure section.
+### Bước 4: Khởi tạo "Hiến pháp" (CLAUDE.md) mới
+Tạo một file `CLAUDE.md` mới tinh cho Vault mới. Giữ lại phần **Teaching Mechanics** và **Operational Protocols** của Vault này, nhưng thay thế các thông tin về GCP bằng thông tin thu thập từ Bước 1.
 
-## Phase 2: Interview (5 Rounds)
+```markdown
+# [Tên-Vault-Mới] — Claude Context File
 
-Conduct conversationally. After each round, **briefly summarize** what you captured so the user can correct anything before you move on.
-
-**Pacing:** Some rounds list 3-5 sub-questions. Group related ones naturally — it's fine to ask 4-5 at once if they flow together. If an answer is thin, probe once — then move on. Don't interrogate.
-
-Use AskUserQuestion for structured choices (Round 3 communication style). Everything else is open conversation.
-
----
-
-### Round 1: Who You Are & Your Purpose
-
-Ask:
-- **What do you want to call this vault?** (Default: use the vault folder name)
-- **What do you do?** Creator, developer, designer, entrepreneur, student — what's the one-liner?
-- **What's your purpose?** The thing that drives you, the mission behind the work.
-- **What do you love doing?** The activities that energize you — not obligations, the stuff you'd do for free.
-- **What do you refuse to do?** Values, hard lines, things you won't compromise on.
-- **Any personal context** that shapes how you work? (faith, family, health goals, location, life stage, etc.)
-
-**Goal:** Capture their identity in THEIR voice. This should sound like them talking, not a LinkedIn bio.
-
----
-
-### Round 2: What You Want Claude to Do
-
-Ask:
-- **At this top level** (above individual projects), what do you want Claude to help with?
-- **What kind of thinking partner** do you need? Strategic planning? Accountability? Creative brainstorming? Decision-making? All of the above?
-- **What's the prime directive?** If Claude could only do ONE thing well in this vault, what should it be?
-
-**Goal:** Define Claude's role so it knows what's in-scope here vs. what belongs in project-level CLAUDE.md files.
-
----
-
-### Round 3: Rules & Boundaries
-
-Start with AskUserQuestion for communication style:
-
-**Question:** "How should Claude communicate with you?"
-- **Blunt and direct** — Challenge me, don't sugarcoat, call me out when I'm wrong
-- **Supportive but honest** — Encourage me, but flag real issues when they matter
-- **Balanced** — Match my energy, be direct when it counts
-- (user can pick Other for custom)
-
-Then ask open-ended:
-- **Any specific rules or pet peeves?** (e.g., "don't give me 10 options when I need to pick one", "always end with a suggested next action")
-- **How should Claude handle files?** (e.g., prefix AI-generated files with `(C)`, ask before editing existing notes)
-- **Anything Claude should NEVER do** in this vault?
-
-**Defaults if user has no file-handling preference:** Use `(C)` prefix on AI-generated files. Don't edit existing files without permission.
-
-**Goal:** Concrete, actionable rules — not vague preferences.
-
----
-
-### Round 4: Strengths & Weaknesses
-
-Ask:
-- **What are you genuinely great at?** Skills, natural talents, unfair advantages.
-- **What are your blind spots or recurring failure modes?** The patterns that bite you.
-- **What do you default to when stressed or overwhelmed?** (e.g., "I retreat to busy-work", "I over-plan and under-ship")
-
-**Goal:** Honest self-assessment Claude can reference to give better advice. Specific > generic. "I spread too thin across too many projects" beats "bad at time management."
-
-**Note:** The stress-default answer goes into the Weaknesses section — it's a behavioral pattern, not a separate category.
-
----
-
-### Round 5: Goals & Current Progress
-
-Ask:
-- **What's your main goal right now?** Financial target, launch milestone, growth number — make it concrete.
-- **Where are you today?** Current income, progress, resources, runway.
-- **What's the plan to get there?** Even rough steps. The strategy connecting today to the goal.
-- **Any risks or time-sensitive factors?** Deadlines, runway limits, dependencies.
-
-**Goal:** Real numbers and timelines wherever possible. Push gently for specifics — "$6k/mo by Q3" is 10x more useful than "make more money."
-
-**If the plan is vague:** That's fine — write what they gave you. Suggest a strategic thinking session (Chess Moves) to flesh it out later.
-
----
-
-## Phase 3: Generate CLAUDE.md
-
-After all 5 rounds, assemble the CLAUDE.md using this template. **Write in the user's voice** — mirror their language, don't sanitize it.
-
-~~~markdown
-# [Vault Name] — Claude Context File
-
-[One sentence: what this vault is and who it serves.]
-
+[Mục tiêu tối thượng từ Bước 1, Câu 2]
 
 ## Who I Am & My Purpose
-
-[From Round 1. Write 2-3 paragraphs in first person. Paragraph 1: what they do. Paragraph 2: their purpose and what energizes them. Paragraph 3: what they refuse to do, values, personal context.]
-
+Tôi tập trung vào việc lưu trữ và học hỏi kiến thức về [Chủ đề]. 
+Tôi kiên quyết nói không với sự trì hoãn.
 
 ## Claude's Purpose in This Level
-
-[From Round 2. Open with a framing sentence, then a bulleted list of Claude's responsibilities, then the prime directive as a closing paragraph.]
-
+- Tổ chức kiến thức [Chủ đề] một cách logic.
+- Giải thích các khái niệm khó hiểu.
+- Ép tôi vào khuôn khổ học tập liên tục.
 
 ## Claude's Rules & Boundaries
+- Giao tiếp thẳng thắn, trực diện, không vòng vo.
+- Ép tôi dùng tiếng Anh khi có thể (Nếu chủ đề liên quan).
+- **Error Handling:** Phân tích lỗi gốc trước khi đưa giải pháp.
+- **Graph Networking:** Tự động dùng Wiki-links `[[Khái Niệm]]`.
 
-[From Round 3. Bulleted list of concrete rules. Bold the key phrase in each bullet.]
-
+## Claude's Teaching & Interaction Mechanics
+[COPY TOÀN BỘ PHẦN NÀY TỪ CLAUDE.md CỦA GCP SANG, BAO GỒM Socratic, Scaffolding, Feynman, Day-update...]
 
 ## Folder Structure
-
-```
-[Vault Name]/
-├── CLAUDE.md              ← You are here
-├── GOALS.md               ← Goals, progress, master plan
-[Auto-generated from Phase 1 scan. List every system folder and Projects subfolder with ← short description]
-```
-
+[Cấu trúc folder giống GCP]
 
 ## My Strengths & Weaknesses
-
-**Strengths:**
-[Bulleted list from Round 4]
-
-**Weaknesses & blind spots:**
-[Bulleted list from Round 4]
-
+**Weaknesses:**
+[Câu trả lời từ Bước 1, Câu 3]
 
 ## My Goals & Current Progress
-
-[From Round 5. Include: the target number/milestone, current state with real numbers, the step-by-step plan, risks/runway.]
-
+**Mục tiêu:** [Câu 2]
 
 ## Weekly Update
+> **Last updated:** [Ngày hôm nay]
+- What's working: 
+- What's not working: 
+```
 
-> **Last updated:** _[update this each week]_
-
-- What's working:
-- What's not working:
-- What I'm sitting on / need to decide:
-- What I'm feeling pulled toward:
-- Any deadlines or time-sensitive things:
-
-
-## My Current Projects & Overviews
-
-_No projects yet. Use the New Project skill to create your first project — it will automatically add it here._
-~~~
-
-**Critical rules for generation:**
-- **Don't fabricate.** If a section got a thin answer, write a thin section. Never pad with assumptions.
-- **Use their words.** If they said "I build cool shit with AI," write that. Don't rewrite it as "I develop innovative AI solutions."
-- **Folder structure is auto-detected.** Don't ask them to describe folders you already scanned.
-- **Weekly Update is always a blank template.** Don't pre-fill it.
-
-## Phase 4: Review & Confirm
-
-Display the full generated CLAUDE.md to the user. Ask:
-
-> "Here's your CLAUDE.md — read through it. Anything you want to change, add, or remove before I save it?"
-
-**Revisions:** Make targeted edits to the specific sections the user flags. Don't regenerate the whole document — just fix what they call out. Loop until they say it's good.
-
-Only write the file after explicit confirmation. Save to `CLAUDE.md` at vault root.
-
-## Phase 5: Next Steps
-
-After writing, tell the user:
-
-1. **CLAUDE.md is live** — Claude reads it at the start of every session in this vault
-2. **Update the Weekly Update section** each week to keep Claude current on what's happening
-3. **Create your first project** — use the New Project skill to set up a project folder under `03 Projects/` with its own CLAUDE.md. Projects get added to the "My Current Projects & Overviews" section automatically.
-4. **If your plan or goals feel vague** — run a Chess Moves strategic thinking session to flesh them out
-5. **First session idea** — try a weekly review or Chess Moves session to break in the new setup and see Claude in action
+### Bước 5: Bàn giao
+Thông báo cho user rằng Vault mới đã được tạo thành công.
+Hướng dẫn user: "Mày hãy mở một terminal mới, `cd` vào thư mục `../[Tên-Vault-Mới]` và chạy `claude` để bắt đầu học nhé!"
