@@ -1,4 +1,6 @@
-# Reasoning Gaps Tracking
+# Terraform Reasoning Gaps Tracking
+
+> **Tham chiếu:** [[03 Projects/learn-terraform-gcp/CLAUDE.md|Constitution]] | [[03 Projects/learn-terraform-gcp/01 Journals/Session-Log-Template.md|Session Log]]
 
 Nơi ghi lại các hiểu lầm (misconceptions), các lỗ hổng suy luận hoặc các khái niệm khó "ngấm" được phát hiện trong quá trình học. Đây là feedback loop để Claude và bạn cùng điều chỉnh cách dạy/học.
 

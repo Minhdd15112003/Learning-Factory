@@ -1,5 +1,7 @@
 # Session Log: {{date}}
 
+> **Tham chiếu:** [[03 Projects/learn-terraform-gcp/CLAUDE.md|Constitution]] | [[03 Projects/learn-terraform-gcp/04 Reviews/Reasoning-Gaps.md|Reasoning Gaps]]
+
 ## Mục tiêu buổi học
 - [ ] 
 

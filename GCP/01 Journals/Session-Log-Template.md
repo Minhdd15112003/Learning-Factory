@@ -1,5 +1,7 @@
 # Session Log: {{date}}
 
+> **Tham chiếu:** [[CLAUDE.md]] | [[04 Reviews/Reasoning-Gaps.md|Reasoning Gaps]]
+
 ## Mục tiêu buổi học
 - [ ] 
 
