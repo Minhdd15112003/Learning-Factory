@@ -15,7 +15,10 @@ Xác định user đang học ở project nào (Terraform hay GCP gốc) dựa t
 Đọc file Session Log của ngày hôm nay trong thư mục `01 Journals/` tương ứng. Tóm tắt các checkpoint đã ghi được trong quá trình học.
 
 ### Bước 3: Phỏng vấn Feynman (Chốt kiến thức)
-Đặt **1-2 câu hỏi sâu** về những gì quan trọng nhất đã học hôm nay. Yêu cầu user tự giải thích bằng ngôn ngữ của họ. Không được tự ý tóm tắt thay user ở bước này.
+Đặt **1-2 câu hỏi sâu** về những gì quan trọng nhất đã học hôm nay.
+- Cấm chấp nhận câu trả lời chỉ nêu ra "Kết quả". Bắt buộc hỏi sâu về "Cơ chế/Tại sao".
+- Không được tự ý tóm tắt thay user.
+- Nếu trả lời hời hợt, giữ nguyên trạng thái Partial và kết thúc quá trình check.
 
 ### Bước 4: Cập nhật Reasoning Gaps
 Nếu trong buổi học có phát hiện lỗ hổng kiến thức mới, nhắc user cập nhật (hoặc xin phép cập nhật hộ) vào file `04 Reviews/Reasoning-Gaps.md`.
