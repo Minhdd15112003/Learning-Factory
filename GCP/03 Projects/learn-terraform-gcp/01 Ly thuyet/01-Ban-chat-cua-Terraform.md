@@ -1,5 +1,5 @@
 ---
-status: Understood
+status: Partial
 tags: [terraform, iac, declarative]
 ---
 
