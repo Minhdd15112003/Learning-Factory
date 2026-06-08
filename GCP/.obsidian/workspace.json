@@ -124,7 +124,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -138,13 +138,15 @@
       "graph:Open graph view": false
     }
   },
-  "active": "235925e4d9bf002b",
+  "active": "1a511fdc84e1e235",
   "lastOpenFiles": [
+    "01 Journals/Session-Log-Template.md",
+    "05 Skills/brain-setup.md",
+    "c.txt",
     "03 Projects/learn-terraform-gcp/04 Reviews/Reasoning-Gaps.md",
     "03 Projects/learn-terraform-gcp/01 Journals/Session-Log-2026-06-08.md",
     "03 Projects/learn-terraform-gcp/01 Ly thuyet/(C) Buoi 1 Terraform Mental Model.md",
     "03 Projects/learn-terraform-gcp/01 Ly thuyet/IaC.md",
-    "01 Journals/Session-Log-Template.md",
     "03 Projects/learn-terraform-gcp/01 Journals/Session-Log-Template.md",
     "04 Reviews/Reasoning-Gaps.md",
     "03 Projects/learn-terraform-gcp/01 Ly thuyet/01-HCL-Va-Cac-Lenh-Co-Ban.md",
@@ -152,7 +154,6 @@
     "05 Skills/learn-continue.md.tmp.22480.3584ce854e4f",
     "CLAUDE.md",
     "03 Projects/learn-terraform-gcp/COMMANDS.md",
-    "05 Skills/brain-setup.md",
     "wait_list.md",
     "03 Projects/(LEARNING TEMPLATE)/COMMANDS.md",
     "03 Projects/(LEARNING TEMPLATE)/COMMANDS.md.tmp.6372.21b918827d6c",
@@ -170,11 +171,9 @@
     "03 Projects/learn-terraform-gcp/04 Reviews",
     "03 Projects/learn-terraform-gcp/01 Journals",
     "01 Journals/Session-Log-Template.md.tmp.14500.07ca2d2cb88c",
-    "03 Projects/learn-terraform-gcp/02 Thuc hanh/01-main.tf",
     "SETUP GUIDE.md",
     "05 Skills/new-project.md",
     "02 Chess Moves (Long-Term Planning)/Chess Moves (EXAMPLE).md",
-    "CLAUDE (KJ EXAMPLE).md",
-    "00 Notes/Videos/How to hyper-learn using SGNL.md"
+    "CLAUDE (KJ EXAMPLE).md"
   ]
 }
