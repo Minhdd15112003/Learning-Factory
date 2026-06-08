@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "05 Skills/brain-setup.md",
+                "file": "01 Journals/Session-Log-Template.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "brain-setup"
+              "title": "Session-Log-Template"
             }
           }
         ]
@@ -112,19 +112,9 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
-          },
-          {
-            "id": "235925e4d9bf002b",
-            "type": "leaf",
-            "state": {
-              "type": "claudian-view",
-              "state": {},
-              "icon": "bot",
-              "title": "Claudian"
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -138,13 +128,48 @@
       "graph:Open graph view": false
     }
   },
-  "active": "adec0c0ade95c8d3",
+  "floating": {
+    "id": "5ff01679dac7c08c",
+    "type": "floating",
+    "children": [
+      {
+        "id": "9f3232d4888d8008",
+        "type": "window",
+        "children": [
+          {
+            "id": "29212846bf5cd15e",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "235925e4d9bf002b",
+                "type": "leaf",
+                "state": {
+                  "type": "claudian-view",
+                  "state": {},
+                  "icon": "bot",
+                  "title": "Claudian"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 602,
+        "y": 20,
+        "width": 715,
+        "height": 992,
+        "maximize": true,
+        "zoom": 0
+      }
+    ]
+  },
+  "active": "235925e4d9bf002b",
   "lastOpenFiles": [
-    "c.txt",
     "05 Skills/brain-setup.md",
+    "03 Projects/learn-terraform-gcp/01 Journals/Session-Log-2026-06-08.md",
+    "c.txt",
     "01 Journals/Session-Log-Template.md",
     "03 Projects/learn-terraform-gcp/04 Reviews/Reasoning-Gaps.md",
-    "03 Projects/learn-terraform-gcp/01 Journals/Session-Log-2026-06-08.md",
     "03 Projects/learn-terraform-gcp/01 Ly thuyet/(C) Buoi 1 Terraform Mental Model.md",
     "03 Projects/learn-terraform-gcp/01 Ly thuyet/IaC.md",
     "03 Projects/learn-terraform-gcp/01 Journals/Session-Log-Template.md",

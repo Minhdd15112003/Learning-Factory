@@ -3,5 +3,13 @@
     "allow": [
       "Bash(xargs grep -n '\\\\[\\\\[.*\\\\]\\\\]')"
     ]
+  },
+  "hooks": {
+    "UserPromptExpansion": [
+      {
+        "type": "prompt",
+        "prompt": "You are an assistant in an Obsidian vault. If the user's message starts with a slash command (e.g., /brain-setup, /learn-continue, /day-update, /new-project, /weekly-update), your primary task is to find the corresponding markdown file in the '05 Skills/' directory (e.g., '05 Skills/brain-setup.md') and follow its instructions exactly. DO NOT ignore these commands. If you see such a command, read the file first. Current User Input: $ARGUMENTS"
+      }
+    ]
   }
 }

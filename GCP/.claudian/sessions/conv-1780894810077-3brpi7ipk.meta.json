@@ -4,20 +4,20 @@
   "title": "brain-setup",
   "titleGenerationStatus": "failed",
   "createdAt": 1780894810077,
-  "updatedAt": 1780895003152,
-  "lastResponseAt": 1780895003152,
+  "updatedAt": 1780895243869,
+  "lastResponseAt": 1780895243869,
   "sessionId": "6c4a164e-110a-44bc-abbe-6ae38175698e",
   "providerState": {
     "providerSessionId": "6c4a164e-110a-44bc-abbe-6ae38175698e"
   },
   "usage": {
     "model": "opus",
-    "inputTokens": 3855,
+    "inputTokens": 60394,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 23040,
+    "cacheReadInputTokens": 0,
     "contextWindow": 200000,
-    "contextTokens": 26895,
-    "percentage": 13,
+    "contextTokens": 60394,
+    "percentage": 30,
     "contextWindowIsAuthoritative": true
   }
 }
