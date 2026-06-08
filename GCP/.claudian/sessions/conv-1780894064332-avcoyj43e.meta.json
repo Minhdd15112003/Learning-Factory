@@ -4,20 +4,20 @@
   "title": "learn-continue terraform",
   "titleGenerationStatus": "failed",
   "createdAt": 1780894064332,
-  "updatedAt": 1780908990922,
-  "lastResponseAt": 1780908990922,
+  "updatedAt": 1780909430225,
+  "lastResponseAt": 1780909430225,
   "sessionId": "2b2ed37a-33c6-41fc-8d6c-61717637d31e",
   "providerState": {
     "providerSessionId": "2b2ed37a-33c6-41fc-8d6c-61717637d31e"
   },
   "usage": {
     "model": "opus",
-    "inputTokens": 3567,
+    "inputTokens": 4794,
     "cacheCreationInputTokens": 0,
-    "cacheReadInputTokens": 31744,
+    "cacheReadInputTokens": 33280,
     "contextWindow": 200000,
-    "contextTokens": 35311,
-    "percentage": 18,
+    "contextTokens": 38074,
+    "percentage": 19,
     "contextWindowIsAuthoritative": true
   }
 }

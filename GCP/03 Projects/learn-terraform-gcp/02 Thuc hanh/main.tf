@@ -11,5 +11,6 @@ resource "google_storage_bucket" "my_first_bucket" {
   location      = "ASIA-SOUTHEAST1"
   force_destroy = true # Cho phép xóa bucket ngay cả khi có file bên trong (dùng để học cho tiện)
 
-  public_access_prevention = "enforced" # Chặn truy cập công khai cho an toàn
+  public_access_prevention    = "enforced" # Chặn truy cập công khai cho an toàn
+  uniform_bucket_level_access = true       # BẬT để thỏa mãn ràng buộc bảo mật của GCP
 }
