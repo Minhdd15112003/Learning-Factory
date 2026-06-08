@@ -1,3 +1,4 @@
+# (C) Claude generated this file
 # 1. Khai báo Provider - nói cho Terraform biết mình dùng Google Cloud
 provider "google" {
   project = "learning-498713" # Thay bằng ID project của bạn

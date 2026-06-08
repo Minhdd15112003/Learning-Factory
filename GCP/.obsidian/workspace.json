@@ -163,8 +163,9 @@
       }
     ]
   },
-  "active": "1a511fdc84e1e235",
+  "active": "e9cabbf44bfcd60b",
   "lastOpenFiles": [
+    "03 Projects/learn-terraform-gcp/02 Thuc hanh/main.tf",
     "03 Projects/learn-terraform-gcp/02 Thuc hanh/01-main.tf",
     "03 Projects/learn-terraform-gcp/01 Ly thuyet/01-Ban-chat-cua-Terraform.md",
     "03 Projects/learn-terraform-gcp/CLAUDE.md",
@@ -198,7 +199,6 @@
     "03 Projects/(LEARNING TEMPLATE)",
     "05 Skills/day-update.md",
     "GOALS.md",
-    "03 Projects/learn-terraform-gcp/04 Reviews",
     "SETUP GUIDE.md",
     "02 Chess Moves (Long-Term Planning)/Chess Moves (EXAMPLE).md"
   ]
