@@ -11,14 +11,13 @@
             "id": "a93e42294d7cf64b",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "CLAUDE.md",
-                "mode": "source",
-                "source": false
+                "file": "Untitled.base",
+                "viewName": "Table"
               },
-              "icon": "lucide-file",
-              "title": "CLAUDE"
+              "icon": "lucide-table",
+              "title": "Untitled"
             }
           }
         ]
@@ -185,11 +184,12 @@
   },
   "active": "a93e42294d7cf64b",
   "lastOpenFiles": [
+    "CLAUDE.md",
+    "Untitled.base",
     "GOALS.md",
     "05 Skills/day-update.md",
     "05 Skills/brain-setup.md",
     "01 Journals/Session-Log-Template.md",
-    "04 Reviews/Reasoning-Gaps.md",
-    "CLAUDE.md"
+    "04 Reviews/Reasoning-Gaps.md"
   ]
 }
