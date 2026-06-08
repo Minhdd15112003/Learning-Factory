@@ -8,10 +8,6 @@ Nơi ghi lại các hiểu lầm (misconceptions), các lỗ hổng suy luận h
 
 *Ghi lại những thứ bạn đang bị nhầm lẫn hoặc chưa nắm rõ ở session hiện tại.*
 
-- [ ] [Partial] Chưa hiểu cơ chế sync của Terraform State với Cloud Storage.
-  - Detected: 2026-06-08
-  - Review: 2026-06-11
-
 ## ✅ Resolved Gaps (Đã thông suốt)
 
 *Sử dụng [>] cho items đang trong quá trình review, [x] cho items đã Mastered hoàn toàn.*

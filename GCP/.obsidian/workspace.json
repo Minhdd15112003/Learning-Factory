@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "edaf8499057ce086",
+        "id": "8524d1423f5c4fd4",
         "type": "tabs",
         "children": [
           {
-            "id": "6990b12b0b8faaf3",
+            "id": "472d52f9494c2f65",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03 Projects/learn-terraform-gcp/01 Journals/Session-Log-Template.md",
+                "file": "01 Journals/Session-Log-Template.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
@@ -138,9 +138,12 @@
       "graph:Open graph view": false
     }
   },
-  "active": "6990b12b0b8faaf3",
+  "active": "472d52f9494c2f65",
   "lastOpenFiles": [
+    "03 Projects/learn-terraform-gcp/01 Journals/Session-Log-Template.md",
     "03 Projects/learn-terraform-gcp/04 Reviews/Reasoning-Gaps.md",
+    "04 Reviews/Reasoning-Gaps.md",
+    "03 Projects/learn-terraform-gcp/01 Ly thuyet/01-HCL-Va-Cac-Lenh-Co-Ban.md",
     "03 Projects/learn-terraform-gcp/CLAUDE.md",
     "05 Skills/learn-continue.md.tmp.22480.3584ce854e4f",
     "CLAUDE.md",
@@ -158,14 +161,11 @@
     "03 Projects/(LEARNING TEMPLATE)",
     "05 Skills/learn-continue.md",
     "05 Skills/day-update.md",
-    "04 Reviews/Reasoning-Gaps.md",
-    "03 Projects/learn-terraform-gcp/01 Journals/Session-Log-Template.md",
     "05 Skills/weekly-update.md",
     "GOALS.md",
     "03 Projects/learn-terraform-gcp/04 Reviews",
     "03 Projects/learn-terraform-gcp/01 Journals",
     "01 Journals/Session-Log-Template.md",
-    "03 Projects/learn-terraform-gcp/01 Ly thuyet/01-HCL-Va-Cac-Lenh-Co-Ban.md",
     "01 Journals/Session-Log-Template.md.tmp.14500.07ca2d2cb88c",
     "03 Projects/learn-terraform-gcp/02 Thuc hanh/01-main.tf",
     "SETUP GUIDE.md",
