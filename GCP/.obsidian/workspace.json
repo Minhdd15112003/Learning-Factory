@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "03 Projects/learn-terraform-gcp/CLAUDE.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false,
                 "backlinks": false
               },
@@ -128,14 +128,14 @@
       }
     ],
     "direction": "horizontal",
-    "width": 926.5
+    "width": 784.5
   },
   "left-ribbon": {
     "hiddenItems": {
       "terminal:Open terminal": false,
       "obsidian-git:Open Git source control": false,
-      "realclaudian:Open Claudian": false,
-      "graph:Open graph view": false
+      "graph:Open graph view": false,
+      "realclaudian:Open Claudian": false
     }
   },
   "active": "e9cabbf44bfcd60b",
