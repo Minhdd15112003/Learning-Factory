@@ -112,13 +112,23 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "e9cabbf44bfcd60b",
+            "type": "leaf",
+            "state": {
+              "type": "claudian-view",
+              "state": {},
+              "icon": "bot",
+              "title": "Claudian"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 715.5
+    "width": 926.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -128,43 +138,10 @@
       "graph:Open graph view": false
     }
   },
-  "floating": {
-    "id": "5ff01679dac7c08c",
-    "type": "floating",
-    "children": [
-      {
-        "id": "9f3232d4888d8008",
-        "type": "window",
-        "children": [
-          {
-            "id": "29212846bf5cd15e",
-            "type": "tabs",
-            "children": [
-              {
-                "id": "235925e4d9bf002b",
-                "type": "leaf",
-                "state": {
-                  "type": "claudian-view",
-                  "state": {},
-                  "icon": "bot",
-                  "title": "Claudian"
-                }
-              }
-            ]
-          }
-        ],
-        "direction": "vertical",
-        "x": 952,
-        "y": 75,
-        "width": 715,
-        "height": 992,
-        "maximize": true,
-        "zoom": 0
-      }
-    ]
-  },
-  "active": "235925e4d9bf002b",
+  "active": "e9cabbf44bfcd60b",
   "lastOpenFiles": [
+    "03 Projects/learn-terraform-gcp/01 Ly thuyet/01-Ban-chat-cua-Terraform.md",
+    "03 Projects/learn-terraform-gcp/CLAUDE.md",
     "CLAUDE.md.tmp.10516.045ffe2204d6",
     "05 Skills/weekly-update.md",
     "CLAUDE.md",
@@ -172,7 +149,6 @@
     "CLAUDE.md.tmp.10516.109a048fae92",
     "05 Skills/learn-continue.md",
     "05 Skills/brain-setup.md",
-    "03 Projects/learn-terraform-gcp/01 Ly thuyet/01-Ban-chat-cua-Terraform.md",
     "01 Journals/Session-Log-Template.md",
     "03 Projects/learn-terraform-gcp/01 Journals/Session-Log-2026-06-08.md",
     "c.txt",
@@ -182,7 +158,6 @@
     "03 Projects/learn-terraform-gcp/01 Journals/Session-Log-Template.md",
     "04 Reviews/Reasoning-Gaps.md",
     "03 Projects/learn-terraform-gcp/01 Ly thuyet/01-HCL-Va-Cac-Lenh-Co-Ban.md",
-    "03 Projects/learn-terraform-gcp/CLAUDE.md",
     "05 Skills/learn-continue.md.tmp.22480.3584ce854e4f",
     "03 Projects/learn-terraform-gcp/COMMANDS.md",
     "wait_list.md",
@@ -198,7 +173,6 @@
     "05 Skills/day-update.md",
     "GOALS.md",
     "03 Projects/learn-terraform-gcp/04 Reviews",
-    "03 Projects/learn-terraform-gcp/01 Journals",
     "SETUP GUIDE.md",
     "02 Chess Moves (Long-Term Planning)/Chess Moves (EXAMPLE).md"
   ]
