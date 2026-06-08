@@ -112,19 +112,9 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
-          },
-          {
-            "id": "e9cabbf44bfcd60b",
-            "type": "leaf",
-            "state": {
-              "type": "claudian-view",
-              "state": {},
-              "icon": "bot",
-              "title": "Claudian"
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -138,8 +128,44 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "e9cabbf44bfcd60b",
+  "floating": {
+    "id": "291dffeb60cd2039",
+    "type": "floating",
+    "children": [
+      {
+        "id": "9e23612849dc1bb4",
+        "type": "window",
+        "children": [
+          {
+            "id": "ca54922ef86ce2a4",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "e9cabbf44bfcd60b",
+                "type": "leaf",
+                "state": {
+                  "type": "claudian-view",
+                  "state": {},
+                  "icon": "bot",
+                  "title": "Claudian"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 214,
+        "y": 235,
+        "width": 784,
+        "height": 992,
+        "maximize": true,
+        "zoom": 0
+      }
+    ]
+  },
+  "active": "1a511fdc84e1e235",
   "lastOpenFiles": [
+    "03 Projects/learn-terraform-gcp/02 Thuc hanh/01-main.tf",
     "03 Projects/learn-terraform-gcp/01 Ly thuyet/01-Ban-chat-cua-Terraform.md",
     "03 Projects/learn-terraform-gcp/CLAUDE.md",
     "CLAUDE.md.tmp.10516.045ffe2204d6",
