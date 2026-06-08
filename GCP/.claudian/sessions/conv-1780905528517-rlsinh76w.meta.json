@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780905528517-rlsinh76w",
+  "providerId": "claude",
+  "title": "/brain-setup",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780905528517,
+  "updatedAt": 1780905586759,
+  "lastResponseAt": 1780905586759,
+  "sessionId": "d1ca046a-91a0-4fca-92fc-e5da47b3a9fb",
+  "providerState": {
+    "providerSessionId": "d1ca046a-91a0-4fca-92fc-e5da47b3a9fb"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 21497,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 21497,
+    "percentage": 11,
+    "contextWindowIsAuthoritative": true
+  }
+}
