@@ -43,5 +43,5 @@ learn-terraform-gcp/
 
 ## Current Status
 
-> **Last updated:** 2026-06-07
-> **Status:** Just created — getting started with Stage 1 (Nền tảng cơ bản).
+> **Last updated:** 2026-06-08
+> **Status:** Đã hoàn thành bài học mở đầu Stage 1. Hiểu về Declarative approach và triển khai thành công Cloud Storage Bucket đầu tiên bằng Terraform. Xử lý thành công lỗi về Organization Policy (Uniform Bucket-level Access).
