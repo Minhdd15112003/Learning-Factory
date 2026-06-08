@@ -20,10 +20,18 @@ Xác định user đang học ở project nào (Terraform hay GCP gốc) dựa t
 ### Bước 4: Cập nhật Reasoning Gaps
 Nếu trong buổi học có phát hiện lỗ hổng kiến thức mới, nhắc user cập nhật (hoặc xin phép cập nhật hộ) vào file `04 Reviews/Reasoning-Gaps.md`.
 
-### Bước 5: Đóng Log & Cập nhật Status
+### Bước 5: Update Review Schedule (Lên lịch ôn tập)
+Với mỗi khái niệm đã học hoặc review hôm nay, thực hiện:
+1. Xác định Knowledge State mới (Exposed, Partial, Understood, Mastered).
+2. Tính toán ngày `next_review` tiếp theo dựa trên bảng Interval trong `CLAUDE.md`.
+3. Cập nhật `status` vào frontmatter của file note (nếu có) và cập nhật thẻ `Review: YYYY-MM-DD` vào file `Reasoning-Gaps.md`.
+4. Nếu khái niệm đã được master và review đủ số lần, chuyển checkbox sang `[x]` (Archived), nếu vẫn cần review tiếp dùng `[>]` (Deferred).
+
+### Bước 6: Đóng Log & Cập nhật Status
 1. Append câu trả lời Feynman của user vào cuối file Session Log.
 2. Cập nhật phần **Current Status** trong file `CLAUDE.md` tương ứng (ghi rõ đã học đến đâu).
-3. Thông báo cho user buổi học đã được lưu an toàn.
+3. Thông báo tóm tắt lịch review mới cho user (vd: "📅 Review schedule updated: [Concept] -> Next: 2026-06-15").
+4. Thông báo cho user buổi học đã được lưu an toàn.
 
 ---
 

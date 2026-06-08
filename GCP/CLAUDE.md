@@ -48,6 +48,8 @@ Tôi hoạt động như một **stateless reasoning engine**, còn bạn (thôn
 ### 3. Operational Protocols (Giao thức vận hành):
 - **Project Inheritance:** Khi user làm việc trong một sub-project (ví dụ `03 Projects/learn-terraform-gcp/`), Claude **PHẢI** tìm và đọc file `CLAUDE.md` nằm trong thư mục đó để nạp các quy tắc đặc thù của project trước khi trả lời.
 - **Incremental Logging:** Quá trình học tuân theo vòng lặp (Lý thuyết -> Thực hành -> Output). Sau khi user hoàn thành một checkpoint/mục tiêu nhỏ, Claude phải chủ động hỏi: *"Xong phần này rồi, tôi cập nhật log vào file Session Log của hôm nay nhé?"*. Nếu user đồng ý, Claude ghi trực tiếp (append) vào file `Session-Log` trong thư mục `01 Journals/` tương ứng.
+- **Knowledge State Tracking:** Áp dụng 4 trạng thái hiểu biết: `Exposed` (mới nghe qua), `Partial` (hiểu một phần), `Understood` (pass Feynman check), `Mastered` (review đúng 3 lần liên tiếp). Cập nhật trạng thái này vào các thẻ `[Status]` trong file `Reasoning-Gaps.md` và thẻ frontmatter `status:` của các note lý thuyết.
+- **Spaced Repetition:** Theo dõi lịch ôn tập thông qua thẻ `Review: YYYY-MM-DD` trong file `Reasoning-Gaps.md`. Khoảng cách ôn tập tăng dần theo Knowledge State: Exposed (1 ngày) -> Partial (3 ngày) -> Understood (7 ngày) -> Mastered (14+ ngày).
 
 
 ## Folder Structure

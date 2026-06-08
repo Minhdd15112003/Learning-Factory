@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CLAUDE.md",
+                "file": "03 Projects/learn-terraform-gcp/CLAUDE.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
@@ -140,8 +140,9 @@
   },
   "active": "6990b12b0b8faaf3",
   "lastOpenFiles": [
-    "03 Projects/learn-terraform-gcp/COMMANDS.md",
+    "05 Skills/learn-continue.md.tmp.22480.3584ce854e4f",
     "CLAUDE.md",
+    "03 Projects/learn-terraform-gcp/COMMANDS.md",
     "05 Skills/brain-setup.md",
     "wait_list.md",
     "03 Projects/(LEARNING TEMPLATE)/COMMANDS.md",
@@ -174,7 +175,6 @@
     "CLAUDE (KJ EXAMPLE).md",
     "00 Notes/Videos/How to hyper-learn using SGNL.md",
     "03 Projects/(PROJECT TEMPLATE)/34.md",
-    "03 Projects/(PROJECT TEMPLATE)/Untitled.md",
-    "Untitled.md"
+    "03 Projects/(PROJECT TEMPLATE)/Untitled.md"
   ]
 }
