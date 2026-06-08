@@ -11,13 +11,14 @@
             "id": "a93e42294d7cf64b",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "markdown",
               "state": {
-                "file": "Untitled.base",
-                "viewName": "Table"
+                "file": "04 Reviews/Reasoning-Gaps.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-table",
-              "title": "Untitled"
+              "icon": "lucide-file",
+              "title": "Reasoning-Gaps"
             }
           }
         ]
@@ -182,14 +183,17 @@
       "bases:Create new base": false
     }
   },
-  "active": "a93e42294d7cf64b",
+  "active": "8a432fdfa0788cf1",
   "lastOpenFiles": [
+    "01 Journals/Session-Log-Template.md",
     "CLAUDE.md",
+    "Untitled.canvas",
+    "2026-06-08.md",
+    "Untitled 1.base",
     "Untitled.base",
     "GOALS.md",
     "05 Skills/day-update.md",
     "05 Skills/brain-setup.md",
-    "01 Journals/Session-Log-Template.md",
     "04 Reviews/Reasoning-Gaps.md"
   ]
 }

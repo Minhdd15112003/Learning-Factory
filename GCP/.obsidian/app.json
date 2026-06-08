@@ -4,5 +4,6 @@
   "showUnsupportedFiles": true,
   "strictLineBreaks": false,
   "showLineNumber": false,
-  "rightToLeft": false
+  "rightToLeft": false,
+  "promptDelete": false
 }
