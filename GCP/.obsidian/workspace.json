@@ -165,6 +165,7 @@
   },
   "active": "e9cabbf44bfcd60b",
   "lastOpenFiles": [
+    "03 Projects/learn-terraform-gcp/02 Thuc hanh/terraform.tfstate",
     "03 Projects/learn-terraform-gcp/02 Thuc hanh/main.tf",
     "03 Projects/learn-terraform-gcp/02 Thuc hanh/01-main.tf",
     "03 Projects/learn-terraform-gcp/01 Ly thuyet/01-Ban-chat-cua-Terraform.md",
@@ -196,7 +197,6 @@
     "03 Projects/(LEARNING TEMPLATE)/CLAUDE.md",
     "03 Projects/(LEARNING TEMPLATE)/04 Reviews",
     "03 Projects/(LEARNING TEMPLATE)/01 Journals",
-    "03 Projects/(LEARNING TEMPLATE)",
     "05 Skills/day-update.md",
     "GOALS.md",
     "SETUP GUIDE.md",
