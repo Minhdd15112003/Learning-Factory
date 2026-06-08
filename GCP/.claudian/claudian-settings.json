@@ -3,7 +3,7 @@
   "permissionMode": "yolo",
   "model": "opus",
   "thinkingBudget": "medium",
-  "effortLevel": "max",
+  "effortLevel": "high",
   "serviceTier": "default",
   "enableAutoTitleGeneration": true,
   "titleGenerationModel": "",
@@ -25,7 +25,9 @@
     "claude": {
       "safeMode": "acceptEdits",
       "cliPath": "",
-      "cliPathsByHost": {},
+      "cliPathsByHost": {
+        "device:e1d5ff7f-846e-4232-8909-f83f613423f0": "C:\\Users\\minhdd15112003\\AppData\\Local\\nvm\\v24.14.0\\node_modules\\@anthropic-ai\\claude-code\\node_modules\\@anthropic-ai\\claude-code-win32-x64\\claude.exe"
+      },
       "loadUserSettings": true,
       "enableChrome": false,
       "enableBangBash": false,
@@ -46,7 +48,8 @@
       "environmentVariables": "",
       "environmentHash": "",
       "installationMethodsByHost": {
-        "device:c1c41ab6-99d8-4897-8858-336dbea8bb1b": "native-windows"
+        "device:c1c41ab6-99d8-4897-8858-336dbea8bb1b": "native-windows",
+        "device:e1d5ff7f-846e-4232-8909-f83f613423f0": "native-windows"
       },
       "wslDistroOverridesByHost": {}
     },
@@ -68,7 +71,7 @@
     "claude": "opus"
   },
   "savedProviderEffort": {
-    "claude": "max"
+    "claude": "high"
   },
   "savedProviderServiceTier": {},
   "savedProviderThinkingBudget": {
