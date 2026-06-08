@@ -9,9 +9,9 @@ Kích hoạt vào đầu buổi học để Claude nạp lại (load context) tr
 
 ## Cách thức hoạt động
 
-### Bước 1: Xác định Hardcoded Path
-- Nếu arg là `terraform`: Path = `03 Projects/learn-terraform-gcp/`
-- Nếu arg là `gcp` hoặc trống: Path = root `.`
+### Bước 1: Xác định Dynamic Path
+- Nếu không có tham số đi kèm (hoặc arg là rỗng): Path = root `.` (Đại diện cho học kiến thức chung của Vault này).
+- Nếu có tham số `[tên-project]`: Path = `03 Projects/[tên-project]/` (Ví dụ: `/learn-continue learn-terraform-gcp`). Lệnh này sẽ tự động map vào bất kỳ project con nào nằm trong thư mục 03 Projects mà không cần hardcode.
 
 ### Bước 2: Đọc Context
 Sử dụng công cụ (Bash/Read) để quét thư mục:
@@ -21,8 +21,12 @@ Sử dụng công cụ (Bash/Read) để quét thư mục:
 
 ### Bước 3: Due Review Check (Ôn tập ngắt quãng)
 Dựa vào file `Reasoning-Gaps.md` vừa đọc, lọc ra những khái niệm có ngày `Review: YYYY-MM-DD` nhỏ hơn hoặc bằng ngày hôm nay.
-- Nếu có khái niệm cần ôn: Thông báo "Có N khái niệm cần ôn hôm nay". Thực hiện Test nhanh bằng câu hỏi Socratic (không gợi ý). Tùy vào câu trả lời của user để quyết định giữ nguyên hay nâng Knowledge State, tính lại `next_review`, và lưu vào `Reasoning-Gaps.md`.
-- Nếu không có: Bỏ qua bước này.
+- Nếu có khái niệm cần ôn:
+    - **Giới hạn ôn tập tối đa 3 items mỗi buổi.** Nếu có nhiều hơn 3, ưu tiên chọn 3 items quá hạn lâu nhất hoặc quan trọng nhất để ôn.
+    - Thông báo: *"Hôm nay có N khái niệm cần ôn, mình sẽ ôn nhanh [3 items được chọn] trước nhé. Phần còn lại để buổi sau."*
+    - Thực hiện Test từng item bằng câu hỏi Socratic (không gợi ý).
+    - Dựa vào câu trả lời: Cập nhật Knowledge State, tính `next_review` mới, và lưu lại vào `Reasoning-Gaps.md`.
+- Nếu không có items due hoặc đã ôn tập xong: Tiếp tục sang Bài mới.
 
 ### Bước 4: Phân tích & Đề xuất Bài Mới
 Dựa trên những thông tin vừa nạp ở Bước 2, Claude sẽ:
