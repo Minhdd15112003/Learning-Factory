@@ -8,12 +8,13 @@ Nơi ghi lại các hiểu lầm (misconceptions), các lỗ hổng suy luận h
 
 *Ghi lại những thứ bạn đang bị nhầm lẫn hoặc chưa nắm rõ ở session hiện tại.*
 
-- [ ] Ví dụ: Nhầm lẫn giữa IAM Role và IAM Policy.
-- [ ] Ví dụ: Chưa hiểu cơ chế sync của Terraform State với Cloud Storage.
+- [ ] [Exposed] Nhầm lẫn giữa IAM Role và IAM Policy.
+  - Detected: 2026-06-08
+  - Review: 2026-06-09
 
 ## ✅ Resolved Gaps (Đã thông suốt)
 
-*Ghi lại những gì đã hiểu sau khi được Claude giải thích hoặc tự nghiệm ra.*
+*Sử dụng [>] cho items đang trong quá trình review, [x] cho items đã Mastered hoàn toàn.*
 
 - (Trống)
 
