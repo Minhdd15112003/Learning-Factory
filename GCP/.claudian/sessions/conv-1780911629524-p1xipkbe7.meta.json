@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780911629524-p1xipkbe7",
+  "providerId": "claude",
+  "title": "learn-continue terraform",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780911629524,
+  "updatedAt": 1780916477881,
+  "lastResponseAt": 1780916401537,
+  "sessionId": "c8e8557d-8aea-4a44-a8c3-19f77ba6789a",
+  "providerState": {
+    "providerSessionId": "c8e8557d-8aea-4a44-a8c3-19f77ba6789a"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 16739,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 15368,
+    "contextWindow": 200000,
+    "contextTokens": 32107,
+    "percentage": 16,
+    "contextWindowIsAuthoritative": true
+  }
+}

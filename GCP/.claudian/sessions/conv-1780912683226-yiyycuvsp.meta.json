@@ -1,0 +1,23 @@
+{
+  "id": "conv-1780912683226-yiyycuvsp",
+  "providerId": "claude",
+  "title": "hãy đọc toàn bộ file md của dự án và cho tôi biết ...",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1780912683226,
+  "updatedAt": 1780913440466,
+  "lastResponseAt": 1780913132440,
+  "sessionId": "a0bf367f-263b-458d-83cf-1b519543eade",
+  "providerState": {
+    "providerSessionId": "a0bf367f-263b-458d-83cf-1b519543eade"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 27796,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 27796,
+    "percentage": 14,
+    "contextWindowIsAuthoritative": true
+  }
+}
