@@ -112,6 +112,16 @@
               "icon": "git-pull-request",
               "title": "Source Control"
             }
+          },
+          {
+            "id": "7b818327f8da9c19",
+            "type": "leaf",
+            "state": {
+              "type": "claudian-view",
+              "state": {},
+              "icon": "bot",
+              "title": "Claudian"
+            }
           }
         ],
         "currentTab": 1
@@ -128,8 +138,9 @@
       "realclaudian:Open Claudian": false
     }
   },
-  "active": "f8cd269d461d45ff",
+  "active": "dc9accb822e86f8b",
   "lastOpenFiles": [
+    "CLAUDE.md.tmp.10036.fb714005600a",
     "conflict-files-obsidian-git.md",
     "03 Projects/learn-terraform-gcp/01 Ly thuyet/02-Terraform-State.md",
     "03 Projects/learn-terraform-gcp/01 Ly thuyet/01-Ban-chat-cua-Terraform.md",
@@ -164,7 +175,6 @@
     "03 Projects/(LEARNING TEMPLATE)/04 Reviews/Reasoning-Gaps.md",
     "03 Projects/(LEARNING TEMPLATE)/CLAUDE.md",
     "05 Skills/day-update.md",
-    "GOALS.md",
-    "SETUP GUIDE.md"
+    "GOALS.md"
   ]
 }
