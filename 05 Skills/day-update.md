@@ -11,7 +11,8 @@
 Identify which scope the session belongs to — a sub-project, or the brain directly. The vault root is never a study scope.
 - Check the conversation context for a project path (e.g., `03 Projects/learn-terraform-gcp/`).
 - If ambiguous, ask: "Which scope was today's session under — a sub-project (e.g. learn-terraform-gcp) or the brain directly?"
-- If it was a sub-project, note its path. Do NOT manually re-read its `CLAUDE.md` to "load rules" — the constitutions are already merged on launch; consult it only for Current Status / project-specific context if needed.
+- If it was a sub-project, note its path. When launched inside the brain (CLI), do NOT manually re-read its `CLAUDE.md` to "load rules" — the constitutions are already merged on launch; consult it only for Current Status / project-specific context.
+- If cwd is the vault root (Claudian plugin launch), identify the brain, prefix all paths with `<brain>/`, and READ the brain's (and sub-project's) `CLAUDE.md` — from the vault root these are not auto-merged.
 
 ---
 

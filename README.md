@@ -89,7 +89,7 @@ Lịch ôn do **plugin Obsidian Spaced Repetition** giữ (frontmatter `sr-due /
      cd "C:\Users\minhdd_resolve\Desktop\WorkSpace\gcp-document\GCP"
      claude
      ```
-   - **Plugin Claudian (trong Obsidian):** chạy Claude ngay trong Obsidian. Lưu ý: plugin lấy *gốc vault* (`gcp-document/`) làm working directory, nên cần trỏ đúng vào folder brain — đang được cấu hình.
+   - **Plugin Claudian (trong Obsidian):** chạy Claude ngay trong Obsidian. Plugin luôn lấy *gốc vault* (`gcp-document/`) làm thư mục làm việc (không trỏ vào folder con được), nên khi gọi hãy nêu tên brain: ví dụ `/learn-continue GCP`. Claude sẽ tự đọc `GCP/CLAUDE.md` và dùng path có tiền tố `GCP/`.
    Dù chạy cách nào, ngữ cảnh làm việc phải là folder brain để skill-path (`01 Journals/`, `04 Reviews/`...) và kế thừa CLAUDE.md hoạt động đúng.
 3. Gõ `/learn-continue` để bắt đầu.
 

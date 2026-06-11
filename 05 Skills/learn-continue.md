@@ -13,6 +13,10 @@ Also activates when: the user asks to "resume", "continue from last time", or "p
 
 Determine the scope directory before reading any files.
 
+**Launch context — check cwd first:**
+- If cwd contains `01 Journals/` and `04 Reviews/`, cwd IS a brain (CLI launch). Resolve scope from the table below with paths relative to cwd.
+- If cwd is the vault root (it has brain folders like `GCP/` but no `01 Journals/` — the Claudian plugin always launches here), you MUST identify the brain: the first arg names it (`/learn-continue GCP`), otherwise ask which brain. Then prefix every path in the steps below with `<brain>/`, and in Step 2 READ `<brain>/CLAUDE.md` to load the brain's rules (from the vault root they are NOT auto-merged). A sub-project is then `<brain>/03 Projects/<name>/`.
+
 | Invocation | Scope directory |
 |---|---|
 | `/learn-continue` (no arg) | `.` — the CURRENT brain (your cwd, e.g. `GCP/`), studied at the brain level |
@@ -27,7 +31,7 @@ Notes: the vault root is NEVER a scope — it holds only shared framework, with 
 
 Using Read/Bash tools, load exactly these three sources from the resolved scope directory. Do NOT mention to the user what you are reading — silence is the rule (Learning Mode Rule 8: no passive reporting).
 
-1. **Scope CLAUDE.md** — read it ONLY for factual state: the *Current Status* / *Goals* section, to know where the learner is in the syllabus. Do NOT re-apply its rules manually — the base, brain, and sub-project constitutions are already merged automatically on launch (parent-walk). You read this for data, not for rules.
+1. **Scope CLAUDE.md** — read the *Current Status* / *Goals* section for state. On rules: when launched inside the brain (CLI), the base + brain + sub-project constitutions are already auto-merged, so you read this only for data. When launched at the vault root (Claudian plugin), only the base is auto-loaded — so this read ALSO loads the brain's (and sub-project's) rules; apply them.
 2. **Newest file in `01 Journals/`** — this is last session's log. It carries the last concept covered, the Feynman check result, and any open questions or gaps the user surfaced.
 3. **`04 Reviews/Reasoning-Gaps.md`** — the misconception log. It records concepts that did not reach `Understood` and any manually flagged gaps.
 
