@@ -11,7 +11,10 @@
 - This folder (the git root) is ONE Obsidian vault and ONE Claude project.
 - Shared at this root: `.obsidian/` (plugins, incl. Spaced Repetition), `.claude/` (settings/commands/skills), `.claudian/`, and `05 Skills/` (the skill playbooks listed below).
 - Each top-level folder is a **brain** — a self-contained learning domain with its own `CLAUDE.md`, `01 Journals/`, theory notes, and `04 Reviews/`. A brain may contain sub-projects under its own `03 Projects/`. CLAUDE.md inheritance is multi-level: framework base → brain → sub-project, all concatenated.
-- **Launch Claude from inside the brain folder** you are studying (e.g. `cd GCP && claude`). Skill paths like `01 Journals/` and `04 Reviews/` resolve relative to that brain. Shared config and this base constitution still load via the parent-walk to the git root.
+- **Two ways to launch Claude:**
+  - *CLI (cwd = brain):* `cd` into the brain folder and run `claude`. The base + brain (+ sub-project) `CLAUDE.md` auto-merge via parent-walk; skill paths like `01 Journals/`, `04 Reviews/` resolve relative to that brain.
+  - *Claudian plugin (cwd = vault root):* the plugin always runs Claude with the **vault root** (`gcp-document/`) as the working directory — it cannot target a subfolder. Only the base `CLAUDE.md` auto-loads. To study a brain, the user names it (e.g. `/learn-continue GCP`); Claude then READS that brain's `CLAUDE.md` (and any sub-project's) to load its rules, and prefixes every brain-relative path with the brain folder (`GCP/01 Journals/`, ...).
+  - Either way, the unit of study is a brain (or its sub-project), never the vault root itself. (The plugin reads `.claude/settings.json` from the vault root, which is where it lives — so settings/skills resolve correctly in both modes.)
 
 Brains:
 - `GCP/` — Google Cloud certification (ACE) + infrastructure study.
