@@ -8,24 +8,24 @@ sr-ease: 250
 
 # Terraform State
 
-> Tham chieu: [[01-Ban-chat-cua-Terraform]] | [[COMMANDS]]
+> Tham chiếu: [[01-Ban-chat-cua-Terraform]] | [[COMMANDS]]
 
 ---
 
-## 1. Terraform State la gi?
+## 1. Terraform State là gì?
 
-File `terraform.tfstate` la "cuon so cai" (ledger) cua [[Terraform]]. No luu tru anh xa (mapping) giua nhung gi ban mo ta trong code `.tf` va nhung tai nguyen dang thuc su ton tai tren [[GCP]].
+File `terraform.tfstate` là "cuốn sổ cái" (ledger) của [[Terraform]]. Nó lưu trữ ánh xạ (mapping) giữa những gì bạn mô tả trong code `.tf` và những tài nguyên đang thực sự tồn tại trên [[GCP]].
 
-**Tai sao Terraform can no?**
+**Tại sao Terraform cần nó?**
 
-[[Terraform]] khong dua vao ten resource de nhan biet. Khi ban chay `terraform apply`, Terraform khong hoi GCP "bucket ten nay co ton tai khong?" — no doc file state de biet minh da tung tao gi, voi ID gi, o dau. Neu khong co state, Terraform la mot cong cu mu: no khong biet hien trang the gioi la gi, nen no se co gang tao moi tat ca.
+[[Terraform]] không dựa vào tên resource để nhận biết. Khi bạn chạy `terraform apply`, Terraform không hỏi GCP "bucket tên này có tồn tại không?" — nó đọc file state để biết mình đã từng tạo gì, với ID gì, ở đâu. Nếu không có state, Terraform là một công cụ mù: nó không biết hiện trạng thế giới là gì, nên nó sẽ cố gắng tạo mới tất cả.
 
-**Cau truc cua file state (dan gian hoa):**
+**Cấu trúc của file state (đơn giản hóa):**
 
-File `terraform.tfstate` la mot file JSON. No chua:
-- Ten logical cua resource trong code (vi du: `google_storage_bucket.my_bucket`)
-- ID thuc te cua tai nguyen do tren GCP (vi du: ten bucket tren GCS)
-- Cac thuoc tinh hien tai cua tai nguyen do
+File `terraform.tfstate` là một file JSON. Nó chứa:
+- Tên logical của resource trong code (ví dụ: `google_storage_bucket.my_bucket`)
+- ID thực tế của tài nguyên đó trên GCP (ví dụ: tên bucket trên GCS)
+- Các thuộc tính hiện tại của tài nguyên đó
 
 ```json
 {
@@ -48,55 +48,55 @@ File `terraform.tfstate` la mot file JSON. No chua:
 
 ---
 
-## 2. Thi nghiem "Mat tri nho": Dieu gi xay ra khi mat State?
+## 2. Thí nghiệm "Mất trí nhớ": Điều gì xảy ra khi mất State?
 
-**Kich ban:** Ban doi ten hoac xoa file `terraform.tfstate` roi chay `terraform apply` lai.
+**Kịch bản:** Bạn đổi tên hoặc xóa file `terraform.tfstate` rồi chạy `terraform apply` lại.
 
-**Ket qua:** Loi `Conflict 409` tu phia GCP.
+**Kết quả:** Lỗi `Conflict 409` từ phía GCP.
 
-**Tai sao?**
+**Tại sao?**
 
-Terraform doc State, thay trong rong (khong co resource nao), nen no ket luan: "Chua co gi het, toi can tao moi tat ca." No gui lenh tao bucket den GCP. GCP nhan ra bucket voi ten do da ton tai (do lan truoc tao roi) va tu choi voi loi `409 Conflict` — "Ten nay da duoc dang ky, khong the tao trung."
+Terraform đọc State, thấy trống rỗng (không có resource nào), nên nó kết luận: "Chưa có gì hết, tôi cần tạo mới tất cả." Nó gửi lệnh tạo bucket đến GCP. GCP nhận ra bucket với tên đó đã tồn tại (do lần trước tạo rồi) và từ chối với lỗi `409 Conflict` — "Tên này đã được đăng ký, không thể tạo trùng."
 
-Day la misconception pho bien: Terraform khong dua vao GCP de kiem tra hien trang. No tin tuong State hon. Neu State noi "chua co", Terraform tin ngay.
+Đây là misconception phổ biến: Terraform không dựa vào GCP để kiểm tra hiện trạng. Nó tin tưởng State hơn. Nếu State nói "chưa có", Terraform tin ngay.
 
-**Cach cuu:** Lenh `[[terraform import]]`
+**Cách cứu:** Lệnh `[[terraform import]]`
 
 ```bash
 terraform import google_storage_bucket.my_bucket ten-bucket-thuc-te-tren-gcs
 ```
 
-Lenh nay noi voi Terraform: "Tai nguyen `google_storage_bucket.my_bucket` trong code cua tao da ton tai tren GCP voi ID la `ten-bucket-thuc-te-tren-gcs`. Hay doc thong tin cua no ve va ghi vao State."
+Lệnh này nói với Terraform: "Tài nguyên `google_storage_bucket.my_bucket` trong code của tao đã tồn tại trên GCP với ID là `ten-bucket-thuc-te-tren-gcs`. Hãy đọc thông tin của nó về và ghi vào State."
 
-Sau khi import, State da co thong tin, va `terraform plan` se thay trang thai mong muon khop voi thuc te — khong con tao trung nua.
+Sau khi import, State đã có thông tin, và `terraform plan` sẽ thấy trạng thái mong muốn khớp với thực tế — không còn tạo trùng nữa.
 
 ---
 
-## 3. Local State va nhung van de cua no
+## 3. Local State và những vấn đề của nó
 
-Mac dinh, Terraform luu State o local: file `terraform.tfstate` nam ngay trong thu muc chua code `.tf` cua ban.
+Mặc định, Terraform lưu State ở local: file `terraform.tfstate` nằm ngay trong thư mục chứa code `.tf` của bạn.
 
-**Nhuoc diem cua Local State:**
+**Nhược điểm của Local State:**
 
-| Van de | Giai thich |
+| Vấn đề | Giải thích |
 |---|---|
-| Kho lam nhom | Noi co 2 nguoi cung apply, ai giu file state? Nguoi con lai lam viec tren state cu. |
-| De mat | May hu, xoa nham, hay quen commit — State bien mat, [[Terraform]] mat tri nho. |
-| Chua du lieu nhay cam | File JSON co the chua password, connection string, private key cua cac tai nguyen. Neu commit len Git, du lieu nay bi lo. |
+| Khó làm nhóm | Nơi có 2 người cùng apply, ai giữ file state? Người còn lại làm việc trên state cũ. |
+| Dễ mất | Máy hư, xóa nhầm, hay quên commit — State biến mất, [[Terraform]] mất trí nhớ. |
+| Chứa dữ liệu nhạy cảm | File JSON có thể chứa password, connection string, private key của các tài nguyên. Nếu commit lên Git, dữ liệu này bị lộ. |
 
 ---
 
-## 4. Remote Backend voi [[GCS]]
+## 4. Remote Backend với [[GCS]]
 
-Giai phap la chuyen State ra khoi may ca nhan va luu tren mot Remote Backend. Voi [[GCP]], backend pho bien nhat la [[GCS]] (Google Cloud Storage).
+Giải pháp là chuyển State ra khỏi máy cá nhân và lưu trên một Remote Backend. Với [[GCP]], backend phổ biến nhất là [[GCS]] (Google Cloud Storage).
 
-**Cach cau hinh backend GCS (HCL):**
+**Cách cấu hình backend GCS (HCL):**
 
-Trong file `main.tf` hoac mot file rieng `backend.tf`, them khoi `terraform { backend "gcs" { ... } }`:
+Trong file `main.tf` hoặc một file riêng `backend.tf`, thêm khối `terraform { backend "gcs" { ... } }`:
 
 ```hcl
 terraform {
-  # Khai bao Provider phien ban
+  # Khai báo Provider phiên bản
   required_providers {
     google = {
       source  = "hashicorp/google"
@@ -104,62 +104,62 @@ terraform {
     }
   }
 
-  # Cau hinh Backend: Luu State tren GCS thay vi local
+  # Cấu hình Backend: Lưu State trên GCS thay vì local
   backend "gcs" {
-    # Ten GCS bucket se chua file State
-    # Bucket nay phai duoc tao tay TRUOC khi chay terraform init
+    # Tên GCS bucket sẽ chứa file State
+    # Bucket này phải được tạo tay TRƯỚC khi chạy terraform init
     bucket = "ten-bucket-chua-state-cua-ban"
 
-    # Duong dan thu muc ben trong bucket
-    # Giup to chuc neu nhieu project dung chung 1 bucket
+    # Đường dẫn thư mục bên trong bucket
+    # Giúp tổ chức nếu nhiều project dùng chung 1 bucket
     prefix = "terraform/state"
   }
 }
 ```
 
-**Luu y quan trong:** Bucket dung de chua State (`ten-bucket-chua-state-cua-ban`) KHONG duoc quan ly boi Terraform (khong duoc khai bao nhu 1 resource trong code). No phai duoc tao bang tay (hoac bang mot script rieng) truoc khi chay `terraform init`. Neu de Terraform tu tao bucket chua chinh State cua no, se co van de "con ga - qua trung": Terraform can State de biet no da tao bucket chua-State chua, nhung no chua co State...
+**Lưu ý quan trọng:** Bucket dùng để chứa State (`ten-bucket-chua-state-cua-ban`) KHÔNG được quản lý bởi Terraform (không được khai báo như 1 resource trong code). Nó phải được tạo bằng tay (hoặc bằng một script riêng) trước khi chạy `terraform init`. Nếu để Terraform tự tạo bucket chứa chính State của nó, sẽ có vấn đề "con gà - quả trứng": Terraform cần State để biết nó đã tạo bucket chứa-State chưa, nhưng nó chưa có State...
 
-Sau khi cau hinh, chay `terraform init` de Terraform ket noi va migrate State len GCS.
-
----
-
-## 5. State Locking: Chong Race Condition
-
-**Van de:** Trong team, A va B cung chay `terraform apply` cung luc. Ca hai deu doc State, tinh toan plan, roi cung ghi State voi nhung thay doi cua rieng minh. Ket qua: State bi corrupt, tai nguyen tren GCP khong khop voi State.
-
-**Giai phap — State Locking:**
-
-Khi su dung Remote Backend (GCS), [[Terraform]] tu dong kich hoat khoa State (lock) ngay khi bat dau mot lenh thay doi (`plan`, `apply`, `destroy`). Co che nay duoc GCS ho tro thong qua `object locking` hoac dich vu Cloud [[Firestore]]/[[Cloud Spanner]] (tuy phien ban va cau hinh).
-
-Qua trinh:
-1. A chay `terraform apply`. Terraform ghi mot file lock vao GCS (`terraform.tfstate.tflock`).
-2. B cung chay `terraform apply`. Terraform kiem tra GCS, thay file lock, bao loi: "State is locked. Another operation is in progress."
-3. A hoan thanh. Terraform xoa file lock.
-4. B thu lai va thanh cong.
-
-Ket qua: Chi co 1 nguoi duoc ghi State tai mot thoi diem. Race Condition khong xay ra.
+Sau khi cấu hình, chạy `terraform init` để Terraform kết nối và migrate State lên GCS.
 
 ---
 
-## 6. Tai sao GCS tot hon Git de chua State?
+## 5. State Locking: Chống Race Condition
 
-| Tieu chi | Git (sai lam) | GCS Remote Backend (dung) |
+**Vấn đề:** Trong team, A và B cùng chạy `terraform apply` cùng lúc. Cả hai đều đọc State, tính toán plan, rồi cùng ghi State với những thay đổi của riêng mình. Kết quả: State bị corrupt, tài nguyên trên GCP không khớp với State.
+
+**Giải pháp — State Locking:**
+
+Khi sử dụng Remote Backend (GCS), [[Terraform]] tự động kích hoạt khóa State (lock) ngay khi bắt đầu một lệnh thay đổi (`plan`, `apply`, `destroy`). Cơ chế này được GCS hỗ trợ thông qua `object locking` (GCS backend dùng chính object trên bucket làm lock).
+
+Quá trình:
+1. A chạy `terraform apply`. Terraform ghi một file lock vào GCS (`default.tflock`).
+2. B cũng chạy `terraform apply`. Terraform kiểm tra GCS, thấy file lock, báo lỗi: "Error acquiring the state lock. Another operation is in progress."
+3. A hoàn thành. Terraform xóa file lock.
+4. B thử lại và thành công.
+
+Kết quả: Chỉ có 1 người được ghi State tại một thời điểm. Race Condition không xảy ra.
+
+---
+
+## 6. Tại sao GCS tốt hơn Git để chứa State?
+
+| Tiêu chí | Git (sai lầm) | GCS Remote Backend (đúng) |
 |---|---|---|
-| Bao mat | File `.tfstate` JSON bi push len repo, lo API key, password | State nam tren GCS, truy cap kiem soat boi [[IAM]] |
-| Locking | Khong co — 2 nguoi merge conflict tren State | Co co che lock tich hop san |
-| Dong bo | Thu cong — phai commit, push, pull | Tu dong — moi lenh terraform deu doc/ghi len GCS truc tiep |
-| Lich su phien ban | Dung Git commits (khong phu hop) | GCS ho tro Object Versioning (giu lai cac phien ban State cu) |
+| Bảo mật | File `.tfstate` JSON bị push lên repo, lộ API key, password | State nằm trên GCS, truy cập kiểm soát bởi [[IAM]] |
+| Locking | Không có — 2 người merge conflict trên State | Có cơ chế lock tích hợp sẵn |
+| Đồng bộ | Thủ công — phải commit, push, pull | Tự động — mỗi lệnh terraform đều đọc/ghi lên GCS trực tiếp |
+| Lịch sử phiên bản | Dùng Git commits (không phù hợp) | GCS hỗ trợ Object Versioning (giữ lại các phiên bản State cũ) |
 
 ---
 
-## Cau hoi tu kiem (Spaced Repetition)
+## Câu hỏi tự kiểm (Spaced Repetition)
 
-1. Neu ban co mot GCS bucket da ton tai tren GCP nhung file `terraform.tfstate` khong co thong tin gi ve no, dieu gi se xay ra khi ban chay `terraform apply`? Va ban se sua nhu the nao?
+1. Nếu bạn có một GCS bucket đã tồn tại trên GCP nhưng file `terraform.tfstate` không có thông tin gì về nó, điều gì sẽ xảy ra khi bạn chạy `terraform apply`? Và bạn sẽ sửa như thế nào?
 
-2. Khoi `backend "gcs"` duoc khai bao ben trong khoi `terraform {}`. Theo ban, khi nao Terraform doc cau hinh nay — luc chay `terraform plan` hay luc chay `terraform init`? Tai sao?
+2. Khối `backend "gcs"` được khai báo bên trong khối `terraform {}`. Theo bạn, khi nào Terraform đọc cấu hình này — lúc chạy `terraform plan` hay lúc chạy `terraform init`? Tại sao?
 
-3. State Locking giai quyet Race Condition bang cach nao cu the? File lock duoc ghi o dau, va no bi xoa khi nao?
+3. State Locking giải quyết Race Condition bằng cách nào cụ thể? File lock được ghi ở đâu, và nó bị xóa khi nào?
 
 ---
 
-> **Trang thai hien tai:** `Partial` — Can pass Feynman check o muc co-che (mechanism-level) ve cau hinh backend thuc te: tai sao phai tao bucket chua State bang tay, `terraform init` lam gi voi khoi `backend "gcs"`, va GCS lock hoat dong nhu the nao. Khi giai thich duoc 3 dieu nay ma khong can xem lai note, trang thai se duoc nang len `Understood`.
+> **Trạng thái hiện tại:** `Partial` — Cần pass Feynman check ở mức cơ chế (mechanism-level) về cấu hình backend thực tế: tại sao phải tạo bucket chứa State bằng tay, `terraform init` làm gì với khối `backend "gcs"`, và GCS lock hoạt động như thế nào. Khi giải thích được 3 điều này mà không cần xem lại note, trạng thái sẽ được nâng lên `Understood`.

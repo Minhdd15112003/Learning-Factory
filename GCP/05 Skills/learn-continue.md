@@ -31,7 +31,7 @@ Using Read/Bash tools, load exactly these three sources from the resolved scope 
 2. **Newest file in `01 Journals/`** — this is last session's log. It carries the last concept covered, the Feynman check result, and any open questions or gaps the user surfaced.
 3. **`04 Reviews/Reasoning-Gaps.md`** — the misconception log. It records concepts that did not reach `Understood` and any manually flagged gaps.
 
-If any of these files is absent, note the gap internally and continue with what is available. Do not tell the user a file is missing unless it blocks the session entirely.
+(Theory notes are not opened here — they are scanned in Step 4 for `sr-due` values.) If any of these files is absent, note the gap internally and continue with what is available. Do not tell the user a file is missing unless it blocks the session entirely.
 
 ---
 
@@ -53,7 +53,7 @@ If the last session log is empty or absent, open with a general diagnostic on th
 
 ## Step 4 — Due Review Check (Spaced Repetition)
 
-After the baseline assessment, scan all reviewable theory notes in the scope for overdue items. A note is due when its frontmatter satisfies `sr-due <= 2026-06-11` (today's date, update this mentally at runtime to the actual current date).
+After the baseline assessment, scan all reviewable theory notes in the scope for overdue items. A note is due when `sr-due <= <today>`, where `<today>` is the actual current date resolved at runtime (never a hardcoded literal). Compare dates in ISO `YYYY-MM-DD` form.
 
 Process:
 1. Collect all due notes, sort oldest-due first.

@@ -18,7 +18,7 @@ Identify which project (or vault root) the session belongs to:
 ## Step 2 — Summarize incremental logs
 
 1. Locate today's session log file in the relevant `01 Journals/` directory.
-2. Read it; list the checkpoints that were logged during the session.
+2. Read it; identify internally (do NOT output a list to the user) the checkpoints logged during the session.
 3. Identify the one or two most important concepts that surfaced today — these drive Step 3.
 
 Do NOT narrate what was read. Go straight to the Feynman question.
@@ -84,7 +84,12 @@ For every concept reviewed or newly encountered today:
 
 3. Open each affected theory note and update its frontmatter (`status`, `sr-due`, `sr-interval`, `sr-ease`). Claude does this directly; do not ask the user to do it.
 
-4. For brand-new concepts that do not yet have a theory note, write one now (Vietnamese, in `01 Ly thuyet/` or the project equivalent), with the full SR frontmatter block.
+4. Apply the status transition implied by the grade (Knowledge Model in `CLAUDE.md`):
+   - Mechanism-level pass → promote `Exposed`/`Partial` to `Understood`.
+   - `Hard` (shallow / wrong / "I don't know") on a note already at `Understood` → downgrade to `Partial`.
+   - Three consecutive Easy/Good reviews on the same note (count the streak from prior session logs, not internal memory) → promote `Understood` to `Mastered`. Any `Hard` resets the streak to zero.
+
+5. For brand-new concepts that do not yet have a theory note, write one now (Vietnamese, in `01 Ly thuyet/` or the project equivalent), with the full SR frontmatter block.
 
 ---
 
@@ -92,10 +97,8 @@ For every concept reviewed or newly encountered today:
 
 1. Append the user's Feynman answers (verbatim or close paraphrase with clear attribution) to the session log under a `## Feynman Check` section.
 2. Update the **Current Status** line in the relevant `CLAUDE.md` to reflect today's endpoint (last concept covered, last practice step completed).
-3. Report the updated review schedule in plain text — no emoji:
-   - Format: "Review schedule updated: [[Concept]] -> next YYYY-MM-DD (interval X days)"
-   - List every concept touched today.
-4. Confirm the session is saved: "Session log updated and SR schedule applied."
+3. Update each affected note's schedule silently — no enumerated dump to the user (Learning Mode Rule 8). At most name, in one forward-framed line, the next concept that will come due: e.g. "Lần tới [[Terraform State]] sẽ đến hạn ôn."
+4. Close with a brief Vietnamese confirmation that the session is saved (e.g. "Đã lưu log và cập nhật lịch ôn."), then end on a forward-looking question or teaser for next session — never a passive recap.
 
 ---
 

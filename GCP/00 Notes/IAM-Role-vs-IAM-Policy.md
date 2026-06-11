@@ -6,36 +6,36 @@ sr-interval: 1
 sr-ease: 250
 ---
 
-# IAM Role vs IAM Policy tren GCP
+# IAM Role vs IAM Policy trên GCP
 
-> Ghi chu ly thuyet — Claude viet sau khi khai thac khai niem trong doi thoai.
-> Trang thai: `Exposed` — can Feynman check de nang len `Partial` hoac `Understood`.
+> Ghi chú lý thuyết — Claude viết sau khi khai thác khái niệm trong đối thoại.
+> Trạng thái: `Exposed` — cần Feynman check để nâng lên `Partial` hoặc `Understood`.
 
 ---
 
-## 1. IAM Role — "Duoc lam nhung gi?"
+## 1. IAM Role — "Được làm những gì?"
 
-[[IAM Role]] la mot tap hop cac **permissions** (quyen truy cap cu the vao cac API/resource).
+[[IAM Role]] là một tập hợp các **permissions** (quyền truy cập cụ thể vào các API/resource).
 
-Role tu no KHONG cap quyen cho bat ky ai. No chi la mot "ban mo ta quyen". Quyen chi co hieu luc khi Role duoc gan (bind) vao mot chu the cu the thong qua mot [[IAM Policy]].
+Role tự nó KHÔNG cấp quyền cho bất kỳ ai. Nó chỉ là một "bản mô tả quyền". Quyền chỉ có hiệu lực khi Role được gán (bind) vào một chủ thể cụ thể thông qua một [[IAM Policy]].
 
-### Ba loai Role trong GCP
+### Ba loại Role trong GCP
 
-| Loai | Mo ta | Vi du |
+| Loại | Mô tả | Ví dụ |
 |---|---|---|
-| **Basic Role** (Co ban) | Pham vi rong, ap dung toan bo project. Ton tai truoc IAM. | `roles/owner`, `roles/editor`, `roles/viewer` |
-| **Predefined Role** (Dinh san) | Tao boi Google, pham vi theo tung service. Luon duoc cap nhat khi service them API moi. | `roles/storage.admin`, `roles/compute.instanceAdmin` |
-| **Custom Role** (Tuy chinh) | Do nguoi dung tu tao, ghep cac permissions le theo nhu cau to chuc. | `projects/my-project/roles/myCustomRole` |
+| **Basic Role** (Cơ bản) | Phạm vi rộng, áp dụng toàn bộ project. Tồn tại trước IAM. | `roles/owner`, `roles/editor`, `roles/viewer` |
+| **Predefined Role** (Định sẵn) | Tạo bởi Google, phạm vi theo từng service. Luôn được cập nhật khi service thêm API mới. | `roles/storage.admin`, `roles/compute.instanceAdmin` |
+| **Custom Role** (Tùy chỉnh) | Do người dùng tự tạo, ghép các permissions lẻ theo nhu cầu tổ chức. | `projects/my-project/roles/myCustomRole` |
 
-**Nguyen tac least privilege:** Luon chon Role co pham vi nho nhat dap ung duoc yeu cau, tranh dung Basic Role trong moi truong production.
+**Nguyên tắc least privilege:** Luôn chọn Role có phạm vi nhỏ nhất đáp ứng được yêu cầu, tránh dùng Basic Role trong môi trường production.
 
 ---
 
-## 2. IAM Policy — "Ai duoc giu Role nao, tren Resource nao?"
+## 2. IAM Policy — "Ai được giữ Role nào, trên Resource nào?"
 
-[[IAM Policy]] (chinh xac la **IAM allow policy**) la mot tai lieu JSON duoc gan vao mot resource. No chua mot danh sach cac **bindings**, moi binding co dang:
+[[IAM Policy]] (chính xác là **IAM allow policy**) là một tài liệu JSON được gán vào một resource. Nó chứa một danh sách các **bindings**, mỗi binding có dạng:
 
-```
+```json
 {
   "bindings": [
     {
@@ -50,32 +50,32 @@ Role tu no KHONG cap quyen cho bat ky ai. No chi la mot "ban mo ta quyen". Quyen
 }
 ```
 
-**Cong thuc ghi nho:**
+**Công thức ghi nhớ:**
 
 ```
-Policy = { (Member + Role) } ap len mot Resource
+Policy = { (Member + Role) } áp lên một Resource
 ```
 
 - **Member / Principal**: user, serviceAccount, group, domain, allUsers, allAuthenticatedUsers.
-- **Role**: bat ky Role nao (Basic, Predefined, hoac Custom).
-- **Resource**: co the la Organization, Folder, Project, hoac resource cu the (bucket, VM...).
+- **Role**: bất kỳ Role nào (Basic, Predefined, hoặc Custom).
+- **Resource**: có thể là Organization, Folder, Project, hoặc resource cụ thể (bucket, VM...).
 
 ---
 
-## 3. So sanh nhanh
+## 3. So sánh nhanh
 
-| Khia canh | [[IAM Role]] | [[IAM Policy]] |
+| Khía cạnh | [[IAM Role]] | [[IAM Policy]] |
 |---|---|---|
-| Chua gi? | Danh sach permissions | Danh sach bindings (Member + Role) |
-| Tra loi cau hoi | "Duoc lam gi?" | "Ai duoc lam gi, o dau?" |
-| Gap vao Resource? | Khong | Co — Policy gan truc tiep vao resource |
-| Tu no co hieu luc? | Khong | Co — hieu luc ngay khi duoc set |
+| Chứa gì? | Danh sách permissions | Danh sách bindings (Member + Role) |
+| Trả lời câu hỏi | "Được làm gì?" | "Ai được làm gì, ở đâu?" |
+| Gắn vào Resource? | Không | Có — Policy gắn trực tiếp vào resource |
+| Tự nó có hiệu lực? | Không | Có — hiệu lực ngay khi được set |
 
 ---
 
-## 4. Ke thua theo Resource Hierarchy
+## 4. Kế thừa theo Resource Hierarchy
 
-[[Resource Hierarchy]] trong GCP co cau truc phan cap:
+[[Resource Hierarchy]] trong GCP có cấu trúc phân cấp:
 
 ```
 Organization
@@ -84,21 +84,21 @@ Organization
       Resource (VM, Bucket, ...)
 ```
 
-**Quy tac ke thua:** Policy o cap cha duoc **ke thua xuong** tat ca cap con. Policy o cap con KHONG the thu hep quyen da cap o cap cha.
+**Quy tắc kế thừa:** Policy ở cấp cha được **kế thừa xuống** tất cả cấp con. Policy ở cấp con KHÔNG thể thu hẹp quyền đã cấp ở cấp cha.
 
-Vi du: neu `alice@example.com` duoc gan `roles/viewer` tai Organization, thi Alice tu dong co quyen viewer tren moi Project, moi Folder, moi resource ben trong — du Project do co set Policy rieng hay khong.
+Ví dụ: nếu `alice@example.com` được gán `roles/viewer` tại Organization, thì Alice tự động có quyền viewer trên mọi Project, mọi Folder, mọi resource bên trong — dù Project đó có set Policy riêng hay không.
 
-**He qua quan trong:** Nguoi co quyen quan tri cap cao hon (Organization Admin) co the leo thang quyen xuong bat ky resource nao. Day la ly do cau hinh [[IAM]] o cap Organization can duoc kiem soat chat.
+**Hệ quả quan trọng:** Người có quyền quản trị cấp cao hơn (Organization Admin) có thể leo thang quyền xuống bất kỳ resource nào. Đây là lý do cấu hình [[IAM]] ở cấp Organization cần được kiểm soát chặt.
 
 ---
 
-## 5. Vi du minh hoa: gan quyen tren mot Cloud Storage Bucket
+## 5. Ví dụ minh họa: gán quyền trên một Cloud Storage Bucket
 
-Tinh huong: cho phep `bob@example.com` quan tri mot bucket cu the, khong cap quyen ra ngoai bucket do.
+Tình huống: cho phép `bob@example.com` quản trị một bucket cụ thể, không cấp quyền ra ngoài bucket đó.
 
-**Buoc 1 — Chon Role:** `roles/storage.admin` (Predefined Role) — gom cac permissions nhu `storage.objects.create`, `storage.objects.delete`, `storage.buckets.update`...
+**Bước 1 — Chọn Role:** `roles/storage.admin` (Predefined Role) — gồm các permissions như `storage.objects.create`, `storage.objects.delete`, `storage.buckets.update`...
 
-**Buoc 2 — Tao binding trong Policy cua bucket:**
+**Bước 2 — Tạo binding trong Policy của bucket:**
 
 ```json
 {
@@ -111,9 +111,9 @@ Tinh huong: cho phep `bob@example.com` quan tri mot bucket cu the, khong cap quy
 }
 ```
 
-**Ket qua:** Bob co toan quyen tren bucket nay. Bob KHONG co quyen tren cac bucket khac trong cung Project (vi Policy chi gan o cap bucket, khong phai Project).
+**Kết quả:** Bob có toàn quyền trên bucket này. Bob KHÔNG có quyền trên các bucket khác trong cùng Project (vì Policy chỉ gắn ở cấp bucket, không phải Project).
 
-**Lenh gcloud tuong duong:**
+**Lệnh gcloud tương đương:**
 
 ```bash
 gcloud storage buckets add-iam-policy-binding gs://my-bucket \
@@ -123,14 +123,14 @@ gcloud storage buckets add-iam-policy-binding gs://my-bucket \
 
 ---
 
-## 6. Cau hoi tu kiem (Socratic)
+## 6. Câu hỏi tự kiểm (Socratic)
 
-1. Neu mot [[Service Account]] duoc gan `roles/compute.instanceAdmin` o cap **Project**, nhung mot VM cu the trong project do lai co Policy rieng gan `roles/compute.viewer` cho cung service account do — service account nay co the start/stop VM do khong? Tai sao?
+1. Nếu một [[Service Account]] được gán `roles/compute.instanceAdmin` ở cấp **Project**, nhưng một VM cụ thể trong project đó lại có Policy riêng gán `roles/compute.viewer` cho cùng service account đó — service account này có thể start/stop VM đó không? Tại sao?
 
-2. Tai sao `roles/editor` (Basic Role) lai duoc coi la nguy hiem trong moi truong production, du no "tien loi" hon Predefined Role? Hay nghi ve mat principal of least privilege.
+2. Tại sao `roles/editor` (Basic Role) lại được coi là nguy hiểm trong môi trường production, dù nó "tiện lợi" hơn Predefined Role? Hãy nghĩ về mặt principle of least privilege.
 
-3. Neu ban can cap quyen cho mot nhom 50 developer cung truy cap vao mot tap hop bucket, ban nen dung Member loai nao trong Policy binding? Tai sao khong nen liet ke 50 user mot?
+3. Nếu bạn cần cấp quyền cho một nhóm 50 developer cùng truy cập vào một tập hợp bucket, bạn nên dùng Member loại nào trong Policy binding? Tại sao không nên liệt kê 50 user một?
 
 ---
 
-> **Note to Claude:** Status stays `Exposed` until the user passes a Feynman check (mechanism-level explanation of the Role/Policy distinction and inheritance). Grade with SR algorithm above; update frontmatter after check.
+> **Note to Claude:** Status stays `Exposed` until the user passes a Feynman check (mechanism-level explanation of the Role/Policy distinction and inheritance). Grade with the SR algorithm in `CLAUDE.md`; update frontmatter after the check.

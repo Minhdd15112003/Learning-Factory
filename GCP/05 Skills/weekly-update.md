@@ -89,7 +89,7 @@ After the project status questions, scan every theory note (in `01 Ly thuyet/` a
 
 - Count how many notes are overdue.
 - Name the concepts (note titles) so the user can see what is waiting.
-- Surface the list to the user: "Co X note qua han on tap: [list]. Cac note nay se duoc kiem tra trong phien /learn-continue tiep theo."
+- Surface the list to the user (in Vietnamese): "Có X note quá hạn ôn tập: [list]. Các note này sẽ được kiểm tra trong phiên /learn-continue tiếp theo."
 
 **Do not run the actual Socratic review here.** The weekly update is a status pass, not a teaching session. Reviews happen through `/learn-continue`, not through this skill and not through the Obsidian SR plugin UI (the plugin is used for scheduling metadata only — Claude drives the actual review via Socratic questioning).
 
