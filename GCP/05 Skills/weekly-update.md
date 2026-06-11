@@ -85,7 +85,7 @@ Walk through **each project folder** found in Phase 1. For each one:
 
 ### SR Queue Check
 
-After the project status questions, scan every theory note (in `01 Ly thuyet/` at root and inside each project) for notes where `sr-due <= today` (2026-06-11 or whatever today's date is).
+After the project status questions, scan every theory note (in `01 Ly thuyet/` at root and inside each project) for notes where `sr-due <= <today>` (the current date resolved at runtime, never a hardcoded literal).
 
 - Count how many notes are overdue.
 - Name the concepts (note titles) so the user can see what is waiting.
