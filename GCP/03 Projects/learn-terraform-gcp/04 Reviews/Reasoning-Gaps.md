@@ -11,7 +11,7 @@
 ## Resolved Gaps
 
 - [[01-Ban-chat-cua-Terraform|Bản chất Terraform (Declarative vs Imperative)]] — Pass Feynman check, status Understood.
-- [[02 Thuc hanh/main.tf|GCP Uniform Bucket-Level Access Constraint]] — Đã xử lý thành công qua thực hành.
+- [[GCP/03 Projects/learn-terraform-gcp/02 Thuc hanh/main.tf|GCP Uniform Bucket-Level Access Constraint]] — Đã xử lý thành công qua thực hành.
 
 ---
 

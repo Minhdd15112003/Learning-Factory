@@ -1,6 +1,6 @@
 # Session Log: {{date}}
 
-> **Tham chiếu:** [[CLAUDE.md]] | [[04 Reviews/Reasoning-Gaps.md|Reasoning Gaps]]
+> **Tham chiếu:** [[GCP/CLAUDE.md|Constitution]] | [[GCP/04 Reviews/Reasoning-Gaps.md|Reasoning Gaps]]
 
 ## Baseline Check (đầu buổi)
 *Claude hỏi 1 câu về concept của buổi trước. Ghi lại:*
@@ -26,4 +26,4 @@
 
 - 
 
-*(Nếu có gap lớn, hãy copy sang file [[Reasoning-Gaps]])*
+*(Nếu có gap lớn, hãy copy sang file [[GCP/04 Reviews/Reasoning-Gaps.md|Reasoning-Gaps]])*

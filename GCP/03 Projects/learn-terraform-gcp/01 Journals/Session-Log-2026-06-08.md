@@ -1,6 +1,6 @@
 # Session Log: 2026-06-08
 
-> **Tham chiếu:** [[03 Projects/learn-terraform-gcp/CLAUDE.md|Constitution]] | [[03 Projects/learn-terraform-gcp/04 Reviews/Reasoning-Gaps.md|Reasoning Gaps]]
+> **Tham chiếu:** [[GCP/03 Projects/learn-terraform-gcp/CLAUDE.md|Constitution]] | [[GCP/03 Projects/learn-terraform-gcp/04 Reviews/Reasoning-Gaps.md|Reasoning Gaps]]
 
 ## Mục tiêu buổi học
 - [x] Bắt đầu Stage 1: Hiểu về bản chất của Terraform và Declarative approach.
