@@ -83,6 +83,16 @@ Walk through **each project folder** found in Phase 1. For each one:
 
 **If a project's CLAUDE.md doesn't have a Current Status section**, ask for a quick status anyway and note that you'll add the section when you update the file.
 
+### SR Queue Check
+
+After the project status questions, scan every theory note (in `01 Ly thuyet/` at root and inside each project) for notes where `sr-due <= today` (2026-06-11 or whatever today's date is).
+
+- Count how many notes are overdue.
+- Name the concepts (note titles) so the user can see what is waiting.
+- Surface the list to the user: "Co X note qua han on tap: [list]. Cac note nay se duoc kiem tra trong phien /learn-continue tiep theo."
+
+**Do not run the actual Socratic review here.** The weekly update is a status pass, not a teaching session. Reviews happen through `/learn-continue`, not through this skill and not through the Obsidian SR plugin UI (the plugin is used for scheduling metadata only — Claude drives the actual review via Socratic questioning).
+
 ---
 
 ## Phase 4: Update All Files
@@ -108,7 +118,9 @@ After the interview, make all the edits. Show the user a summary of what you're 
 
 **My Current Projects & Overviews** — update the **Status** line and overview paragraph for any project whose status changed. Leave unchanged projects alone.
 
-### GOALS.md — if it exists, update any specific numbers/dates/milestones the user called out. Don't restructure it.
+### GOALS.md — if it exists, update any specific numbers/dates/milestones the user called out. Do not restructure it.
+
+**Language rule:** GOALS.md is the user's personal goal document and must stay in Vietnamese at all times. Never switch it to English, even partially.
 
 ### Each project's CLAUDE.md — update the **Current Status** section:
 

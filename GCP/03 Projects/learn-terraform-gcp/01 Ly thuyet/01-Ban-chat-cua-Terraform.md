@@ -1,6 +1,9 @@
 ---
-status: Partial
-tags: [terraform, iac, declarative]
+status: Understood
+tags: [terraform, iac, declarative, review]
+sr-due: 2026-06-15
+sr-interval: 7
+sr-ease: 250
 ---
 
 # Bản chất của Terraform

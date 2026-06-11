@@ -1,98 +1,129 @@
 # Skill: New Project
 
-Create a new project inside `03 Projects/` by interviewing the user, then scaffolding the folder structure, CLAUDE.md, and COMMANDS.md.
+Create a new sub-project inside `03 Projects/` by interviewing the user, then scaffolding the folder structure, project CLAUDE.md, and COMMANDS.md from scratch. No template copy — every project is built fresh and consistent with the learning vault structure.
 
 ## How It Works
 
-1. Duplicate `03 Projects/(PROJECT TEMPLATE)/` into a new folder (this preserves `.obsidian` config and plugins)
-2. Interview the user one question at a time (6 questions max)
-3. Based on answers, create the folder structure and files
-4. If the user doesn't have an answer yet, that's fine — use sensible defaults and leave TODOs in the CLAUDE.md for them to fill in later
+1. Interview the user one question at a time (up to 6 questions)
+2. Based on answers, scaffold the folder structure and files using mkdir -p
+3. Seed the required bootstrap files
+4. Update the root CLAUDE.md to register the new project
+5. If the user has no answer yet for a question, use a sensible default and leave a `<!-- TODO: fill this in -->` comment
 
 ## Interview Questions (Ask One at a Time)
 
-Ask these questions conversationally using AskUserQuestion. Each answer can shape the next question. If someone says "I'm not sure yet" or gives a partial answer, don't push — just work with what you have.
+Ask these conversationally. Each answer can shape the next. If someone says "I'm not sure yet" or gives a partial answer, do not push — just work with what you have.
 
-### 1. What's the project called?
+### 1. What is the project called?
+
 Used for the folder name under `03 Projects/`.
 
 ### 2. What is this project?
-One paragraph. What are we building / doing / creating? Who is it for?
 
-### 3. What does "shipped" look like?
-What's the goal? What does success look like for this project? This becomes the prime directive in the CLAUDE.md — the thing Claude nudges toward.
+One paragraph. What are we building, doing, or learning? What is the subject matter?
+
+### 3. What does "done" look like?
+
+What is the concrete end goal? What does success look like? This becomes the prime directive in CLAUDE.md — the thing Claude nudges toward when a session drifts.
 
 ### 4. Who else is involved?
-Key people and their roles. Could be "just me" — that's fine.
 
-### 5. What's the process from start to finish?
-Walk me through how something goes from idea to done in this project. This is the big one — it creates the numbered project folders (inputs → process → outputs).
+Key people and their roles. "Just me" is a valid answer.
 
-**If they're not sure:** Create a simple default structure:
-- `00 Ideas/` (input)
-- `01 In Progress/` (process)
-- `02 Done/` (output)
+### 5. What is the learning/work process from start to finish?
 
-Tell them they can restructure later as the process becomes clearer.
+Walk through how work flows from start to finish in this project. This shapes the numbered project subfolders.
+
+**If they are not sure:** Use the default learning structure (mirrors learn-terraform-gcp):
+- `01 Journals/` — session logs
+- `01 Ly thuyet/` — theory notes
+- `02 Thuc hanh/` — hands-on practice
+- `03 Output/` — results and deliverables
+- `04 Reviews/` — misconception log
+
+Tell them they can restructure later.
 
 ### 6. Any rules or conventions Claude should follow?
-Things Claude should always or never do in this project. Specific formats, naming conventions, etc. Optional — skip if they don't have any yet.
+
+Things Claude should always or never do. Specific formats, naming conventions, secret handling. Optional — skip if they have nothing yet.
+
+---
 
 ## After the Interview
 
-### Step 1: Duplicate the template
+### Step 1: Create the project folder tree
+
+Use `mkdir -p` — no template copy.
+
 ```bash
-cp -R "03 Projects/(PROJECT TEMPLATE)" "03 Projects/[Project Name]"
+mkdir -p "03 Projects/[Project Name]/01 Journals"
+mkdir -p "03 Projects/[Project Name]/01 Ly thuyet"
+mkdir -p "03 Projects/[Project Name]/02 Thuc hanh"
+mkdir -p "03 Projects/[Project Name]/03 Output"
+mkdir -p "03 Projects/[Project Name]/04 Reviews"
 ```
 
-### Step 2: Clean up the template artifacts
-- Remove the `00 Duplicate/` folder (it was only for manual duplication)
-- Remove the placeholder `CLAUDE.md` (we're writing a real one)
-- Remove the placeholder `COMMANDS.md` (we're writing a real one)
+Add or rename folders based on the process answer from question 5. The structure above is the default.
 
-### Step 3: Create project-specific folders
-Based on the process answer, create numbered folders that follow the input → process → output flow. Then add the standard utility folders at the end with the next available numbers:
+### Step 2: Seed bootstrap files
 
-- `XX System/` — scripts, config, reusable processes
-- `XX Skills/` — skill markdown files (NOT Claude Code skills)
-- `XX Attachments/` — images, screenshots, PDFs
-- `XX Iteration Logs/` — notes on what to improve
+**`01 Journals/Session-Log-Template.md`** — copy from root `01 Journals/Session-Log-Template.md`.
 
-**Note:** The template already creates `04 System/`, `05 Skills/`, and `06 Attachments/` — but the numbers may need to shift depending on how many project-specific folders are created. Remove the template defaults and recreate with correct numbering.
+**`04 Reviews/Reasoning-Gaps.md`** — copy from root `04 Reviews/Reasoning-Gaps.md`.
 
-### Step 4: Write CLAUDE.md
-Use this structure. Fill in what you learned from the interview. For anything the user wasn't sure about, add a `<!-- TODO: fill this in -->` comment so they can find and complete it later.
+### Step 3: Write the project CLAUDE.md
+
+The project CLAUDE.md is **English** (AI-facing). Use this structure. Fill in what you learned from the interview. Use `<!-- TODO: fill this in -->` for anything the user was not sure about.
 
 ```markdown
-# [Project Name]
+> **Inherits from:** root `../../CLAUDE.md` — the vault constitution (Learning Mode Contract, Teaching Mechanics, Error Handling, Wiki-links, SR algorithm).
+>
+> **Claude Instruction:** You MUST read root `../../CLAUDE.md` first to load your core persona and teaching mechanics before answering any prompts in this directory.
+>
+> This file contains ONLY the rules and context specific to this project. All shared rules are defined in the root file.
 
-[One paragraph: what this project is, from question 2]
+# [Project Name] — Project Constitution
 
-## Claude's Role
+[One paragraph: what this project is about, from question 2]
 
-[What Claude does in this project. Be specific — not "help me ship" but the actual job based on what the project needs.]
+## Claude's Role (Project-specific)
 
-[Prime directive based on question 3. Follow this format:]
-If a session is drifting without moving toward [shipped output], nudge me back: "[contextual nudge message]"
+[What Claude does in this project. Be specific — not "help me learn" but the actual job.]
+
+If a session is drifting without moving toward [the goal from question 3], nudge the user back: "[contextual nudge message in Vietnamese]"
 
 ## Process
 
-[Step-by-step process from question 5. Numbered steps showing how work flows from start to finish. If they weren't sure, write a simple default and add a TODO.]
+1. **[Step name]:** [Description — maps to a folder]
+2. **[Step name]:** [Description — maps to a folder]
+3. **[Step name]:** [Description — maps to a folder]
+
+[If unsure, default to:]
+1. **Ly thuyet:** Learn concepts and theory in `01 Ly thuyet/`.
+2. **Thuc hanh:** Apply concepts hands-on in `02 Thuc hanh/`.
+3. **Output:** Record results and deliverables in `03 Output/`.
 
 ## Key People
 
-[From question 4. Name — role/what they do. Skip section if solo project.]
+[From question 4. "Name — role". Skip section if solo project.]
+
+## Rules & Conventions (Project-specific)
+
+- **(C) prefix** — Files created by Claude are prefixed with `(C)` so it is clear they are AI-generated.
+- **Editing rule** — Before editing any file without the `(C)` prefix, ask for permission first.
+[Add any project-specific rules from question 6]
 
 ## Folder Structure
 
-[List every folder with a short description of what goes in it]
-
-## Rules & Conventions
-
-- **`(C)` prefix** — Files created by Claude are prefixed with `(C)` so it's clear they're AI-generated.
-- **Editing rule** — Before editing any file without the `(C)` prefix, ask for permission first.
-- **Skills** — All reusable scripts/automations are saved as markdown files in the Skills folder, NOT as Claude Code skills.
-[Add any project-specific rules from question 6]
+```
+[Project Name]/
+├── 01 Journals/       <- Session Log & Feynman check
+├── 01 Ly thuyet/      <- Theory notes (Vietnamese)
+├── 02 Thuc hanh/      <- Hands-on practice
+├── 03 Output/         <- Results and deliverables
+├── 04 Reviews/        <- Reasoning-Gaps.md
+└── COMMANDS.md        <- Quick reference
+```
 
 ## Current Status
 
@@ -102,38 +133,47 @@ If a session is drifting without moving toward [shipped output], nudge me back: 
 <!-- TODO: Update this as the project progresses -->
 ```
 
-### Step 5: Write COMMANDS.md
-List every skill and command available in this project. Start with the defaults:
+### Step 4: Write COMMANDS.md
 
 ```markdown
-# Commands & Skills
+# Commands & Skills — [Project Name]
 
-Quick reference for all available skills and commands in this project.
+Quick reference for all commands and skills available in this project.
 
-## Skills (in XX Skills/)
+## Skills
+
 _No project-specific skills yet._
 
 ## Commands
+
 _No project-specific commands yet._
 ```
 
-### Step 6: Update the root CLAUDE.md
-The KJ OS root `CLAUDE.md` has two sections that need to stay in sync with active projects:
+### Step 5: Update the root CLAUDE.md
 
-1. **Folder Structure** — Add the new project folder under the `03 Projects/` tree with a short description.
-2. **My Current Projects & Overviews** — Add a new subsection for the project using this format:
+Two sections must stay in sync after every new project:
+
+**1. Folder Structure** — add the new project under the `03 Projects/` tree:
+
+```markdown
+│   └── [Project Name]/ ← [one-line description]
+```
+
+**2. Current Projects & Overviews** — add a new subsection:
 
 ```markdown
 ### [Project Name] — `03 Projects/[Project Name]/`
 **Status:** Just created
 [One-line description from question 2]
+See the project's own `CLAUDE.md` for project-specific rules.
 ```
 
-This keeps the operating system's top-level context aware of every active project so Claude always knows what's in play.
+Only edit these two sections. Do not restructure anything else in root CLAUDE.md.
 
-### Step 7: Confirm to the user
-Show them:
+### Step 6: Confirm to the user (in Vietnamese)
+
+Tell them:
 - The folder structure that was created
 - A summary of the CLAUDE.md
-- Remind them they can update the CLAUDE.md and folder structure anytime as the project evolves
-- If any sections have TODOs, point those out so they know what to fill in later
+- That they can update CLAUDE.md and the folder structure anytime as the project evolves
+- Call out any `<!-- TODO -->` sections so they know what to fill in later

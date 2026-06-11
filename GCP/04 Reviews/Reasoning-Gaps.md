@@ -1,22 +1,17 @@
-# Reasoning Gaps Tracking
+# Reasoning Gaps Log
 
-> **Tham chiếu:** [[CLAUDE.md]] | [[01 Journals/Session-Log-Template.md|Session Log]]
+> Logs significant misconceptions and reasoning failures discovered during learning sessions.
+> Nơi ghi lại các hiểu lầm và lỗ hổng suy luận phát hiện trong quá trình học GCP.
 
-Nơi ghi lại các hiểu lầm (misconceptions), các lỗ hổng suy luận hoặc các khái niệm khó "ngấm" được phát hiện trong quá trình học. Đây là feedback loop để Claude và bạn cùng điều chỉnh cách dạy/học.
+## Active Gaps
 
-## 🚩 Active Gaps (Đang cần tháo gỡ)
-
-*Ghi lại những thứ bạn đang bị nhầm lẫn hoặc chưa nắm rõ ở session hiện tại.*
-
-- [ ] [Exposed] Nhầm lẫn giữa IAM Role và IAM Policy.
+- [[IAM-Role-vs-IAM-Policy]] — Đã tách thành note lý thuyết, đang trong lịch ôn (SR).
   - Detected: 2026-06-08
-  - Review: 2026-06-09
 
-## ✅ Resolved Gaps (Đã thông suốt)
+## Resolved Gaps
 
-*Sử dụng [>] cho items đang trong quá trình review, [x] cho items đã Mastered hoàn toàn.*
-
-- (Trống)
+(Trống)
 
 ---
-*Ghi chú cho Claude: Mỗi khi kết thúc một session mà phát hiện user có lỗ hổng kiến thức lớn, hãy nhắc user cập nhật vào file này hoặc tự mình đề xuất cập nhật.*
+
+> Note to Claude: when a session reveals a significant misconception, log it here in Vietnamese; if it is substantial, promote it into a theory note (you author it) so the SR plugin schedules it. Reviewing happens via /learn-continue, not the plugin UI.
