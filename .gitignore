@@ -1,4 +1,6 @@
 
 
 .obsidian/
-GCP/03 Projects/learn-terraform-gcp/02 Thuc hanh/.terraform
+**/.terraform/
+*.tfstate
+*.tfstate.backup

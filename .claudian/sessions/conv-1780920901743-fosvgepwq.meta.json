@@ -1,11 +1,11 @@
 {
   "id": "conv-1780920901743-fosvgepwq",
   "providerId": "claude",
-  "title": "Start Session",
+  "title": "Resume learning session",
   "titleGenerationStatus": "success",
   "createdAt": 1780920901744,
-  "updatedAt": 1781163709891,
-  "lastResponseAt": 1781163696584,
+  "updatedAt": 1781172275120,
+  "lastResponseAt": 1781172252685,
   "sessionId": "feae1674-50b9-4e06-8864-8ed33aa3043c",
   "providerState": {
     "providerSessionId": "feae1674-50b9-4e06-8864-8ed33aa3043c"

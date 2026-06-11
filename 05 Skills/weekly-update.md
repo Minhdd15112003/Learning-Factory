@@ -1,106 +1,92 @@
 # Skill: Weekly Update
 
-Interview the user to update all context files across the vault — the root CLAUDE.md, GOALS.md, and each project's CLAUDE.md. Keeps everything current so Claude always has accurate context.
+Interview the user to refresh the context files of the CURRENT brain: its `CLAUDE.md` (Weekly Update, Goals summary, Projects & Overviews), its `GOALS.md`, and each sub-project's `CLAUDE.md`. Keeps the brain's context current so Claude always has accurate state.
+
+**Scope (Option A):** Run this from INSIDE a brain (cwd = the brain, e.g. `GCP/`). The file you update is the BRAIN's `CLAUDE.md` (`./CLAUDE.md`) — NOT the vault-root base `CLAUDE.md`. The base is shared framework and must NEVER receive user-progress data. If the user has multiple brains, run weekly-update from each brain separately (or enumerate them with `ls -d <vault-root>/*/` and repeat per brain).
 
 ## When to Use
 
-- User says "weekly update", "let's do a weekly review", "update my vault", or similar
-- It's been a week or more since the last update (check the "Last updated" date in the Weekly Update section)
+- User says "weekly update", "let's do a weekly review", "update my vault", or similar.
+- It has been a week or more since the last update (check the "Last updated" date in the brain CLAUDE.md Weekly Update section).
 
 ## How It Works
 
-1. Scan all context files to understand current state
-2. Interview the user at the meta level (big picture, goals, weekly pulse)
-3. Walk through each project for status updates
-4. Update all files
+1. Scan the current brain's context
+2. Interview at the meta level (weekly pulse, goals)
+3. Walk through each sub-project for status updates
+4. Update the brain's files
 5. Optionally create a weekly review note
 
 ---
 
-## Phase 1: Scan Current State
+## Phase 1: Scan Current State (cwd = the brain)
 
-Read everything before asking a single question:
+Read everything before asking a single question.
 
 ```bash
-# Find all project folders
-ls -d "03 Projects"/*/ 2>&1 || echo "No projects yet"
+ls -d "03 Projects"/*/ 2>/dev/null || echo "No sub-projects yet"
 ```
 
-**Read these files:**
-- `CLAUDE.md` — focus on the **Weekly Update** section (what was there last time), **My Goals & Current Progress**, and **My Current Projects & Overviews**
-- `GOALS.md` — if it exists, scan the whole thing for sections with numbers, dates, or progress that might need updating
-- Each project's `CLAUDE.md` — specifically the **Current Status** section at the bottom
+Read:
+- `./CLAUDE.md` (the brain) — focus on the **Weekly Update**, **Goals (summary)**, and **Projects & Overviews** sections.
+- `./GOALS.md` — scan for numbers, dates, or milestones that may need updating.
+- Each sub-project's `CLAUDE.md` — the **Current Status** section.
 
-**What you're building:** A mental map of what was true last time, so you can ask targeted questions about what changed — not make the user repeat everything from scratch.
+Do NOT read or edit the vault-root base `../CLAUDE.md` — it is shared framework, not per-brain state.
+
+**Goal:** build a mental map of what was true last time so you can ask targeted questions about what changed, not make the user repeat everything.
 
 ---
 
 ## Phase 2: Meta-Level Interview
 
-This covers the root CLAUDE.md and GOALS.md. Ask conversationally, referencing what you read in Phase 1 so the user knows you're caught up.
+Covers the brain's CLAUDE.md and GOALS.md. Reference what you read in Phase 1 so the user knows you are caught up.
 
 ### Weekly Pulse
+Show the current Weekly Update text (or note it is blank), then ask:
+- What's working right now?
+- What's not working?
+- What are you sitting on or need to decide?
+- What are you feeling pulled toward?
+- Any deadlines or time-sensitive things coming up?
 
-Show the user what the Weekly Update section currently says (or note that it's blank), then ask:
-
-- **What's working right now?**
-- **What's not working?**
-- **What are you sitting on or need to decide?**
-- **What are you feeling pulled toward?**
-- **Any deadlines or time-sensitive things coming up?**
-
-These map directly to the Weekly Update section fields. If a field hasn't changed, the user can say "same" and you keep what was there.
+If a field has not changed, the user can say "same" and you keep it.
 
 ### Goals Check-In
+Reference the brain's **Goals (summary)** and `GOALS.md`. Ask:
+- Any progress on the main goal since last time?
+- Has the plan changed?
+- Anything new on the risk/runway front?
 
-Reference the current state from **My Goals & Current Progress** in CLAUDE.md and anything in GOALS.md. Then ask:
-
-- **Any progress on your main goal since last time?** (New numbers, milestones hit, setbacks)
-- **Has the plan changed at all?** (New strategy, dropped something, added something)
-- **Anything new on the risk/runway front?**
-
-**Keep this tight.** If nothing changed, move on. Don't make them re-justify their existing goals every week.
-
-### GOALS.md Specifics
-
-If GOALS.md exists and has trackable items (income numbers, milestone dates, skill targets, etc.), briefly surface anything that looks like it might need updating:
-
-> "Your GOALS.md shows [X]. Still accurate, or should I update that?"
-
-If GOALS.md doesn't exist, skip this — don't create one here.
+Keep it tight. If nothing changed, move on.
 
 ---
 
-## Phase 3: Project Updates
+## Phase 3: Sub-Project Updates
 
-Walk through **each project folder** found in Phase 1. For each one:
+Walk through each sub-project folder found in Phase 1. For each:
+1. Show the current status from its `CLAUDE.md` (Current Status section).
+2. Ask: "What's the update on [Project]? Any status change this week?"
+3. If nothing changed, move on.
 
-1. **Show them the current status** from that project's CLAUDE.md (the Current Status section)
-2. Ask: **"What's the update on [Project Name]? Any status change or progress this week?"**
-3. If nothing changed, they can say "no change" and you move on
-
-**Keep this fast.** One question per project, maybe a quick follow-up if something big happened. This is a check-in, not a deep dive.
-
-**If a project's CLAUDE.md doesn't have a Current Status section**, ask for a quick status anyway and note that you'll add the section when you update the file.
+One question per project. This is a check-in, not a deep dive.
 
 ### SR Queue Check
+Scan theory notes for notes where `sr-due <= <today>` (resolve `<today>` at runtime):
+- brain-level notes: `./00 Notes/**/*.md`
+- each sub-project: `./03 Projects/<project>/01 Ly thuyet/**/*.md`
 
-After the project status questions, scan every theory note (in `01 Ly thuyet/` at root and inside each project) for notes where `sr-due <= <today>` (the current date resolved at runtime, never a hardcoded literal).
+Count the overdue notes and name them, then surface to the user (in Vietnamese): "Có X note quá hạn ôn tập: [list]. Các note này sẽ được kiểm tra trong phiên /learn-continue tiếp theo."
 
-- Count how many notes are overdue.
-- Name the concepts (note titles) so the user can see what is waiting.
-- Surface the list to the user (in Vietnamese): "Có X note quá hạn ôn tập: [list]. Các note này sẽ được kiểm tra trong phiên /learn-continue tiếp theo."
-
-**Do not run the actual Socratic review here.** The weekly update is a status pass, not a teaching session. Reviews happen through `/learn-continue`, not through this skill and not through the Obsidian SR plugin UI (the plugin is used for scheduling metadata only — Claude drives the actual review via Socratic questioning).
+Do NOT run the actual Socratic review here — that happens through `/learn-continue`, not this skill and not the Obsidian SR plugin UI (the plugin holds scheduling metadata only; Claude drives the review).
 
 ---
 
-## Phase 4: Update All Files
+## Phase 4: Update the brain's files
 
-After the interview, make all the edits. Show the user a summary of what you're changing before writing.
+The file to update is the BRAIN's `CLAUDE.md` (`./CLAUDE.md`), NOT the vault-root base. Show the user a summary of the changes before writing.
 
-### Root CLAUDE.md — update these sections:
-
+### Brain CLAUDE.md
 **Weekly Update section:**
 ```markdown
 ## Weekly Update
@@ -113,41 +99,31 @@ After the interview, make all the edits. Show the user a summary of what you're 
 - What I'm feeling pulled toward: [from interview]
 - Any deadlines or time-sensitive things: [from interview]
 ```
+**Goals (summary)** — update only if something actually changed.
+**Projects & Overviews** — update the Status line / overview for any sub-project whose status changed. Leave unchanged ones alone.
 
-**My Goals & Current Progress** — only update if something actually changed. Don't touch it if the user said "no change."
+### GOALS.md (this brain's)
+Update any specific numbers/dates/milestones the user called out. Do not restructure it.
+**Language rule:** each brain's `GOALS.md` is the user's personal goal document and must stay in Vietnamese at all times. There is no single vault-root GOALS.md — each brain owns its own.
 
-**My Current Projects & Overviews** — update the **Status** line and overview paragraph for any project whose status changed. Leave unchanged projects alone.
-
-### GOALS.md — if it exists, update any specific numbers/dates/milestones the user called out. Do not restructure it.
-
-**Language rule:** GOALS.md is the user's personal goal document and must stay in Vietnamese at all times. Never switch it to English, even partially.
-
-### Each project's CLAUDE.md — update the **Current Status** section:
-
+### Each sub-project CLAUDE.md
+Update the **Current Status** section:
 ```markdown
 ## Current Status
 
 > **Last updated:** [today's date]
-> **Status:** [updated status from interview]
+> **Status:** [updated status]
 
-[Any additional context the user provided about what happened this week]
+[Any additional context from this week]
 ```
 
-**Critical rule:** Only edit sections related to status and progress. Never rewrite a project's CLAUDE.md structure, process, rules, or other sections during a weekly update.
+**Critical rules:** Only edit status/progress sections. Never rewrite a brain's or sub-project's structure, process, or rules. NEVER edit the vault-root base `CLAUDE.md`.
 
 ---
 
 ## Phase 5: Weekly Review Note (Optional)
 
-After all files are updated, ask the user:
-
-> "Want me to create a weekly review note in your reviews folder? If so, where do you keep them and how do you like them structured?"
-
-**If yes:** Create a dated note in whatever folder/format they describe. Use the interview answers as the content — you already have everything you need.
-
-**If no:** Skip it. Don't push.
-
-**If they have an existing format** (a template, past review notes you can reference): Match their style. Read a previous review note if one exists to understand the format before writing.
+Ask: "Want me to create a weekly review note in `04 Reviews/`?" If yes, create a dated note (Vietnamese) using the interview answers. Match any existing format. If no, skip.
 
 ---
 
@@ -155,9 +131,10 @@ After all files are updated, ask the user:
 
 | File | What changes |
 |------|-------------|
-| Root `CLAUDE.md` → Weekly Update | All five pulse fields + date |
-| Root `CLAUDE.md` → Goals & Progress | Only if numbers/plan/risks changed |
-| Root `CLAUDE.md` → Projects & Overviews | Status line + overview for changed projects |
-| `GOALS.md` | Any trackable items that changed (if file exists) |
-| Each project `CLAUDE.md` → Current Status | Status + date + what happened |
-| Weekly review note | Optional — user's choice and format |
+| Brain `CLAUDE.md` (cwd) → Weekly Update | All five pulse fields + date |
+| Brain `CLAUDE.md` (cwd) → Goals (summary) | Only if it changed |
+| Brain `CLAUDE.md` (cwd) → Projects & Overviews | Status line for changed sub-projects |
+| Brain `GOALS.md` | Any trackable items that changed (Vietnamese) |
+| Each sub-project `CLAUDE.md` → Current Status | Status + date + what happened |
+| Weekly review note (`04 Reviews/`) | Optional — user's choice, Vietnamese |
+| Vault-root base `CLAUDE.md` | NEVER — it is shared framework |

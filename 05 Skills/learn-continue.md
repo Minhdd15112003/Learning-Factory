@@ -15,11 +15,11 @@ Determine the scope directory before reading any files.
 
 | Invocation | Scope directory |
 |---|---|
-| `/learn-continue` (no arg) | `.` (vault root — general GCP study) |
-| `/learn-continue learn-terraform-gcp` | `03 Projects/learn-terraform-gcp/` |
+| `/learn-continue` (no arg) | `.` — the CURRENT brain (your cwd, e.g. `GCP/`), studied at the brain level |
+| `/learn-continue learn-terraform-gcp` | `03 Projects/learn-terraform-gcp/` (relative to the current brain) |
 | `/learn-continue [any-name]` | `03 Projects/[any-name]/` |
 
-Rule: never hardcode a project name. The pattern `03 Projects/[arg]/` maps to any sub-project that exists on disk. If the arg does not match a real directory, ask the user to confirm the name before proceeding.
+Notes: the vault root is NEVER a scope — it holds only shared framework, with no `01 Journals/` or `04 Reviews/`. With no arg, scope = cwd (the brain Claude was launched in). Never hardcode a project name; `03 Projects/[arg]/` maps to any sub-project on disk. If the arg matches no real directory, ask the user to confirm the name before proceeding.
 
 ---
 
@@ -27,7 +27,7 @@ Rule: never hardcode a project name. The pattern `03 Projects/[arg]/` maps to an
 
 Using Read/Bash tools, load exactly these three sources from the resolved scope directory. Do NOT mention to the user what you are reading — silence is the rule (Learning Mode Rule 8: no passive reporting).
 
-1. **Scope CLAUDE.md** — read the *Current Status* / *Goals* section to know where the learner is in the syllabus and any project-specific rules that override vault-level rules (Project Inheritance protocol).
+1. **Scope CLAUDE.md** — read it ONLY for factual state: the *Current Status* / *Goals* section, to know where the learner is in the syllabus. Do NOT re-apply its rules manually — the base, brain, and sub-project constitutions are already merged automatically on launch (parent-walk). You read this for data, not for rules.
 2. **Newest file in `01 Journals/`** — this is last session's log. It carries the last concept covered, the Feynman check result, and any open questions or gaps the user surfaced.
 3. **`04 Reviews/Reasoning-Gaps.md`** — the misconception log. It records concepts that did not reach `Understood` and any manually flagged gaps.
 
@@ -56,7 +56,7 @@ If the last session log is empty or absent, open with a general diagnostic on th
 After the baseline assessment, scan all reviewable theory notes in the scope for overdue items. A note is due when `sr-due <= <today>`, where `<today>` is the actual current date resolved at runtime (never a hardcoded literal). Compare dates in ISO `YYYY-MM-DD` form.
 
 Process:
-1. Collect all due notes, sort oldest-due first.
+1. Collect all due notes, sort oldest-due first. Scan target: `<scope>/01 Ly thuyet/**/*.md`, and — if the scope is a brain — also `<scope>/00 Notes/**/*.md`. Read each note's frontmatter `sr-due` and `status`. Do not scan outside the scope directory.
 2. Cap the session at 3 review items. If more than 3 are due, take the 3 with the earliest `sr-due` and defer the rest to the next session (do not silently drop them — their `sr-due` is not changed by the deferral; they remain due).
 3. For each selected item, run a full Socratic test:
    - Ask a mechanism question with no hints.

@@ -71,6 +71,6 @@ Tiến độ được đo qua Knowledge State của từng khái niệm, không 
 | `Understood` | Pass Feynman check — giải thích được cơ chế | Trả lời đúng câu "Tại sao / Nó làm thế nào?" |
 | `Mastered` | Ôn đúng 3 lần liên tiếp không trượt | 3 lần review liên tiếp đạt Easy/Good |
 
-Lịch ôn tập được quản lý tự động qua [[Spaced Repetition]] plugin trong Obsidian. Trạng thái từng note được ghi trong frontmatter `status:` và theo dõi gap trong `04 Reviews/Reasoning-Gaps.md`.
+Lịch ôn tập được quản lý tự động qua [[Spaced Repetition]] plugin trong Obsidian. Trạng thái từng note được ghi trong frontmatter `status:` và theo dõi gap trong `GCP/04 Reviews/Reasoning-Gaps.md`.
 
 Mốc thực sự có ý nghĩa: khi toàn bộ các khái niệm cốt lõi của một Stage đạt `Understood` trở lên, mới coi Stage đó hoàn thành.

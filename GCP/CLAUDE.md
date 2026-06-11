@@ -1,6 +1,6 @@
 # GCP — Brain Constitution
 
-> Inherits the shared framework from `../CLAUDE.md` (auto-merged on launch). This file holds only GCP-specific identity, goals, structure, and projects. For the Learning Mode Contract, Knowledge Model, Spaced Repetition, Language Conventions, and Operational Protocols, see the base constitution.
+> Inherits the shared framework from the vault-root base `CLAUDE.md` (auto-merged on launch via parent-walk; no manual read needed). This file holds only GCP-specific identity, goals, structure, and projects. For the Learning Mode Contract, Knowledge Model, Spaced Repetition, Language Conventions, and Operational Protocols, see the base constitution.
 
 ---
 

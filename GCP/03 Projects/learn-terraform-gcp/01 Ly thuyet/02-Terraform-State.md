@@ -60,7 +60,7 @@ Terraform đọc State, thấy trống rỗng (không có resource nào), nên n
 
 Đây là misconception phổ biến: Terraform không dựa vào GCP để kiểm tra hiện trạng. Nó tin tưởng State hơn. Nếu State nói "chưa có", Terraform tin ngay.
 
-**Cách cứu:** Lệnh `[[terraform import]]`
+**Cách cứu:** Lệnh `terraform import`
 
 ```bash
 terraform import google_storage_bucket.my_bucket ten-bucket-thuc-te-tren-gcs

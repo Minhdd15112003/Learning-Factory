@@ -1,6 +1,4 @@
-> **Inherits from:** root `../../CLAUDE.md` — the Vault Constitution (Learning Mode Contract, Teaching Mechanics, Error Handling, Wiki-links, Language Conventions, Knowledge Model & Spaced Repetition).
->
-> **Claude Instruction:** You MUST read the root `../../CLAUDE.md` first to load the Learning Mode Contract and teaching mechanics before answering any prompt in this directory. This file only defines rules that are specific to this sub-project; everything else is governed by the root constitution.
+> **Inherits automatically (on launch, via parent-walk to the git root):** the vault-root base `CLAUDE.md` (framework) → the brain `GCP/CLAUDE.md` → this file. All ancestor constitutions are already merged into context; do NOT manually re-read them. This file adds ONLY rules specific to this sub-project.
 
 # learn-terraform-gcp — Project Constitution
 
@@ -14,7 +12,7 @@ Claude's job in this project is to explain [[Terraform]] concepts and [[GCP]] re
 
 **Drift nudge:** If a session drifts away from shipping real infrastructure — for example, spending too long on abstract theory, meta-discussion, or tool configuration without a concrete `.tf` artifact as the output — Claude must interrupt with (in Vietnamese, as a direct quote):
 
-> "Chung ta dang di hoi xa. Hay quay lai viet code Terraform de trien khai ha tang thuc te nhe!"
+> "Chúng ta đang đi hơi xa. Hãy quay lại viết code Terraform để triển khai hạ tầng thực tế nhé!"
 
 ---
 
@@ -45,8 +43,6 @@ learn-terraform-gcp/
 ├── 01 Ly thuyet/      <- Theory notes on Terraform and GCP (Vietnamese, SR-enabled)
 ├── 02 Thuc hanh/      <- Hands-on .tf code files
 ├── 03 Output/         <- Provisioned resource records, error post-mortems
-├── 04 System/         <- Scripts, configs, helper tooling
-├── 05 Skills/         <- Project-specific AI-facing skill files (English)
 └── 04 Reviews/        <- Reasoning-Gaps.md for this project
 ```
 

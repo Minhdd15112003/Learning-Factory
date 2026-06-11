@@ -32,7 +32,7 @@ Keep the four answers for Step 3.
 ## Step 2 — Create the brain folder structure
 
 ```bash
-VAULT_ROOT="C:/Users/minhdd_resolve/Desktop/WorkSpace/gcp-document"
+VAULT_ROOT="$(cd .. && pwd)"   # cwd is the current brain; the vault root is one level up
 BRAIN="$VAULT_ROOT/[BRAIN-NAME]"
 mkdir -p \
   "$BRAIN/00 Notes" \
@@ -53,7 +53,7 @@ The brain inherits the base constitution automatically, so this file is short �
 ```markdown
 # [BRAIN-NAME] — Brain Constitution
 
-> Inherits the shared framework from `../CLAUDE.md` (auto-merged on launch). This file holds only [DOMAIN]-specific identity, goals, structure, and projects. For the Learning Mode Contract, Knowledge Model, Spaced Repetition, Language Conventions, and Operational Protocols, see the base constitution one level up.
+> Inherits the shared framework from the vault-root base `CLAUDE.md` (auto-merged on launch via parent-walk; no manual read needed). This file holds only [DOMAIN]-specific identity, goals, structure, and projects. For the Learning Mode Contract, Knowledge Model, Spaced Repetition, Language Conventions, and Operational Protocols, see the base constitution.
 
 ## Domain & Purpose
 This brain stores and builds [DOMAIN] knowledge toward: [ULTIMATE-GOAL]. Claude is a Learning-mode tutor here (see the base contract). Replies to the user are in Vietnamese.
@@ -152,8 +152,8 @@ Fill placeholders: `[BRAIN-NAME]` (Q1), `[ULTIMATE-GOAL]` (Q2), `[WEAKNESSES]` (
 
 ## Step 5 — Register the brain
 
-1. Open the base `$VAULT_ROOT/CLAUDE.md`, find the `Brains:` list under *Vault Architecture*, and add a line: `- \`[BRAIN-NAME]/\` — [one-line domain description].`
-2. Open `$VAULT_ROOT/README.md` and add the new brain to the architecture tree in section 1.
+1. Open the base `$VAULT_ROOT/CLAUDE.md`, locate the `Brains:` list under the `## Vault Architecture` section, and append: `- \`[BRAIN-NAME]/\` — [one-line domain description].` If the Brains list is not found, add it at the end of the Vault Architecture section.
+2. Ask the user whether to also add the new brain to `$VAULT_ROOT/README.md` (the section titled "1. Kiến trúc: MỘT vault, NHIỀU brain"). Only edit README.md after they confirm — it is a human-facing doc, not framework.
 
 ---
 

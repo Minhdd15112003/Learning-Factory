@@ -58,7 +58,8 @@ Phỏng vấn 4 câu, rồi tạo một **thư mục brain mới** cùng cấp v
 |---|---|
 | `CLAUDE.md`, `05 Skills/*` | Tiếng Anh (cho AI hiểu chính xác) |
 | Câu trả lời chat | Tiếng Việt |
-| Note lý thuyết, Session Log, `GOALS.md`, weekly review | Tiếng Việt (bạn đọc lại để ôn) |
+| Note lý thuyết, Session Log, `GOALS.md` | Tiếng Việt (bạn đọc lại để ôn) |
+| Weekly review (`04 Reviews/`) | Tiếng Việt |
 | `Reasoning-Gaps.md` | Mô tả tiếng Việt + cấu trúc tiếng Anh |
 | `COMMANDS.md` | Lệnh tiếng Anh + giải thích tiếng Việt |
 
@@ -82,11 +83,14 @@ Lịch ôn do **plugin Obsidian Spaced Repetition** giữ (frontmatter `sr-due /
 ## 5. Start Guide
 
 1. Mở Obsidian, mở vault ở thư mục `gcp-document/`. Bật plugin **Spaced Repetition** (nếu chưa) rồi reload.
-2. Mở terminal trong brain muốn học, ví dụ:
-   ```
-   cd "C:\Users\minhdd_resolve\Desktop\WorkSpace\gcp-document\GCP"
-   claude
-   ```
+2. Chạy Claude theo MỘT trong hai cách:
+   - **CLI (ổn định):** mở terminal trong brain muốn học rồi chạy `claude`:
+     ```
+     cd "C:\Users\minhdd_resolve\Desktop\WorkSpace\gcp-document\GCP"
+     claude
+     ```
+   - **Plugin Claudian (trong Obsidian):** chạy Claude ngay trong Obsidian. Lưu ý: plugin lấy *gốc vault* (`gcp-document/`) làm working directory, nên cần trỏ đúng vào folder brain — đang được cấu hình.
+   Dù chạy cách nào, ngữ cảnh làm việc phải là folder brain để skill-path (`01 Journals/`, `04 Reviews/`...) và kế thừa CLAUDE.md hoạt động đúng.
 3. Gõ `/learn-continue` để bắt đầu.
 
 ---

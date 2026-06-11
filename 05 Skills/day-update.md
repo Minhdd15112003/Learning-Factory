@@ -1,6 +1,6 @@
 # Skill: day-update
 
-**Trigger:** user types `/day-update`, or says "ket thuc buoi hoc" / "tong ket hom nay".
+**Trigger:** user types `/day-update`, or says "kết thúc buổi học" / "tổng kết hôm nay".
 
 **Purpose:** End-of-session close. Summarize incremental checkpoints, run a Feynman interview to grade understanding, update the SR schedule in every affected theory note, and append all of this to the session log before closing.
 
@@ -8,10 +8,10 @@
 
 ## Step 1 — Determine scope
 
-Identify which project (or vault root) the session belongs to:
+Identify which scope the session belongs to — a sub-project, or the brain directly. The vault root is never a study scope.
 - Check the conversation context for a project path (e.g., `03 Projects/learn-terraform-gcp/`).
-- If ambiguous, ask: "Which project was today's session under, or was it root GCP?"
-- Read that project's `CLAUDE.md` (if a sub-project) to load project-specific rules before proceeding.
+- If ambiguous, ask: "Which scope was today's session under — a sub-project (e.g. learn-terraform-gcp) or the brain directly?"
+- If it was a sub-project, note its path. Do NOT manually re-read its `CLAUDE.md` to "load rules" — the constitutions are already merged on launch; consult it only for Current Status / project-specific context if needed.
 
 ---
 
@@ -96,7 +96,7 @@ For every concept reviewed or newly encountered today:
 ## Step 6 — Close the session
 
 1. Append the user's Feynman answers (verbatim or close paraphrase with clear attribution) to the session log under a `## Feynman Check` section.
-2. Update the **Current Status** line in the relevant `CLAUDE.md` to reflect today's endpoint (last concept covered, last practice step completed).
+2. Update the **Current Status** line in the SCOPE `CLAUDE.md` — the sub-project's `CLAUDE.md` if the session was a sub-project, otherwise the brain's `CLAUDE.md`. NEVER edit the vault-root base `CLAUDE.md` (it has no Current Status and is shared framework).
 3. Update each affected note's schedule silently — no enumerated dump to the user (Learning Mode Rule 8). At most name, in one forward-framed line, the next concept that will come due: e.g. "Lần tới [[Terraform State]] sẽ đến hạn ôn."
 4. Close with a brief Vietnamese confirmation that the session is saved (e.g. "Đã lưu log và cập nhật lịch ôn."), then end on a forward-looking question or teaser for next session — never a passive recap.
 
