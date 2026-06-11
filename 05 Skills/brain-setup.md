@@ -32,7 +32,9 @@ Keep the four answers for Step 3.
 ## Step 2 — Create the brain folder structure
 
 ```bash
-VAULT_ROOT="$(cd .. && pwd)"   # cwd is the current brain; the vault root is one level up
+# Resolve vault root whether cwd is a brain (CLI) or the vault root itself (Claudian plugin).
+# A brain contains "01 Journals/"; the vault root does not.
+if [ -d "01 Journals" ]; then VAULT_ROOT="$(cd .. && pwd)"; else VAULT_ROOT="$(pwd)"; fi
 BRAIN="$VAULT_ROOT/[BRAIN-NAME]"
 mkdir -p \
   "$BRAIN/00 Notes" \

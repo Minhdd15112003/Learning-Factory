@@ -6,6 +6,8 @@ Create a new sub-project inside the CURRENT brain's `03 Projects/` by interviewi
 
 **CLAUDE.md inheritance is three levels:** base (`<vault-root>/CLAUDE.md`) → brain (`<brain>/CLAUDE.md`) → this sub-project's `CLAUDE.md`. All ancestors merge automatically when Claude is launched in the sub-project directory (parent-walk to the git root). Do NOT instruct Claude to manually re-read parent constitutions.
 
+**Launch context:** this skill assumes cwd = the brain. If you were launched at the vault root (Claudian plugin — cwd has no `01 Journals/`), first ask which brain, set `BRAIN` to it, and prefix every `mkdir`/path below with `<brain>/` (e.g. `<brain>/03 Projects/PROJECT/...`).
+
 ## How It Works
 
 1. Interview the user one question at a time (up to 6 questions)

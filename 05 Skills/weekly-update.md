@@ -2,7 +2,7 @@
 
 Interview the user to refresh the context files of the CURRENT brain: its `CLAUDE.md` (Weekly Update, Goals summary, Projects & Overviews), its `GOALS.md`, and each sub-project's `CLAUDE.md`. Keeps the brain's context current so Claude always has accurate state.
 
-**Scope (Option A):** Run this from INSIDE a brain (cwd = the brain, e.g. `GCP/`). The file you update is the BRAIN's `CLAUDE.md` (`./CLAUDE.md`) — NOT the vault-root base `CLAUDE.md`. The base is shared framework and must NEVER receive user-progress data. If the user has multiple brains, run weekly-update from each brain separately (or enumerate them with `ls -d <vault-root>/*/` and repeat per brain).
+**Scope (Option A):** Run this from INSIDE a brain (cwd = the brain, e.g. `GCP/`). The file you update is the BRAIN's `CLAUDE.md` (`./CLAUDE.md`) — NOT the vault-root base `CLAUDE.md`. The base is shared framework and must NEVER receive user-progress data. If the user has multiple brains, run weekly-update from each brain separately (or enumerate them with `ls -d <vault-root>/*/` and repeat per brain). If launched at the vault root (Claudian plugin — cwd has no `01 Journals/`), first ask which brain and treat every `./` path below as `<brain>/`.
 
 ## When to Use
 

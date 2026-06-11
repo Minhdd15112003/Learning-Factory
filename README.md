@@ -2,6 +2,8 @@
 
 > **Mục đích:** Biến Claude từ một cái máy trả lời câu hỏi thành một **gia sư cá nhân** có trí nhớ dài hạn, phương pháp dạy học khoa học, và kỷ luật thép.
 
+> **Cài đặt (clone về máy mới):** xem `SETUP.md` — hướng dẫn viết cho một AI agent tự cài. Lưu ý quan trọng: `.obsidian/` không nằm trong git, nên người tải về phải cài lại plugin (Spaced Repetition; Claudian là tùy chọn). `SETUP.md` xử lý việc đó cùng việc chỉnh đường dẫn và chọn giữ/đặt lại nội dung.
+
 ---
 
 ## 1. Kiến trúc: MỘT vault, NHIỀU "brain"
