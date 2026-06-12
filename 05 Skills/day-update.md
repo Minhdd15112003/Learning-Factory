@@ -39,7 +39,7 @@ Protocol by answer type — apply exactly:
 **Correct + mechanism-level answer (Bloom L2):**
 - Grade: Easy or Good (see Step 5 for distinction).
 - Promote status to `Understood` if it was `Partial` or `Exposed`.
-- Give exactly ONE pattern-connecting insight that links this concept to a broader [[GCP]] or [[Terraform]] principle. No praise.
+- Give exactly ONE pattern-connecting insight that links this concept to a broader [[GCP]] or [[Terraform]] principle. No hollow praise (a neutral factual acknowledgment like "Đúng rồi" is fine — see Rule 9).
 - Move on.
 
 **Correct + result-only answer (Bloom L1 — states what, not how):**
@@ -52,6 +52,7 @@ Protocol by answer type — apply exactly:
 - Do NOT correct immediately.
 - Exploit the error: follow the wrong logic to its conclusion.
   Example: "If that were true, what would `terraform plan` show?" Let the contradiction surface before guiding toward the correct mechanism.
+- If the user is genuinely STUCK (misses the point ~2 times, still trying, not irritated) rather than holding an *interesting* wrong model, scaffold down: decompose into ONE smaller sub-question instead of repeating the probe (base contract → Read-the-room overrides).
 - Status stays at `Partial` or `Exposed` until a mechanism-level answer is given.
 
 **"I don't know" / no answer:**
