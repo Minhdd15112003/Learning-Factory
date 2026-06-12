@@ -4,6 +4,20 @@
   "title": "learn-continue GCP",
   "titleGenerationStatus": "failed",
   "createdAt": 1781251243288,
-  "updatedAt": 1781251244541,
-  "sessionId": null
+  "updatedAt": 1781252026578,
+  "lastResponseAt": 1781251285469,
+  "sessionId": "dcba13f5-7db5-4dc3-a419-0e435e2b79e0",
+  "providerState": {
+    "providerSessionId": "dcba13f5-7db5-4dc3-a419-0e435e2b79e0"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 19113,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 15488,
+    "contextWindow": 200000,
+    "contextTokens": 34601,
+    "percentage": 17,
+    "contextWindowIsAuthoritative": true
+  }
 }

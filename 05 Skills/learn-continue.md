@@ -15,15 +15,17 @@ Determine the scope directory before reading any files.
 
 **Launch context — check cwd first:**
 - If cwd contains `01 Journals/` and `04 Reviews/`, cwd IS a brain (CLI launch). Resolve scope from the table below with paths relative to cwd.
-- If cwd is the vault root (it has brain folders like `GCP/` but no `01 Journals/` — the Claudian plugin always launches here), you MUST identify the brain: the first arg names it (`/learn-continue GCP`), otherwise ask which brain. Then prefix every path in the steps below with `<brain>/`, and in Step 2 READ `<brain>/CLAUDE.md` to load the brain's rules (from the vault root they are NOT auto-merged). A sub-project is then `<brain>/03 Projects/<name>/`.
+- If cwd is the vault root (it has brain folders like `GCP/` but no `01 Journals/` — the Claudian plugin always launches here), you MUST identify the brain: the first arg names it (`/learn-continue GCP`), otherwise ask which brain. Then prefix every path in the steps below with `<brain>/`, and in Step 2 READ `<brain>/CLAUDE.md` to load the brain's rules (from the vault root they are NOT auto-merged). At the vault root a SINGLE arg ALWAYS names a brain (→ brain-level scope). To study a sub-project from the vault root, pass TWO args — `/learn-continue <brain> <sub-project>` — which sets scope = `<brain>/03 Projects/<sub-project>/`.
 
 | Invocation | Scope directory |
 |---|---|
 | `/learn-continue` (no arg) | `.` — the CURRENT brain (your cwd, e.g. `GCP/`), studied at the brain level |
-| `/learn-continue learn-terraform-gcp` | `03 Projects/learn-terraform-gcp/` (relative to the current brain) |
-| `/learn-continue [any-name]` | `03 Projects/[any-name]/` |
+| `/learn-continue learn-terraform-gcp` (CLI, cwd = brain) | `03 Projects/learn-terraform-gcp/` (relative to the current brain) |
+| `/learn-continue [any-name]` (CLI, cwd = brain) | `03 Projects/[any-name]/` |
+| `/learn-continue <brain>` (vault root) | `<brain>/` — that brain, studied at the brain level |
+| `/learn-continue <brain> <sub-project>` (vault root) | `<brain>/03 Projects/<sub-project>/` |
 
-Notes: the vault root is NEVER a scope — it holds only shared framework, with no `01 Journals/` or `04 Reviews/`. With no arg, scope = cwd (the brain Claude was launched in). Never hardcode a project name; `03 Projects/[arg]/` maps to any sub-project on disk. If the arg matches no real directory, ask the user to confirm the name before proceeding.
+Notes: the vault root is NEVER a scope — it holds only shared framework, with no `01 Journals/` or `04 Reviews/`. With no arg, scope = cwd (the brain Claude was launched in). Never hardcode a project name; `03 Projects/[arg]/` maps to any sub-project on disk. If the arg matches no real directory, ask the user to confirm the name before proceeding. **A brain-level scope EXCLUDES its own `03 Projects/*` sub-projects** — those are separate scopes, reviewed only when named as the sub-project arg. Studying a brain never reads or grades a sub-project's notes, and vice versa (base constitution: "Review scope is ONE unit").
 
 ---
 
@@ -60,7 +62,19 @@ If the last session log is empty or absent, open with a general diagnostic on th
 After the baseline assessment, scan all reviewable theory notes in the scope for overdue items. A note is due when `sr-due <= <today>`, where `<today>` is the actual current date resolved at runtime (never a hardcoded literal). Compare dates in ISO `YYYY-MM-DD` form.
 
 Process:
-1. Collect all due notes, sort oldest-due first. Scan target: `<scope>/01 Ly thuyet/**/*.md`, and — if the scope is a brain — also `<scope>/00 Notes/**/*.md`. Read each note's frontmatter `sr-due` and `status`. Do not scan outside the scope directory.
+1. Collect all due notes, sort oldest-due first.
+
+   **Scope-bounded scan (STRICT — never a recursive grep over the whole scope directory):**
+   - Scope is a **sub-project** (a sub-project arg was given): scan ONLY `<scope>/01 Ly thuyet/**/*.md`.
+   - Scope is a **brain** (no sub-project arg): scan ONLY `<scope>/01 Ly thuyet/**/*.md` and `<scope>/00 Notes/**/*.md`. **NEVER descend into `<scope>/03 Projects/`** — sub-project theory notes belong to their own scope and must not be pulled into a brain-level review. (This is exactly the boundary that gets violated when a brain-level run leaks a sub-project's note.)
+   - Glob those explicit directories only. Do NOT fall back to `grep -r sr-due <scope>/` or any recursive command over the full scope directory — that is precisely what crosses the boundary into `03 Projects/`.
+
+   Read each found note's frontmatter `sr-due` and `status`.
+
+   **Zero due (or zero notes) in scope** — if the scoped scan finds no note with `sr-due <= today`:
+   - State briefly (Vietnamese) that nothing is due at this level today. Do NOT widen the search to another scope to find something to test.
+   - If the scope is a brain and `<scope>/03 Projects/` holds sub-projects, name them and tell the user how to study one directly: from the Claudian plugin (cwd = vault root) → `/learn-continue <brain> <sub-project>`; from a CLI session inside the brain → `/learn-continue <sub-project>`.
+   - If the brain ALSO has no theory material of its own (no `<scope>/01 Ly thuyet/`, empty `00 Notes/`, and no syllabus / current-concept in its `CLAUDE.md` or session log), do NOT manufacture new brain-level content in Step 5 — close by directing the user to the sub-project. Otherwise (the brain has its own material), skip the due-review block and proceed to Step 5.
 2. Cap the session at 3 review items. If more than 3 are due, take the 3 with the earliest `sr-due` and defer the rest to the next session (do not silently drop them — their `sr-due` is not changed by the deferral; they remain due).
 3. For each selected item, run a full Socratic test:
    - Ask a mechanism question with no hints.

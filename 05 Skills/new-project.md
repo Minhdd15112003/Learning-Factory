@@ -191,8 +191,8 @@ _Chưa có lệnh riêng cho project._
 
 | Skill | Giải thích |
 |---|---|
-| `/learn-continue` | Bắt đầu buổi học: nạp context, kiểm tra note đến hạn ôn (sr-due), chạy Socratic review, mở bài mới. |
-| `/day-update` | Kết thúc buổi học: phỏng vấn Feynman, cập nhật lịch ôn (SR), ghi Session Log. |
+| `/learn-continue PROJECT` | Học ĐÚNG sub-project này: nạp context, kiểm tra note đến hạn ôn (sr-due), chạy Socratic review, mở bài mới. **Phải nêu tên sub-project** — từ Claudian (cwd = vault root) dùng `/learn-continue BRAIN PROJECT`. Chạy `/learn-continue` không kèm tên ở cấp brain CHỈ ôn note của brain, KHÔNG đụng tới note của sub-project này (mỗi scope tách biệt). |
+| `/day-update` | Kết thúc buổi học: phỏng vấn Feynman, cập nhật lịch ôn (SR), ghi Session Log — ghi vào đúng scope của buổi học. |
 ```
 
 ### Step 5: Register the project in the BRAIN's `CLAUDE.md`

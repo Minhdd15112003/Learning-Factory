@@ -62,7 +62,7 @@ Record the user's ACTUAL words in the log (Step 6). Never fabricate or paraphras
 ## Step 4 — Update Reasoning-Gaps
 
 1. If a new misconception surfaced today, append it to `04 Reviews/Reasoning-Gaps.md` in Vietnamese (gap description) under the English section header `## Active Gaps`.
-2. If a gap is significant (recurring, foundational, or likely to block future concepts), PROMOTE it: Claude writes a full theory note in Vietnamese in the relevant `01 Ly thuyet/` directory, with SR frontmatter (interval=1, ease=250, sr-due=today+1). Do NOT ask the user to write this note.
+2. If a gap is significant (recurring, foundational, or likely to block future concepts), PROMOTE it: Claude writes a full theory note in Vietnamese in `<scope>/01 Ly thuyet/` — where `<scope>` is the scope resolved in Step 1 (the brain root, OR the sub-project root). A note's location follows the session scope; never write a brain-level note into a sub-project's `01 Ly thuyet/`, or vice versa. If `<scope>/01 Ly thuyet/` does not exist on disk, create it first. Use SR frontmatter (interval=1, ease=250, sr-due=today+1). Do NOT ask the user to write this note.
 3. If a gap was resolved today (user passed the mechanism check), move it from `## Active Gaps` to `## Resolved Gaps` with today's date.
 
 ---
@@ -83,21 +83,21 @@ For every concept reviewed or newly encountered today:
    - Brand-new note (first scheduling): `interval = 1`, `ease = 250`.
    - Then: `sr-due = today + interval` days.
 
-3. Open each affected theory note and update its frontmatter (`status`, `sr-due`, `sr-interval`, `sr-ease`). Claude does this directly; do not ask the user to do it.
+3. Open each affected theory note and update its frontmatter (`status`, `sr-due`, `sr-interval`, `sr-ease`). Locate each note by globbing within `<scope>/01 Ly thuyet/` ONLY (the scope resolved in Step 1) — never search the vault by concept name and update whatever `.md` turns up, as that can write SR fields into an out-of-scope note (e.g. a sub-project note during a brain-level session). If the concept has no note within the scope directory, create one there (Step 5) rather than updating a file in another scope. Claude does this directly; do not ask the user to do it.
 
 4. Apply the status transition implied by the grade (Knowledge Model in `CLAUDE.md`):
    - Mechanism-level pass → promote `Exposed`/`Partial` to `Understood`.
    - `Hard` (shallow / wrong / "I don't know") on a note already at `Understood` → downgrade to `Partial`.
    - Three consecutive Easy/Good reviews on the same note (count the streak from prior session logs, not internal memory) → promote `Understood` to `Mastered`. Any `Hard` resets the streak to zero.
 
-5. For brand-new concepts that do not yet have a theory note, write one now (Vietnamese, in `01 Ly thuyet/` or the project equivalent), with the full SR frontmatter block.
+5. For brand-new concepts that do not yet have a theory note, write one now in Vietnamese at `<scope>/01 Ly thuyet/<ConceptName>.md` — always the scope-root `01 Ly thuyet/` resolved in Step 1, never a different brain or sub-project directory. If that directory does not yet exist on disk, create it first. Include the full SR frontmatter block.
 
 ---
 
 ## Step 6 — Close the session
 
 1. Append the user's Feynman answers (verbatim or close paraphrase with clear attribution) to the session log under a `## Feynman Check` section.
-2. Update the **Current Status** line in the SCOPE `CLAUDE.md` — the sub-project's `CLAUDE.md` if the session was a sub-project, otherwise the brain's `CLAUDE.md`. NEVER edit the vault-root base `CLAUDE.md` (it has no Current Status and is shared framework).
+2. Update the **Current Status** line in the SCOPE `CLAUDE.md` — the scope resolved in Step 1, regardless of which notes were touched mid-session: the sub-project's `CLAUDE.md` if the session was a sub-project, otherwise the brain's `CLAUDE.md`. NEVER edit the vault-root base `CLAUDE.md` (it has no Current Status and is shared framework). If the resolved scope's `CLAUDE.md` has no Current Status section to write to (some brain constitutions only carry a Weekly Update / Projects block), record the status line in today's session log instead — do not invent a section or write it into a different scope's file.
 3. Update each affected note's schedule silently — no enumerated dump to the user (Learning Mode Rule 8). At most name, in one forward-framed line, the next concept that will come due: e.g. "Lần tới [[Terraform State]] sẽ đến hạn ôn."
 4. Close with a brief Vietnamese confirmation that the session is saved (e.g. "Đã lưu log và cập nhật lịch ôn."), then end on a forward-looking question or teaser for next session — never a passive recap.
 

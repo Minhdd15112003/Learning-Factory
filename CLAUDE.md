@@ -83,6 +83,8 @@ sr-ease: 250                # ease factor (base 250, min 130)
 
 Self-rating (clicking Easy/Good/Hard in the plugin) is deliberately NOT used — self-assessment reinforces the illusion of mastery. Claude assigns the grade from the Feynman result.
 
+**Review scope is ONE unit — a brain XOR a sub-project, never both at once.** A brain-level study/review session (no sub-project named) scans and grades `sr-due` ONLY in that brain's own `01 Ly thuyet/` and `00 Notes/`; it must NEVER descend into the brain's `03 Projects/*` sub-projects. A sub-project's notes are reviewed only when that sub-project is the named scope. The same boundary governs writes (`/day-update`): SR-schedule updates and new theory notes land in the scope the session was run under — never in a sibling, parent, or child scope. Never satisfy a "find due notes" scan with a recursive `grep -r sr-due` over a whole brain directory: that crosses the boundary (it pulls a sub-project's notes into a brain-level session). Glob the explicit scope directories instead. If the scoped scan finds nothing due, say so and point at the sub-project — do not borrow another scope's notes to fill the gap.
+
 A brain's `04 Reviews/Reasoning-Gaps.md` is a **misconception log**, not a scheduler: it records gaps in Vietnamese. A significant gap is promoted into a real theory note (Claude writes it) so it enters the SR schedule.
 
 ---
