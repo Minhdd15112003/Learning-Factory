@@ -1,0 +1,22 @@
+{
+  "id": "conv-1781252654683-p1vf17c8k",
+  "providerId": "claude",
+  "title": "Continue GCP certification study",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781252654684,
+  "updatedAt": 1781252670650,
+  "lastResponseAt": 1781252655899,
+  "sessionId": "1ca44730-f6ad-4840-b724-1dd93675e6f4",
+  "providerState": {
+    "providerSessionId": "1ca44730-f6ad-4840-b724-1dd93675e6f4"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 0,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 0,
+    "percentage": 0
+  }
+}
