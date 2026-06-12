@@ -78,7 +78,8 @@ Process:
    Read each found note's frontmatter `sr-due` and `status`.
 
    **Zero due (or zero notes) in scope** — if the scoped scan finds no note with `sr-due <= today`:
-   - State briefly (Vietnamese) that nothing is due at this level today. Do NOT widen the search to another scope to find something to test.
+   - If the scope is a SUB-PROJECT: proceed directly to Step 5 teaching with NO "nothing due" message (per the Sub-project zero-due handler above). The remaining bullets in this block apply to a BRAIN scope only.
+   - If the scope is a BRAIN: state briefly (Vietnamese) that nothing is due at this level today. Do NOT widen the search to another scope to find something to test.
    - If the scope is a brain and `<scope>/03 Projects/` holds sub-projects, name them and tell the user how to study one directly: from the Claudian plugin (cwd = vault root) → `/learn-continue <brain> <sub-project>`; from a CLI session inside the brain → `/learn-continue <sub-project>`.
    - If the brain ALSO has no theory material of its own (no `<scope>/01 Ly thuyet/`, empty `00 Notes/`, and no syllabus / current-concept in its `CLAUDE.md` or session log), do NOT manufacture new brain-level content in Step 5 — close by directing the user to the sub-project. Otherwise (the brain has its own material), skip the due-review block and proceed to Step 5.
 2. Cap the session at 3 review items. If more than 3 are due, take the 3 with the earliest `sr-due` and defer the rest to the next session (do not silently drop them — their `sr-due` is not changed by the deferral; they remain due).
@@ -95,8 +96,10 @@ Process:
    - Hard: `ease = max(130, ease - 20)`; `interval = max(1, round(interval * 0.5))`
    - Then: `sr-due = today + interval`
 5. Update the note's `status:` field if the grade warrants it. **Write only to notes whose file paths fall within `<scope>/` — never to a note in the parent brain or a sibling sub-project.**
-   - Hard on an `Understood` note → downgrade to `Partial`.
+   - Easy or Good (mechanism-level pass) on a `Partial` or `Exposed` note → promote to `Understood`.
+   - Hard on an `Understood` note → downgrade to `Partial` (and reset its consecutive-correct streak to zero).
    - Three consecutive Easy/Good results on the same note → promote to `Mastered`. (Track "consecutive" from the session log, not from internal state.)
+6. **Persist each review immediately (do not wait for a checkpoint confirmation):** append a one-line entry to today's session log — format `[REVIEW] <note-name> — <grade> — <today>`. This trail (a) lets the consecutive-streak count survive a session that ends before `/day-update`, and (b) tells `/day-update` Step 5 which notes were already rescheduled this session, so it does not double-process them.
 
 **Skip enforcement:** Reviews are mandatory before new content. If the user tries to skip:
 - First: offer a 5-minute rapid pass (compressed Socratic, no deep probing — still produces a grade).
@@ -125,11 +128,12 @@ If the scope is a sub-project and the current teaching topic has a direct concep
 
 **How to surface it (in the chat response only — no file writes):** Mention the concept as a `[[wiki-link]]`, state in the chat response one sentence bridging it to the current topic, and optionally ask ONE light recall question.
 
-**CONSTRAINTS — all four must hold simultaneously:**
+**CONSTRAINTS — all five must hold simultaneously:**
 (a) Read the parent note for content only. Do NOT update its `sr-due`, `sr-interval`, `sr-ease`, or `status` fields under any circumstances.
 (b) Do NOT add the parent note to the due-review queue (Step 4). It is never a formally graded item.
-(c) The optional recall question is for passive enrichment only. Regardless of the quality of the user's answer, do NOT grade it, do NOT update any SR fields, and do NOT record it as a reviewed concept for `/day-update`.
-(d) Do NOT record the parent concept in the session log as a reviewed or newly-encountered concept. If you mention it in the session log at all, prefix the entry with `[DOWNHILL REF — no SR update]` so `/day-update` does not include it in the grading loop.
+(c) The optional recall question is for passive enrichment only. Regardless of the quality of the user's answer, do NOT grade it, do NOT update any SR fields, do NOT record it as a reviewed concept for `/day-update`, and do NOT follow up on the answer conversationally (no error-exploitation per Rule 6) — treat it as a closed enrichment exchange and pivot immediately back to the current sub-project's teaching thread.
+(d) ALWAYS append a `[DOWNHILL REF — no SR update]` entry to today's session log immediately when you surface the parent concept (do not wait for a checkpoint confirmation), and never record it as a reviewed or newly-encountered concept. This marker is what tells `/day-update` to exclude it from grading; without it, a cold-launched `/day-update` cannot tell the concept was a downhill reference.
+(e) The recall question, if asked, consumes the turn's ENTIRE one-question-per-turn budget (Rule 2). Do NOT also ask the Socratic teaching challenge in the same turn — the teaching challenge opens the NEXT turn, after the user replies.
 
 The uphill direction is forbidden: a brain-level session must never read, reference, scan, or test a sub-project's notes. Lateral reads (sibling sub-projects) are also forbidden.
 

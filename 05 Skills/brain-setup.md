@@ -18,6 +18,8 @@ Do NOT create a new `.obsidian`, `.claude`, `.claudian`, or `05 Skills` for the 
 
 ## Step 1 — Interview (Brain Identity)
 
+If `$ARGUMENTS` was provided to the command, treat its first token as the answer to Q1 (the brain name) and skip asking Q1 — still ask Q2–Q4.
+
 Ask ONE question at a time, in order, waiting for each answer:
 
 1. **Name:** "Brain mới tên là gì? Ví dụ: `Tieng-Anh`, `Learn-Golang`. Tên này thành tên thư mục."

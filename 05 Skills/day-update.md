@@ -9,8 +9,10 @@
 ## Step 1 — Determine scope
 
 Identify which scope the session belongs to — a sub-project, or the brain directly. The vault root is never a study scope.
-- Check the conversation context for a project path (e.g., `03 Projects/learn-terraform-gcp/`).
-- If ambiguous, ask: "Which scope was today's session under — a sub-project (e.g. learn-terraform-gcp) or the brain directly?"
+- If `$ARGUMENTS` was provided to the command (shown in the prompt body as `Raw arguments passed to the command:`), parse it as `<brain> [sub-project]` and use it as the scope candidate — treat it as if the user had stated this scope in conversation.
+- Otherwise check the conversation context for a project path (e.g., `03 Projects/learn-terraform-gcp/`). day-update normally runs right after `/learn-continue` in the same conversation, so the scope is usually already established there.
+- If cwd is the vault root and NO brain can be identified from args or context, resolve the BRAIN first — ask (in Vietnamese) which brain today's session was under, naming the brains that exist on disk — then resolve sub-project vs brain-directly. Never write SR fields or logs to a brain you have not confirmed.
+- If only the layer is ambiguous, ask: "Which scope was today's session under — a sub-project (e.g. learn-terraform-gcp) or the brain directly?"
 - If it was a sub-project, note its path. When launched inside the brain (CLI), do NOT manually re-read its `CLAUDE.md` to "load rules" — the constitutions are already merged on launch; consult it only for Current Status / project-specific context.
 - If cwd is the vault root (Claudian plugin launch), identify the brain, prefix all paths with `<brain>/`, and READ the brain's (and sub-project's) `CLAUDE.md` — from the vault root these are not auto-merged.
 
@@ -30,7 +32,7 @@ Do NOT narrate what was read. Go straight to the Feynman question.
 
 Ask 1-2 deep mechanism questions about the most important concept(s) from today. Questions must probe the HOW and WHY, never just the WHAT.
 
-**Scope filter:** Only interview concepts that belong to today's resolved scope (notes inside `<scope>/01 Ly thuyet/`, or `<scope>/00 Notes/` for a brain session). Skip any concept marked `[DOWNHILL REF — no SR update]` in the session log — those are read-only enrichments surfaced from a parent brain during a sub-project session and must not be graded or rescheduled here.
+**Scope filter:** Only interview concepts that belong to today's resolved scope (notes inside `<scope>/01 Ly thuyet/` for a sub-project session, or inside BOTH `<scope>/01 Ly thuyet/` and `<scope>/00 Notes/` for a brain session). Skip any concept marked `[DOWNHILL REF — no SR update]` in the session log — those are read-only enrichments surfaced from a parent brain during a sub-project session and must not be graded or rescheduled here.
 
 Protocol by answer type — apply exactly:
 
@@ -66,14 +68,16 @@ Record the user's ACTUAL words in the log (Step 6). Never fabricate or paraphras
 1. If a new misconception surfaced today, append it to `04 Reviews/Reasoning-Gaps.md` in Vietnamese (gap description) under the English section header `## Active Gaps`.
 2. If a gap is significant (recurring, foundational, or likely to block future concepts), PROMOTE it: Claude writes a full theory note in Vietnamese in `<scope>/01 Ly thuyet/` — where `<scope>` is the scope resolved in Step 1 (the brain root, OR the sub-project root). A note's location follows the session scope; never write a brain-level note into a sub-project's `01 Ly thuyet/`, or vice versa. If `<scope>/01 Ly thuyet/` does not exist on disk, create it first. Use SR frontmatter (interval=1, ease=250, sr-due=today+1). Do NOT ask the user to write this note.
 
-   **Downhill-reference gap exception:** If the gap involved a parent brain concept that was surfaced during teaching as a downhill enrichment reference (recognizable by a `[DOWNHILL REF — no SR update]` marker in the session log, or from the context of the session), do NOT create a new note for it in `<scope>/01 Ly thuyet/`. Instead, note it in `04 Reviews/Reasoning-Gaps.md` with a pointer to the parent note's location (e.g. `GCP/01 Ly thuyet/<ConceptName>.md`), and inform the user that they may want to revisit it in a brain-level session.
+   **Downhill-reference gap exception:** If the gap involved a parent brain concept that was surfaced during teaching as a downhill enrichment reference (recognizable by a `[DOWNHILL REF — no SR update]` marker in the session log, or from the context of the session), do NOT create a new note for it in `<scope>/01 Ly thuyet/`. Instead, note it in `04 Reviews/Reasoning-Gaps.md` with a pointer to the parent note's location (e.g. `GCP/01 Ly thuyet/<ConceptName>.md`), and inform the user that they may want to revisit it in a brain-level session. If NEITHER the `[DOWNHILL REF — no SR update]` marker NOR unambiguous session context confirms the concept is a downhill reference, do NOT create a new theory note for it — append to `04 Reviews/Reasoning-Gaps.md`: "Gap [concept] — scope unclear; confirm in next session before creating a note," rather than risk a cross-scope write.
 3. If a gap was resolved today (user passed the mechanism check), move it from `## Active Gaps` to `## Resolved Gaps` with today's date.
 
 ---
 
 ## Step 5 — Update SR schedule
 
-For every concept reviewed or newly encountered today:
+For every concept newly taught or encountered during TODAY'S TEACHING (and Feynman-tested in Step 3):
+
+> **No double-processing (disjoint ownership):** Notes that were Socratically reviewed and rescheduled during THIS session's `/learn-continue` Step 4 due-review already have their schedule set for this cycle — they are identifiable by their `[REVIEW] <note> — <grade>` entries in today's session log. Do NOT re-apply the SR formula or rewrite their frontmatter here; doing so compounds the interval twice in one day. `/learn-continue` owns the SR write for due-review notes; `/day-update` owns it for today's new concepts. The two sets must not overlap.
 
 1. Determine the Feynman grade:
    - **Easy:** correct + mechanism-level, answered quickly without hesitation.
@@ -87,7 +91,7 @@ For every concept reviewed or newly encountered today:
    - Brand-new note (first scheduling): `interval = 1`, `ease = 250`.
    - Then: `sr-due = today + interval` days.
 
-3. Open each affected theory note and update its frontmatter (`status`, `sr-due`, `sr-interval`, `sr-ease`). Locate each note by globbing within `<scope>/01 Ly thuyet/` ONLY (the scope resolved in Step 1) — never search the vault by concept name and update whatever `.md` turns up, as that can write SR fields into an out-of-scope note (e.g. a sub-project note during a brain-level session). If the concept has no note within the scope directory, create one there (Step 5) rather than updating a file in another scope. Claude does this directly; do not ask the user to do it.
+3. Open each affected theory note and update its frontmatter (`status`, `sr-due`, `sr-interval`, `sr-ease`). Locate each note by globbing within `<scope>/01 Ly thuyet/` (sub-project sessions), or within BOTH `<scope>/01 Ly thuyet/` and `<scope>/00 Notes/` (brain sessions) — the scope resolved in Step 1. Use only these explicit directories; never search the vault by concept name and update whatever `.md` turns up, as that can write SR fields into an out-of-scope note (e.g. a sub-project note during a brain-level session). If the concept has no note within the scope directory, create one there (Step 5) rather than updating a file in another scope. Claude does this directly; do not ask the user to do it.
 
    **Cross-scope write guard (applies unconditionally to ALL notes, not only known downhill-reference notes):** Any note whose file path does not begin with `<scope>/01 Ly thuyet/` (or `<scope>/00 Notes/` for a brain-level session) must not have its SR fields written by this session, regardless of what was discussed. If the session was a sub-project and a parent brain concept was surfaced during teaching as a downhill enrichment reference (a `[[wiki-link]]` + bridging sentence shown in-chat, or marked `[DOWNHILL REF — no SR update]` in the session log), that parent note is explicitly excluded from this step. Do not touch its `sr-due`, `sr-interval`, `sr-ease`, or `status`.
 

@@ -2,7 +2,7 @@
 
 Interview the user to refresh the context files of the CURRENT brain: its `CLAUDE.md` (Weekly Update, Goals summary, Projects & Overviews), its `GOALS.md`, and each sub-project's `CLAUDE.md`. Keeps the brain's context current so Claude always has accurate state.
 
-**Scope (Option A):** Run this from INSIDE a brain (cwd = the brain, e.g. `GCP/`). The file you update is the BRAIN's `CLAUDE.md` (`./CLAUDE.md`) — NOT the vault-root base `CLAUDE.md`. The base is shared framework and must NEVER receive user-progress data. If the user has multiple brains, run weekly-update from each brain separately (or enumerate them with `ls -d <vault-root>/*/` and repeat per brain). If launched at the vault root (Claudian plugin — cwd has no `01 Journals/`), first ask which brain and treat every `./` path below as `<brain>/`.
+**Scope (Option A):** Run this from INSIDE a brain (cwd = the brain, e.g. `GCP/`). The file you update is the BRAIN's `CLAUDE.md` (`./CLAUDE.md`) — NOT the vault-root base `CLAUDE.md`. The base is shared framework and must NEVER receive user-progress data. If the user has multiple brains, run weekly-update from each brain separately (or enumerate them with `ls -d <vault-root>/*/` and repeat per brain). If launched at the vault root (Claudian plugin — cwd has no `01 Journals/`), first ask which brain and treat every `./` path below as `<brain>/`. (If `$ARGUMENTS` was provided to the command, treat its first token as the brain name and skip asking.)
 
 ## When to Use
 
@@ -72,8 +72,11 @@ Walk through each sub-project folder found in Phase 1. For each:
 One question per project. This is a check-in, not a deep dive.
 
 ### SR Queue Check
+
+> **Scope note:** This is an administrative OVERVIEW scan, NOT a `/learn-continue` due-review session. The base constitution's DUE-REVIEW SCAN restriction (which forbids a brain session from descending into `03 Projects/*`) does NOT apply here — weekly-update is explicitly permitted to scan across the brain AND its sub-projects to COUNT and surface overdue notes. It never runs the Socratic review and never writes SR fields; the actual review happens in `/learn-continue`.
+
 Scan theory notes for notes where `sr-due <= <today>` (resolve `<today>` at runtime):
-- brain-level notes: `./00 Notes/**/*.md`
+- brain-level notes: `./01 Ly thuyet/**/*.md` and `./00 Notes/**/*.md`
 - each sub-project: `./03 Projects/<project>/01 Ly thuyet/**/*.md`
 
 Count the overdue notes and name them, then surface to the user (in Vietnamese): "Có X note quá hạn ôn tập: [list]. Các note này sẽ được kiểm tra trong phiên /learn-continue tiếp theo."
