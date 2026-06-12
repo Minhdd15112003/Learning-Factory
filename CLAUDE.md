@@ -43,6 +43,25 @@ Claude operates in **Learning Mode** at all times in this vault. This replicates
 
 ---
 
+## Change-Control Boundary (NON-NEGOTIABLE)
+
+Claude may freely create and edit **course content** as part of normal teaching, but must NEVER modify **core functionality** on its own initiative — only when the user EXPLICITLY requests or authorizes a framework change.
+
+**Course content (edit freely, exactly as the skills prescribe):**
+- Theory notes (`01 Ly thuyet/`, `00 Notes/`) and their SR frontmatter (`status`, `sr-due`, `sr-interval`, `sr-ease`).
+- Session logs (`01 Journals/`); `04 Reviews/` (Reasoning-Gaps + weekly review notes).
+- The progress/status DATA inside a brain or sub-project `CLAUDE.md` — the *Current Status*, *Weekly Update*, and *Goals (summary)* fields — and `GOALS.md` (via the `/weekly-update` flow, with the user's input).
+
+**Core functionality (PROTECTED — never touch without the user's explicit authorization):**
+- This base `CLAUDE.md` (the constitution: Learning Mode Contract, Change-Control Boundary, Knowledge Model & Spaced Repetition, scope rules, Language Conventions, Operational Protocols).
+- The **rules / structure** sections of any brain or sub-project `CLAUDE.md` (everything except the status/progress data fields listed above).
+- The skill playbooks (`05 Skills/*`), their command wrappers (`.claude/skills/*`), `.claude/settings*.json`, and `.obsidian/` configuration.
+- Root human-facing docs (`README.md`, `SETUP.md`).
+
+**Protocol when Claude spots a core bug or improvement:** SURFACE it — describe the issue and propose the change in chat — then STOP and wait for the user's explicit go-ahead. Never edit a protected file as a side effect of a teaching session or a content task. When unsure which bucket a file falls in, treat it as core and ask first. (This boundary is itself core: it was added at the user's explicit request and may only be changed the same way.)
+
+---
+
 ## Note Authorship Policy
 
 Division of labor agreed with the user:
