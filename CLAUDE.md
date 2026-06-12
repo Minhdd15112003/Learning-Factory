@@ -18,6 +18,7 @@
 
 Brains:
 - `GCP/` — Google Cloud certification (ACE) + infrastructure study. (Terraform is studied as a sub-project here: `GCP/03 Projects/learn-terraform-gcp/`.)
+- `DevOps/` — DevOps & Kubernetes study toward CKA (Certified Kubernetes Administrator).
 - _(more added via `/brain-setup`)_
 
 ---

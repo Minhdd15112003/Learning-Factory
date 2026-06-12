@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781259292461-141v4b7cw",
+  "providerId": "claude",
+  "title": "Create new learning brain",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781259292461,
+  "updatedAt": 1781259501415,
+  "lastResponseAt": 1781259501415,
+  "sessionId": "93e2b41f-80c1-442a-b1d4-ef67c2ce91bd",
+  "providerState": {
+    "providerSessionId": "93e2b41f-80c1-442a-b1d4-ef67c2ce91bd"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 151,
+    "cacheReadInputTokens": 35734,
+    "contextWindow": 200000,
+    "contextTokens": 35886,
+    "percentage": 18,
+    "contextWindowIsAuthoritative": true
+  }
+}
