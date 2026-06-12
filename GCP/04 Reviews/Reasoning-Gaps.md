@@ -5,8 +5,7 @@
 
 ## Active Gaps
 
-- [[IAM-Role-vs-IAM-Policy]] — Đã tách thành note lý thuyết, đang trong lịch ôn (SR).
-  - Detected: 2026-06-08
+(Trống)
 
 ## Resolved Gaps
 

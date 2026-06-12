@@ -4,20 +4,20 @@
   "title": "xin chào",
   "titleGenerationStatus": "failed",
   "createdAt": 1781249427060,
-  "updatedAt": 1781251071991,
-  "lastResponseAt": 1781251071991,
+  "updatedAt": 1781251179014,
+  "lastResponseAt": 1781251179014,
   "sessionId": "be5555c4-e3fa-4091-8b95-3f7e587d0b82",
   "providerState": {
     "providerSessionId": "be5555c4-e3fa-4091-8b95-3f7e587d0b82"
   },
   "usage": {
     "model": "opus",
-    "inputTokens": 25119,
+    "inputTokens": 30070,
     "cacheCreationInputTokens": 0,
     "cacheReadInputTokens": 0,
     "contextWindow": 200000,
-    "contextTokens": 25119,
-    "percentage": 13,
+    "contextTokens": 30070,
+    "percentage": 15,
     "contextWindowIsAuthoritative": true
   }
 }
