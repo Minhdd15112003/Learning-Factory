@@ -103,7 +103,7 @@ Process:
 
 **Skip enforcement:** Reviews are mandatory before new content. If the user tries to skip:
 - First: offer a 5-minute rapid pass (compressed Socratic, no deep probing — still produces a grade).
-- If still declined: set `sr-due = today + 1` for each skipped item and append a skip event to today's session log. Proceed to Step 5. Do not silently absorb the skip.
+- If still declined: set `sr-due = today + 1` for each skipped item and append a skip event to today's session log as `[REVIEW] <note-name> — Skipped — <today>` (so `/day-update`'s double-processing guard recognizes it and leaves its schedule alone). Proceed to Step 5. Do not silently absorb the skip.
 
 ---
 
