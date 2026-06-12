@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781249427057-2y6roy4g1",
+  "providerId": "claude",
+  "title": "xin chào",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1781249427060,
+  "updatedAt": 1781249687134,
+  "lastResponseAt": 1781249687134,
+  "sessionId": "be5555c4-e3fa-4091-8b95-3f7e587d0b82",
+  "providerState": {
+    "providerSessionId": "be5555c4-e3fa-4091-8b95-3f7e587d0b82"
+  },
+  "usage": {
+    "model": "haiku",
+    "inputTokens": 10367,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 15207,
+    "contextWindow": 200000,
+    "contextTokens": 25574,
+    "percentage": 13,
+    "contextWindowIsAuthoritative": true
+  }
+}

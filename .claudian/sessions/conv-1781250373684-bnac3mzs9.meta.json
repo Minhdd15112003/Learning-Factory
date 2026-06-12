@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781250373684-bnac3mzs9",
+  "providerId": "claude",
+  "title": "kích hoạt brain-setup",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1781250373684,
+  "updatedAt": 1781250583648,
+  "lastResponseAt": 1781250583648,
+  "sessionId": "1d8ab209-0361-4318-8ab3-4b67a35f093f",
+  "providerState": {
+    "providerSessionId": "1d8ab209-0361-4318-8ab3-4b67a35f093f"
+  },
+  "usage": {
+    "model": "haiku",
+    "inputTokens": 34970,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 34970,
+    "percentage": 17,
+    "contextWindowIsAuthoritative": true
+  }
+}

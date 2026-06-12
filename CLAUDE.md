@@ -18,6 +18,7 @@
 
 Brains:
 - `GCP/` — Google Cloud certification (ACE) + infrastructure study.
+- `terraform-gcp/` — Sử dụng thành thạo Terraform kết hợp GCP ở mức nâng cao.
 - _(more added via `/brain-setup`)_
 
 ---

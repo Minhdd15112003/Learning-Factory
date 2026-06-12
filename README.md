@@ -20,6 +20,9 @@ gcp-document/                ← vault + git root
 │   ├── CLAUDE.md            ← hiến pháp riêng domain GCP
 │   └── 03 Projects/learn-terraform-gcp/   ← project con (có CLAUDE.md riêng)
 │
+├── terraform-gcp/           ← brain "terraform-gcp" (Mục tiêu: Sử dụng thành thạo Terraform kết hợp GCP)
+│   └── CLAUDE.md            ← hiến pháp riêng domain terraform-gcp
+│
 └── (Tieng-Anh/, ...)        ← brain khác, tạo bằng /brain-setup
 ```
 
