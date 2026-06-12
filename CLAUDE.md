@@ -17,8 +17,7 @@
   - Either way, the unit of study is a brain (or its sub-project), never the vault root itself. (The plugin reads `.claude/settings.json` from the vault root, which is where it lives — so settings/skills resolve correctly in both modes.)
 
 Brains:
-- `GCP/` — Google Cloud certification (ACE) + infrastructure study.
-- `terraform-gcp/` — Sử dụng thành thạo Terraform kết hợp GCP ở mức nâng cao.
+- `GCP/` — Google Cloud certification (ACE) + infrastructure study. (Terraform is studied as a sub-project here: `GCP/03 Projects/learn-terraform-gcp/`.)
 - _(more added via `/brain-setup`)_
 
 ---
