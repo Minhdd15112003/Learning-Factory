@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781258164496-0spp8xlo3",
+  "providerId": "claude",
+  "title": "/learn-continue GCP",
+  "titleGenerationStatus": "failed",
+  "createdAt": 1781258164497,
+  "updatedAt": 1781258356313,
+  "lastResponseAt": 1781258356313,
+  "sessionId": "09047611-95db-41df-90fc-1f2194c4454b",
+  "providerState": {
+    "providerSessionId": "09047611-95db-41df-90fc-1f2194c4454b"
+  },
+  "usage": {
+    "model": "opus",
+    "inputTokens": 20565,
+    "cacheCreationInputTokens": 0,
+    "cacheReadInputTokens": 15465,
+    "contextWindow": 200000,
+    "contextTokens": 36030,
+    "percentage": 18,
+    "contextWindowIsAuthoritative": true
+  }
+}
