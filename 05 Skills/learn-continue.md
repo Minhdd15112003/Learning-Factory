@@ -25,7 +25,11 @@ Determine the scope directory before reading any files.
 | `/learn-continue <brain>` (vault root) | `<brain>/` — that brain, studied at the brain level |
 | `/learn-continue <brain> <sub-project>` (vault root) | `<brain>/03 Projects/<sub-project>/` |
 
-Notes: the vault root is NEVER a scope — it holds only shared framework, with no `01 Journals/` or `04 Reviews/`. With no arg, scope = cwd (the brain Claude was launched in). Never hardcode a project name; `03 Projects/[arg]/` maps to any sub-project on disk. If the arg matches no real directory, ask the user to confirm the name before proceeding. **A brain-level scope EXCLUDES its own `03 Projects/*` sub-projects** — those are separate scopes, reviewed only when named as the sub-project arg. Studying a brain never reads or grades a sub-project's notes, and vice versa (base constitution: "Review scope is ONE unit").
+Notes: the vault root is NEVER a scope — it holds only shared framework, with no `01 Journals/` or `04 Reviews/`. With no arg, scope = cwd (the brain Claude was launched in). Never hardcode a project name; `03 Projects/[arg]/` maps to any sub-project on disk. If the arg matches no real directory, ask the user to confirm the name before proceeding.
+
+**Scope boundary rules (three-layer model — scope resolution only; teaching behavior is in Step 5):**
+- **WRITE and DUE-REVIEW SCAN (Steps 4–5 writes): own-scope only, both directions.** A brain-level session never descends into `03 Projects/*` for scanning or writing. A sub-project session never writes into the parent brain's notes. Studying a brain never reads or grades a sub-project's notes; studying a sub-project never writes into the parent brain's notes.
+- **READ-for-reference during teaching (Step 5): asymmetric — downhill only.** A sub-project session MAY lightly surface concepts already covered in the immediate parent brain (full constraints defined in Step 5). This is enrichment only; no parent note's SR fields are modified. The uphill direction is forbidden in all forms: a brain-level session must never read, reference, scan, or test a sub-project's notes for any reason. (Downhill read-for-reference during teaching does not affect scope resolution here — it is defined entirely in Step 5.)
 
 ---
 
@@ -65,9 +69,11 @@ Process:
 1. Collect all due notes, sort oldest-due first.
 
    **Scope-bounded scan (STRICT — never a recursive grep over the whole scope directory):**
-   - Scope is a **sub-project** (a sub-project arg was given): scan ONLY `<scope>/01 Ly thuyet/**/*.md`.
+   - Scope is a **sub-project** (a sub-project arg was given): scan ONLY `<scope>/01 Ly thuyet/**/*.md`. Do NOT scan the parent brain's directories here — parent notes are never part of the due-review queue. Parent concepts are surfaced lightly in Step 5 teaching only, as read-only enrichment, and are never added to this scan list.
    - Scope is a **brain** (no sub-project arg): scan ONLY `<scope>/01 Ly thuyet/**/*.md` and `<scope>/00 Notes/**/*.md`. **NEVER descend into `<scope>/03 Projects/`** — sub-project theory notes belong to their own scope and must not be pulled into a brain-level review. (This is exactly the boundary that gets violated when a brain-level run leaks a sub-project's note.)
-   - Glob those explicit directories only. Do NOT fall back to `grep -r sr-due <scope>/` or any recursive command over the full scope directory — that is precisely what crosses the boundary into `03 Projects/`.
+   - Glob those explicit directories only. Do NOT fall back to `grep -r sr-due <scope>/` or any recursive command over the full scope directory — that crosses the boundary into `03 Projects/` for a brain session, or into the parent brain for a sub-project session.
+
+   **Sub-project zero-due handler:** If the scope is a SUB-PROJECT and the scoped scan finds no note with `sr-due <= today`, proceed directly to Step 5 teaching. Do NOT scan the parent brain for substitute due notes — the downhill reference permission in Step 5 is enrichment-only and does not substitute for a formal review queue.
 
    Read each found note's frontmatter `sr-due` and `status`.
 
@@ -83,12 +89,12 @@ Process:
      - **Easy:** fluent, mechanism-level, no hesitation.
      - **Good:** correct mechanism, some effort or one gap you had to probe.
      - **Hard:** shallow, result-only, or incorrect mechanism.
-4. Apply the SR algorithm to update `sr-due`, `sr-interval`, `sr-ease` in the note's frontmatter:
+4. Apply the SR algorithm to update `sr-due`, `sr-interval`, `sr-ease` in the note's frontmatter. **Write only to notes whose file paths fall within `<scope>/` — never to a note in the parent brain or a sibling sub-project.**
    - Easy: `ease += 20`; `interval = round(interval * ease / 100 * 1.3)`
    - Good: `ease` unchanged; `interval = round(interval * ease / 100)`
    - Hard: `ease = max(130, ease - 20)`; `interval = max(1, round(interval * 0.5))`
    - Then: `sr-due = today + interval`
-5. Update the note's `status:` field if the grade warrants it:
+5. Update the note's `status:` field if the grade warrants it. **Write only to notes whose file paths fall within `<scope>/` — never to a note in the parent brain or a sibling sub-project.**
    - Hard on an `Understood` note → downgrade to `Partial`.
    - Three consecutive Easy/Good results on the same note → promote to `Mastered`. (Track "consecutive" from the session log, not from internal state.)
 
@@ -108,6 +114,24 @@ Rules:
 - Good openers: "You have a VPC with two subnets. Traffic between them is failing. What is the first thing you check and why?" or "If you run `terraform apply` twice on the same config with no changes, what does GCP actually do on the second call?"
 - Keep the one-question-per-turn rule (Learning Mode Rule 2) for the rest of the session.
 - After the user earns `Understood` on a concept, give exactly one insight connecting it to a broader GCP or Terraform pattern. That is the session reward.
+
+**Downhill reference rule (sub-project sessions only — does not apply in brain-level sessions):**
+
+If the scope is a sub-project and the current teaching topic has a direct conceptual dependency on a concept the parent brain has already covered, Claude MAY surface it lightly — at most ONE parent concept per session, and only when a clear direct dependency on the current topic exists. Do not scan all parent notes looking for any that qualify; identify the specific parent concept from the teaching context first, then confirm its status by reading that note.
+
+**How to locate the parent brain:** In a CLI session (cwd = brain), the parent brain is cwd itself. In a Claudian 2-arg session (`/learn-continue <brain> <sub-project>`), the parent brain is `<brain>/` at the vault root. Derive the parent path as the scope with `/03 Projects/<sub-project>/` stripped — equivalently, the brain root that directly contains the `03 Projects/` folder.
+
+**Status filter:** Read the parent note to check its `status` frontmatter. Only surface the reference if `status: Understood` or `status: Mastered`. If the note is `Partial` or `Exposed`, skip the reference silently — that concept is not yet a stable enrichment anchor.
+
+**How to surface it (in the chat response only — no file writes):** Mention the concept as a `[[wiki-link]]`, state in the chat response one sentence bridging it to the current topic, and optionally ask ONE light recall question.
+
+**CONSTRAINTS — all four must hold simultaneously:**
+(a) Read the parent note for content only. Do NOT update its `sr-due`, `sr-interval`, `sr-ease`, or `status` fields under any circumstances.
+(b) Do NOT add the parent note to the due-review queue (Step 4). It is never a formally graded item.
+(c) The optional recall question is for passive enrichment only. Regardless of the quality of the user's answer, do NOT grade it, do NOT update any SR fields, and do NOT record it as a reviewed concept for `/day-update`.
+(d) Do NOT record the parent concept in the session log as a reviewed or newly-encountered concept. If you mention it in the session log at all, prefix the entry with `[DOWNHILL REF — no SR update]` so `/day-update` does not include it in the grading loop.
+
+The uphill direction is forbidden: a brain-level session must never read, reference, scan, or test a sub-project's notes. Lateral reads (sibling sub-projects) are also forbidden.
 
 ---
 

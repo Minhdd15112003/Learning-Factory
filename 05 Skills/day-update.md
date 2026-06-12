@@ -30,6 +30,8 @@ Do NOT narrate what was read. Go straight to the Feynman question.
 
 Ask 1-2 deep mechanism questions about the most important concept(s) from today. Questions must probe the HOW and WHY, never just the WHAT.
 
+**Scope filter:** Only interview concepts that belong to today's resolved scope (notes inside `<scope>/01 Ly thuyet/`, or `<scope>/00 Notes/` for a brain session). Skip any concept marked `[DOWNHILL REF — no SR update]` in the session log — those are read-only enrichments surfaced from a parent brain during a sub-project session and must not be graded or rescheduled here.
+
 Protocol by answer type — apply exactly:
 
 **Correct + mechanism-level answer (Bloom L2):**
@@ -63,6 +65,8 @@ Record the user's ACTUAL words in the log (Step 6). Never fabricate or paraphras
 
 1. If a new misconception surfaced today, append it to `04 Reviews/Reasoning-Gaps.md` in Vietnamese (gap description) under the English section header `## Active Gaps`.
 2. If a gap is significant (recurring, foundational, or likely to block future concepts), PROMOTE it: Claude writes a full theory note in Vietnamese in `<scope>/01 Ly thuyet/` — where `<scope>` is the scope resolved in Step 1 (the brain root, OR the sub-project root). A note's location follows the session scope; never write a brain-level note into a sub-project's `01 Ly thuyet/`, or vice versa. If `<scope>/01 Ly thuyet/` does not exist on disk, create it first. Use SR frontmatter (interval=1, ease=250, sr-due=today+1). Do NOT ask the user to write this note.
+
+   **Downhill-reference gap exception:** If the gap involved a parent brain concept that was surfaced during teaching as a downhill enrichment reference (recognizable by a `[DOWNHILL REF — no SR update]` marker in the session log, or from the context of the session), do NOT create a new note for it in `<scope>/01 Ly thuyet/`. Instead, note it in `04 Reviews/Reasoning-Gaps.md` with a pointer to the parent note's location (e.g. `GCP/01 Ly thuyet/<ConceptName>.md`), and inform the user that they may want to revisit it in a brain-level session.
 3. If a gap was resolved today (user passed the mechanism check), move it from `## Active Gaps` to `## Resolved Gaps` with today's date.
 
 ---
@@ -84,6 +88,8 @@ For every concept reviewed or newly encountered today:
    - Then: `sr-due = today + interval` days.
 
 3. Open each affected theory note and update its frontmatter (`status`, `sr-due`, `sr-interval`, `sr-ease`). Locate each note by globbing within `<scope>/01 Ly thuyet/` ONLY (the scope resolved in Step 1) — never search the vault by concept name and update whatever `.md` turns up, as that can write SR fields into an out-of-scope note (e.g. a sub-project note during a brain-level session). If the concept has no note within the scope directory, create one there (Step 5) rather than updating a file in another scope. Claude does this directly; do not ask the user to do it.
+
+   **Cross-scope write guard (applies unconditionally to ALL notes, not only known downhill-reference notes):** Any note whose file path does not begin with `<scope>/01 Ly thuyet/` (or `<scope>/00 Notes/` for a brain-level session) must not have its SR fields written by this session, regardless of what was discussed. If the session was a sub-project and a parent brain concept was surfaced during teaching as a downhill enrichment reference (a `[[wiki-link]]` + bridging sentence shown in-chat, or marked `[DOWNHILL REF — no SR update]` in the session log), that parent note is explicitly excluded from this step. Do not touch its `sr-due`, `sr-interval`, `sr-ease`, or `status`.
 
 4. Apply the status transition implied by the grade (Knowledge Model in `CLAUDE.md`):
    - Mechanism-level pass → promote `Exposed`/`Partial` to `Understood`.
@@ -110,3 +116,4 @@ For every concept reviewed or newly encountered today:
 - Claude authors all theory notes. The user provides spoken Feynman answers and hands-on practice only; Claude turns the learning into written reference artifacts.
 - Never list files read or describe what was loaded. Move directly from context to action.
 - The session is not closed until Steps 4, 5, and 6 are all written to disk.
+- **Scope write integrity:** SR fields (`sr-due`, `sr-interval`, `sr-ease`, `status`) are updated ONLY in notes whose file paths begin with the session's resolved `<scope>/01 Ly thuyet/` (or `<scope>/00 Notes/` for a brain session). A parent brain concept referenced during a sub-project session as downhill enrichment is explicitly excluded from SR updates — do not touch its frontmatter. If in doubt about a note's scope, check its file path: if it does not start with `<scope>/`, do not write to it.
