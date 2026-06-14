@@ -1,6 +1,6 @@
 # Session Log: {{date}}
 
-> **Tham chiếu:** [[GCP/03 Projects/learn-terraform-gcp/CLAUDE.md|Constitution]] | [[GCP/03 Projects/learn-terraform-gcp/04 Reviews/Reasoning-Gaps.md|Reasoning Gaps]]
+> **Tham chiếu:** [[Terraform-GCP/CLAUDE.md|Constitution]] | [[Terraform-GCP/04 Reviews/Reasoning-Gaps.md|Reasoning Gaps]]
 
 ## Baseline Check (đầu buổi)
 *Claude hỏi 1 câu về concept của buổi trước. Ghi lại:*
@@ -26,4 +26,4 @@
 
 - 
 
-*(Nếu có gap lớn, hãy copy sang file [[GCP/03 Projects/learn-terraform-gcp/04 Reviews/Reasoning-Gaps.md|Reasoning-Gaps]])*
+*(Nếu có gap lớn, hãy copy sang file [[Terraform-GCP/04 Reviews/Reasoning-Gaps.md|Reasoning-Gaps]])*

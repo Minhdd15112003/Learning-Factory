@@ -1,4 +1,4 @@
-# Mục tiêu — DevOps Brain
+# Mục tiêu — DevOps
 
 ## Mục tiêu tối thượng
 
@@ -42,5 +42,5 @@
 
 ## Ghi chú
 
-- Sub-project sẽ được tạo khi cần thực hành chuyên sâu một topic cụ thể (dùng `/new-project`).
+- Nếu cần tách một mảng lớn (vd Kubernetes) thành môn học riêng, dùng `/mon-moi`.
 - Roadmap trên là ước lượng ban đầu — sẽ điều chỉnh sau mỗi weekly review.

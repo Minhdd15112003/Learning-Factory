@@ -2,118 +2,106 @@
 
 > **Mục đích:** Biến Claude từ một cái máy trả lời câu hỏi thành một **gia sư cá nhân** có trí nhớ dài hạn, phương pháp dạy học khoa học, và kỷ luật thép.
 
-> **Cài đặt (clone về máy mới):** xem `SETUP.md` — hướng dẫn viết cho một AI agent tự cài. Lưu ý quan trọng: `.obsidian/` không nằm trong git, nên người tải về phải cài lại plugin (Spaced Repetition; Claudian là tùy chọn). `SETUP.md` xử lý việc đó cùng việc chỉnh đường dẫn và chọn giữ/đặt lại nội dung.
+> **Cài đặt (clone về máy mới):** xem `SETUP.md`. Lưu ý: `.obsidian/` không nằm trong git, nên người tải về phải cài lại plugin (Spaced Repetition; Claudian là tùy chọn).
 
 ---
 
-## 1. Kiến trúc: MỘT vault, NHIỀU "brain"
+## 1. Kiến trúc: MỘT vault, NHIỀU môn học (phẳng)
 
-Toàn bộ `Learning-Factory/` là **một** vault Obsidian và **một** project Claude (git root). Mỗi chủ đề học là một **brain** — một thư mục cấp 1 bên trong, có hiến pháp riêng nhưng dùng chung hạ tầng.
+Toàn bộ `Learning-Factory/` là **một** vault Obsidian và **một** project Claude (git root). Mỗi chủ đề học là một **môn** — một thư mục cấp 1, ngang hàng nhau. Không phân tầng, không "project con".
 
 ```
 Learning-Factory/                ← vault + git root
-├── CLAUDE.md                ← Hiến pháp NỀN (framework dạy học, dùng chung)
-├── .obsidian/  .claude/  .claudian/   ← config + plugin dùng chung
-├── 05 Skills/               ← các skill dùng chung (learn-continue, day-update...)
+├── CLAUDE.md                ← Hiến pháp dùng chung (framework dạy học)
+├── .obsidian/  .claude/  .claudian/   ← config + plugin + 3 lệnh, dùng chung
 │
-├── GCP/                     ← brain "Google Cloud" (Mục tiêu: ACE)
-│   ├── CLAUDE.md            ← hiến pháp riêng domain GCP
-│   └── 03 Projects/learn-terraform-gcp/   ← project con (có CLAUDE.md riêng)
+├── GCP/                     ← môn "Google Cloud" (Mục tiêu: ACE)
+├── Terraform-GCP/           ← môn "Terraform trên GCP" (IaC)
+├── DevOps/                  ← môn "DevOps / Kubernetes"
+│        ├── CLAUDE.md       ← nhận dạng + trạng thái (mỏng)
+│        ├── GOALS.md        ← mục tiêu + lộ trình (tiếng Việt)
+│        ├── 00 Ly thuyet/   ← note lý thuyết + lịch ôn (SR)
+│        ├── 01 Thuc hanh/   ← thực hành
+│        ├── 02 Output/      ← kết quả
+│        ├── 03 Journals/    ← log mỗi buổi
+│        └── 04 Reviews/     ← Reasoning-Gaps
 │
-├── terraform-gcp/           ← brain "terraform-gcp" (Mục tiêu: Sử dụng thành thạo Terraform kết hợp GCP)
-│   └── CLAUDE.md            ← hiến pháp riêng domain terraform-gcp
-│
-├── DevOps/                  ← brain "DevOps" (Mục tiêu: Vận hành production cluster trên Kubernetes)
-│   └── CLAUDE.md            ← hiến pháp riêng domain DevOps
-│
-└── (brain khác, ...)        ← tạo bằng /brain-setup
+└── (môn khác, ...)          ← tạo bằng /mon-moi
 ```
 
-**Nguyên tắc kế thừa (quan trọng):** khi bạn chạy Claude trong một brain, các file `CLAUDE.md` được **gộp tự động từ gốc xuống**: NỀN → brain → project con. Cha truyền luật xuống con, không phải copy tay. Một "brain" và một "project con" về bản chất chỉ là thư mục ở các tầng khác nhau, đều có `CLAUDE.md` riêng.
+**Kế thừa:** khi chạy Claude trong một môn, `CLAUDE.md` gốc + `CLAUDE.md` của môn được **gộp tự động**. Mỗi buổi học chỉ đụng vào MỘT môn — không đọc/ghi chéo sang môn khác.
 
-> **Mở vault trong Obsidian ở thư mục `Learning-Factory/`** (không phải `GCP/`). Tất cả brain nằm trong một graph, dùng chung plugin (gồm Spaced Repetition).
+> **Mở vault trong Obsidian ở thư mục `Learning-Factory/`** (không phải `GCP/`). Mọi môn nằm chung một graph, dùng chung plugin Spaced Repetition.
 
 ---
 
 ## 2. Ba lệnh vận hành
 
-### Bắt đầu / Tiếp tục buổi học
-
+### Bắt đầu / tiếp tục buổi học
 ```
-/learn-continue [tên-project-con]
+/hoc [tên-môn]
 ```
+Claude: nạp log + Reasoning-Gaps + lịch ôn (sr-due), ôn Socratic các note đến hạn (tối đa 3, tự chấm), rồi mở bài mới bằng câu hỏi dẫn dắt. Môn mới chưa có note → chạy **đánh giá đầu vào** theo roadmap rồi mới dạy. Mỗi topic đi theo **Lý thuyết → Thực hành → Output**.
 
-- `/learn-continue` — học kiến thức chính của brain đang đứng (theo thư mục bạn chạy `claude`).
-- `/learn-continue learn-terraform-gcp` — vào project con.
-
-Claude sẽ: nạp log + Reasoning-Gaps + lịch ôn (sr-due), hỏi 1 câu baseline, test Socratic các note đến hạn (tối đa 3), rồi mở bài mới bằng câu hỏi dẫn dắt — không báo cáo khô khan.
-
-### Tổng kết / Lưu buổi học
-
+### Kết thúc / lưu buổi học
 ```
-/day-update
+/xong
 ```
+Cuối buổi: phỏng vấn Feynman, chấm điểm, cập nhật lịch ôn (SR) trong frontmatter note, ghi Session Log + Current Status.
 
-Gõ cuối buổi: phỏng vấn Feynman, chấm điểm, cập nhật lịch ôn (SR) trong frontmatter các note, ghi Session Log.
-
-### Tạo một brain mới
-
+### Tạo một môn mới
 ```
-/brain-setup
+/mon-moi [tên]
 ```
-
-Phỏng vấn 4 câu, rồi tạo một **thư mục brain mới** cùng cấp với `GCP/` (cùng vault). Không cần cài lại plugin hay copy config — đã dùng chung ở root.
+Phỏng vấn ngắn (tên, mục tiêu, điểm yếu, roadmap thô), rồi dựng thư mục môn mới ngang hàng + `CLAUDE.md` mỏng + `GOALS.md`. Không cần cài lại gì — dùng chung ở root.
 
 ---
 
-## 3. Quy ước ngôn ngữ
+## 3. Quy ước ngôn ngữ & xưng hô
 
-| Loại file                               | Ngôn ngữ                               |
-| --------------------------------------- | -------------------------------------- |
-| `CLAUDE.md`, `05 Skills/*`              | Tiếng Anh (cho AI hiểu chính xác)      |
-| Câu trả lời chat                        | Tiếng Việt                             |
-| Note lý thuyết, Session Log, `GOALS.md` | Tiếng Việt (bạn đọc lại để ôn)         |
-| Weekly review (`04 Reviews/`)           | Tiếng Việt                             |
-| `Reasoning-Gaps.md`                     | Mô tả tiếng Việt + cấu trúc tiếng Anh  |
-| `COMMANDS.md`                           | Lệnh tiếng Anh + giải thích tiếng Việt |
+| Loại file | Ngôn ngữ |
+|---|---|
+| `CLAUDE.md`, các lệnh trong `.claude/skills/` | Tiếng Anh (cho AI hiểu chính xác) |
+| Câu trả lời chat | Tiếng Việt — Claude gọi **"bạn"**, tự xưng **"mình"** |
+| Note lý thuyết, Session Log, `GOALS.md`, review | Tiếng Việt (bạn đọc lại để ôn) |
+| `Reasoning-Gaps.md` | Mô tả tiếng Việt + cấu trúc tiếng Anh |
 
 ---
 
 ## 4. Knowledge State
 
-| Status       | Ý nghĩa                                     |
-| ------------ | ------------------------------------------- |
-| `Exposed`    | Mới nghe qua                                |
-| `Partial`    | Hiểu một phần, nói được kết quả             |
-| `Understood` | Pass Feynman check — giải thích được cơ chế |
-| `Mastered`   | Ôn đúng 3 lần liên tiếp                     |
+| Status | Ý nghĩa |
+|---|---|
+| `Exposed` | Mới nghe qua |
+| `Partial` | Hiểu một phần, nói được kết quả |
+| `Understood` | Pass Feynman — giải thích được cơ chế |
+| `Mastered` | Ôn đúng 3 lần liên tiếp |
 
-Lên cấp `Understood` bắt buộc giải thích được "cơ chế/tại sao". Review trượt (Hard) trên note `Understood` sẽ tụt về `Partial`.
+Lên `Understood` bắt buộc giải thích được "cơ chế / tại sao". Review trượt (Hard) trên note `Understood` sẽ tụt về `Partial`.
 
-Lịch ôn do **plugin Obsidian Spaced Repetition** giữ (frontmatter `sr-due / sr-interval / sr-ease`), nhưng việc ôn chạy **qua Claude** ở `/learn-continue` — Claude tự chấm theo Feynman, không bấm Easy/Good/Hard trong plugin.
+Lịch ôn lưu ở frontmatter (`sr-due / sr-interval / sr-ease`), nhưng việc ôn chạy **qua Claude** ở `/hoc` — Claude tự chấm theo Feynman, không bấm Easy/Good/Hard trong plugin.
 
 ---
 
-## 5. Start Guide
+## 5. Bắt đầu nhanh
 
-1. Mở Obsidian, mở vault ở thư mục `Learning-Factory/`. Bật plugin **Spaced Repetition** (nếu chưa) rồi reload.
+1. Mở Obsidian, mở vault ở `Learning-Factory/`. Bật plugin **Spaced Repetition** rồi reload.
 2. Chạy Claude theo MỘT trong hai cách:
-   - **CLI (ổn định):** mở terminal trong brain muốn học rồi chạy `claude`:
+   - **CLI:** mở terminal trong môn muốn học rồi chạy `claude`:
      ```
      cd "C:\Users\minhdd_resolve\Desktop\WorkSpace\Learning-Factory\GCP"
      claude
      ```
-   - **Plugin Claudian (trong Obsidian):** chạy Claude ngay trong Obsidian. Plugin luôn lấy _gốc vault_ (`Learning-Factory/`) làm thư mục làm việc (không trỏ vào folder con được), nên khi gọi hãy nêu tên brain: ví dụ `/learn-continue GCP`. Claude sẽ tự đọc `GCP/CLAUDE.md` và dùng path có tiền tố `GCP/`.
-     Dù chạy cách nào, ngữ cảnh làm việc phải là folder brain để skill-path (`01 Journals/`, `04 Reviews/`...) và kế thừa CLAUDE.md hoạt động đúng.
-3. Gõ `/learn-continue` để bắt đầu.
+     Rồi gõ `/hoc` (không cần tên — cwd đã là môn).
+   - **Plugin Claudian (trong Obsidian):** plugin luôn lấy gốc vault làm cwd, nên nêu tên môn: `/hoc GCP`.
 
 ---
 
 ## 6. Lưu ý vận hành
 
-- **Luôn gõ `/day-update` trước khi tắt.** Quên thì kiến thức hôm đó không vào lịch ôn.
+- **Luôn gõ `/xong` trước khi tắt.** Quên thì kiến thức hôm đó không vào lịch ôn.
 - **Không sợ hỏi sai.** Claude cố tình để bạn vấp lỗi (error-driven learning) để nhớ lâu hơn.
-- **Claude "kỹ thuật" quá** thì nói _"Socratic"_ — nó quay lại đặt câu hỏi dẫn dắt.
+- **Claude "kỹ thuật" quá** thì nói _"Socratic"_; còn bí quá thì nói _"giải thích trước đi"_ — với cơ chế mới Claude sẽ giới thiệu ngắn rồi mới hỏi.
 
 ---
 

@@ -1,8 +1,6 @@
-# COMMANDS.md
+# COMMANDS — Terraform-GCP
 
-Bảng tra nhanh lệnh & skill cho project Terraform: dùng khi cần tra cú pháp nhanh mà không cần mở tài liệu chính.
-
----
+Bảng tra nhanh lệnh: dùng khi cần tra cú pháp mà không cần mở tài liệu chính.
 
 ## Terraform Core Commands
 
@@ -20,21 +18,15 @@ Bảng tra nhanh lệnh & skill cho project Terraform: dùng khi cần tra cú p
 | `terraform output` | In ra giá trị của tất cả output variable đã khai báo trong cấu hình. |
 | `terraform refresh` | Đồng bộ state file với trạng thái thực tế của resource trên GCP (deprecated trong v1.x — thay bằng `terraform apply -refresh-only`). |
 
----
-
 ## gcloud Auth Context
 
 | Command | Giải thích |
 |---|---|
-| `gcloud auth application-default login` | Tạo Application Default Credentials (ADC) trên máy local. [[Terraform GCP Provider]] dùng ADC này để xác thực với GCP API khi chạy `terraform plan` và `terraform apply`. Chạy lệnh này một lần duy nhất sau khi cài gcloud SDK. |
+| `gcloud auth application-default login` | Tạo Application Default Credentials (ADC) trên máy local. [[Terraform GCP Provider]] dùng ADC này để xác thực với GCP API khi chạy `terraform plan` và `terraform apply`. Chạy một lần sau khi cài gcloud SDK. |
 
----
+## Lệnh học (định nghĩa ở `.claude/skills/` của vault root)
 
-## Vault Skills (defined in root `05 Skills/`)
-
-Các skill dưới đây được định nghĩa tại thư mục `05 Skills/` của root vault. Gọi tên skill để Claude tự load hướng dẫn chi tiết từ file tương ứng.
-
-| Skill | Giải thích |
+| Lệnh | Giải thích |
 |---|---|
-| `/learn-continue` | Bắt đầu buổi học: nạp lại context, kiểm tra các note đến hạn ôn tập (sr-due), chạy Socratic review, sau đó mở bài mới. |
-| `/day-update` | Kết thúc buổi học: phỏng vấn Feynman để chấm điểm, cập nhật SR schedule trong frontmatter các note, ghi log vào Session Log. |
+| `/hoc Terraform-GCP` | Bắt đầu/tiếp tục buổi học: nạp context, ôn các note đến hạn (sr-due), rồi dạy concept tiếp theo. |
+| `/xong` | Kết thúc buổi: phỏng vấn Feynman, cập nhật lịch ôn (SR) trong frontmatter note, ghi Session Log. |
