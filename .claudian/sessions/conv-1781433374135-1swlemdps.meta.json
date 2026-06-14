@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781433374135-1swlemdps",
+  "providerId": "claude",
+  "title": "Create DevOps learning subject",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781433374136,
+  "updatedAt": 1781433385176,
+  "lastResponseAt": 1781433381009,
+  "sessionId": "240d5095-8769-4274-8c79-00ba02eb2fee",
+  "providerState": {
+    "providerSessionId": "240d5095-8769-4274-8c79-00ba02eb2fee"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 2,
+    "cacheCreationInputTokens": 21891,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 21893,
+    "percentage": 11,
+    "contextWindowIsAuthoritative": true
+  }
+}
