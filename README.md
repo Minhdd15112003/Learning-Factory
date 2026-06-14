@@ -23,7 +23,10 @@ Learning-Factory/                ← vault + git root
 ├── terraform-gcp/           ← brain "terraform-gcp" (Mục tiêu: Sử dụng thành thạo Terraform kết hợp GCP)
 │   └── CLAUDE.md            ← hiến pháp riêng domain terraform-gcp
 │
-└── (Tieng-Anh/, ...)        ← brain khác, tạo bằng /brain-setup
+├── DevOps/                  ← brain "DevOps" (Mục tiêu: Vận hành production cluster trên Kubernetes)
+│   └── CLAUDE.md            ← hiến pháp riêng domain DevOps
+│
+└── (brain khác, ...)        ← tạo bằng /brain-setup
 ```
 
 **Nguyên tắc kế thừa (quan trọng):** khi bạn chạy Claude trong một brain, các file `CLAUDE.md` được **gộp tự động từ gốc xuống**: NỀN → brain → project con. Cha truyền luật xuống con, không phải copy tay. Một "brain" và một "project con" về bản chất chỉ là thư mục ở các tầng khác nhau, đều có `CLAUDE.md` riêng.
