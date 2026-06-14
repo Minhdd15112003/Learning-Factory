@@ -4,8 +4,8 @@
   "title": "Create DevOps brain",
   "titleGenerationStatus": "success",
   "createdAt": 1781426348727,
-  "updatedAt": 1781426369005,
-  "lastResponseAt": 1781426369005,
+  "updatedAt": 1781426560735,
+  "lastResponseAt": 1781426560735,
   "sessionId": "c0ab5988-c6db-450d-9f72-bfa2118c078d",
   "providerState": {
     "providerSessionId": "c0ab5988-c6db-450d-9f72-bfa2118c078d"
@@ -13,11 +13,11 @@
   "usage": {
     "model": "sonnet",
     "inputTokens": 1,
-    "cacheCreationInputTokens": 3042,
-    "cacheReadInputTokens": 23676,
+    "cacheCreationInputTokens": 960,
+    "cacheReadInputTokens": 33077,
     "contextWindow": 200000,
-    "contextTokens": 26719,
-    "percentage": 13,
+    "contextTokens": 34038,
+    "percentage": 17,
     "contextWindowIsAuthoritative": true
   }
 }
