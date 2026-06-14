@@ -11,7 +11,7 @@
 A personal learning vault. The git root is ONE Obsidian vault and ONE Claude project. The teaching logic lives in plain files that ARE in the repo:
 
 - `CLAUDE.md` (the framework constitution) + one thin `CLAUDE.md` per subject. Launched inside a subject folder, the two auto-merge (parent-walk to the git root).
-- `.claude/skills/` — the three operating commands: `hoc`, `xong`, `mon-moi`.
+- `.claude/skills/` — the three operating commands: `learn`, `done`, `new-learn`.
 - Theory notes, journals, reviews inside each subject folder.
 
 The structure is **flat**: each top-level folder is one subject (`GCP/`, `Terraform-GCP/`, `DevOps/`). No nesting, no cross-subject machinery. The learning loop is driven by **Claude reading/writing note frontmatter** (`sr-due`, `status`), so the core works from the command line with no Obsidian plugins. Obsidian + plugins only add the GUI.
@@ -76,7 +76,7 @@ Skip this section if the human only wants the CLI tutor.
 
 **4c. Claudian plugin** (OPTIONAL — only to run Claude inside Obsidian).
 - Install via Obsidian community browser: search **"Claudian"** (author Yishen Tu; plugin id `realclaudian`) → Install → Enable. It embeds Claude Code, so the Step 2 prerequisite still applies.
-- Important: the plugin runs Claude with the **vault root** as cwd (it cannot target a subfolder). So name the subject when calling: `/hoc GCP`. The base `CLAUDE.md` resolves from the vault root automatically; Claude reads the subject's `CLAUDE.md` itself.
+- Important: the plugin runs Claude with the **vault root** as cwd (it cannot target a subfolder). So name the subject when calling: `/learn GCP`. The base `CLAUDE.md` resolves from the vault root automatically; Claude reads the subject's `CLAUDE.md` itself.
 
 ---
 
@@ -85,7 +85,7 @@ Skip this section if the human only wants the CLI tutor.
 This vault ships with the original author's learning state: each subject's `GOALS.md` and `CLAUDE.md` Current Status, session logs under `*/03 Journals/`, `.claudian/sessions/`, and `sr-due`/`status` in the theory notes (the real ones live in `Terraform-GCP/00 Ly thuyet/`). Ask the human:
 
 - **Continue the author's content** → do nothing; it just works.
-- **Study your own topic** → run `/mon-moi` to scaffold a new subject (a new top-level folder) and study there. Existing subjects can stay or be deleted.
+- **Study your own topic** → run `/new-learn` to scaffold a new subject (a new top-level folder) and study there. Existing subjects can stay or be deleted.
 - **Keep the framework, wipe progress** → only if explicitly asked: empty each `*/03 Journals/` (keep `Session-Log-Template.md`), reset every `Reasoning-Gaps.md` to empty Active/Resolved sections, set every theory note's `status` to `Exposed` / `sr-due` to today / `sr-interval: 1`, and blank each `GOALS.md` and Current Status. You may also delete `.claudian/sessions/*`.
 
 Never wipe personal content without explicit confirmation.
@@ -99,19 +99,19 @@ Never wipe personal content without explicit confirmation.
   cd "<this-clone>/GCP"
   claude
   ```
-  Then type `/hoc` (no arg = the subject you are in, because cwd is `GCP/`).
-- **Obsidian + Claudian plugin:** open the Claudian panel, then `/hoc GCP` (name the subject, because the plugin sits at the vault root).
+  Then type `/learn` (no arg = the subject you are in, because cwd is `GCP/`).
+- **Obsidian + Claudian plugin:** open the Claudian panel, then `/learn GCP` (name the subject, because the plugin sits at the vault root).
 
-The first action of any learning session is `/hoc`; close it with `/xong`.
+The first action of any learning session is `/learn`; close it with `/done`.
 
 ---
 
 ## 7. Verify the install
 
-1. Launch Claude in `GCP/` (CLI) or via Claudian with `/hoc GCP`. It should load context and open with a **Socratic question / challenge** (for a subject with no notes yet, a placement question), NOT a file summary or a recap (Learning Mode).
+1. Launch Claude in `GCP/` (CLI) or via Claudian with `/learn GCP`. It should load context and open with a **Socratic question / challenge** (for a subject with no notes yet, a placement question), NOT a file summary or a recap (Learning Mode).
 2. Replies come in Vietnamese, addressing the user as "bạn". No emoji.
 3. The two Terraform theory notes (`Terraform-GCP/00 Ly thuyet/01-Ban-chat-cua-Terraform.md`, `02-Terraform-State.md`) have valid frontmatter (`status`, `sr-due`, `sr-interval`, `sr-ease`, a `review` tag).
 4. If the Spaced Repetition plugin is installed: open its review pane — notes tagged `review` with `sr-due <= today` appear in the queue.
-5. `/xong` at the end of a session updates `sr-due`/`status` in the touched notes and appends to the day's session log.
+5. `/done` at the end of a session updates `sr-due`/`status` in the touched notes and appends to the day's session log.
 
 If all five hold, the install is complete.

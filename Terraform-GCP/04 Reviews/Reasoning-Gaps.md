@@ -15,4 +15,4 @@
 
 ---
 
-> Note to Claude: when a session reveals a significant misconception, log it here in Vietnamese; if it is substantial, promote it into a theory note (you author it) so the SR plugin schedules it. Reviewing happens via /hoc, not the plugin UI.
+> Note to Claude: when a session reveals a significant misconception, log it here in Vietnamese; if it is substantial, promote it into a theory note (you author it) so the SR plugin schedules it. Reviewing happens via /learn, not the plugin UI.

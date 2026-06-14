@@ -28,5 +28,5 @@ Bảng tra nhanh lệnh: dùng khi cần tra cú pháp mà không cần mở tà
 
 | Lệnh | Giải thích |
 |---|---|
-| `/hoc Terraform-GCP` | Bắt đầu/tiếp tục buổi học: nạp context, ôn các note đến hạn (sr-due), rồi dạy concept tiếp theo. |
-| `/xong` | Kết thúc buổi: phỏng vấn Feynman, cập nhật lịch ôn (SR) trong frontmatter note, ghi Session Log. |
+| `/learn Terraform-GCP` | Bắt đầu/tiếp tục buổi học: nạp context, ôn các note đến hạn (sr-due), rồi dạy concept tiếp theo. |
+| `/done` | Kết thúc buổi: phỏng vấn Feynman, cập nhật lịch ôn (SR) trong frontmatter note, ghi Session Log. |

@@ -42,5 +42,5 @@
 
 ## Ghi chú
 
-- Nếu cần tách một mảng lớn (vd Kubernetes) thành môn học riêng, dùng `/mon-moi`.
+- Nếu cần tách một mảng lớn (vd Kubernetes) thành môn học riêng, dùng `/new-learn`.
 - Roadmap trên là ước lượng ban đầu — sẽ điều chỉnh sau mỗi weekly review.

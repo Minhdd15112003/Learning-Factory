@@ -1,6 +1,6 @@
 # Hướng Dẫn Sử Dụng
 
-Cách dùng vault học hằng ngày. Tất cả gói trong **3 lệnh**: `/hoc`, `/xong`, `/mon-moi`.
+Cách dùng vault học hằng ngày. Tất cả gói trong **3 lệnh**: `/learn`, `/done`, `/new-learn`.
 
 ---
 
@@ -8,14 +8,14 @@ Cách dùng vault học hằng ngày. Tất cả gói trong **3 lệnh**: `/hoc`
 
 **Cách A — trong Obsidian (Claudian plugin):** mở panel Claudian, gõ lệnh kèm **tên môn** (plugin luôn đứng ở gốc vault):
 ```
-/hoc DevOps
+/learn DevOps
 ```
 
 **Cách B — terminal (CLI):** vào thẳng thư mục môn rồi chạy `claude`, sau đó gõ lệnh **không cần tên**:
 ```
 cd "C:\Users\minhdd_resolve\Desktop\WorkSpace\Learning-Factory\DevOps"
 claude
-/hoc
+/learn
 ```
 
 Hai cách cho kết quả y hệt. Cách A tiện hơn khi đang đọc note trong Obsidian.
@@ -25,31 +25,31 @@ Hai cách cho kết quả y hệt. Cách A tiện hơn khi đang đọc note tro
 ## 2. Vòng lặp một buổi học
 
 ```
-/hoc [môn]   →   (học)   →   /xong
+/learn [môn]   →   (học)   →   /done
    ↑ mở đầu                    ↑ đóng & lưu
 ```
 
-Chỉ cần nhớ: **mở bằng `/hoc`, đóng bằng `/xong`.** Quên `/xong` thì kiến thức hôm đó không vào lịch ôn.
+Chỉ cần nhớ: **mở bằng `/learn`, đóng bằng `/done`.** Quên `/done` thì kiến thức hôm đó không vào lịch ôn.
 
 ---
 
 ## 3. Ba lệnh
 
-### `/hoc [môn]` — bắt đầu / học tiếp
+### `/learn [môn]` — bắt đầu / học tiếp
 Khi gõ, Claude tự động (im lặng, không báo cáo dài dòng):
 1. Nạp context của môn (log buổi trước, các lỗ hổng đã ghi).
 2. **Ôn các note đến hạn** — hỏi Socratic từng note `sr-due <= hôm nay` (tối đa 3 note/buổi), tự chấm Easy/Good/Hard và dời lịch ôn.
 3. **Môn mới chưa có note** → chạy **đánh giá đầu vào**: hỏi vài câu để định vị bạn đang ở đâu trên roadmap, rồi mới bắt đầu.
 4. **Dạy bài mới** — mở bằng một câu hỏi/tình huống. Với cơ chế hoàn toàn mới, Claude **giới thiệu ngắn 2-3 câu trước** rồi mới hỏi (không bắt bạn tự đoán từ số 0).
 
-### `/xong` — kết thúc & lưu
+### `/done` — kết thúc & lưu
 Gõ khi muốn dừng buổi học. Claude sẽ:
 1. **Phỏng vấn Feynman** 1-2 câu về concept hôm nay (hỏi "cơ chế thế nào", không hỏi "là gì").
 2. Cập nhật trạng thái (`Understood` chỉ khi bạn giải thích được cơ chế) + lịch ôn trong note.
 3. Ghi Session Log, cập nhật lỗ hổng (Reasoning-Gaps) và Current Status.
 
-### `/mon-moi [tên]` — tạo môn học mới
-Hỏi ngắn (tên, mục tiêu, điểm yếu, roadmap thô), rồi dựng thư mục môn mới + file mục tiêu. Xong, gõ `/hoc [tên]` để bắt đầu (buổi đầu sẽ chạy đánh giá đầu vào).
+### `/new-learn [tên]` — tạo môn học mới
+Hỏi ngắn (tên, mục tiêu, điểm yếu, roadmap thô), rồi dựng thư mục môn mới + file mục tiêu. Xong, gõ `/learn [tên]` để bắt đầu (buổi đầu sẽ chạy đánh giá đầu vào).
 
 ---
 
@@ -68,7 +68,7 @@ Mỗi topic đi theo **Lý thuyết → Thực hành → Output**, và Claude **
 - Bí quá, muốn được giải thích → nói **"giải thích trước đi"**.
 - Claude hỏi vòng vo → nói **"Socratic"** để quay về một câu hỏi dẫn dắt gọn.
 - Mệt / không muốn nghi thức → cứ nói thẳng, Claude sẽ trả lời tắt và gợi ý nghỉ.
-- Muốn ôn mà không học bài mới → vào `/hoc`, làm xong phần ôn rồi nói "hôm nay chỉ ôn thôi".
+- Muốn ôn mà không học bài mới → vào `/learn`, làm xong phần ôn rồi nói "hôm nay chỉ ôn thôi".
 
 ---
 
@@ -81,7 +81,7 @@ Mỗi topic đi theo **Lý thuyết → Thực hành → Output**, và Claude **
 | `Understood` | Pass Feynman — giải thích được cơ chế |
 | `Mastered` | Ôn đúng 3 lần liên tiếp |
 
-Lên `Understood` bắt buộc giải thích được "cơ chế / tại sao". Lịch ôn (spaced repetition) chạy tự động qua `/hoc` — bạn không cần bấm gì trong plugin.
+Lên `Understood` bắt buộc giải thích được "cơ chế / tại sao". Lịch ôn (spaced repetition) chạy tự động qua `/learn` — bạn không cần bấm gì trong plugin.
 
 ---
 

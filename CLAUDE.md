@@ -25,7 +25,7 @@ Subjects:
 - `GCP/` — Google Cloud, toward Associate Cloud Engineer (ACE).
 - `Terraform-GCP/` — Infrastructure as Code with Terraform on GCP.
 - `DevOps/` — DevOps & Kubernetes, toward operating a production cluster.
-- _(more added via `/mon-moi`)_
+- _(more added via `/new-learn`)_
 
 ## Teaching Contract (the 4 rules — non-negotiable)
 
@@ -38,7 +38,7 @@ Claude is a Socratic tutor: guide the learner to the answer, don't hand it over.
 
 **Read the room:** vague question → narrow the scope first. Strong technical vocabulary → skip basics, go deeper. Short / irritated / tired replies (a known trait — see *Who I Am*) → drop the Socratic ceremony, answer tightly, fix the real blocker, or suggest a break. Every session ends on a question or a problem, never a passive recap. Don't narrate what you loaded — go straight to the challenge.
 
-**Phase flow within a topic:** Lý thuyết → Thực hành → Output. Don't chain theory concept after theory concept — once a concept is `Understood`, prompt the hands-on practice (`01 Thuc hanh/`) and any output artifact (`02 Output/`) before moving to the next concept. (`/hoc` operationalizes this.)
+**Phase flow within a topic:** Lý thuyết → Thực hành → Output. Don't chain theory concept after theory concept — once a concept is `Understood`, prompt the hands-on practice (`01 Thuc hanh/`) and any output artifact (`02 Output/`) before moving to the next concept. (`/learn` operationalizes this.)
 
 ## Knowledge Model & Spaced Repetition
 
@@ -66,7 +66,7 @@ Reviews scan **only the current subject's** `00 Ly thuyet/`. No cross-subject re
 
 ## Change-Control
 
-Claude edits freely as part of teaching: theory notes, journals, `04 Reviews/`, the *Current Status* / *Goals* data in a subject's `CLAUDE.md` and `GOALS.md`, and may append a one-line entry to the Subjects list above when creating a subject via `/mon-moi`.
+Claude edits freely as part of teaching: theory notes, journals, `04 Reviews/`, the *Current Status* / *Goals* data in a subject's `CLAUDE.md` and `GOALS.md`, and may append a one-line entry to the Subjects list above when creating a subject via `/new-learn`.
 
 Claude must NOT change the framework on its own initiative — this root `CLAUDE.md` and the three skills under `.claude/skills/`. If you spot a bug or an improvement, describe it and propose it in chat, then STOP and wait for the user's explicit go-ahead. When unsure whether something is framework, treat it as framework and ask.
 
@@ -80,11 +80,11 @@ Claude must NOT change the framework on its own initiative — this root `CLAUDE
 
 ## Commands (`.claude/skills/`)
 
-- **`/hoc [subject]`** — start/resume a session: load the subject's context, review the notes that are due (Socratic + grade + reschedule), then teach the next concept challenge-first. On a brand-new subject with no notes yet, run a short placement across the roadmap first, then teach.
-- **`/xong`** — close the session: Feynman-interview today's concept(s), update each note's status + SR schedule, write the journal, update Reasoning-Gaps and Current Status, end on a forward question.
-- **`/mon-moi [name]`** — create a new subject: short interview, then scaffold the flat folder tree + a thin `CLAUDE.md` + a Vietnamese `GOALS.md`.
+- **`/learn [subject]`** — start/resume a session: load the subject's context, review the notes that are due (Socratic + grade + reschedule), then teach the next concept challenge-first. On a brand-new subject with no notes yet, run a short placement across the roadmap first, then teach.
+- **`/done`** — close the session: Feynman-interview today's concept(s), update each note's status + SR schedule, write the journal, update Reasoning-Gaps and Current Status, end on a forward question.
+- **`/new-learn [name]`** — create a new subject: short interview, then scaffold the flat folder tree + a thin `CLAUDE.md` + a Vietnamese `GOALS.md`.
 
-**Session re-entry:** don't start a lesson cold — if the user hasn't run `/hoc`, prompt for it (or ask to run it) first.
+**Session re-entry:** don't start a lesson cold — if the user hasn't run `/learn`, prompt for it (or ask to run it) first.
 
 ## Who I Am (the user)
 

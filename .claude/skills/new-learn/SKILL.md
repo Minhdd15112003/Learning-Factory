@@ -1,9 +1,9 @@
 ---
-description: Create a new subject — a top-level learning folder. Short interview, then scaffold the flat folder tree, a thin CLAUDE.md, and a Vietnamese GOALS.md. Use for /mon-moi [name], or when the user wants to start learning a new topic.
+description: Create a new subject — a top-level learning folder. Short interview, then scaffold the flat folder tree, a thin CLAUDE.md, and a Vietnamese GOALS.md. Use for /new-learn [name], or when the user wants to start learning a new topic.
 argument-hint: "[name]"
 ---
 
-The user invoked `/mon-moi`. Create a new subject per below. Ask the interview questions in Vietnamese ("bạn" / "mình"); the generated `CLAUDE.md` is English; `GOALS.md` is Vietnamese. The base `CLAUDE.md` is in context.
+The user invoked `/new-learn`. Create a new subject per below. Ask the interview questions in Vietnamese ("bạn" / "mình"); the generated `CLAUDE.md` is English; `GOALS.md` is Vietnamese. The base `CLAUDE.md` is in context.
 
 Raw argument (proposed name): $ARGUMENTS
 
@@ -55,4 +55,4 @@ Ultimate goal, current position ("chưa bắt đầu"), and the rough roadmap fr
 
 ## 6. Register + handover
 1. Append a one-line entry to the `Subjects:` list in the vault-root `CLAUDE.md`: `- \`<Name>/\` — <one-line description>.` Append ONLY that one bullet under `Subjects:` — do not modify any other part of the root `CLAUDE.md` (it is otherwise protected framework).
-2. Tell the user (Vietnamese): the folder is ready; run `/hoc <Name>` to start — the first session runs a short placement assessment, then teaches. Confirm the folders exist (`ls "<Name>"`) and report only if something is missing.
+2. Tell the user (Vietnamese): the folder is ready; run `/learn <Name>` to start — the first session runs a short placement assessment, then teaches. Confirm the folders exist (`ls "<Name>"`) and report only if something is missing.
