@@ -10,7 +10,7 @@
 
 ## Step 0 — Locate the vault root
 
-The vault/git root is the PARENT of the current brain (your cwd). Example: cwd `.../gcp-document/GCP` → vault root `.../gcp-document`. New brains are created as direct children of the vault root, as siblings of `GCP/`.
+The vault/git root is the PARENT of the current brain (your cwd). Example: cwd `.../Learning-Factory/GCP` → vault root `.../Learning-Factory`. New brains are created as direct children of the vault root, as siblings of `GCP/`.
 
 Do NOT create a new `.obsidian`, `.claude`, `.claudian`, or `05 Skills` for the brain — these are shared at the vault root and resolve automatically.
 
@@ -54,37 +54,43 @@ Replace `[BRAIN-NAME]` with the Step 1 Q1 answer. Note: no `05 Skills/` folder (
 
 The brain inherits the base constitution automatically, so this file is short — only domain identity, goals, structure, projects. Create `$BRAIN/CLAUDE.md`:
 
-```markdown
+````markdown
 # [BRAIN-NAME] — Brain Constitution
 
 > Inherits the shared framework from the vault-root base `CLAUDE.md` (auto-merged on launch via parent-walk; no manual read needed). This file holds only [DOMAIN]-specific identity, goals, structure, and projects. For the Learning Mode Contract, Knowledge Model, Spaced Repetition, Language Conventions, and Operational Protocols, see the base constitution.
 
 ## Domain & Purpose
+
 This brain stores and builds [DOMAIN] knowledge toward: [ULTIMATE-GOAL]. Claude is a Learning-mode tutor here (see the base contract). Replies to the user are in Vietnamese.
 
 ## Goals (summary — full doc in `GOALS.md`, Vietnamese)
+
 - Goal: [ULTIMATE-GOAL]
 - Now: Starting from zero — first session not yet run.
 - Mode: own pace, no time pressure unless noted.
 
 ## Folder Structure (this brain)
+
 \```
 [BRAIN-NAME]/
-├── CLAUDE.md       ← this file (domain)
-├── GOALS.md        ← goals & roadmap (Vietnamese)
-├── 00 Notes/       ← cross-cutting theory notes
-├── 01 Journals/    ← session logs + Session-Log-Template
+├── CLAUDE.md ← this file (domain)
+├── GOALS.md ← goals & roadmap (Vietnamese)
+├── 00 Notes/ ← cross-cutting theory notes
+├── 01 Journals/ ← session logs + Session-Log-Template
 ├── 02 Chess Moves (Long-Term Planning)/
-├── 03 Projects/    ← sub-projects (each with its own CLAUDE.md)
-└── 04 Reviews/     ← Reasoning-Gaps.md + weekly reviews
+├── 03 Projects/ ← sub-projects (each with its own CLAUDE.md)
+└── 04 Reviews/ ← Reasoning-Gaps.md + weekly reviews
 \```
 Shared framework (.obsidian, .claude, .claudian, 05 Skills/) lives at the vault root, one level up.
 
 ## Who I Am (domain-specific)
+
 Weaknesses / blind spots in [DOMAIN]: [WEAKNESSES]. (Universal user traits are in the base constitution.)
 
 ## Weekly Update
+
 > **Last updated:** [TODAY]
+
 - What's working:
 - What's not working:
 - What I'm sitting on / need to decide:
@@ -92,8 +98,9 @@ Weaknesses / blind spots in [DOMAIN]: [WEAKNESSES]. (Universal user traits are i
 - Any deadlines or time-sensitive things:
 
 ## Projects & Overviews
+
 [SUB-PROJECTS: add a short status line for each once created via /new-project; if none yet, write "None yet."]
-```
+````
 
 Fill placeholders: `[BRAIN-NAME]` (Q1), `[ULTIMATE-GOAL]` (Q2), `[WEAKNESSES]` (Q3), `[SUB-PROJECTS]` (Q4), `[DOMAIN]` (subject implied by the name), `[TODAY]` (current date YYYY-MM-DD).
 
@@ -104,35 +111,43 @@ Fill placeholders: `[BRAIN-NAME]` (Q1), `[ULTIMATE-GOAL]` (Q2), `[WEAKNESSES]` (
 **`$BRAIN/GOALS.md`** (Vietnamese): write the ultimate goal, current position (chưa bắt đầu), and a rough roadmap based on the interview. Use `[[wiki-links]]` for key concepts.
 
 **`$BRAIN/01 Journals/Session-Log-Template.md`** (Vietnamese):
+
 ```markdown
 # Session Log: {{date}}
 
 > **Tham chiếu:** [[[BRAIN-NAME]/CLAUDE.md|Constitution]] | [[[BRAIN-NAME]/04 Reviews/Reasoning-Gaps.md|Reasoning Gaps]]
 
 ## Baseline Check (đầu buổi)
-*Claude hỏi 1 câu về concept của buổi trước. Ghi lại:*
-- Câu hỏi: 
-- Trả lời của mình: 
-- Đánh giá: [ ] Mechanism-level  [ ] Result-only  [ ] Không nhớ
+
+_Claude hỏi 1 câu về concept của buổi trước. Ghi lại:_
+
+- Câu hỏi:
+- Trả lời của mình:
+- Đánh giá: [ ] Mechanism-level [ ] Result-only [ ] Không nhớ
 
 ## Mục tiêu buổi học
-- [ ] 
+
+- [ ]
 
 ## Quá trình (Claude làm Reasoning Engine)
-*Ghi chú nhanh khái niệm, lệnh, hoặc luồng suy nghĩ.*
 
-- 
+_Ghi chú nhanh khái niệm, lệnh, hoặc luồng suy nghĩ._
+
+-
 
 ## Explain-back (Feynman Check)
-*Tự giải thích lại bằng ngôn ngữ của mình.*
 
-- 
+_Tự giải thích lại bằng ngôn ngữ của mình._
+
+-
 
 ## Misconceptions & Gaps (Ghi nhận lỗi)
-- 
+
+-
 ```
 
 **`$BRAIN/04 Reviews/Reasoning-Gaps.md`**:
+
 ```markdown
 # Reasoning Gaps Log
 
@@ -165,9 +180,10 @@ Fill placeholders: `[BRAIN-NAME]` (Q1), `[ULTIMATE-GOAL]` (Q2), `[WEAKNESSES]` (
 
 Tell the user (in Vietnamese):
 
-"Brain mới `[BRAIN-NAME]` đã tạo xong trong vault (`gcp-document/[BRAIN-NAME]/`). Không cần cài plugin hay config gì thêm — mọi thứ dùng chung ở root.
+"Brain mới `[BRAIN-NAME]` đã tạo xong trong vault (`Learning-Factory/[BRAIN-NAME]/`). Không cần cài plugin hay config gì thêm — mọi thứ dùng chung ở root.
 
 Để bắt đầu:
+
 1. Mở terminal trong brain mới:
    ```
    cd "[VAULT_ROOT]/[BRAIN-NAME]"
@@ -175,6 +191,6 @@ Tell the user (in Vietnamese):
    ```
 2. Gõ `/learn-continue` để Claude nạp bối cảnh và mở buổi học đầu tiên.
 
-Trong Obsidian (đã mở vault ở `gcp-document/`), brain mới hiện ra như một thư mục — plugin Spaced Repetition tự nhận các note có tag `review`."
+Trong Obsidian (đã mở vault ở `Learning-Factory/`), brain mới hiện ra như một thư mục — plugin Spaced Repetition tự nhận các note có tag `review`."
 
 **Post-handover check:** `ls "[VAULT_ROOT]/[BRAIN-NAME]"` to confirm the folders + files exist. Report only if something is missing.

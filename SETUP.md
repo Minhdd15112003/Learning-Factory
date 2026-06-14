@@ -9,6 +9,7 @@
 ## 0. What this project is
 
 A personal, multi-"brain" learning vault. The git root is ONE Obsidian vault and ONE Claude project. The teaching logic lives entirely in plain files that ARE in the repo:
+
 - `CLAUDE.md` (base framework) + `GCP/CLAUDE.md` (a "brain") + `GCP/03 Projects/*/CLAUDE.md` (sub-projects). These auto-merge via parent-walk.
 - `05 Skills/` — the operating skills (`learn-continue`, `day-update`, `weekly-update`, `new-project`, `brain-setup`).
 - Theory notes, journals, reviews under `GCP/`.
@@ -20,6 +21,7 @@ Read `README.md` and `CLAUDE.md` for the full model. The learning loop is driven
 ## 1. What the clone does NOT contain (must be recreated)
 
 `.gitignore` excludes:
+
 - `.obsidian/` — so after clone there is **no Obsidian config and no Obsidian plugins** (Spaced Repetition, Claudian, etc.). Recreate only if the human wants the Obsidian GUI (Step 4).
 - `*.tfstate`, `*.tfstate.backup`, `**/.terraform/` — Terraform local state and provider caches. Correct to omit; they regenerate.
 
@@ -29,12 +31,12 @@ Everything else is present: all `CLAUDE.md` files, `05 Skills/`, `.claude/`, not
 
 ## 2. Prerequisites (check; if missing, tell the human to install)
 
-| Tool | Check command | Needed for |
-|---|---|---|
-| Claude Code CLI | `claude --version` | Running the tutor (required) |
-| Node.js | `node --version` | Claude Code / Claudian plugin runtime (required) |
-| git | `git --version` | Cloning, version control |
-| Obsidian | (GUI app) | Optional — only for the GUI experience (Step 4) |
+| Tool            | Check command      | Needed for                                       |
+| --------------- | ------------------ | ------------------------------------------------ |
+| Claude Code CLI | `claude --version` | Running the tutor (required)                     |
+| Node.js         | `node --version`   | Claude Code / Claudian plugin runtime (required) |
+| git             | `git --version`    | Cloning, version control                         |
+| Obsidian        | (GUI app)          | Optional — only for the GUI experience (Step 4)  |
 
 The human must also have **Claude Code authenticated** (Anthropic login or API key). If `claude` is not logged in, tell them to run `claude` once and complete login.
 
@@ -42,14 +44,14 @@ The human must also have **Claude Code authenticated** (Anthropic login or API k
 
 ## 3. Localize machine-specific paths
 
-The repo was authored on Windows under `C:\Users\minhdd_resolve\Desktop\WorkSpace\gcp-document`. Only one file hardcodes that path: `README.md` (the Start Guide example). Update it to this clone's real path.
+The repo was authored on Windows under `C:\Users\minhdd_resolve\Desktop\WorkSpace\Learning-Factory`. Only one file hardcodes that path: `README.md` (the Start Guide example). Update it to this clone's real path.
 
 ```bash
 # from the vault root — list any remaining hardcoded author paths
 grep -rln "minhdd_resolve" --include="*.md" . | grep -vE 'node_modules|/\.obsidian/|/\.git/'
 ```
 
-For each hit (expected: only `README.md`), replace the example path with the absolute path of THIS clone. On macOS/Linux the `cd` example becomes e.g. `cd "/home/<user>/.../gcp-document/GCP"`. The skill files use relative/dynamic paths and need no change.
+For each hit (expected: only `README.md`), replace the example path with the absolute path of THIS clone. On macOS/Linux the `cd` example becomes e.g. `cd "/home/<user>/.../Learning-Factory/GCP"`. The skill files use relative/dynamic paths and need no change.
 
 ---
 
@@ -59,7 +61,8 @@ Skip this entire section if the human only wants the CLI tutor. Do it only if th
 
 **4a. Open the vault.** Tell the human: in Obsidian, "Open folder as vault" → select the **repository root** (the folder with this `SETUP.md`), NOT the `GCP/` subfolder. Obsidian creates a fresh `.obsidian/`.
 
-**4b. Spaced Repetition plugin** (the review *dashboard*; the review *loop* already works via Claude + `sr-due` frontmatter, so this is optional-but-recommended).
+**4b. Spaced Repetition plugin** (the review _dashboard_; the review _loop_ already works via Claude + `sr-due` frontmatter, so this is optional-but-recommended).
+
 - Easiest (human, GUI): Settings → Community plugins → turn off Restricted mode → Browse → search **"Spaced Repetition"** (by Stephen Mwangi) → Install → Enable.
 - Headless (you, the agent, can do it):
   ```bash
@@ -71,7 +74,8 @@ Skip this entire section if the human only wants the CLI tutor. Do it only if th
   Then add `"obsidian-spaced-repetition"` to `.obsidian/community-plugins.json` (create the file as a JSON array if it does not exist), and tell the human to reload Obsidian.
 - Config: the plugin's default note-review tag is `#review`, which matches the `review` tag already in every theory note's frontmatter — so note review works out of the box once enabled. Confirm "Notes" review is enabled in the plugin settings.
 
-**4c. Claudian plugin** (OPTIONAL — only to run Claude *inside* Obsidian instead of the terminal).
+**4c. Claudian plugin** (OPTIONAL — only to run Claude _inside_ Obsidian instead of the terminal).
+
 - Install via Obsidian community browser: search **"Claudian"** (author Yishen Tu; plugin id `realclaudian`) → Install → Enable. It embeds Claude Code, so the Claude Code prerequisite from Step 2 still applies.
 - Important behavior: the plugin runs Claude with the **vault root** as the working directory (it cannot target a subfolder). So when using it, invoke a brain by name: `/learn-continue GCP`. The base `CLAUDE.md` and `05 Skills/` resolve from the vault root automatically; Claude will read the brain's `CLAUDE.md` itself.
 

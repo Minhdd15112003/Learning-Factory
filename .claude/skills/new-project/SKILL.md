@@ -9,5 +9,5 @@ The user invoked `/new-project`. Follow the playbook below EXACTLY — it is the
 Raw arguments passed to the command: $ARGUMENTS
 
 Open the playbook with the Read tool and follow it:
-- Primary path: `C:/Users/minhdd_resolve/Desktop/WorkSpace/gcp-document/05 Skills/new-project.md`
+- Primary path: `C:/Users/minhdd_resolve/Desktop/WorkSpace/Learning-Factory/05 Skills/new-project.md`
 - Fallback (ONLY if the primary path does not exist — e.g. the vault was moved or cloned to another machine): open `05 Skills/new-project.md` resolved from the git repository root, which is one level above the brain folders like `GCP/`.

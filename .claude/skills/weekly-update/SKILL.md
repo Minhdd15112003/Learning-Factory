@@ -8,5 +8,5 @@ The user invoked `/weekly-update`. Follow the playbook below EXACTLY — it is t
 Raw arguments passed to the command: $ARGUMENTS
 
 Open the playbook with the Read tool and follow it:
-- Primary path: `C:/Users/minhdd_resolve/Desktop/WorkSpace/gcp-document/05 Skills/weekly-update.md`
+- Primary path: `C:/Users/minhdd_resolve/Desktop/WorkSpace/Learning-Factory/05 Skills/weekly-update.md`
 - Fallback (ONLY if the primary path does not exist — e.g. the vault was moved or cloned to another machine): open `05 Skills/weekly-update.md` resolved from the git repository root, which is one level above the brain folders like `GCP/`.
