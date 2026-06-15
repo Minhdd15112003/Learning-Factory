@@ -4,8 +4,8 @@
   "title": "Create DevOps learning subject",
   "titleGenerationStatus": "success",
   "createdAt": 1781433374136,
-  "updatedAt": 1781433597171,
-  "lastResponseAt": 1781433597171,
+  "updatedAt": 1781434012096,
+  "lastResponseAt": 1781434012096,
   "sessionId": "240d5095-8769-4274-8c79-00ba02eb2fee",
   "providerState": {
     "providerSessionId": "240d5095-8769-4274-8c79-00ba02eb2fee"
@@ -13,11 +13,11 @@
   "usage": {
     "model": "sonnet",
     "inputTokens": 3,
-    "cacheCreationInputTokens": 386,
-    "cacheReadInputTokens": 29346,
+    "cacheCreationInputTokens": 472,
+    "cacheReadInputTokens": 31867,
     "contextWindow": 200000,
-    "contextTokens": 29735,
-    "percentage": 15,
+    "contextTokens": 32342,
+    "percentage": 16,
     "contextWindowIsAuthoritative": true
   }
 }
