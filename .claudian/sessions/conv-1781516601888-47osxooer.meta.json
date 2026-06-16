@@ -4,8 +4,8 @@
   "title": "Initialize DevOps learning subject",
   "titleGenerationStatus": "success",
   "createdAt": 1781516601889,
-  "updatedAt": 1781517173828,
-  "lastResponseAt": 1781517173828,
+  "updatedAt": 1781521062744,
+  "lastResponseAt": 1781521062744,
   "sessionId": "63d84a87-c97e-4bdf-b233-cd11bbbb5925",
   "providerState": {
     "providerSessionId": "63d84a87-c97e-4bdf-b233-cd11bbbb5925"
@@ -13,11 +13,11 @@
   "usage": {
     "model": "sonnet",
     "inputTokens": 3,
-    "cacheCreationInputTokens": 466,
-    "cacheReadInputTokens": 34126,
+    "cacheCreationInputTokens": 35070,
+    "cacheReadInputTokens": 0,
     "contextWindow": 200000,
-    "contextTokens": 34595,
-    "percentage": 17,
+    "contextTokens": 35073,
+    "percentage": 18,
     "contextWindowIsAuthoritative": true
   }
 }
