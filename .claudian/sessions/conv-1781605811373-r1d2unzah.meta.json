@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781605811373-r1d2unzah",
+  "providerId": "claude",
+  "title": "Design deeper AI intervention",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781605811373,
+  "updatedAt": 1781606025141,
+  "lastResponseAt": 1781606025141,
+  "sessionId": "e56b38f0-4126-4437-b60c-00a7fb3fa806",
+  "providerState": {
+    "providerSessionId": "e56b38f0-4126-4437-b60c-00a7fb3fa806"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 3,
+    "cacheCreationInputTokens": 1764,
+    "cacheReadInputTokens": 21030,
+    "contextWindow": 200000,
+    "contextTokens": 22797,
+    "percentage": 11,
+    "contextWindowIsAuthoritative": true
+  }
+}
