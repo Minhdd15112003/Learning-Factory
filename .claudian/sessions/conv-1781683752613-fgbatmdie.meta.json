@@ -1,0 +1,23 @@
+{
+  "id": "conv-1781683752613-fgbatmdie",
+  "providerId": "claude",
+  "title": "Start Terraform-GCP learning",
+  "titleGenerationStatus": "success",
+  "createdAt": 1781683752634,
+  "updatedAt": 1781683795063,
+  "lastResponseAt": 1781683795063,
+  "sessionId": "b808928c-4f56-4bc0-b1d7-1a86ac79ce06",
+  "providerState": {
+    "providerSessionId": "b808928c-4f56-4bc0-b1d7-1a86ac79ce06"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 1,
+    "cacheCreationInputTokens": 6203,
+    "cacheReadInputTokens": 23585,
+    "contextWindow": 200000,
+    "contextTokens": 29789,
+    "percentage": 15,
+    "contextWindowIsAuthoritative": true
+  }
+}
