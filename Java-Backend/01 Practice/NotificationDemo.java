@@ -59,7 +59,7 @@ class Context {
     }
 }
 
-public class Interface_vs_Abstract_Class {
+public class NotificationDemo {
     public static void main(String[] args) {
         SmsNotification sms = new SmsNotification("user 1");
         EmailNotification email = new EmailNotification("user 2");
