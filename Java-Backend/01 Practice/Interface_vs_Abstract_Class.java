@@ -1,25 +1,25 @@
 /**
  * Notify
  */
-interface INotify {
-    void send();
-
-}
-
-abstract class ANotify {
-    protected String recipient;
-
-    public ANotify(String recipient) {
-        this.recipient = recipient;
-    }
-
-    protected String formatTimestamp() {
-        return "time";
-    }
-
-}
 
 public class Interface_vs_Abstract_Class {
+    interface INotify {
+        void send();
+
+    }
+
+    abstract class ANotify {
+        protected String recipient;
+
+        public ANotify(String recipient) {
+            this.recipient = recipient;
+        }
+
+        protected String formatTimestamp() {
+            return "time";
+        }
+
+    }
 
     public class EmailNotification extends ANotify implements INotify {
         private String type;
@@ -49,10 +49,10 @@ public class Interface_vs_Abstract_Class {
         }
     }
 
-    public class context {
+    public class Context {
         INotify context;
 
-        public context(INotify context) {
+        public Context(INotify context) {
             this.context = context;
         }
 
@@ -64,5 +64,8 @@ public class Interface_vs_Abstract_Class {
     public static void main(String[] args) {
         SmsNotification sms = new SmsNotification("user 1");
         EmailNotification email = new EmailNotification("user 2");
+
+        Context context = new Context(email);
+        context.send();
     }
 }
