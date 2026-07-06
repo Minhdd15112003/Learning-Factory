@@ -115,3 +115,9 @@ The first action of any learning session is `/learn`; close it with `/done`.
 5. `/done` at the end of a session updates `sr-due`/`status` in the touched notes and appends to the day's session log.
 
 If all five hold, the install is complete.
+
+
+
+
+  
+  
