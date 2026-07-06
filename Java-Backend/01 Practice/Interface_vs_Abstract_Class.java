@@ -30,8 +30,7 @@ public class Interface_vs_Abstract_Class {
         }
 
         public void send() {
-
-            System.out.println(formatTimestamp() + " send to:");
+            System.out.println(formatTimestamp() + " " + this.type + " send to:" + this.recipient);
         }
     }
 
@@ -45,8 +44,7 @@ public class Interface_vs_Abstract_Class {
         }
 
         public void send() {
-
-            System.out.println(formatTimestamp() + " send to:");
+            System.out.println(formatTimestamp() + " " + this.type + " send to:" + this.recipient);
         }
     }
 
