@@ -23,10 +23,10 @@ public class Interface_vs_Abstract_Class {
     public class EmailNotification extends ANotify implements INotify {
         private String type;
 
-        public EmailNotification(String type, String recipient) {
+        public EmailNotification(String recipient) {
             super(recipient);
             this.recipient = recipient;
-            this.type = type;
+            this.type = "Email";
         }
 
         public void send() {
@@ -35,8 +35,19 @@ public class Interface_vs_Abstract_Class {
         }
     }
 
-    public class SmsNotification {
+    public class SmsNotification extends ANotify implements INotify {
+        private String type;
 
+        public SmsNotification(String recipient) {
+            super(recipient);
+            this.recipient = recipient;
+            this.type = "Sms";
+        }
+
+        public void send() {
+
+            System.out.println(formatTimestamp() + " send to:");
+        }
     }
 
     public class context() {
