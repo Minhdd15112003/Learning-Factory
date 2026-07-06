@@ -48,8 +48,16 @@ public class Interface_vs_Abstract_Class {
         }
     }
 
-    public class context() {
+    public class context {
+        INotify context;
 
+        public context(INotify context) {
+            this.context = context;
+        }
+
+        public void send() {
+            this.context.send();
+        }
     }
 
     public static void main(String[] args) {
