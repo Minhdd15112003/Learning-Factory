@@ -1,6 +1,13 @@
-/**
- * Notify
- */
+public class NotificationDemo {
+    public static void main(String[] args) {
+        SmsNotification sms = new SmsNotification("user 1");
+        EmailNotification email = new EmailNotification("user 2");
+
+        Context context = new Context(email);
+        context.send();
+    }
+}
+
 interface INotify {
     void send();
 
@@ -56,15 +63,5 @@ class Context {
 
     public void send() {
         this.context.send();
-    }
-}
-
-public class NotificationDemo {
-    public static void main(String[] args) {
-        SmsNotification sms = new SmsNotification("user 1");
-        EmailNotification email = new EmailNotification("user 2");
-
-        Context context = new Context(email);
-        context.send();
     }
 }
