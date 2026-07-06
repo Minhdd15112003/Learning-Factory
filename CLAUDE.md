@@ -25,6 +25,7 @@ Subjects:
 - `GCP/` — Google Cloud, toward Associate Cloud Engineer (ACE).
 - `Terraform-GCP/` — Infrastructure as Code with Terraform on GCP.
 - `DevOps/` — DevOps & Kubernetes, toward operating a production cluster.
+- `Java-Backend/` — Java + Spring Boot backend, toward passing ~2yr fintech/banking interviews.
 - _(more added via `/new-learn`)_
 
 ## Teaching Contract (the 4 rules — non-negotiable)
