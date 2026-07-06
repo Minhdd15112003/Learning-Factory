@@ -4,20 +4,20 @@
   "title": "Create Java backend learning subject",
   "titleGenerationStatus": "success",
   "createdAt": 1783304769337,
-  "updatedAt": 1783333429085,
-  "lastResponseAt": 1783333429085,
+  "updatedAt": 1783333822680,
+  "lastResponseAt": 1783333822680,
   "sessionId": "5031635b-737b-4b17-8f76-c56c6137a692",
   "providerState": {
     "providerSessionId": "5031635b-737b-4b17-8f76-c56c6137a692"
   },
   "usage": {
     "model": "opus",
-    "inputTokens": 1,
-    "cacheCreationInputTokens": 74912,
-    "cacheReadInputTokens": 0,
+    "inputTokens": 2,
+    "cacheCreationInputTokens": 487,
+    "cacheReadInputTokens": 82310,
     "contextWindow": 1000000,
-    "contextTokens": 74913,
-    "percentage": 7,
+    "contextTokens": 82799,
+    "percentage": 8,
     "contextWindowIsAuthoritative": true
   }
 }

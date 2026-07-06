@@ -11,4 +11,6 @@ Flow per topic: Lý thuyết (`00 Theory/`) → Thực hành (`01 Practice/`) �
 
 ## Current Status
 > Last updated: 2026-07-06
-- First session not yet run.
+- Placement done: strong OOP + backend background (Python/FastAPI, JS/Express+NestJS, Go/Gin); first time with Java. Skip OOP basics; teach Java-specific differences. NestJS ≈ Spring is a big transfer asset.
+- [[Interface vs Abstract Class]] — `Understood` (Good). Wrote first Java practice (Notification demo) and applied DI-to-interface unprompted.
+- Next concept: runtime [[Polymorphism]] / dynamic dispatch (teased from the `Context` class in today's practice).
