@@ -19,7 +19,7 @@ abstract class ANotify {
 
 }
 
-public class EmailNotification extends ANotify implements INotify {
+class EmailNotification extends ANotify implements INotify {
     private String type;
 
     public EmailNotification(String recipient) {
@@ -33,7 +33,7 @@ public class EmailNotification extends ANotify implements INotify {
     }
 }
 
-public class SmsNotification extends ANotify implements INotify {
+class SmsNotification extends ANotify implements INotify {
     private String type;
 
     public SmsNotification(String recipient) {
@@ -47,7 +47,7 @@ public class SmsNotification extends ANotify implements INotify {
     }
 }
 
-public class Context {
+class Context {
     INotify context;
 
     public Context(INotify context) {
@@ -60,7 +60,6 @@ public class Context {
 }
 
 public class Interface_vs_Abstract_Class {
-
     public static void main(String[] args) {
         SmsNotification sms = new SmsNotification("user 1");
         EmailNotification email = new EmailNotification("user 2");
