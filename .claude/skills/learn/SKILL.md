@@ -38,7 +38,7 @@ Pick the next concept from `GOALS.md` / the last journal. Open with a Socratic q
 - For a brand-new mechanism, seed it first (base Teaching Contract, rule 1): 2–3 sentences of plain exposition, THEN probe the mechanism. Do not make the user discover something they were never shown.
 - One question per turn. Scaffold down on the first sign they're stuck on new material.
 - After a mechanism-level pass, give exactly ONE reward (an insight, OR a question connecting it to a prior `Understood` concept) — not praise.
-- Claude writes the theory note in `00 Ly thuyet/` AFTER the concept is earned, in Vietnamese, with full SR frontmatter — never before, never as the user's homework.
+- Claude writes the theory note in `00 Ly thuyet/` AFTER the concept is earned, in Vietnamese, with full SR frontmatter — never before, never as the user's homework. A note written before the concept is `Understood` (e.g. mid-session) records the foothold the user demonstrated and the open question — not the worked mechanism answer they still owe. A `Partial` note must not be an answer sheet.
 - **Phase flow (Lý thuyết → Thực hành → Output).** Don't chain theory concept after theory concept. Once a concept reaches `Understood`, before moving to the next one, propose a concrete hands-on task for it in `01 Thuc hanh/` (a command to run, a `.tf`/`.yaml` block to write) and wait for the result; when the practice is done, ask whether an artifact belongs in `02 Output/`. Advance to the next concept only after the current topic has cleared practice (Output may be skipped if no artifact is natural for that concept).
 
 When the session winds down, the user runs `/done` to grade and save.
