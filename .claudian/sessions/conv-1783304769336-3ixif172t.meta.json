@@ -1,0 +1,23 @@
+{
+  "id": "conv-1783304769336-3ixif172t",
+  "providerId": "claude",
+  "title": "Create Java backend learning subject",
+  "titleGenerationStatus": "success",
+  "createdAt": 1783304769337,
+  "updatedAt": 1783304778228,
+  "lastResponseAt": 1783304776488,
+  "sessionId": "5031635b-737b-4b17-8f76-c56c6137a692",
+  "providerState": {
+    "providerSessionId": "5031635b-737b-4b17-8f76-c56c6137a692"
+  },
+  "usage": {
+    "model": "sonnet",
+    "inputTokens": 2,
+    "cacheCreationInputTokens": 21863,
+    "cacheReadInputTokens": 0,
+    "contextWindow": 200000,
+    "contextTokens": 21865,
+    "percentage": 11,
+    "contextWindowIsAuthoritative": true
+  }
+}
