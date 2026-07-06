@@ -20,6 +20,7 @@ abstract class ANotify {
 }
 
 public class Interface_vs_Abstract_Class {
+
     public class EmailNotification extends ANotify implements INotify {
         private String type;
 
@@ -61,6 +62,7 @@ public class Interface_vs_Abstract_Class {
     }
 
     public static void main(String[] args) {
-        System.out.println("hello world");
+        SmsNotification sms = new SmsNotification("user 1");
+        EmailNotification email = new EmailNotification("user 2");
     }
 }
