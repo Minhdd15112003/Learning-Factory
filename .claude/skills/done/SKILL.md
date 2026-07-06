@@ -19,10 +19,10 @@ Record the user's ACTUAL words in the journal. Never fabricate understanding the
 ## 3. Update the schedule
 For each concept newly taught today, grade it (Easy/Good/Hard) and update its note's `status / sr-due / sr-interval / sr-ease` per the base SR algorithm.
 - **Do not re-process** notes already graded in this session's `/learn` due-review — they carry a `[REVIEW] … — <grade>` line in today's journal. Re-applying the formula would compound the interval twice in one day. (If today's journal has no `[REVIEW]` entries — e.g. `/learn` was skipped — assume nothing was pre-graded and grade every note touched today.)
-- Write only to notes inside `<subject>/00 Ly thuyet/`. If a concept has no note yet, Claude writes one now (Vietnamese, full SR frontmatter using the base new-note defaults: `interval=1`, `ease=250`, `sr-due=today+interval`).
+- Write only to notes inside `<subject>/00 Theory/`. If a concept has no note yet, Claude writes one now (Vietnamese, full SR frontmatter using the base new-note defaults: `interval=1`, `ease=250`, `sr-due=today+interval`).
 
 ## 4. Reasoning-Gaps
-Append any new misconception to `<subject>/04 Reviews/Reasoning-Gaps.md` (Vietnamese). If a gap is significant or recurring, promote it into a full theory note in `00 Ly thuyet/` (Claude authors it, with SR frontmatter). Move a resolved gap to the resolved section with today's date.
+Append any new misconception to `<subject>/04 Reviews/Reasoning-Gaps.md` (Vietnamese). If a gap is significant or recurring, promote it into a full theory note in `00 Theory/` (Claude authors it, with SR frontmatter). Move a resolved gap to the resolved section with today's date.
 
 ## 5. Close
 1. Append the user's Feynman answers to today's journal under a `## Feynman Check` section.

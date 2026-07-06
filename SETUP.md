@@ -82,7 +82,7 @@ Skip this section if the human only wants the CLI tutor.
 
 ## 5. Make the content yours (decide WITH the human — do not assume)
 
-This vault ships with the original author's learning state: each subject's `GOALS.md` and `CLAUDE.md` Current Status, session logs under `*/03 Journals/`, `.claudian/sessions/`, and `sr-due`/`status` in the theory notes (the real ones live in `Terraform-GCP/00 Ly thuyet/`). Ask the human:
+This vault ships with the original author's learning state: each subject's `GOALS.md` and `CLAUDE.md` Current Status, session logs under `*/03 Journals/`, `.claudian/sessions/`, and `sr-due`/`status` in the theory notes (the real ones live in `Terraform-GCP/00 Theory/`). Ask the human:
 
 - **Continue the author's content** → do nothing; it just works.
 - **Study your own topic** → run `/new-learn` to scaffold a new subject (a new top-level folder) and study there. Existing subjects can stay or be deleted.
@@ -110,7 +110,7 @@ The first action of any learning session is `/learn`; close it with `/done`.
 
 1. Launch Claude in `GCP/` (CLI) or via Claudian with `/learn GCP`. It should load context and open with a **Socratic question / challenge** (for a subject with no notes yet, a placement question), NOT a file summary or a recap (Learning Mode).
 2. Replies come in Vietnamese, addressing the user as "bạn". No emoji.
-3. The two Terraform theory notes (`Terraform-GCP/00 Ly thuyet/01-Ban-chat-cua-Terraform.md`, `02-Terraform-State.md`) have valid frontmatter (`status`, `sr-due`, `sr-interval`, `sr-ease`, a `review` tag).
+3. The two Terraform theory notes (`Terraform-GCP/00 Theory/01-Ban-chat-cua-Terraform.md`, `02-Terraform-State.md`) have valid frontmatter (`status`, `sr-due`, `sr-interval`, `sr-ease`, a `review` tag).
 4. If the Spaced Repetition plugin is installed: open its review pane — notes tagged `review` with `sr-due <= today` appear in the queue.
 5. `/done` at the end of a session updates `sr-due`/`status` in the touched notes and appends to the day's session log.
 

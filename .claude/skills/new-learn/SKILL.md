@@ -18,7 +18,7 @@ If the argument gave a name, use it for Q1 and skip asking it. Otherwise ask, on
 Run from the vault root. If cwd is a subject folder, prefix paths with `../`. First check the name is free: `ls "<Name>" 2>/dev/null` — if the folder already exists, stop and ask whether to pick a new name or work inside the existing subject.
 ```bash
 S="<Name>"
-mkdir -p "$S/00 Ly thuyet" "$S/01 Thuc hanh" "$S/02 Output" "$S/03 Journals" "$S/04 Reviews"
+mkdir -p "$S/00 Theory" "$S/01 Practice" "$S/02 Output" "$S/03 Journals" "$S/04 Reviews"
 ```
 
 ## 3. Write `<Name>/CLAUDE.md` (thin, English)
@@ -30,7 +30,7 @@ mkdir -p "$S/00 Ly thuyet" "$S/01 Thuc hanh" "$S/02 Output" "$S/03 Journals" "$S
 Learning <subject> toward: <ultimate goal>. Claude is a Socratic tutor here; replies in Vietnamese ("bạn" / "mình").
 Blind spots: <from Q3>.
 
-Flow per topic: Lý thuyết (`00 Ly thuyet/`) → Thực hành (`01 Thuc hanh/`) → Output (`02 Output/`).
+Flow per topic: Lý thuyết (`00 Theory/`) → Thực hành (`01 Practice/`) → Output (`02 Output/`).
 
 ## Current Status
 > Last updated: <today, YYYY-MM-DD>

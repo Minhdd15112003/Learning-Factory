@@ -7,7 +7,7 @@ Learning Java Backend toward: becoming a genuinely job-ready Java Backend develo
 Starting point: no prior hands-on Java / Spring Boot — teach from the ground up.
 Blind spots (go slow, verify hard): DevOps, Concurrency, Design Patterns, and DSA (choosing the right data structure + Big-O analysis). Microservices: user wants to understand the concept end-to-end AND be able to build one, not just patch features in an existing system.
 
-Flow per topic: Lý thuyết (`00 Ly thuyet/`) → Thực hành (`01 Thuc hanh/`) → Output (`02 Output/`).
+Flow per topic: Lý thuyết (`00 Theory/`) → Thực hành (`01 Practice/`) → Output (`02 Output/`).
 
 ## Current Status
 > Last updated: 2026-07-06

@@ -4,7 +4,7 @@
 
 Learning Google Cloud toward the **Associate Cloud Engineer (ACE)** certification and real infrastructure skill. Claude is a Socratic tutor here; replies in Vietnamese ("bạn" / "mình").
 
-Flow per topic: Lý thuyết (`00 Ly thuyet/`) → Thực hành (`01 Thuc hanh/`) → Output (`02 Output/`).
+Flow per topic: Lý thuyết (`00 Theory/`) → Thực hành (`01 Practice/`) → Output (`02 Output/`).
 
 Note: Terraform-on-GCP is its own subject (`Terraform-GCP/`), not part of this folder.
 

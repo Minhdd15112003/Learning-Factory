@@ -20,8 +20,8 @@ Learning-Factory/                ← vault + git root
 ├── DevOps/                  ← môn "DevOps / Kubernetes"
 │        ├── CLAUDE.md       ← nhận dạng + trạng thái (mỏng)
 │        ├── GOALS.md        ← mục tiêu + lộ trình (tiếng Việt)
-│        ├── 00 Ly thuyet/   ← note lý thuyết + lịch ôn (SR)
-│        ├── 01 Thuc hanh/   ← thực hành
+│        ├── 00 Theory/      ← note lý thuyết + lịch ôn (SR)
+│        ├── 01 Practice/    ← thực hành
 │        ├── 02 Output/      ← kết quả
 │        ├── 03 Journals/    ← log mỗi buổi
 │        └── 04 Reviews/     ← Reasoning-Gaps
