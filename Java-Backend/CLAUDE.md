@@ -10,7 +10,9 @@ Blind spots (go slow, verify hard): DevOps, Concurrency, Design Patterns, and DS
 Flow per topic: Lý thuyết (`00 Theory/`) → Thực hành (`01 Practice/`) → Output (`02 Output/`).
 
 ## Current Status
-> Last updated: 2026-07-06
+> Last updated: 2026-07-07
 - Placement done: strong OOP + backend background (Python/FastAPI, JS/Express+NestJS, Go/Gin); first time with Java. Skip OOP basics; teach Java-specific differences. NestJS ≈ Spring is a big transfer asset.
-- [[Interface vs Abstract Class]] — `Understood` (Good). Wrote first Java practice (Notification demo) and applied DI-to-interface unprompted.
-- Next concept: runtime [[Polymorphism]] / dynamic dispatch (teased from the `Context` class in today's practice).
+- [[Interface vs Abstract Class]] — `Understood`. Reviewed 2026-07-07 → Easy (decision axis solid, old "nhiều method" framing gone). sr-due 2026-07-11.
+- [[Polymorphism]] / dynamic dispatch — `Understood` (Good). Saw it run (heterogeneous `List<INotify>` loop), hit the static-type gate (`sendBulk` blocked), grasped cast = per-expression static-type change. Output artifact written. sr-due 2026-07-08.
+- **Watch (Active gap):** tends to answer at label/describe level before the causal mechanism — push for "vì sao" at reviews before grading.
+- Next concept: [[Exception Handling]] — checked vs unchecked (hook seeded: why Java forces compile-time handling that Python/JS/Go don't).
