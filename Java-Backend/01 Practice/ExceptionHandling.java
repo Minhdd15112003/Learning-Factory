@@ -29,7 +29,7 @@ public class ExceptionHandling {
         try {
             bank.transfer("ACC-1", "ACC-2", 100);
         } catch (Exception e) {
-            throw new BankTransferException("error");
+            bank.debit("ACC-1", 100);
         }
 
         // ── Thí nghiệm 3: unchecked KHÔNG bị ép ───────────────────────────
