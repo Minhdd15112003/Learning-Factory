@@ -23,9 +23,11 @@ public class CollectionsPractice {
         //          -> contains/add ở đây là ~O(1), không quét cả tập.
         for (String key : incoming) {
             if (seen.contains(key)){
+                System.out.println("TRÙNG: "+ key);
                 continue;
             }
-            seen.add(key);            
+            seen.add(key);
+            System.out.println("OK: "+ key);           
         }
 
         // ── Phần B: cái bẫy dùng object tự định nghĩa làm key ─────────────
