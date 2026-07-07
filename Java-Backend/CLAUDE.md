@@ -14,5 +14,7 @@ Flow per topic: Lý thuyết (`00 Theory/`) → Thực hành (`01 Practice/`) �
 - Placement done: strong OOP + backend background (Python/FastAPI, JS/Express+NestJS, Go/Gin); first time with Java. Skip OOP basics; teach Java-specific differences. NestJS ≈ Spring is a big transfer asset.
 - [[Interface vs Abstract Class]] — `Understood`. Reviewed 2026-07-07 → Easy (decision axis solid, old "nhiều method" framing gone). sr-due 2026-07-11.
 - [[Polymorphism]] / dynamic dispatch — `Understood` (Good). Saw it run (heterogeneous `List<INotify>` loop), hit the static-type gate (`sendBulk` blocked), grasped cast = per-expression static-type change. Output artifact written. sr-due 2026-07-08.
+- [[Exception Handling]] — checked vs unchecked — `Understood` (Good). Self-derived the axis (uncontrollable-external → checked/forced vs own-logic-bug → unchecked); tied "force" to avoiding debit-without-credit inconsistency. Felt the real compile error; corrected a rollback-direction slip (debit vs credit). sr-due 2026-07-08.
 - **Watch (Active gap):** tends to answer at label/describe level before the causal mechanism — push for "vì sao" at reviews before grading.
-- Next concept: [[Exception Handling]] — checked vs unchecked (hook seeded: why Java forces compile-time handling that Python/JS/Go don't).
+- Note: 2026-07-07 was a dense session (2 new concepts + 1 review). User absorbs slowly — watch retention on next review.
+- Next concept: [[Collections Framework]] — List/Set/Map + Big-O (blind spot [[DSA]]). Opened challenge-first with the "ID exists?" lookup scenario.

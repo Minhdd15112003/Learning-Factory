@@ -8,6 +8,10 @@
 - **Cần làm ở review:** khi nghe một câu dán nhãn, đẩy một nhịp — "Đó là cái gì. Còn *vì sao*?" — trước khi chấm. Không nhận nhãn thay cho cơ chế.
 
 ## Resolved Gaps
+### 2026-07-07 — Rollback sai chiều (debit thay vì credit)
+- **Slip:** để "hoàn tiền" cho tài khoản đã bị trừ, ban đầu gọi `debit` (trừ thêm) → tài khoản mất gấp đôi.
+- **Đã sửa:** tự nhận ra "phải cộng lại". Nguyên tắc: rollback = **đảo ngược đúng thao tác đã làm** (đã `debit` thì `credit` lại đúng số đó). Nhẹ, sửa nhanh — ghi lại vì là lỗi domain-reasoning trong ngân hàng, không phải lỗi cú pháp.
+
 ### 2026-07-07 — "Cast nhét method vào interface"
 - **Hiểu lầm:** nghĩ `(EmailNotification) n` sửa/bổ sung method cho `interface INotify`, và tưởng static↔dynamic type là một công tắc gạt qua lại.
 - **Đã sửa:** cast **không đụng** interface, **không đổi** vật thể; nó chỉ đổi **static type mà compiler nhìn thấy cho đúng một biểu thức đó**. Bạn tự chốt: sang dòng khác không cast thì `n` lại bị soi theo `INotify`. Hai kiểu (static/dynamic) luôn tồn tại song song, không phải toggle.
