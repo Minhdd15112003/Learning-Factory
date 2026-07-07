@@ -1,9 +1,9 @@
 ---
 status: Understood
 tags: [java, oop, review]
-sr-due: 2026-07-07
-sr-interval: 1
-sr-ease: 250
+sr-due: 2026-07-11
+sr-interval: 4
+sr-ease: 270
 ---
 
 # Interface vs Abstract Class (Java) (C)
