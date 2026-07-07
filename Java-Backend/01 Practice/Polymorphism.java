@@ -39,7 +39,7 @@ public class Polymorphism {
 
         // ── Thí nghiệm 3: ép về dynamic type (cast) ───────────────────────
         // TODO(3): dùng cast để lấy lại khả năng gọi sendBulk():
-        // ((EmailNotification) n).sendBulk(List.of("a@x.com", "b@x.com"));
+        ((EmailNotification) n).sendBulk(List.of("a@x.com", "b@x.com"));
         // Vì sao lúc này compiler cho phép? (gợi ý: bạn vừa đổi static type mà compiler
         // nhìn thấy)
 
