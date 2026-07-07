@@ -12,21 +12,25 @@ public class ExceptionHandling {
         Bank bank = new Bank();
 
         // ── Thí nghiệm 1: cảm nhận "ép" của compiler ──────────────────────
-        // TODO(1): gọi   bank.credit("ACC-2", 100);
-        //          Chạy `javac` — ĐỌC lỗi tiếng Anh (gợi ý keyword: "unreported exception ... must be caught
-        //          or declared"). Vì credit() throws một CHECKED exception, compiler không cho bỏ trống.
-        //          Sau khi đọc xong, comment nó lại rồi làm Thí nghiệm 2.
-        bank.credit('ACC 2', 100);
+        // TODO(1): gọi bank.credit("ACC-2", 100);
+        // Chạy `javac` — ĐỌC lỗi tiếng Anh (gợi ý keyword: "unreported exception ...
+        // must be caught
+        // or declared"). Vì credit() throws một CHECKED exception, compiler không cho
+        // bỏ trống.
+        // Sau khi đọc xong, comment nó lại rồi làm Thí nghiệm 2.
+        // bank.credit("ACC 2", 100);
 
         // ── Thí nghiệm 2: chuyển tiền có xử lý lỗi (đúng cách) ─────────────
         // TODO(2): gọi bank.transfer("ACC-1", "ACC-2", 100) trong try/catch.
-        //          transfer() nội bộ debit trước rồi credit sau; credit có thể ném BankTransferException.
-        //          -> phần bù trạng thái (không để "trừ mà chưa cộng") bạn sẽ viết trong transfer() ở TODO(3).
-
+        // transfer() nội bộ debit trước rồi credit sau; credit có thể ném
+        // BankTransferException.
+        // -> phần bù trạng thái (không để "trừ mà chưa cộng") bạn sẽ viết trong
+        // transfer() ở TODO(3).
 
         // ── Thí nghiệm 3: unchecked KHÔNG bị ép ───────────────────────────
-        // Dòng dưới ném IllegalArgumentException (unchecked) khi amount âm — KHÔNG cần try/catch vẫn compile.
-        bank.debit("ACC-1", -50);   // để nguyên, chạy thử, quan sát nó nổ lúc RUNTIME chứ không phải compile
+        // Dòng dưới ném IllegalArgumentException (unchecked) khi amount âm — KHÔNG cần
+        // try/catch vẫn compile.
+        bank.debit("ACC-1", -50); // để nguyên, chạy thử, quan sát nó nổ lúc RUNTIME chứ không phải compile
     }
 }
 
