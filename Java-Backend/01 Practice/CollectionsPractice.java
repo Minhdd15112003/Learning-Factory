@@ -33,7 +33,6 @@ public class CollectionsPractice {
         // ── Phần B: cái bẫy dùng object tự định nghĩa làm key ─────────────
         Map<TxnKey, Integer> ledger = new HashMap<>();
         ledger.put(new TxnKey("ACC-1", 1001), 500);
-
         // Cùng nội dung ("ACC-1", 1001) nhưng là object MỚI:
         Integer amount = ledger.get(new TxnKey("ACC-1", 1001));
         System.out.println("Tra cứu số tiền: " + amount);
