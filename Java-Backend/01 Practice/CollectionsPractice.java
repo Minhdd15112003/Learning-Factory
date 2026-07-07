@@ -33,13 +33,10 @@ public class CollectionsPractice {
 
         // ── Phần B: cái bẫy dùng object tự định nghĩa làm key ─────────────
         Map<TxnKey, Integer> ledger = new HashMap<>();
-        TxnKey txnKey = new TxnKey("ACC-1", 1001);
-        ledger.put(txnKey, 500);
+        ledger.put( new TxnKey("ACC-1", 1001), 500);
         // Cùng nội dung ("ACC-1", 1001) nhưng là object MỚI:
-        if (txnKey.equals(txnKey) != true) {
-            throw new Exception("error");
-        }
-        Integer amount = ledger.get(txnKey);
+       
+        Integer amount = ledger.get(new TxnKey("ACC-1", 1001));
         System.out.println("Tra cứu số tiền: " + amount);
         // TODO(B1): chạy thử NGAY BÂY GIỜ. Kết quả in ra là gì? Vì sao lại thế,
         // dù nội dung key y hệt? (gợi ý: TxnKey chưa override hashCode/equals)
