@@ -21,7 +21,12 @@ public class CollectionsPractice {
         // TODO(A): duyệt `incoming`. Với mỗi id: nếu seen.contains(id) -> in "TRÙNG: <id>";
         //          ngược lại seen.add(id) và in "OK: <id>".
         //          -> contains/add ở đây là ~O(1), không quét cả tập.
-
+        for (String key : incoming) {
+            if (seen.contains(key)){
+                continue;
+            }
+            seen.add(key);            
+        }
 
         // ── Phần B: cái bẫy dùng object tự định nghĩa làm key ─────────────
         Map<TxnKey, Integer> ledger = new HashMap<>();
