@@ -26,6 +26,11 @@ public class ExceptionHandling {
         // BankTransferException.
         // -> phần bù trạng thái (không để "trừ mà chưa cộng") bạn sẽ viết trong
         // transfer() ở TODO(3).
+        try {
+            bank.transfer("ACC-1", "ACC-2", 100);
+        } catch (Exception e) {
+            throw new BankTransferException("error")
+        }
 
         // ── Thí nghiệm 3: unchecked KHÔNG bị ép ───────────────────────────
         // Dòng dưới ném IllegalArgumentException (unchecked) khi amount âm — KHÔNG cần
