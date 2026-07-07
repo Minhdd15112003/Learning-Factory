@@ -34,10 +34,13 @@ public class CollectionsPractice {
         // ── Phần B: cái bẫy dùng object tự định nghĩa làm key ─────────────
         Map<TxnKey, Integer> ledger = new HashMap<>();
         TxnKey txnKey = new TxnKey("ACC-1", 1001);
-        ledger.put(txnKey, 500);
+        ledger.put(txnKey.hashCode(), 500);
         // Cùng nội dung ("ACC-1", 1001) nhưng là object MỚI:
-        Integer amount = ledger.get(txnKey);
-        System.out.println("Tra cứu số tiền: " + amount);
+        if (txnKey.equals(txnKey.hashCode()) == true) {
+            Integer amount = ledger.get(txnKey);
+            System.out.println("Tra cứu số tiền: " + amount);
+        }
+
         // TODO(B1): chạy thử NGAY BÂY GIỜ. Kết quả in ra là gì? Vì sao lại thế,
         // dù nội dung key y hệt? (gợi ý: TxnKey chưa override hashCode/equals)
 
@@ -63,16 +66,18 @@ class TxnKey {
     // và @Override public int hashCode() { ... }
     // Gợi ý: dùng Objects.equals(...) và Objects.hash(account, seq).
     @Override
-  public boolean equals(Object o) {
-      if (this == o) return true;
-      if (o == null || getClass() != o.getClass()) return false;
-      TxnKey other = (TxnKey) o;
-      return seq == other.seq && Objects.equals(account, other.account);
-  }
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        TxnKey other = (TxnKey) o;
+        return seq == other.seq && Objects.equals(account, other.account);
+    }
 
-  @Override
-  public int hashCode() {
-      return Objects.hash(account, seq);
-  }
+    @Override
+    public int hashCode() {
+        return Objects.hash(account, seq);
+    }
 
 }
