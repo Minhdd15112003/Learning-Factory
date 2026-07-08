@@ -1,9 +1,9 @@
 ---
 status: Understood
 tags: [java, exception, review]
-sr-due: 2026-07-08
-sr-interval: 1
-sr-ease: 250
+sr-due: 2026-07-12
+sr-interval: 4
+sr-ease: 270
 ---
 
 # Exception Handling — Checked vs Unchecked (Java) (C)

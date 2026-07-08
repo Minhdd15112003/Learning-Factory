@@ -1,9 +1,9 @@
 ---
 status: Understood
 tags: [java, oop, review]
-sr-due: 2026-07-08
-sr-interval: 1
-sr-ease: 250
+sr-due: 2026-07-12
+sr-interval: 4
+sr-ease: 270
 ---
 
 # Polymorphism — Dynamic Dispatch (Java) (C)

@@ -10,12 +10,10 @@ Blind spots (go slow, verify hard): DevOps, Concurrency, Design Patterns, and DS
 Flow per topic: Lý thuyết (`00 Theory/`) → Thực hành (`01 Practice/`) → Output (`02 Output/`).
 
 ## Current Status
-> Last updated: 2026-07-07
+> Last updated: 2026-07-08
 - Placement done: strong OOP + backend background (Python/FastAPI, JS/Express+NestJS, Go/Gin); first time with Java. Skip OOP basics; teach Java-specific differences. NestJS ≈ Spring is a big transfer asset.
 - [[Interface vs Abstract Class]] — `Understood`. Reviewed 2026-07-07 → Easy (decision axis solid, old "nhiều method" framing gone). sr-due 2026-07-11.
-- [[Polymorphism]] / dynamic dispatch — `Understood` (Good). Saw it run (heterogeneous `List<INotify>` loop), hit the static-type gate (`sendBulk` blocked), grasped cast = per-expression static-type change. Output artifact written. sr-due 2026-07-08.
-- [[Exception Handling]] — checked vs unchecked — `Understood` (Good). Self-derived the axis (uncontrollable-external → checked/forced vs own-logic-bug → unchecked); tied "force" to avoiding debit-without-credit inconsistency. Felt the real compile error; corrected a rollback-direction slip (debit vs credit). sr-due 2026-07-08.
-- [[Collections Framework - HashMap|HashMap / HashSet & Big-O]] — `Understood` (Good). Self-derived List.contains=O(n) vs HashMap=O(1) ("one calc, independent of n"); grasped key→hash→index→bucket chain, collision resolved by equals within bucket, and the two roles (hashCode→bucket, equals→exact). Reward: the hashCode/equals override contract. Practice `CollectionsPractice.java` NOT yet run. sr-due 2026-07-08.
-- **Watch (Active gap):** tends to answer at label/describe level before the causal mechanism — push for "vì sao" at reviews before grading.
-- **Retention risk:** 2026-07-07 was a marathon (3 new concepts + 1 review) for a slow-absorbing learner. Next session: START by running `CollectionsPractice.java` (esp. Part B hashCode/equals trap), and review-probe collision + the contract hard before anything new.
-- Next up: finish [[Collections Framework]] practice, then List/Set/Map trade-offs or [[Stream API]].
+- [[Polymorphism]] / dynamic dispatch — `Understood` (Easy). Reviewed 2026-07-08. sr-due 2026-07-11.
+- [[Exception Handling]] — checked vs unchecked — `Understood` (Easy). Reviewed 2026-07-08. sr-due 2026-07-11.
+- [[Collections Framework - HashMap|HashMap / HashSet & Big-O]] — `Understood` (Easy). Reviewed 2026-07-08. Hoàn thành bài tập thực hành `CollectionsPractice.java` (override `hashCode` và `equals`). sr-due 2026-07-11.
+- Next up: So sánh trade-off giữa List/Set/Map và bắt đầu tìm hiểu [[Stream API]].

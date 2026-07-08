@@ -1,9 +1,9 @@
 ---
 status: Understood
 tags: [java, collections, dsa, review]
-sr-due: 2026-07-08
-sr-interval: 1
-sr-ease: 250
+sr-due: 2026-07-12
+sr-interval: 4
+sr-ease: 270
 ---
 
 # Collections Framework — HashMap / HashSet & Big-O (Java) (C)
