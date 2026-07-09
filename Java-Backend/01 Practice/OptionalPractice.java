@@ -68,7 +68,7 @@ public class OptionalPractice {
     // Bọc trong try-catch để chương trình không crash.
     public static void bai4_orElseThrow() {
         // TODO: Dùng findById + orElseThrow, bọc try-catch, in message của exception
-        findById("ACC-999").orElseThrow(() -> new Error("Error: Account not found: ACC-999"));
+        findById("ACC-999").orElseThrow(() ->  new RuntimeException("Account not found: ACC-999"));
         // Mong đợi: "Error: Account not found: ACC-999"
     }
 
