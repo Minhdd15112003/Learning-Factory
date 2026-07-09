@@ -120,7 +120,7 @@ public class StreamPractice {
         // TODO: stream pipeline: filter startsWith "VIP-" → bỏ "VIP-" → toUpperCase →
         // sorted → collect
         List<String> result = accounts.stream().filter(t -> t.startsWith("VIP-")).map(t -> {
-            t.replace("VIP-", "").toUpperCase();
+            t.substring(3).toUpperCase();
             return t;
         }).collect(Collectors.toList());
         System.out.println("result: " + result);
