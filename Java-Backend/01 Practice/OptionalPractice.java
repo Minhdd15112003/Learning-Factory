@@ -58,6 +58,7 @@ public class OptionalPractice {
     // Nếu không → không in gì cả.
     public static void bai3_ifPresent() {
         // TODO: Dùng findById + ifPresent
+        findById("ACC-001").ifPresent(t -> System.out.println("Found: " + t.ownerName + "-" + t.balance));
         // Mong đợi: "Found: Nguyen Van A - 5000000.0"
     }
 
