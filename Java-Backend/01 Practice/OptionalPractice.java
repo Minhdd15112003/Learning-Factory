@@ -91,7 +91,8 @@ public class OptionalPractice {
         // Cách 2: Optional pipeline
         // TODO: Gọi findById, dùng filter(acc -> acc.balance() > 0) + ifPresentOrElse(...)
         //       hoặc map + orElse
-        findById("ACC-003").filter(t -> t.balance() > 0).ifPresentOrElse(t -> System.out.println("balance: "+t.balance), null);
+        findById("ACC-003").filter(t -> t.balance() > 0).
+        ifPresentOrElse(t -> System.out.println("balance: "+t.balance), () -> System.out.println("Empty account"));
     }
 
     public static void main(String[] args) {
