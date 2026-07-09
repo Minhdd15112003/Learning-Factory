@@ -81,6 +81,10 @@ public class OptionalPractice {
     public static void bai5_compare() {
         // Cách 1: null check
         // TODO: Gọi findById, dùng .orElse(null) để lấy Account ra, rồi if/else
+           Double balance =  findById("ACC-003").map(t -> t.balance == 00).orElse(null);
+        if (balance == 0){
+            System.out.println("Empty account");
+        }
 
         System.out.println("---");
 
