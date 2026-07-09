@@ -120,9 +120,9 @@ public class StreamPractice {
         // TODO: stream pipeline: filter startsWith "VIP-" → bỏ "VIP-" → toUpperCase →
         // sorted → collect
         List<String> result = accounts.stream().filter(t -> t.startsWith("VIP-")).map(t -> {
-            t.substring(3).toUpperCase();
-            return t;
-        }).collect(Collectors.toList());
+            String newstr = t.substring(4).toUpperCase();
+            return newstr;
+        }).sorted().collect(Collectors.toList());
         System.out.println("result: " + result);
 
         // TODO: In kết quả. Kết quả mong đợi: [HOANG, LE, NGUYEN]
