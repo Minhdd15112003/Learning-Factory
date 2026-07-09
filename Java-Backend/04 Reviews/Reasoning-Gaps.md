@@ -7,6 +7,11 @@
 - **Hiện tượng:** câu trả lời đầu tiên hay *gọi tên* thứ đang xảy ra rồi dừng, chưa chỉ ra *vì sao*. Đã lặp 2 lần: "interface khi nhiều method" (buổi 07-06) và "send là dynamic method nên tới runtime mới biết" (buổi 07-07). Cả hai đều đúng mô tả nhưng vòng tròn, chưa phải nhân.
 - **Cần làm ở review:** khi nghe một câu dán nhãn, đẩy một nhịp — "Đó là cái gì. Còn *vì sao*?" — trước khi chấm. Không nhận nhãn thay cho cơ chế.
 
+### 2026-07-09 — Nhầm hướng: LinkedList nhanh hơn ArrayList khi truy cập theo index
+- **Hiện tượng:** nghĩ LinkedList nhanh hơn vì "đã biết index tiếp theo là gì rồi" — lẫn lộn con trỏ `next` (chỉ trỏ sang **node kế tiếp**, không phải index bất kỳ) với random access.
+- **Đã sửa trong buổi:** khi được hỏi "con trỏ next trỏ đến node nào?", tự nhận ra next chỉ trỏ sang node 1, không nhảy thẳng đến index 500,000. ArrayList mới truy cập thẳng được nhờ bộ nhớ liên tục.
+- **Liên quan:** gap "mô tả/dán nhãn" vẫn active — Feynman hôm nay giải thích được một phía (LinkedList) nhưng thiếu phía ArrayList (dịch chuyển phần tử). Cần soi ở review 07-10.
+
 ## Resolved Gaps
 ### 2026-07-07 — Rollback sai chiều (debit thay vì credit)
 - **Slip:** để "hoàn tiền" cho tài khoản đã bị trừ, ban đầu gọi `debit` (trừ thêm) → tài khoản mất gấp đôi.

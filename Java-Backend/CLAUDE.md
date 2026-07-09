@@ -10,10 +10,11 @@ Blind spots (go slow, verify hard): DevOps, Concurrency, Design Patterns, and DS
 Flow per topic: Lý thuyết (`00 Theory/`) → Thực hành (`01 Practice/`) → Output (`02 Output/`).
 
 ## Current Status
-> Last updated: 2026-07-08
+> Last updated: 2026-07-09
 - Placement done: strong OOP + backend background (Python/FastAPI, JS/Express+NestJS, Go/Gin); first time with Java. Skip OOP basics; teach Java-specific differences. NestJS ≈ Spring is a big transfer asset.
-- [[Interface vs Abstract Class]] — `Understood`. Reviewed 2026-07-07 → Easy (decision axis solid, old "nhiều method" framing gone). sr-due 2026-07-11.
+- [[Interface vs Abstract Class]] — `Understood`. Reviewed 2026-07-07 → Easy. sr-due 2026-07-11.
 - [[Polymorphism]] / dynamic dispatch — `Understood` (Easy). Reviewed 2026-07-08. sr-due 2026-07-11.
-- [[Exception Handling]] — checked vs unchecked — `Understood` (Easy). Reviewed 2026-07-08. sr-due 2026-07-11.
-- [[Collections Framework - HashMap|HashMap / HashSet & Big-O]] — `Understood` (Easy). Reviewed 2026-07-08. Hoàn thành bài tập thực hành `CollectionsPractice.java` (override `hashCode` và `equals`). sr-due 2026-07-11.
-- Next up: So sánh trade-off giữa List/Set/Map và bắt đầu tìm hiểu [[Stream API]].
+- [[Exception Handling]] — checked vs unchecked — `Understood` (Easy). Reviewed 2026-07-08. sr-due 2026-07-12.
+- [[Collections Framework - HashMap|HashMap / HashSet & Big-O]] — `Understood` (Easy). Reviewed 2026-07-08. sr-due 2026-07-12.
+- [[List - ArrayList vs LinkedList]] — `Partial` (Good). Học 2026-07-09. Feynman giải thích được phía LinkedList (duyệt tuần tự) nhưng chưa tái hiện phía ArrayList (dịch chuyển phần tử) và cache locality. sr-due 2026-07-10.
+- Next up: Ôn lại ArrayList vs LinkedList (chốt cơ chế cả hai phía) → thực hành List → tiếp tục [[Stream API]].
