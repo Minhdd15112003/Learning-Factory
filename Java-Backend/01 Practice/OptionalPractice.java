@@ -45,10 +45,11 @@ public class OptionalPractice {
     // Không tìm thấy thì trả 0.0.
     public static void bai2_mapChain() {
         // TODO: Dùng findById + map (lấy balance) + map (nhân 1.05) + orElse(0.0)
-        // Double result = findById("ACC-002")
+        Double result = findById("ACC-002").map(t -> t.balance * 1.5).orElse(0.0);
         //     ...
 
         // TODO: In kết quả. Mong đợi: "Balance + interest: 12600000.0"
+        System.out.println("Balance + interest: "+ result);
     }
 
     // === Bài 3: ifPresent — side effect ===
