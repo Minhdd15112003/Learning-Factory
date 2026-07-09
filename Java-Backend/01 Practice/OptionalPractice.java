@@ -34,8 +34,9 @@ public class OptionalPractice {
         // TODO: Dùng findById + map + orElse để lấy ownerName, default "Unknown"
         // String name = findById("ACC-999")
         //     ...
-        String name = findById("ACC-999").map(t -> t.toString());
+        String name = findById("ACC-999").map(t -> t.toString()).orElse("Unknown");
         // TODO: In kết quả. Mong đợi: "Owner: Unknown"
+        System.out.println("name: "+name);
     }
 
     // === Bài 2: map chuỗi ===
