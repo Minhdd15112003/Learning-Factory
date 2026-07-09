@@ -42,17 +42,14 @@ public class StreamPractice {
         // để thấy thứ tự xử lý (duyệt dọc, phần tử bị loại không qua map)
         numbers.stream().filter(t -> {
 
-            if (t < 0) {
+            if (t > 3) {
                 return true;
             }
             System.out.println("filter: " + t);
             return false;
         }).map(n -> {
             System.out.println("map: " + n);
-            if (n % 2 != 0) {
-                return true;
-            }
-            return false;
+            return n * 10;
         }).forEach(x -> System.out.println("result: " + x));
         // Gợi ý:
         // numbers.stream()
