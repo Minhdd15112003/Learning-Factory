@@ -81,7 +81,7 @@ public class OptionalPractice {
     public static void bai5_compare() {
         // Cách 1: null check
         // TODO: Gọi findById, dùng .orElse(null) để lấy Account ra, rồi if/else
-           Double balance =  findById("ACC-003").map(t -> t.balance == 00).orElse(null);
+           Double balance =  findById("ACC-003").map(t -> t.balance).orElse(null);
         if (balance == 0){
             System.out.println("Empty account");
         }
@@ -91,6 +91,7 @@ public class OptionalPractice {
         // Cách 2: Optional pipeline
         // TODO: Gọi findById, dùng filter(acc -> acc.balance() > 0) + ifPresentOrElse(...)
         //       hoặc map + orElse
+        findById("ACC-003").filter(t -> t.balance() > 0).ifPresentOrElse(t -> System.out.println("balance: "+t.balance), null);
     }
 
     public static void main(String[] args) {
