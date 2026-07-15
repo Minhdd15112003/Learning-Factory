@@ -10,15 +10,16 @@ Blind spots (go slow, verify hard): DevOps, Concurrency, Design Patterns, and DS
 Flow per topic: Lý thuyết (`00 Theory/`) → Thực hành (`01 Practice/`) → Output (`02 Output/`).
 
 ## Current Status
-> Last updated: 2026-07-14
+> Last updated: 2026-07-15
 - Placement done: strong OOP + backend background (Python/FastAPI, JS/Express+NestJS, Go/Gin); first time with Java. Skip OOP basics; teach Java-specific differences. NestJS ≈ Spring is a big transfer asset.
 - [[Interface vs Abstract Class]] — `Understood`. Reviewed 2026-07-14 → Good. sr-due 2026-07-25.
 - [[Polymorphism]] / dynamic dispatch — `Understood`. Reviewed 2026-07-14 → Easy. sr-due 2026-07-28.
 - [[Exception Handling]] — checked vs unchecked — `Understood`. Reviewed 2026-07-14 → Good. sr-due 2026-07-25.
-- [[Collections Framework - HashMap|HashMap / HashSet & Big-O]] — `Understood` (Easy). Reviewed 2026-07-08. sr-due 2026-07-12.
-- [[List - ArrayList vs LinkedList]] — `Understood`. Reviewed 2026-07-09 → Easy. sr-due 2026-07-12.
-- [[Stream API]] — `Understood`. Mới học 2026-07-09. sr-due 2026-07-12.
-- [[Optional]] — `Understood`. Mới học 2026-07-09. sr-due 2026-07-12.
-- [[Java Modern Features - var và record|var & record]] — `Understood`. Mới học 2026-07-14 → Good. sr-due 2026-07-15.
-- [[Concurrency - Thread và Shared Memory|Concurrency - Thread & Shared Memory]] — `Understood`. Reviewed 2026-07-14 → Easy. sr-due 2026-07-15.
-- Next up: Đào sâu Concurrency — Thread Pool (`ExecutorService`), từ khóa `volatile` và biến nguyên tử `AtomicInteger` (CAS).
+- [[Collections Framework - HashMap|HashMap / HashSet & Big-O]] — `Understood`. Reviewed 2026-07-15 → Good. sr-due 2026-07-26.
+- [[List - ArrayList vs LinkedList]] — `Understood`. Reviewed 2026-07-15 → Easy. sr-due 2026-07-26.
+- [[Stream API]] — `Understood`. Reviewed 2026-07-15 → Easy. sr-due 2026-07-26.
+- [[Optional]] — `Understood`. Mới học 2026-07-09. sr-due 2026-07-12. *Deferred*
+- [[Java Modern Features - var và record|var & record]] — `Understood`. Mới học 2026-07-14 → Good. sr-due 2026-07-15. *Deferred*
+- [[Concurrency - Thread và Shared Memory|Concurrency - Thread & Shared Memory]] — `Understood`. Reviewed 2026-07-14 → Easy. sr-due 2026-07-15. *Deferred*
+- [[Concurrency - ExecutorService và Future]] — `Understood`. Học mới 2026-07-15 → Easy. sr-due 2026-07-19.
+- Next up: `volatile` và `AtomicInteger` (CAS).
