@@ -1,8 +1,8 @@
 ---
 status: Understood
 tags: [java, exception, review]
-sr-due: 2026-07-12
-sr-interval: 4
+sr-due: 2026-07-25
+sr-interval: 11
 sr-ease: 270
 ---
 

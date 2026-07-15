@@ -1,8 +1,8 @@
 ---
 status: Understood
 tags: [java, collections, dsa, review]
-sr-due: 2026-07-12
-sr-interval: 4
+sr-due: 2026-07-26
+sr-interval: 11
 sr-ease: 270
 ---
 

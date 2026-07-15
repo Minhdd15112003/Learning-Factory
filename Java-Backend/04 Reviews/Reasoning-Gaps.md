@@ -13,6 +13,10 @@
 - **Liên quan:** gap "mô tả/dán nhãn" vẫn active — Feynman hôm nay giải thích được một phía (LinkedList) nhưng thiếu phía ArrayList (dịch chuyển phần tử). Cần soi ở review 07-10.
 
 ## Resolved Gaps
+### 2026-07-14 — Nhầm `var` (Java) với dynamic typing (JS/Python)
+- **Hiện tượng:** Lúc mới tiếp cận `var`, nghĩ nó giống `let`/`var` của JS hoặc biến của Python (có thể đổi kiểu dữ liệu lúc chạy).
+- **Đã sửa:** Tự chốt được Java vẫn là static typing. `var` chỉ là compiler tự điền kiểu dựa vào vế phải lúc compile. Gán khác kiểu sau đó sẽ bị lỗi compile ngay.
+
 ### 2026-07-07 — Rollback sai chiều (debit thay vì credit)
 - **Slip:** để "hoàn tiền" cho tài khoản đã bị trừ, ban đầu gọi `debit` (trừ thêm) → tài khoản mất gấp đôi.
 - **Đã sửa:** tự nhận ra "phải cộng lại". Nguyên tắc: rollback = **đảo ngược đúng thao tác đã làm** (đã `debit` thì `credit` lại đúng số đó). Nhẹ, sửa nhanh — ghi lại vì là lỗi domain-reasoning trong ngân hàng, không phải lỗi cú pháp.

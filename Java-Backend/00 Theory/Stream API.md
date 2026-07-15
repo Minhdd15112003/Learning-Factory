@@ -1,9 +1,9 @@
 ---
 status: Understood
 tags: [java, stream, functional, review]
-sr-due: 2026-07-12
-sr-interval: 3
-sr-ease: 250
+sr-due: 2026-07-26
+sr-interval: 11
+sr-ease: 270
 ---
 
 # Stream API (Java) (C)
