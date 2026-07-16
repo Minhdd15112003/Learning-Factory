@@ -1,8 +1,8 @@
 ---
 status: Understood
 tags: [java, concurrency, review]
-sr-due: 2026-07-15
-sr-interval: 1
+sr-due: 2026-07-19
+sr-interval: 3
 sr-ease: 250
 ---
 

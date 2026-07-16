@@ -1,9 +1,9 @@
 ---
 status: Understood
 tags: [java, modern, review]
-sr-due: 2026-07-15
-sr-interval: 1
-sr-ease: 250
+sr-due: 2026-07-20
+sr-interval: 4
+sr-ease: 270
 ---
 
 # Java Modern Features — `var` và `record` (C)

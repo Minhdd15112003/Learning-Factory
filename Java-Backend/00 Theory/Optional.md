@@ -1,9 +1,9 @@
 ---
 status: Understood
 tags: [java, optional, review]
-sr-due: 2026-07-12
-sr-interval: 3
-sr-ease: 250
+sr-due: 2026-07-27
+sr-interval: 11
+sr-ease: 270
 ---
 
 # Optional (Java) (C)
