@@ -10,7 +10,7 @@ Blind spots (go slow, verify hard): DevOps, Concurrency, Design Patterns, and DS
 Flow per topic: Lý thuyết (`00 Theory/`) → Thực hành (`01 Practice/`) → Output (`02 Output/`).
 
 ## Current Status
-> Last updated: 2026-07-15
+> Last updated: 2026-07-16
 - Placement done: strong OOP + backend background (Python/FastAPI, JS/Express+NestJS, Go/Gin); first time with Java. Skip OOP basics; teach Java-specific differences. NestJS ≈ Spring is a big transfer asset.
 - [[Interface vs Abstract Class]] — `Understood`. Reviewed 2026-07-14 → Good. sr-due 2026-07-25.
 - [[Polymorphism]] / dynamic dispatch — `Understood`. Reviewed 2026-07-14 → Easy. sr-due 2026-07-28.
@@ -18,8 +18,10 @@ Flow per topic: Lý thuyết (`00 Theory/`) → Thực hành (`01 Practice/`) �
 - [[Collections Framework - HashMap|HashMap / HashSet & Big-O]] — `Understood`. Reviewed 2026-07-15 → Good. sr-due 2026-07-26.
 - [[List - ArrayList vs LinkedList]] — `Understood`. Reviewed 2026-07-15 → Easy. sr-due 2026-07-26.
 - [[Stream API]] — `Understood`. Reviewed 2026-07-15 → Easy. sr-due 2026-07-26.
-- [[Optional]] — `Understood`. Mới học 2026-07-09. sr-due 2026-07-12. *Deferred*
-- [[Java Modern Features - var và record|var & record]] — `Understood`. Mới học 2026-07-14 → Good. sr-due 2026-07-15. *Deferred*
-- [[Concurrency - Thread và Shared Memory|Concurrency - Thread & Shared Memory]] — `Understood`. Reviewed 2026-07-14 → Easy. sr-due 2026-07-15. *Deferred*
+- [[Optional]] — `Understood`. Reviewed 2026-07-16 → Easy. sr-due 2026-07-27.
+- [[Java Modern Features - var và record|var & record]] — `Understood`. Reviewed 2026-07-16 → Easy. sr-due 2026-07-20.
+- [[Concurrency - Thread và Shared Memory|Concurrency - Thread & Shared Memory]] — `Understood`. Reviewed 2026-07-16 → Good. sr-due 2026-07-19.
 - [[Concurrency - ExecutorService và Future]] — `Understood`. Học mới 2026-07-15 → Easy. sr-due 2026-07-19.
-- Next up: Đào sâu ExecutorService — Queue đầy (RejectedExecutionHandler) và CompletableFuture.
+- [[Concurrency - ThreadPoolExecutor và RejectedExecutionHandler]] — `Understood`. Học mới 2026-07-16 → Good. sr-due 2026-07-20.
+- [[Concurrency - CompletableFuture]] — `Understood`. Học mới 2026-07-16 → Good. sr-due 2026-07-20.
+- Next up: `volatile` và `AtomicInteger` (CAS) — đồng bộ nhẹ hơn `synchronized` cho biến đơn lẻ.
