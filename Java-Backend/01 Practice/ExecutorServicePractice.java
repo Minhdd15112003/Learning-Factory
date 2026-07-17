@@ -1,6 +1,5 @@
 import java.util.concurrent.*;
 import java.util.List;
-import java.util.ArrayList;
 
 /**
  * (C) ExecutorServicePractice - Bài tập thực hành Thread Pool và Future.

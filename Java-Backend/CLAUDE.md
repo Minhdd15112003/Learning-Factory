@@ -10,7 +10,7 @@ Blind spots (go slow, verify hard): DevOps, Concurrency, Design Patterns, and DS
 Flow per topic: Lý thuyết (`00 Theory/`) → Thực hành (`01 Practice/`) → Output (`02 Output/`).
 
 ## Current Status
-> Last updated: 2026-07-16
+> Last updated: 2026-07-17
 - Placement done: strong OOP + backend background (Python/FastAPI, JS/Express+NestJS, Go/Gin); first time with Java. Skip OOP basics; teach Java-specific differences. NestJS ≈ Spring is a big transfer asset.
 - [[Interface vs Abstract Class]] — `Understood`. Reviewed 2026-07-14 → Good. sr-due 2026-07-25.
 - [[Polymorphism]] / dynamic dispatch — `Understood`. Reviewed 2026-07-14 → Easy. sr-due 2026-07-28.
@@ -24,4 +24,7 @@ Flow per topic: Lý thuyết (`00 Theory/`) → Thực hành (`01 Practice/`) �
 - [[Concurrency - ExecutorService và Future]] — `Understood`. Học mới 2026-07-15 → Easy. sr-due 2026-07-19.
 - [[Concurrency - ThreadPoolExecutor và RejectedExecutionHandler]] — `Understood`. Học mới 2026-07-16 → Good. sr-due 2026-07-20.
 - [[Concurrency - CompletableFuture]] — `Understood`. Học mới 2026-07-16 → Good. sr-due 2026-07-20.
-- Next up: Design Patterns — Singleton, Factory, Builder, Strategy, Observer. Bỏ qua volatile/AtomicInteger theo yêu cầu.
+- [[Design Pattern - Singleton]] — `Understood`. Học mới 2026-07-17 → Easy. sr-due 2026-07-21.
+- [[Design Pattern - Factory]] — `Understood`. Học mới 2026-07-17 → Good. sr-due 2026-07-18.
+- [[Design Pattern - Builder]] — `Understood`. Học mới 2026-07-17 → Good. sr-due 2026-07-18.
+- Next up: Design Patterns — Strategy, Observer. Bỏ qua volatile/AtomicInteger theo yêu cầu.
