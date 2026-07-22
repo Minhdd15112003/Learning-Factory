@@ -9,6 +9,13 @@ Blind spots (go slow, verify hard): DevOps, Concurrency, Design Patterns, and DS
 
 Flow per topic: Lý thuyết (`00 Theory/`) → Thực hành (`01 Practice/`) → Output (`02 Output/`).
 
+### Capstone Project (from Phase 2 onward)
+Starting from Giai đoạn 2 (Spring Ecosystem), all practice and output work feeds into a **single evolving Spring Boot project**. Each new concept learned gets applied into this project incrementally. By the end of the roadmap, it becomes a complete, production-shaped application.
+- **Phase 1 (Core Java):** standalone practice files in `01 Practice/` as usual.
+- **Phase 2+:** The Spring Boot project lives in `02 Output/`. Claude guides the user to integrate each new concept there. Isolated exercises still go to `01 Practice/` if needed, but the primary artifact is the project.
+- The project grows organically: Spring MVC → Security → JPA/DB → Redis/Kafka → Docker.
+- Claude never writes the mechanism parts of the project for the user — scaffold with `TODO` markers, the user fills in.
+
 ## Current Status
 > Last updated: 2026-07-17
 - Placement done: strong OOP + backend background (Python/FastAPI, JS/Express+NestJS, Go/Gin); first time with Java. Skip OOP basics; teach Java-specific differences. NestJS ≈ Spring is a big transfer asset.
