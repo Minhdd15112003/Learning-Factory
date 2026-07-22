@@ -1,7 +1,7 @@
 ---
 status: Understood
 tags: [java, concurrency, executor, future, review]
-sr-due: 2026-07-19
+sr-due: 2026-07-22
 sr-interval: 4
 sr-ease: 270
 ---
