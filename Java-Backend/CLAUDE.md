@@ -1,34 +1,46 @@
 # Java-Backend — Subject
 
-> Inherits the vault-root `CLAUDE.md` (Teaching Contract, Knowledge Model, Spaced Repetition, Language) automatically. This file holds only identity + status.
+> Inherits the vault-root `CLAUDE.md` (Teaching Contract, Knowledge Model, Spaced Repetition, Language) automatically. This file holds identity + status.
 
-Learning Java Backend toward: becoming a genuinely job-ready Java Backend developer with real mastery of the full competency map — Core Java → Spring ecosystem → DB/ORM → architecture → testing → DevOps → messaging/cache → advanced. The point is being able to build, ship, and reason about production backend work, not just answer questions. Passing ~2-year-level interviews at Vietnamese fintech/banking companies (MB Bank, NAB, Evotek, ASEAN Securities) is a checkpoint that proves readiness, not the ceiling. Claude is a Socratic tutor here; replies in Vietnamese ("bạn" / "mình").
+Learning Java Backend toward: becoming a job-ready Java Backend & Distributed Systems Engineer with real mastery of the full competency map — Core Java → Spring ecosystem → DB/ORM → architecture → testing → DevOps → messaging/cache → microservices.
 
-Starting point: no prior hands-on Java / Spring Boot — teach from the ground up.
-Blind spots (go slow, verify hard): DevOps, Concurrency, Design Patterns, and DSA (choosing the right data structure + Big-O analysis). Microservices: user wants to understand the concept end-to-end AND be able to build one, not just patch features in an existing system.
+**Core Learning Approach:**
+Starting from Stage 2 onwards, build **ONE SINGLE UNIFIED PROJECT**: `fintech-banking-system` (Digital Banking & Wallet Backend). Every concept, architectural rule, and Design Pattern is applied directly into this evolving project step-by-step (Monolith $\rightarrow$ Modular Monolith / Clean Architecture $\rightarrow$ Microservices Migration via Strangler Fig pattern).
 
-Flow per topic: Lý thuyết (`00 Theory/`) → Thực hành (`01 Practice/`) → Output (`02 Output/`).
+**Teaching Rules & Standards:**
+- Direct, clear, unambiguous Socratic questions.
+- Detailed 4-part theory notes in `00 Theory/<Topic_Folder>/`.
+- Reorganized subfolder structure for `00 Theory/` and `01 Practice/`.
+- Max 2-review limit rule: skip daily Socratic review for notes with `review-count >= 2`.
+
+Flow per topic: Lý thuyết (`00 Theory/<Topic>/`) $\rightarrow$ Thực hành (`01 Practice/<Topic>/`) $\rightarrow$ Output (`02 Output/`).
 
 ## Current Status
 > Last updated: 2026-07-23
-- Placement done: strong OOP + backend background (Python/FastAPI, JS/Express+NestJS, Go/Gin); first time with Java. Skip OOP basics; teach Java-specific differences. NestJS ≈ Spring is a big transfer asset.
-- [[Interface vs Abstract Class]] — `Understood`. Reviewed 2026-07-14 → Good. sr-due 2026-07-25.
-- [[Polymorphism]] / dynamic dispatch — `Understood`. Reviewed 2026-07-14 → Easy. sr-due 2026-07-28.
-- [[Exception Handling]] — checked vs unchecked — `Understood`. Reviewed 2026-07-14 → Good. sr-due 2026-07-25.
-- [[Collections Framework - HashMap|HashMap / HashSet & Big-O]] — `Understood`. Reviewed 2026-07-15 → Good. sr-due 2026-07-26.
-- [[List - ArrayList vs LinkedList]] — `Understood`. Reviewed 2026-07-15 → Easy. sr-due 2026-07-26.
-- [[Stream API]] — `Understood`. Reviewed 2026-07-15 → Easy. sr-due 2026-07-26.
-- [[Optional]] — `Understood`. Reviewed 2026-07-16 → Easy. sr-due 2026-07-27.
-- [[Java Modern Features - var và record|var & record]] — `Understood`. Reviewed 2026-07-23 → Good. sr-due 2026-08-03.
-- [[Concurrency - Thread và Shared Memory|Concurrency - Thread & Shared Memory]] — `Understood`. Reviewed 2026-07-23 → Good. sr-due 2026-07-30.
-- [[Concurrency - ExecutorService và Future]] — `Understood`. Học mới 2026-07-15 → Easy. sr-due 2026-07-22.
-- [[Concurrency - ThreadPoolExecutor và RejectedExecutionHandler]] — `Understood`. Học mới 2026-07-16 → Good. sr-due 2026-07-22.
-- [[Concurrency - CompletableFuture]] — `Understood`. Học mới 2026-07-16 → Good. sr-due 2026-07-22.
-- [[Design Pattern - Singleton]] — `Understood`. Học mới 2026-07-17 → Easy. sr-due 2026-07-22.
-- [[Design Pattern - Factory]] — `Understood`. Học mới 2026-07-17 → Good. sr-due 2026-07-22.
-- [[Design Pattern - Builder]] — `Understood`. Học mới 2026-07-17 → Good. sr-due 2026-07-22.
-- [[Design Pattern - Strategy]] — `Understood`. Reviewed 2026-07-23 → Good. sr-due 2026-07-25.
-- [[Design Pattern - Observer]] — `Understood`. Học mới 2026-07-21 → Good. sr-due 2026-07-23.
-- [[Design Pattern - Adapter]] — `Understood`. Học mới 2026-07-23 → Good. sr-due 2026-07-25.
-- [[Design Pattern - Decorator]] — `Understood`. Học mới 2026-07-23 → Good. sr-due 2026-07-25.
-- Next up: Chốt Giai đoạn 1 (DSA cơ bản) hoặc sang Giai đoạn 2 (Spring Boot).
+
+- Placement done: strong OOP + backend background (Python/FastAPI, JS/Express+NestJS, Go/Gin); first time with Java.
+- Reorganized `00 Theory/` and `01 Practice/` into topic subfolders (`01 Core Java/`, `02 Concurrency/`, `03 Design Patterns/`).
+- Updated Roadmap to 1 Single Fintech Project (`fintech-banking-system`) evolving from Monolith to Microservices.
+
+### Completed Concepts (Stage 1 Core Java & Design Patterns):
+- [[01 Core Java/Interface vs Abstract Class|Interface vs Abstract Class]] — `Understood` (review-count: 1)
+- [[01 Core Java/Polymorphism|Polymorphism]] — `Understood` (review-count: 1)
+- [[01 Core Java/Exception Handling|Exception Handling]] — `Understood` (review-count: 1)
+- [[01 Core Java/Collections Framework - HashMap|HashMap / HashSet]] — `Understood` (review-count: 1)
+- [[01 Core Java/List - ArrayList vs LinkedList|ArrayList vs LinkedList]] — `Understood` (review-count: 1)
+- [[01 Core Java/Stream API|Stream API]] — `Understood` (review-count: 1)
+- [[01 Core Java/Optional|Optional]] — `Understood` (review-count: 1)
+- [[01 Core Java/Java Modern Features - var và record|var & record]] — `Understood` (review-count: 1)
+- [[02 Concurrency/Concurrency - Thread và Shared Memory|Thread & Shared Memory]] — `Understood` (review-count: 1)
+- [[02 Concurrency/Concurrency - ExecutorService và Future|ExecutorService & Future]] — `Understood` (review-count: 1)
+- [[02 Concurrency/Concurrency - ThreadPoolExecutor và RejectedExecutionHandler|ThreadPoolExecutor]] — `Understood` (review-count: 1)
+- [[02 Concurrency/Concurrency - CompletableFuture|CompletableFuture]] — `Understood` (review-count: 1)
+- [[03 Design Patterns/Design Pattern - Singleton|Singleton]] — `Understood` (review-count: 1)
+- [[03 Design Patterns/Design Pattern - Factory|Factory]] — `Understood` (review-count: 1)
+- [[03 Design Patterns/Design Pattern - Builder|Builder]] — `Understood` (review-count: 1)
+- [[03 Design Patterns/Design Pattern - Strategy|Strategy]] — `Understood` (review-count: 1)
+- [[03 Design Patterns/Design Pattern - Observer|Observer]] — `Understood` (review-count: 1)
+- [[03 Design Patterns/Design Pattern - Adapter|Adapter]] — `Understood` (review-count: 1)
+- [[03 Design Patterns/Design Pattern - Decorator|Decorator]] — `Understood` (review-count: 1)
+
+- **Next Step:** Chốt Giai đoạn 1 (DSA cơ bản / Placement tổng kết Stage 1) $\rightarrow$ Khởi tạo dự án duy nhất `fintech-banking-system` ở Giai đoạn 2 (Spring Boot & Clean Architecture).

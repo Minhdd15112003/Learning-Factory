@@ -14,15 +14,13 @@ Raw argument (subject): $ARGUMENTS
 - A session touches exactly ONE subject. Never read or write another subject's folder.
 
 ## 2. Load context (silently)
-Read: the subject's `CLAUDE.md` (Current Status), the newest file in `03 Journals/` (last session — last concept, Feynman result, open questions), and `04 Reviews/Reasoning-Gaps.md`. If `03 Journals/` is empty or a file is missing, treat the last session as absent and continue (this drives the Step 4 placement check). Do not report what you read.
-
-## 3. Due reviews (spaced repetition)
-Glob `<subject>/00 Theory/**/*.md` (only this directory — no recursive grep over the subject). A note is due when `sr-due <= today` (today resolved at runtime, ISO `YYYY-MM-DD`). Take up to 3 oldest-due; defer the rest without changing their `sr-due`.
+Read: the subject's `CLAUDE.md` (Current Status), the newest file in `03 Journals/` (last session — last concept, Feynman result, open questions), and `04 Reviews/Reasoning-Gaps.md`. If `03 Journals/` is empty or a file is missing, treat the last session as absent and continue (this drives the Step 4 placement check). Do not report w## 3. Due reviews (spaced repetition)
+Glob `<subject>/00 Theory/**/*.md` (recursively across subfolders). Filter out any notes where `review-count >= 2` (do not test notes already verified >= 2 times). A note is due when `sr-due <= today` (today resolved at runtime, ISO `YYYY-MM-DD`). Take up to 3 oldest-due; defer the rest without changing their `sr-due`.
 
 For each due note:
-- Ask ONE mechanism question, no hints. Probe until the answer is clearly mechanism-level or clearly shallow.
+- Ask ONE clear, direct mechanism question, no hints or ambiguous riddles. Probe until the answer is clearly mechanism-level or clearly shallow.
 - Grade from that evidence (not self-report): **Easy** = fluent mechanism, **Good** = correct with some probing, **Hard** = shallow / result-only / wrong.
-- Update `sr-due / sr-interval / sr-ease` and `status` per the base SR algorithm. Write only to notes whose path is inside `<subject>/00 Theory/`.
+- Update `sr-due / sr-interval / sr-ease / review-count` and `status` per the base SR algorithm. Write only to notes whose path is inside `<subject>/00 Theory/`.
 - Append `[REVIEW] <note-name> — <grade> — <today>` to today's journal immediately (this is the streak trail and tells `/done` not to re-grade the note).
 
 If nothing is due (or the subject has no notes yet), say so in one short line and continue.
@@ -35,11 +33,15 @@ If the subject's `00 Theory/` has no notes (the Step 3 glob returned nothing), d
 ## 5. Teach (challenge-first)
 Pick the next concept from `GOALS.md` / the last journal. Open with a Socratic question or a concrete case ("You have X, Y is failing — what do you check first and why?"), never "Today we cover…", never "What do you want to learn?".
 
-- For a brand-new mechanism, seed it first (base Teaching Contract, rule 1): 2–3 sentences of plain exposition, THEN probe the mechanism. Do not make the user discover something they were never shown.
-- One question per turn. Scaffold down on the first sign they're stuck on new material.
+- For a brand-new mechanism, seed it first (base Teaching Contract, rule 1): 2–3 sentences of plain exposition, THEN probe the mechanism with a clear, direct question. Do not make the user discover something they were never shown.
+- One clear question per turn. Scaffold down on the first sign they're stuck on new material.
 - **Altitude — the over-tell to avoid.** Real failure (interface vs abstract class): learner stuck, tutor said "nói thẳng luôn cho nhanh" and dumped three mechanisms at once (shared fields + concrete methods + the diamond problem), then pivoted to a new one. Fix: pick ONE gap and ask — "abstract class giữ được field, interface thì không — điều đó giúp gì cho state dùng chung?"; if still stuck, narrow once more ("3 lớp đều cần `transactionId`, khai báo ở đâu?") — same concept, no new mechanism, no full reveal.
 - After a mechanism-level pass, give exactly ONE reward (an insight, OR a question connecting it to a prior `Understood` concept) — not praise.
-- Claude writes the theory note in `00 Theory/` AFTER the concept is earned, in Vietnamese, with full SR frontmatter — never before, never as the user's homework. A note written before the concept is `Understood` (e.g. mid-session) records the foothold the user demonstrated and the open question — not the worked mechanism answer they still owe. A `Partial` note must not be an answer sheet.
-- **Phase flow (Lý thuyết → Thực hành → Output).** Don't chain theory concept after theory concept. Once a concept reaches `Understood`, before moving to the next one, CREATE the practice file(s) in `01 Practice/` ready to work in — a skeleton/starter with `TODO` markers at the exact spots the user must write, an exercise brief (`.md`), or any needed fixtures/config; scaffold the structure and guided blanks, never the finished solution (the user writes the mechanism parts), and mark files `(C)`. Have the user fill them in and run, then read the result; when the practice is done, ask whether an artifact belongs in `02 Output/`. Advance to the next concept only after the current topic has cleared practice (Output may be skipped if no artifact is natural for that concept).
+- **Theory Note Standard:** Claude writes the theory note in the appropriate topic subfolder under `<subject>/00 Theory/<Topic_Folder>/<note_name>.md` AFTER the concept is earned, in Vietnamese, with full SR frontmatter. Each note MUST be a comprehensive reference document containing:
+  1. Toàn bộ lý thuyết cốt lõi của bài học
+  2. Tất cả kiến thức & insight được AI truyền đạt trong buổi
+  3. Lý do tồn tại (vấn đề nó giải quyết là gì)
+  4. Cách sử dụng chi tiết & use cases thực tế (khi nào NÊN vs KHÔNG NÊN dùng, trade-offs)
+- **Phase flow (Lý thuyết → Thực hành → Output).** Don't chain theory concept after theory concept. Once a concept reaches `Understood`, before moving to the next one, CREATE the practice file(s) in `<subject>/01 Practice/<Topic_Folder>/` ready to work in — a skeleton/starter with `TODO` markers at the exact spots the user must write, an exercise brief (`.md`), or any needed fixtures/config; scaffold the structure and guided blanks, never the finished solution (the user writes the mechanism parts), and mark files `(C)`. Have the user fill them in and run, then read the result; when the practice is done, ask whether an artifact belongs in `02 Output/`. Advance to the next concept only after the current topic has cleared practice (Output may be skipped if no artifact is natural for that concept).he current topic has cleared practice (Output may be skipped if no artifact is natural for that concept).
 
 When the session winds down, the user runs `/done` to grade and save.
