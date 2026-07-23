@@ -21,7 +21,8 @@ public class StrategyPatternPractice {
     public static void main(String[] args) {
         // TODO 4 code ở đây
         InternalFeeStrategy internalFeeStrategy = new InternalFeeStrategy();
-        TransactionProcessor free = new TransactionProcessor(internalFeeStrategy);
+        TransactionProcessor free = new TransactionProcessor();
+        free.setFeeStrategy(internalFeeStrategy);
         System.err.println(free.processTransaction(1_000_000));
 
 
@@ -89,9 +90,6 @@ class Napas247FeeStrategy implements FeeStrategy{
 // (Viết ở đây)
 class TransactionProcessor{
     FeeStrategy fee;
-    public TransactionProcessor(FeeStrategy fee){
-        this.fee = fee;
-    }
 
     public void setFeeStrategy(FeeStrategy fee){
         this.fee = fee;

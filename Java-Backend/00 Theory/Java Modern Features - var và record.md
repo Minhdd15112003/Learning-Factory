@@ -1,8 +1,8 @@
 ---
 status: Understood
 tags: [java, modern, review]
-sr-due: 2026-07-22
-sr-interval: 4
+sr-due: 2026-08-03
+sr-interval: 11
 sr-ease: 270
 ---
 

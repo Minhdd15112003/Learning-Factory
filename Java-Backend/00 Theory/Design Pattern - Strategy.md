@@ -1,8 +1,8 @@
 ---
 status: Understood
 tags: [java, design-pattern, solid, review]
-sr-due: 2026-07-23
-sr-interval: 1
+sr-due: 2026-07-25
+sr-interval: 2
 sr-ease: 250
 ---
 
