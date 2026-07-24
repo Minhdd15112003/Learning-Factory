@@ -3,27 +3,27 @@
 ## Đích Cuối
 
 **Đủ kiến thức và năng lực để làm việc như một Java Backend & Distributed Systems Engineer thực thụ.**
-- Nắm vững toàn bộ bản đồ năng lực từ **Core Java $\rightarrow$ Spring Boot Modular Monolith $\rightarrow$ Architecture & DB $\rightarrow$ Distributed Messaging & Caching $\rightarrow$ Microservices Migration $\rightarrow$ DevOps & Observability**.
-- Không chỉ hiểu lý thuyết mà **trực tiếp xây dựng, tối ưu và vận hành 1 hệ thống Fintech Digital Banking thực tế từ con số 0 lên Microservices hoàn chỉnh**.
+- Nắm vững toàn bộ bản đồ năng lực từ **Core Java $\rightarrow$ Spring Boot Modular Monolith (DDD + Hexagonal) $\rightarrow$ Architecture & DB $\rightarrow$ Distributed Messaging & Caching $\rightarrow$ Microservices Migration $\rightarrow$ DevOps & Observability**.
+- Trực tiếp học, áp dụng và thực hành **TOÀN BỘ CÁC CÔNG NGHỆ BACKEND** vào **1 DỰ ÁN DUY NHẤT** tên là `fintech-banking-system` từ con số 0 lên Microservices hoàn chỉnh.
 - Đạt mốc kiểm chứng: Pass phỏng vấn Backend Developer ~2 năm kinh nghiệm tại các công ty fintech/banking/chứng khoán (MB Bank, NAB, Evotek, ASEAN Securities, VNPAY...).
 
 ---
 
 ## 🚀 Định Hướng 1 Dự Án Duy Nhất: Fintech Digital Banking Backend (`fintech-banking-system`)
 
-Từ **Giai đoạn 2 trở đi**, toàn bộ kiến thức lý thuyết, kiến trúc, và Design Patterns sẽ được **áp dụng trực tiếp vào 1 dự án duy nhất** tên là `fintech-banking-system`.
+Từ **Giai đoạn 2 trở đi**, toàn bộ kiến thức lý thuyết, kiến trúc, công cụ và Design Patterns sẽ được **áp dụng trực tiếp vào 1 dự án duy nhất**: `fintech-banking-system`.
 
 ```
-[Giai đoạn 1: Core Java]
-       ↓ (Nền tảng OOP, Collections, Concurrency, Design Patterns cơ bản)
-[Giai đoạn 2: Spring Boot Modular Monolith & Hexagonal Architecture]
-       ↓ (Phân tích User Story → DB Specs → Auth, Account, Payment, Notification trong 1 monolith)
-[Giai đoạn 3: Database Optimization, Caching & Event-Driven Hardening]
-       ↓ (PostgreSQL Indexing, Redis Cache-Aside, Kafka Event Streaming, Outbox Pattern, Docker)
+[Giai đoạn 1: Core Java & Foundational Patterns]
+       ↓ (Java 17/21, Maven, OOP, Collections, Concurrency, GoF Design Patterns)
+[Giai đoạn 2: Spring Boot Modular Monolith (DDD + Hexagonal Architecture)]
+       ↓ (Strategic DDD, Modular Monolith, Spring Boot 3, Spring Security, JWT, Lombok, MapStruct, Swagger/OpenAPI, ArchUnit, GraphQL/RPC)
+[Giai đoạn 3: Database Optimization, Caching, Event-Driven & Storage]
+       ↓ (PostgreSQL, MySQL, Flyway, Liquibase, Redis, MinIO, AWS S3, CloudFront, Kafka, RabbitMQ, Outbox Pattern, MongoDB)
 [Giai đoạn 4: Refactor Monolith sang Microservices Architecture (Strangler Fig Pattern)]
-       ↓ (Tách Auth Service, Account Service, Payment Service, Notification Service + API Gateway + Eureka + Saga)
+       ↓ (Tách Services, Spring Cloud Gateway, Eureka, Config Server, OpenFeign, Resilience4j, gRPC/Protobuf, OAuth2/OIDC, Keycloak, Saga, CQRS)
 [Giai đoạn 5: Advanced DevOps, Observability & Kubernetes Operations]
-       ↓ (Docker Compose, Kubernetes Deployment, Prometheus/Grafana, Zipkin Tracing, CI/CD Pipeline)
+       ↓ (Docker, Docker Compose, Kubernetes, Helm, Actuator, Prometheus, Grafana, Micrometer Tracing, Zipkin, ELK Stack, CI/CD, SonarQube, Nexus)
 ```
 
 ---
@@ -32,107 +32,132 @@ Từ **Giai đoạn 2 trở đi**, toàn bộ kiến thức lý thuyết, kiến
 
 ### Giai đoạn 1 — Core Java & Foundational Patterns (Đã/đang hoàn thiện)
 
-- [x] [[OOP]]: [[Encapsulation]], [[Inheritance]], [[Polymorphism]], [[Abstraction]]
-- [x] [[Collections Framework]]: [[List - ArrayList vs LinkedList|List]], [[Collections Framework - HashMap|HashMap & Set]]
-- [x] [[Exception Handling]]: Checked vs Unchecked exceptions, custom handling
-- [x] Modern Java (17/21): [[Stream API]], [[Optional]], [[Java Modern Features - var và record|var & record]]
-- [x] [[Concurrency - Thread và Shared Memory|Concurrency & Multithreading]]: [[Concurrency - Thread và Shared Memory|Threads]], [[Concurrency - ExecutorService và Future|ExecutorService]], [[Concurrency - ThreadPoolExecutor và RejectedExecutionHandler|ThreadPoolExecutor]], [[Concurrency - CompletableFuture|CompletableFuture]]
+- [x] [[01 Core Java/Polymorphism|OOP]]: Encapsulation, Inheritance, Polymorphism, Abstraction
+- [x] [[01 Core Java/Collections Framework - HashMap|Collections Framework]]: List (ArrayList, LinkedList), Set (HashSet), Map (HashMap)
+- [x] [[01 Core Java/Exception Handling|Exception Handling]]: Checked vs Unchecked exceptions, Custom Exceptions
+- [x] Modern Java (17/21): [[01 Core Java/Stream API|Stream API]], [[01 Core Java/Optional|Optional]], [[01 Core Java/Java Modern Features - var và record|var & record]]
+- [x] [[02 Concurrency/Concurrency - Thread và Shared Memory|Concurrency & Multithreading]]: Threads, Shared Memory, ExecutorService, ThreadPoolExecutor, RejectedExecutionHandler, CompletableFuture
+- [x] Maven: Dependency management, pom.xml configuration, build lifecycle
 - [x] **Design Patterns Nền tảng (GoF Java thuần):**
-  - [x] [[Design Pattern - Singleton|Singleton]]
-  - [x] [[Design Pattern - Factory|Factory]]
-  - [x] [[Design Pattern - Builder|Builder]]
-  - [x] [[Design Pattern - Strategy|Strategy]]
-  - [x] [[Design Pattern - Observer|Observer]]
-  - [x] [[Design Pattern - Adapter|Adapter]]
-  - [x] [[Design Pattern - Decorator|Decorator]]
+  - [x] [[03 Design Patterns/Design Pattern - Singleton|Singleton]]
+  - [x] [[03 Design Patterns/Design Pattern - Factory|Factory]]
+  - [x] [[03 Design Patterns/Design Pattern - Builder|Builder]]
+  - [x] [[03 Design Patterns/Design Pattern - Strategy|Strategy]]
+  - [x] [[03 Design Patterns/Design Pattern - Observer|Observer]]
+  - [x] [[03 Design Patterns/Design Pattern - Adapter|Adapter]]
+  - [x] [[03 Design Patterns/Design Pattern - Decorator|Decorator]]
 
 ---
 
-### Giai đoạn 2 — Spring Boot Modular Monolith & Hexagonal Architecture (Khởi Tạo Dự Án Duy Nhất)
+### Giai đoạn 2 — Spring Boot Modular Monolith: DDD & Hexagonal Architecture
 
-*Mục tiêu:* Khởi tạo dự án `fintech-banking-system` chuẩn Clean/Hexagonal Architecture, sẵn sàng mở rộng và phân tách service về sau.
+*Mục tiêu:* Khởi tạo dự án duy nhất `fintech-banking-system` bằng DDD + Hexagonal Architecture với đầy đủ các công cụ và chuẩn API.
 
-- [ ] **Phân Tích Dự Án & Thiết Kế Database (System Design cơ bản):**
-  - Phân tích từ UI $\rightarrow$ User Story $\rightarrow$ Features & API Specs $\rightarrow$ DB Schema.
-  - Phân tích thông số tải, độ lớn dữ liệu, chiến lược đánh Index và chuẩn hóa dữ liệu.
-- [ ] **Khởi Tạo Spring Boot Monolith Base:**
-  - Spring Boot (Core, Web, Actuator, Profiles, `application.yml`).
-  - RESTful API Specs: Standardization Response format, Global Exception Handler (`@ControllerAdvice`).
-- [ ] **Kiến Trúc Hexagonal / Ports & Adapters (Clean Architecture):**
-  - Chia gói theo Domain Bounded Contexts: Auth, Account, Payment, Notification.
-  - Phân tách lõi Domain Logic độc lập với Framework/DB thông qua Ports (Interfaces) và Adapters.
-- [ ] **Identity & Security Service (Authentication & Authorization):**
-  - Spring Security, JWT (JSON Web Token) authentication flow, Refresh token, Role-based Access Control (RBAC).
-- [ ] **Design Patterns cài đặt trực tiếp vào Dự án:**
-  - [[Dependency Injection]] (IoC Container) — Quản lý lifecycle & injection tự động.
-  - [[Chain of Responsibility]] — Spring Security Filter Chain & Interceptors xử lý auth/logging.
-  - [[Strategy]] — Xử lý linh hoạt các luật tính cước/phí chuyển tiền theo loại tài khoản.
-  - [[Adapter]] — Tích hợp Cổng thanh toán 3rd-party (VNPAY/Momo mock integration).
+- [ ] **Strategic Domain-Driven Design (DDD) & System Design:**
+  - Phân tích User Stories $\rightarrow$ Event Storming $\rightarrow$ Định hình Ubiquitous Language.
+  - Phân chia các **Bounded Contexts**: *Auth Context*, *Account Context*, *Payment Context*, *Notification Context*.
+  - Xây dựng **Context Map** (sơ đồ giao tiếp giữa các Bounded Contexts).
+- [ ] **Tactical DDD & Hexagonal Core (Ports & Adapters):**
+  - Pure Java Domain Core (0 phụ thuộc Spring/DB): Aggregates (`Account`), Entities, Value Objects (`Money`, `AccountNumber`), Domain Events (`MoneyTransferredEvent`), Domain Services.
+  - Ports: Inbound Use Cases (`TransferMoneyUseCase`), Outbound Ports (`AccountRepositoryPort`, `PaymentGatewayPort`).
+- [ ] **Spring Framework Core & Base Libraries:**
+  - **Spring Boot 3.x & Spring Framework:** Auto-configuration, IoC Container, Dependency Injection.
+  - **Spring MVC:** Request Mapping, Controllers, Filter, Interceptor, Global Exception Handling (`@ControllerAdvice`).
+  - **Lombok:** Annotations (`@Getter`, `@Setter`, `@Builder`, `@RequiredArgsConstructor`).
+  - **MapStruct / ModelMapper:** Chuyển đổi dữ liệu tự động giữa Entities $\leftrightarrow$ Domain Objects $\leftrightarrow$ DTOs.
+  - **Swagger / OpenAPI:** Tự động tạo trang tài liệu tương tác API (`/swagger-ui.html`).
+- [ ] **Security & Identity:**
+  - **Spring Security & JWT:** Stateless authentication, JWT Access Token & Refresh Token, Role-Based Access Control (RBAC).
+- [ ] **Kiểm Soát Ranh Giới Kiến Trúc:**
+  - **Spring Modulith & ArchUnit:** Viết unit test tự động đảm bảo gói `domain` tuyệt đối không dính annotation của Spring/JPA/Web.
+- [ ] **Giao Tiếp API & Standard:**
+  - RESTful API Standards: Response DTO & Error format chuẩn hóa.
+  - Tìm hiểu & Thực hành so sánh REST API vs GraphQL vs RPC.
+- [ ] **Design Patterns cài đặt vào dự án:** [[Dependency Injection]], [[Chain of Responsibility]] (Security Filter Chain), [[Strategy]] (áp dụng tính phí chuyển tiền), [[Adapter]] (tích hợp mock cổng thanh toán).
 
 ---
 
-### Giai đoạn 3 — Database, Caching & Event-Driven Hardening (Tiền Đề Microservices)
+### Giai đoạn 3 — Database Optimization, Caching, Event-Driven & Storage Hardening
 
-*Mục tiêu:* Tối ưu hiệu năng dữ liệu, thêm Caching và Messaging bất đồng bộ vào Monolith trước khi tách service.
+*Mục tiêu:* Tối ưu hóa CSDL quan hệ, NoSQL, Caching, Media Storage và Messaging bất đồng bộ cho Monolith.
 
-- [ ] **Database Optimization & ORM (PostgreSQL & Spring Data JPA):**
-  - Hibernate/JPA mapping (`@OneToMany`, `@ManyToOne`, `@ManyToMany`).
-  - Xử lý triệt để bài toán [[N+1]], Lazy/Eager loading, Dirty checking.
-  - [[Transaction Isolation Levels]], Optimistic / Pessimistic Locking chống Race Condition khi chuyển tiền trùng thời điểm.
-- [ ] **Caching & Storage Strategy (Redis & AWS S3/Local Media Service):**
-  - Redis Integration: Session Store, Cache-Aside Pattern cho thông tin tài khoản & danh mục.
-  - Phòng chống các lỗi Cache kinh điển: Cache Stampede, Cache Penetration, Cache Breakdown.
-  - Media Upload Service: Upload ảnh KYC, Avatar lên Local / S3 Bucket với AWS CloudFront / presigned URL.
-- [ ] **Event-Driven Architecture & Messaging (Kafka / RabbitMQ):**
-  - Event-Driven Architecture, Event-Storming khái niệm.
-  - Queue vs PubSub: Producer & Consumer xử lý gửi Mail/SMS Notification và Audit Logging bất đồng bộ.
-  - **Outbox Pattern:** Đảm bảo tính nhất quán dữ liệu giữa DB commit và Kafka Event publish (Atomic operation).
-- [ ] **Design Patterns cài đặt trực tiếp vào Dự án:**
-  - [[Repository]] & [[Unit of Work]] — Abstract hóa thao tác DB với Hibernate.
-  - [[Proxy]] (Cache-Aside Proxy) — Caching interceptor cho service call.
-  - [[Outbox Pattern]] — Transactional Outbox pattern cho Event Streaming.
+- [ ] **Database & ORM (PostgreSQL & MySQL & Spring Data JPA):**
+  - PostgreSQL & MySQL RDBMS: Indexing, Query Optimization, JOIN, Subquery, GROUP BY.
+  - Spring Data JPA & Hibernate: Entity Mappings, JPQL, Dynamic Specification, N+1 Handling, Lazy/Eager Loading.
+  - Concurrency & Transaction Control: Transaction Isolation Levels, Optimistic Locking (`@Version`), Pessimistic Locking chống Race Condition khi chuyển tiền trùng thời điểm.
+- [ ] **Database Versioning & Migration (Flyway & Liquibase):**
+  - **Flyway & Liquibase:** Tự động hóa quản lý các phiên bản thay đổi schema DB (file SQL/XML/YAML) đồng bộ giữa các môi trường dev/staging/prod.
+- [ ] **NoSQL Database (MongoDB):**
+  - **MongoDB Integration:** Lưu trữ dữ liệu dạng Document (JSON-like) cho dữ liệu phi cấu trúc (Audit log, User Activity Log). So sánh RDBMS vs NoSQL.
+- [ ] **Caching & Memory Strategy (Redis):**
+  - **Redis Integration:** In-memory Caching, Cache-Aside Strategy, Distributed Session, Distributed Locks với Redisson.
+  - Phòng chống các sự cố Cache: Cache Stampede, Cache Penetration, Cache Breakdown.
+- [ ] **Object Storage & Media Service (MinIO & AWS S3 & CloudFront):**
+  - Upload Service: Upload file/media lên Local storage và **MinIO** (S3-compatible Object Storage).
+  - Tích hợp **AWS S3** và **AWS CloudFront** với Presigned URL để truy xuất media hiệu quả.
+- [ ] **Event-Driven Architecture & Messaging (Kafka & RabbitMQ):**
+  - Event-Driven Architecture, Event-Storming, Event Sourcing.
+  - **RabbitMQ:** Queue vs PubSub cơ chế AMQP.
+  - **Apache Kafka:** Event Streaming chịu tải lớn cho luồng sự kiện chuyển tiền & thông báo.
+  - **Transactional Outbox Pattern:** Đảm bảo tính nhất quán (Atomic operation) giữa DB update và Event publish lên Kafka.
+- [ ] **DevOps Môi Trường Dev:** Docker & Docker Compose chạy toàn bộ stack local.
+- [ ] **Design Patterns cài đặt vào dự án:** [[Repository]], [[Unit of Work]], [[Proxy]] (Cache-Aside Proxy), [[Outbox Pattern]], [[Observer]].
 
 ---
 
 ### Giai đoạn 4 — Refactor Monolith Sang Microservices Architecture (Strangler Fig Pattern)
 
-*Mục tiêu:* Áp dụng mẫu hình Strangler Fig tách dự án duy nhất `fintech-banking-system` thành hệ thống Microservices độc lập.
+*Mục tiêu:* Tách các Hexagonal Bounded Contexts thành các Microservices độc lập.
 
-- [ ] **Phân Tách Microservices Độc Lập:**
-  - Tách Monolith thành các Microservices:
-    1. **Identity-Service:** Auth, User, OTP, JWT Issuance.
-    2. **Account-Service:** Số dư, thông tin tài khoản, lịch sử giao dịch.
-    3. **Payment-Service:** Nạp/rút/chuyển tiền, tích hợp gateway.
-    4. **Notification-Service:** Gửi Mail/SMS, Push notification.
-- [ ] **Microservices Infrastructure & Gateway:**
-  - **Spring Cloud Gateway (API Gateway):** Single entrypoint, Dynamic Routing, Centralized Rate Limiting & Auth propagation.
-  - **Spring Cloud Netflix Eureka (Service Discovery):** Dynamic registration & resolution.
-  - **Spring Cloud Config Server:** Centralized configuration management với Git backend.
-- [ ] **Distributed Transactions & Resiliency:**
-  - **Saga Pattern (Choreography / Orchestration):** Xử lý giao dịch phân tán giữa Account-Service và Payment-Service (Chuyển tiền liên ngân hàng).
-  - **CQRS (Command Query Responsibility Segregation):** Tách luồng Read/Write phục vụ tra cứu số dư chịu tải cao.
-  - **Resilience4j:** Circuit Breaker, Bulkhead, Retry, Rate Limiter chống rớt mạng dây chuyền (Cascading Failure).
-- [ ] **Design Patterns cài đặt trực tiếp vào Dự án:**
-  - [[Circuit Breaker]] / Bulkhead — Giám sát & cô lập lỗi network call.
-  - [[Saga Pattern]] — Quản lý giao dịch phân tán nhiều bước.
-  - [[API Gateway]] — Dynamic routing & cross-cutting concern handling.
+- [ ] **Bóc Tách Microservices (Strangler Fig Pattern):**
+  - Tách Monolith thành các Microservices độc lập:
+    1. `identity-service` (Port 8081)
+    2. `account-service` (Port 8082)
+    3. `payment-service` (Port 8083)
+    4. `notification-service` (Port 8084)
+  - Cấu trúc Model độc lập và Database-per-Service.
+- [ ] **Spring Cloud Ecosystem & Netflix OSS:**
+  - **Spring Cloud Gateway:** Single Entrypoint, Dynamic Routing, Centralized Rate Limiting, Authentication Propagation.
+  - **Spring Cloud Netflix Eureka (Service Registry & Discovery):** Tự động đăng ký IP/Port và định tuyến động.
+  - **Spring Cloud Config Server:** Quản lý và phân phối cấu hình tập trung từ Git repository.
+  - **Spring Cloud OpenFeign:** Declarative HTTP Client giúp các microservices gọi REST API của nhau đơn giản như gọi hàm Java.
+- [ ] **Resiliency & Fault Tolerance (Resilience4j):**
+  - **Resilience4j:** Xử lý chịu lỗi với Circuit Breaker, Rate Limiter, Bulkhead, Retry để cô lập sự cố, tránh kéo sập toàn hệ thống.
+- [ ] **Enterprise IAM & Single Sign-On (OAuth2 & Keycloak):**
+  - **OAuth2 & OpenID Connect (OIDC):** Chuẩn ủy quyền & định danh doanh nghiệp.
+  - **Keycloak Integration:** Tích hợp Identity Service tập trung hỗ trợ Single Sign-On (SSO).
+- [ ] **High-Performance Communication (gRPC & Protobuf):**
+  - **gRPC & Protocol Buffers:** Xây dựng luồng giao tiếp nhị phân tốc độ cao, độ trễ cực thấp giữa `payment-service` và `account-service`.
+- [ ] **Distributed Transactions & Architectural Patterns:**
+  - **Saga Pattern (Orchestration / Choreography):** Quản lý giao dịch phân tán nhiều bước khi chuyển tiền liên dịch vụ.
+  - **CQRS (Command Query Responsibility Segregation) & CQS:** Tách biệt luồng Ghi (Command) và luồng Đọc (Query).
+- [ ] **Design Patterns cài đặt vào dự án:** [[Circuit Breaker]], [[Bulkhead]], [[Saga Pattern]], [[API Gateway]], [[CQRS]].
 
 ---
 
-### Giai đoạn 5 — Triển Khai, Vận Hành & Observability (DevOps & Distributed Systems)
+### Giai đoạn 5 — Advanced DevOps, Observability & Kubernetes Operations
 
-*Mục tiêu:* Đóng gói, triển khai cluster Microservices lên Docker/Kubernetes và thiết lập hệ thống giám sát phân tán.
+*Mục tiêu:* Đóng gói, triển khai cluster Microservices và thiết lập hệ thống giám sát phân tán chuẩn Production.
 
 - [ ] **Containerization & Deployment với Docker:**
-  - Viết `Dockerfile` tối ưu (Multi-stage build) cho từng Microservice.
-  - Viết `docker-compose.yml` chạy toàn bộ stack: Microservices + PostgreSQL + Redis + Kafka + Eureka + Gateway.
+  - Build Image tối ưu với Multi-stage `Dockerfile`.
+  - Triển khai toàn bộ ứng dụng với `docker-compose.yml`.
 - [ ] **Distributed Observability & Monitoring:**
-  - **Metrics:** Prometheus + Grafana Dashboard theo dõi CPU, RAM, JVM Heap, Request throughput.
-  - **Distributed Tracing:** Micrometer Tracing / Zipkin / Jaeger theo dõi trace HTTP request qua nhiều service.
-  - **Centralized Logging:** ELK Stack (Elasticsearch, Logstash, Kibana) gom log tập trung.
-- [ ] **Kubernetes Orchestration & CI/CD:**
-  - Deploy cluster lên Kubernetes (Pods, Deployments, Services, Ingress, ConfigMaps, Secrets).
-  - Viết CI/CD Pipeline với GitHub Actions / GitLab CI tự động hóa Build, Test, và Deploy.
+  - **Spring Boot Actuator:** Mở các HTTP endpoints theo dõi health, metrics, environment.
+  - **Prometheus:** Thu thập và lưu trữ metrics thời gian thực (Time-Series).
+  - **Grafana:** Trực quan hóa dữ liệu chỉ số hệ thống qua Dashboard.
+  - **Micrometer Tracing & Zipkin:** Đính kèm Trace ID & Span ID theo dõi hành trình request qua các microservices phân tán.
+- [ ] **Centralized Logging (ELK Stack):**
+  - **ELK Stack (Elasticsearch, Logstash/Filebeat, Kibana):** Gom log từ tất cả microservices về một nơi để truy vấn và phân tích sự cố.
+- [ ] **Kubernetes Orchestration & Package Management (K8s & Helm):**
+  - **Kubernetes (K8s):** Deploy cluster (Pods, Services, Deployments, StatefulSets, Ingress, ConfigMaps, Secrets).
+  - **Helm Charts:** Quản lý và đóng gói ứng dụng K8s phức tạp.
+- [ ] **CI/CD Pipeline & Code Quality Governance:**
+  - **GitHub Actions / GitLab CI / Jenkins:** Dựng đường ống tự động hóa build, unit test, ArchUnit test, docker build và deploy.
+  - **SonarQube:** Quét chất lượng code tự động (Static Code Analysis), phát hiện bugs, lỗ hổng bảo mật và code smells.
+  - **Nexus:** Repository lưu trữ tập trung các artifact đóng gói (JAR, Docker images).
+- [ ] **CV, Job Description Analysis & Certification Preparation:**
+  - Phân tích JD, chiến lược ứng tuyển, review CV ấn tượng cho các công ty Fintech/Banking.
 
 ---
 

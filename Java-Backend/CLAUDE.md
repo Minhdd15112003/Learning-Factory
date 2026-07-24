@@ -5,7 +5,12 @@
 Learning Java Backend toward: becoming a job-ready Java Backend & Distributed Systems Engineer with real mastery of the full competency map — Core Java → Spring ecosystem → DB/ORM → architecture → testing → DevOps → messaging/cache → microservices.
 
 **Core Learning Approach:**
-Starting from Stage 2 onwards, build **ONE SINGLE UNIFIED PROJECT**: `fintech-banking-system` (Digital Banking & Wallet Backend). Every concept, architectural rule, and Design Pattern is applied directly into this evolving project step-by-step (Monolith $\rightarrow$ Modular Monolith / Clean Architecture $\rightarrow$ Microservices Migration via Strangler Fig pattern).
+Starting from Stage 2 onwards, build **ONE SINGLE UNIFIED PROJECT**: `fintech-banking-system` (Digital Banking & Wallet Backend). ALL technologies provided in the curriculum are learned and implemented step-by-step:
+- **Stage 1 (Core Java & Patterns):** Java 17/21, Maven, OOP, Collections, Concurrency, GoF Design Patterns.
+- **Stage 2 (Modular Monolith DDD + Hexagonal):** Strategic DDD, Tactical DDD, Ports & Adapters, Spring Boot 3, Spring Security, JWT, Lombok, MapStruct, Swagger/OpenAPI, Spring Modulith, ArchUnit, REST vs GraphQL vs RPC.
+- **Stage 3 (Database, Caching, Messaging & Storage):** PostgreSQL, MySQL, Spring Data JPA, Hibernate, Flyway, Liquibase, MongoDB (NoSQL), Redis (Cache-Aside, Locks), MinIO, AWS S3, CloudFront, Kafka, RabbitMQ, Transactional Outbox Pattern, Docker & Compose.
+- **Stage 4 (Microservices Transformation):** Strangler Fig Pattern, Spring Cloud Gateway, Eureka Discovery, Config Server, OpenFeign, Resilience4j (Circuit Breaker, Rate Limiter, Bulkhead), gRPC, Protobuf, OAuth2/OIDC, Keycloak IAM, Saga Pattern, CQRS/CQS.
+- **Stage 5 (Advanced DevOps & Distributed Systems Operations):** Multi-stage Docker, Kubernetes (K8s), Helm Charts, Spring Boot Actuator, Prometheus, Grafana, Micrometer Tracing, Zipkin, ELK Stack, GitHub Actions / GitLab CI / Jenkins, SonarQube, Nexus.
 
 **Teaching Rules & Standards:**
 - Direct, clear, unambiguous Socratic questions.
@@ -20,7 +25,7 @@ Flow per topic: Lý thuyết (`00 Theory/<Topic>/`) $\rightarrow$ Thực hành (
 
 - Placement done: strong OOP + backend background (Python/FastAPI, JS/Express+NestJS, Go/Gin); first time with Java.
 - Reorganized `00 Theory/` and `01 Practice/` into topic subfolders (`01 Core Java/`, `02 Concurrency/`, `03 Design Patterns/`).
-- Updated Roadmap to 1 Single Fintech Project (`fintech-banking-system`) evolving from Monolith to Microservices.
+- Fully updated Roadmap to 1 Single Fintech Project (`fintech-banking-system`) evolving from Monolith to Microservices, incorporating 100% of all technologies across the 5 stages.
 
 ### Completed Concepts (Stage 1 Core Java & Design Patterns):
 - [[01 Core Java/Interface vs Abstract Class|Interface vs Abstract Class]] — `Understood` (review-count: 1)
@@ -43,4 +48,4 @@ Flow per topic: Lý thuyết (`00 Theory/<Topic>/`) $\rightarrow$ Thực hành (
 - [[03 Design Patterns/Design Pattern - Adapter|Adapter]] — `Understood` (review-count: 1)
 - [[03 Design Patterns/Design Pattern - Decorator|Decorator]] — `Understood` (review-count: 1)
 
-- **Next Step:** Chốt Giai đoạn 1 (DSA cơ bản / Placement tổng kết Stage 1) $\rightarrow$ Khởi tạo dự án duy nhất `fintech-banking-system` ở Giai đoạn 2 (Spring Boot & Clean Architecture).
+- **Next Step:** Chốt Giai đoạn 1 (DSA cơ bản / Placement tổng kết Stage 1) $\rightarrow$ Khởi tạo dự án duy nhất `fintech-banking-system` ở Giai đoạn 2 (Spring Boot 3 + DDD + Hexagonal Architecture).
