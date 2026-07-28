@@ -3,7 +3,7 @@ status: Partial
 tags: [ddd, strategic-design, bounded-context, java, review]
 sr-due: 2026-07-29
 sr-interval: 1
-sr-ease: 250
+sr-ease: 230
 review-count: 0
 ---
 

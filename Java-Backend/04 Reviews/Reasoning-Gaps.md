@@ -7,6 +7,16 @@
 - **Hiện tượng:** câu trả lời đầu tiên hay *gọi tên* thứ đang xảy ra rồi dừng, chưa chỉ ra *vì sao*. Đã lặp 2 lần: "interface khi nhiều method" (buổi 07-06) và "send là dynamic method nên tới runtime mới biết" (buổi 07-07). Cả hai đều đúng mô tả nhưng vòng tròn, chưa phải nhân.
 - **Cần làm ở review:** khi nghe một câu dán nhãn, đẩy một nhịp — "Đó là cái gì. Còn *vì sao*?" — trước khi chấm. Không nhận nhãn thay cho cơ chế.
 
+### 2026-07-28 — Nhầm Bounded Context nằm bên trong Entity
+- **Hiện tượng:** Khi được hỏi về Bounded Context, bạn nghĩ nó là thứ nằm bên trong một Entity ("bên trong một thực thể còn có nhiều thực thể nữa á"). Thực tế Bounded Context là ranh giới **ở cấp hệ thống** (như phòng ban), bao quanh nhiều Entity/Value Object/Aggregate.
+- **Nguyên nhân gốc:** Mình (Claudian) đã sử dụng thuật ngữ "Bounded Context" nhiều lần trong bài tập và câu hỏi mà chưa bao giờ định nghĩa rõ ràng khái niệm này là gì. Đây là lỗi trình tự dạy học (sequencing failure), không phải lỗi suy luận của bạn.
+- **Đã sửa trong buổi:** Giải thích lại từ đầu — Bounded Context = phân vùng lớn ở cấp kiến trúc, ví dụ "Phòng Bán hàng" vs "Phòng Kho", mỗi phòng có model riêng cho cùng một từ ("Product").
+- **Cần theo dõi ở review:** Kiểm tra bạn có phân biệt rõ Entity (class có ID) vs Bounded Context (ranh giới hệ thống chứa nhiều class) hay không.
+
+### 2026-07-28 — Nhầm tầng Application là Port
+- **Hiện tượng:** Khi được hỏi về 3 tầng (Domain/Application/Infrastructure), bạn nói "tầng Application sẽ là tầng Port". Thực tế Port là interface nằm trong Domain, Application là tầng sử dụng (gọi) các Port đó để điều phối luồng.
+- **Đã sửa trong buổi:** Giải thích lại cấu trúc — Port (interface) nằm trong Domain, Application gọi Port, Infrastructure implement Port.
+
 ### 2026-07-09 — Nhầm hướng: LinkedList nhanh hơn ArrayList khi truy cập theo index
 - **Hiện tượng:** nghĩ LinkedList nhanh hơn vì "đã biết index tiếp theo là gì rồi" — lẫn lộn con trỏ `next` (chỉ trỏ sang **node kế tiếp**, không phải index bất kỳ) với random access.
 - **Đã sửa trong buổi:** khi được hỏi "con trỏ next trỏ đến node nào?", tự nhận ra next chỉ trỏ sang node 1, không nhảy thẳng đến index 500,000. ArrayList mới truy cập thẳng được nhờ bộ nhớ liên tục.
