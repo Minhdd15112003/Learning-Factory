@@ -127,11 +127,11 @@ Claude must NOT change the framework on its own initiative — this root `CLAUDE
 
 ## Commands (`.claude/skills/`)
 
-- **`/learn [subject]`** — start/resume a session: load the subject's context, review the notes that are due (Socratic + grade + reschedule), then teach the next concept challenge-first. On a brand-new subject with no notes yet, run a short placement across the roadmap first, then teach.
+- **`/learn [subject]` / `/learn-continue [subject]`** — start/resume a learning session: auto-loads ALL global rules in `rules/*.md`, subject context, reviews due SR notes, then teaches the next concept (Concept-First).
 - **`/done`** — close the session: Feynman-interview today's concept(s), update each note's status + SR schedule, write the journal, update Reasoning-Gaps and Current Status, end on a forward question.
 - **`/new-learn [name]`** — create a new subject: short interview, then scaffold the flat folder tree + a thin `CLAUDE.md` + a Vietnamese `GOALS.md`.
 
-**Session re-entry:** don't start a lesson cold — if the user hasn't run `/learn`, prompt for it (or ask to run it) first.
+**Session re-entry:** don't start a lesson cold — if the user hasn't run `/learn` or `/learn-continue`, prompt for it (or ask to run it) first.
 
 ## Who I Am (the user)
 

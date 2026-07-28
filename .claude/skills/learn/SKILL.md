@@ -14,7 +14,15 @@ Raw argument (subject): $ARGUMENTS
 - A session touches exactly ONE subject. Never read or write another subject's folder.
 
 ## 2. Load context (silently)
-Read: the subject's `CLAUDE.md` (Current Status), the newest file in `03 Journals/` (last session — last concept, Feynman result, open questions), and `04 Reviews/Reasoning-Gaps.md`. If `03 Journals/` is empty or a file is missing, treat the last session as absent and continue (this drives the Step 4 placement check). Do not report w## 3. Due reviews (spaced repetition)
+Read:
+- All global rule files under `rules/*.md` (`rules/no-undefined-terms.md`, `rules/concept-first-teaching.md`, `rules/mistake-log-protocol.md`, `rules/mistake-log.md`).
+- The subject's `CLAUDE.md` (Current Status).
+- The newest file in `03 Journals/` (last session — last concept, Feynman result, open questions).
+- `04 Reviews/Reasoning-Gaps.md`.
+
+If `03 Journals/` is empty or a file is missing, treat the last session as absent and continue (this drives the Step 4 placement check). Do not report loaded files.
+
+## 3. Due reviews (spaced repetition)
 Glob `<subject>/00 Theory/**/*.md` (recursively across subfolders). Filter out any notes where `review-count >= 2` (do not test notes already verified >= 2 times). A note is due when `sr-due <= today` (today resolved at runtime, ISO `YYYY-MM-DD`). Take up to 3 oldest-due; defer the rest without changing their `sr-due`.
 
 For each due note:
