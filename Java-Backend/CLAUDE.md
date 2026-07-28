@@ -5,7 +5,8 @@
 Learning Java Backend toward: becoming a job-ready Java Backend & Distributed Systems Engineer with real mastery of the full competency map — Core Java → Spring ecosystem → DB/ORM → architecture → testing → DevOps → messaging/cache → microservices.
 
 **Core Learning Approach:**
-Starting from Stage 2 onwards, build **ONE SINGLE UNIFIED PROJECT**: `fintech-banking-system` (Digital Banking & Wallet Backend). ALL technologies provided in the curriculum are learned and implemented step-by-step:
+Starting from Stage 2 onwards, build **ONE SINGLE UNIFIED PROJECT**: `commerce-fulfillment-system` (E-commerce Order & Fulfillment Backend). ALL technologies provided in the curriculum are learned and implemented step-by-step:
+
 - **Stage 1 (Core Java & Patterns):** Java 17/21, Maven, OOP, Collections, Concurrency, GoF Design Patterns.
 - **Stage 2 (Modular Monolith DDD + Hexagonal):** Strategic DDD, Tactical DDD, Ports & Adapters, Spring Boot 3, Spring Security, JWT, Lombok, MapStruct, Swagger/OpenAPI, Spring Modulith, ArchUnit, REST vs GraphQL vs RPC.
 - **Stage 3 (Database, Caching, Messaging & Storage):** PostgreSQL, MySQL, Spring Data JPA, Hibernate, Flyway, Liquibase, MongoDB (NoSQL), Redis (Cache-Aside, Locks), MinIO, AWS S3, CloudFront, Kafka, RabbitMQ, Transactional Outbox Pattern, Docker & Compose.
@@ -13,6 +14,7 @@ Starting from Stage 2 onwards, build **ONE SINGLE UNIFIED PROJECT**: `fintech-ba
 - **Stage 5 (Advanced DevOps & Distributed Systems Operations):** Multi-stage Docker, Kubernetes (K8s), Helm Charts, Spring Boot Actuator, Prometheus, Grafana, Micrometer Tracing, Zipkin, ELK Stack, GitHub Actions / GitLab CI / Jenkins, SonarQube, Nexus.
 
 **Teaching Rules & Standards:**
+
 - Direct, clear, unambiguous Socratic questions.
 - Detailed 4-part theory notes in `00 Theory/<Topic_Folder>/`.
 - Reorganized subfolder structure for `00 Theory/` and `01 Practice/`.
@@ -21,13 +23,15 @@ Starting from Stage 2 onwards, build **ONE SINGLE UNIFIED PROJECT**: `fintech-ba
 Flow per topic: Lý thuyết (`00 Theory/<Topic>/`) $\rightarrow$ Thực hành (`01 Practice/<Topic>/`) $\rightarrow$ Output (`02 Output/`).
 
 ## Current Status
-> Last updated: 2026-07-23
+
+> Last updated: 2026-07-27
 
 - Placement done: strong OOP + backend background (Python/FastAPI, JS/Express+NestJS, Go/Gin); first time with Java.
 - Reorganized `00 Theory/` and `01 Practice/` into topic subfolders (`01 Core Java/`, `02 Concurrency/`, `03 Design Patterns/`).
-- Fully updated Roadmap to 1 Single Fintech Project (`fintech-banking-system`) evolving from Monolith to Microservices, incorporating 100% of all technologies across the 5 stages.
+- Fully updated Roadmap to 1 Single E-commerce Project (`commerce-fulfillment-system`) evolving from Monolith to Microservices, incorporating 100% of all technologies across the 5 stages. Domain switched from an earlier fintech-banking concept to Order & Fulfillment — keeps the same pattern coverage (Saga, Outbox, Locking, CQRS), reads more practical/real-world, and reuses existing e-commerce domain knowledge.
 
 ### Completed Concepts (Stage 1 Core Java & Design Patterns):
+
 - [[01 Core Java/Interface vs Abstract Class|Interface vs Abstract Class]] — `Understood` (review-count: 1)
 - [[01 Core Java/Polymorphism|Polymorphism]] — `Understood` (review-count: 1)
 - [[01 Core Java/Exception Handling|Exception Handling]] — `Understood` (review-count: 1)
@@ -48,4 +52,4 @@ Flow per topic: Lý thuyết (`00 Theory/<Topic>/`) $\rightarrow$ Thực hành (
 - [[03 Design Patterns/Design Pattern - Adapter|Adapter]] — `Understood` (review-count: 1)
 - [[03 Design Patterns/Design Pattern - Decorator|Decorator]] — `Understood` (review-count: 1)
 
-- **Next Step:** Chốt Giai đoạn 1 (DSA cơ bản / Placement tổng kết Stage 1) $\rightarrow$ Khởi tạo dự án duy nhất `fintech-banking-system` ở Giai đoạn 2 (Spring Boot 3 + DDD + Hexagonal Architecture).
+- **Next Step:** Chốt Giai đoạn 1 (DSA cơ bản / Placement tổng kết Stage 1) $\rightarrow$ Khởi tạo dự án duy nhất `commerce-fulfillment-system` ở Giai đoạn 2 (Spring Boot 3 + DDD + Hexagonal Architecture).
