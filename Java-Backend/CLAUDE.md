@@ -20,15 +20,21 @@ Starting from Stage 2 onwards, build **ONE SINGLE UNIFIED PROJECT**: `commerce-f
 - Reorganized subfolder structure for `00 Theory/` and `01 Practice/`.
 - Max 2-review limit rule: skip daily Socratic review for notes with `review-count >= 2`.
 
+**⚠️ CRITICAL TEACHING GUARDRAILS — NEVER VIOLATE:**
+
+1. **Seed before use:** NEVER use a technical term in a question or explanation before that exact term has been explicitly defined and seeded to the user. This was violated in the first DDD session: `Bounded Context` was used as if the user already knew it, before any definition was given. Result: the entire session became confusing. If you are about to use a term that has no corresponding note in `00 Theory/` with status >= `Partial`, STOP — define it first (2–3 sentences: what it is, what problem it solves, one contrast), THEN continue.
+2. **One unfamiliar term per turn:** Do not introduce more than one new term per reply. If explaining `Bounded Context` requires mentioning `Domain Event`, note that `Domain Event` will be explained next — do not explain both in the same turn.
+3. **Check the note before the session:** At the start of every DDD/Architecture topic session, read the existing notes in `00 Theory/04 Domain-Driven Design/` and `00 Theory/05 Architecture/`. If a concept has no note yet, it MUST be seeded before being used in any question.
+
 Flow per topic: Lý thuyết (`00 Theory/<Topic>/`) $\rightarrow$ Thực hành (`01 Practice/<Topic>/`) $\rightarrow$ Output (`02 Output/`).
 
 ## Current Status
 
-> Last updated: 2026-07-27
+> Last updated: 2026-07-28
 
 - Placement done: strong OOP + backend background (Python/FastAPI, JS/Express+NestJS, Go/Gin); first time with Java.
 - Reorganized `00 Theory/` and `01 Practice/` into topic subfolders (`01 Core Java/`, `02 Concurrency/`, `03 Design Patterns/`).
-- Fully updated Roadmap to 1 Single E-commerce Project (`commerce-fulfillment-system`) evolving from Monolith to Microservices, incorporating 100% of all technologies across the 5 stages. Domain switched from an earlier fintech-banking concept to Order & Fulfillment — keeps the same pattern coverage (Saga, Outbox, Locking, CQRS), reads more practical/real-world, and reuses existing e-commerce domain knowledge.
+- Fully updated Roadmap to 1 Single E-commerce Project (`commerce-fulfillment-system`) evolving from Monolith to Microservices. Domain: E-commerce Order & Fulfillment Backend.
 
 ### Completed Concepts (Stage 1 Core Java & Design Patterns):
 
@@ -52,4 +58,20 @@ Flow per topic: Lý thuyết (`00 Theory/<Topic>/`) $\rightarrow$ Thực hành (
 - [[03 Design Patterns/Design Pattern - Adapter|Adapter]] — `Understood` (review-count: 1)
 - [[03 Design Patterns/Design Pattern - Decorator|Decorator]] — `Understood` (review-count: 1)
 
-- **Next Step:** Chốt Giai đoạn 1 (DSA cơ bản / Placement tổng kết Stage 1) $\rightarrow$ Khởi tạo dự án duy nhất `commerce-fulfillment-system` ở Giai đoạn 2 (Spring Boot 3 + DDD + Hexagonal Architecture).
+### Stage 2 In Progress (DDD + Hexagonal Architecture):
+
+**⚠️ NOTE — Root cause of today's session failure:**
+The previous AI session opened with Strategic DDD and used `Bounded Context`, `Domain Event`, `Saga` etc. without defining any of them first. The user was forced to ask "tôi vẫn không hiểu Bounded Context là gì" and "tôi vẫn chưa biết bản chất của DDD là gì" mid-session. Definitions were only given reactively after the user's frustration. Going forward, the Guardrails above MUST be followed.
+
+- [[04 Domain-Driven Design/Strategic DDD|Strategic DDD]] — `Partial` (review-count: 0)
+  - Concepts demonstrated through conversation but Feynman gate not formally closed:
+    - ✅ **DDD là gì** — user explained in own words
+    - ✅ **Bounded Context** — user understands the "phòng ban" analogy; confirmed it's the basis for future Microservices split
+    - ✅ **Command (Sync) vs Domain Event (Async)** — user correctly identified Order→Inventory as sync, Payment/Notification/Fulfillment as async, with correct reasoning
+    - ✅ **Inventory Reservation** — user explained over-selling scenario correctly
+    - ✅ **Saga (core principle)** — user grasped compensating transaction ("khôi phục sản phẩm về đơn hàng")
+    - ✅ **Hexagonal Architecture 3 tầng** — user correctly mapped Order→domain, PlaceOrderUseCase→application, OrderJpaAdapter→infrastructure
+    - ✅ **Port/Adapter boundary** — user understands Port is interface in domain; Adapter implements it in infrastructure
+    - ⬜ Feynman gate for full Strategic DDD not formally closed — needs `/done` session
+
+- **Next Step:** Buổi tiếp theo bắt đầu bằng Feynman gate chốt `Strategic DDD.md` → sau đó chuyển sang **Tactical DDD** (Aggregate, Entity, Value Object, Domain Service).

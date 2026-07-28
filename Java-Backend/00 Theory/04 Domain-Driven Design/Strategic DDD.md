@@ -1,7 +1,7 @@
 ---
-status: Understood
-tags: [ddd, strategic-design, java, review]
-sr-due: 2026-07-28
+status: Partial
+tags: [ddd, strategic-design, bounded-context, java, review]
+sr-due: 2026-07-29
 sr-interval: 1
 sr-ease: 250
 review-count: 0
@@ -9,39 +9,187 @@ review-count: 0
 
 # Strategic Domain-Driven Design (DDD) (C)
 
-> Note do mình (Claudian) soạn sau khi bạn giải thích được cơ chế giữ chỗ tồn kho (Inventory Reservation) và ranh giới giao tiếp giữa các Bounded Context.
+> Note do mình (Claudian) soạn. Status `Partial` vì buổi học chưa kết thúc bằng Feynman gate đầy đủ cho toàn bộ note này — chỉ một số cơ chế được giải thích bằng lời của bạn.
+
+---
 
 ## 1. Toàn bộ Lý thuyết cốt lõi
-Strategic DDD là tập hợp các nguyên tắc thiết kế ở cấp độ hệ thống (vĩ mô) nhằm chia nhỏ một nghiệp vụ lớn, phức tạp thành các phần nhỏ hơn có ranh giới rõ ràng. Các khái niệm cốt lõi bao gồm:
 
-*   **Domain (Miền nghiệp vụ):** Toàn bộ bài toán thực tế mà doanh nghiệp đang giải quyết (ở đây là E-commerce Order & Fulfillment).
-*   **Bounded Context (Ranh giới ngữ cảnh):** Ranh giới phân chia một miền nghiệp vụ lớn thành các phân vùng nhỏ hơn. Trong mỗi ranh giới, các mô hình dữ liệu (Domain Models) và ngôn ngữ thống nhất (Ubiquitous Language) được định nghĩa rõ ràng và không bị lẫn lộn nghĩa với ranh giới khác.
-    *   *Ví dụ:* Cùng là khái niệm "Sản phẩm", nhưng trong `Catalog Context` nó mang thuộc tính mô tả, hình ảnh, giá bán; còn trong `Inventory Context` nó chỉ cần quan tâm đến mã SKU và số lượng tồn kho.
-*   **Ubiquitous Language (Ngôn ngữ thống nhất):** Bộ thuật ngữ chung được cả kỹ sư phát triển phần mềm và chuyên gia nghiệp vụ (Domain Experts) thống nhất sử dụng trong code, tài liệu và giao tiếp hàng ngày.
-*   **Context Map (Sơ đồ ngữ cảnh):** Bản đồ thể hiện mối quan hệ và cách thức giao tiếp giữa các Bounded Context. Các mối quan hệ phổ biến:
-    *   *Shared Kernel:* Hai ngữ cảnh dùng chung một phần mô hình.
-    *   *Customer-Supplier / Upstream-Downstream:* Ngữ cảnh phía trên (Upstream) cung cấp dữ liệu, sự thay đổi của nó sẽ ảnh hưởng trực tiếp đến ngữ cảnh phía dưới (Downstream).
-    *   *Anticorruption Layer (ACL):* Lớp dịch chuyển/bảo vệ giúp ngữ cảnh phía dưới không bị ô nhiễm bởi mô hình dữ liệu phức tạp từ ngữ cảnh phía trên.
+### 1.1 DDD là gì và tại sao nó tồn tại?
 
-## 2. Tất cả Kiến thức & Insights
-Trong hệ thống thương mại điện tử (`commerce-fulfillment-system`), luồng đặt hàng được tối ưu hóa thông qua ranh giới giao tiếp:
+**Domain-Driven Design (DDD)** là một **triết lý thiết kế phần mềm**, không phải framework hay kiến trúc cụ thể. Cốt lõi của nó là:
 
-*   **Command (Đồng bộ - Synchronous):** `Order` -> `Inventory`
-    *   Khi người dùng bấm "Đặt hàng", việc tạo đơn hàng và giữ chỗ tồn kho (`Inventory Reservation`) phải diễn ra đồng bộ. Điều này đảm bảo tính nhất quán ngay lập tức (Immediate Consistency). Hệ thống chỉ phản hồi thành công khi đã chắc chắn giữ được hàng trong kho.
-*   **Domain Event (Bất đồng bộ - Asynchronous):** `Payment`, `Notification`, `Fulfillment`
-    *   Các hành động như thanh toán, gửi email/SMS xác nhận, và tạo phiếu giao hàng được xử lý bất đồng bộ thông qua các sự kiện (ví dụ: `OrderPlacedEvent`).
-    *   Tách biệt này giúp giải phóng luồng HTTP chính, giảm độ trễ tối đa cho nút "Đặt hàng", tăng khả năng chịu tải và cách ly lỗi (nếu Service Email chết, giao dịch mua hàng vẫn hoàn tất và Email sẽ được gửi bù khi Service hồi phục).
+> **Code phải phản ánh đúng cách nghiệp vụ thực tế vận hành — không phải cách database lưu trữ, không phải cách framework hoạt động.**
 
-## 3. Lý do tồn tại
-*   **Giải quyết nỗi đau của Monolith Spaghetti:** Tránh việc một cơ sở dữ liệu duy nhất hoặc một class Model (như `Product`) chứa hàng trăm thuộc tính dùng chung cho tất cả các phòng ban, dẫn đến việc sửa đổi một tính năng nhỏ ở module này làm sập module khác.
-*   **Tránh Over-selling (Bán quá đà):** Bằng cách giữ kho (`Reservation`) ngay khi tạo đơn hàng, hệ thống loại bỏ rủi ro 11 khách hàng thanh toán thành công cho một món hàng chỉ còn 10 sản phẩm trong kho vật lý.
-*   **Giảm tải và chống nghẽn hệ thống:** Loại bỏ việc tích hợp các bên thứ ba chậm chạp (như cổng thanh toán) ra khỏi tiến trình chính của giao dịch tạo đơn.
+Không có DDD, hệ thống vẫn chạy được. Nhưng khi hệ thống lớn lên:
+
+- Một `OrderService` 2000 dòng chứa validate, tính tiền, check kho, gọi thanh toán, gửi email, lưu DB — tất cả trong một file.
+- Sếp nói "thêm luật: VIP giảm phí ship" → bạn phải đào 2000 dòng, sửa xong có thể làm hỏng luồng gửi email.
+
+**Có DDD:** Luật "VIP giảm phí ship" nằm đúng trong `class Order`, method `calculateShippingFee()`. Bạn mở đúng 1 file, sửa đúng 1 method. Code email, code DB ở chỗ khác hoàn toàn.
+
+**DDD có giá trị khi:**
+- Nhiều dev/team cùng làm — cần ranh giới để không đạp lên code nhau.
+- Nghiệp vụ phức tạp, nhiều luật, thay đổi liên tục.
+- Hệ thống sống lâu (3-5 năm), đổi DB/framework là việc có thể xảy ra.
+
+**DDD là overhead khi:** dự án nhỏ (< 10 class), 1 người làm, nghiệp vụ đơn giản.
+
+---
+
+### 1.2 Bounded Context — Khái niệm nền móng của Strategic DDD
+
+> **ĐÂY LÀ KHÁI NIỆM PHẢI HIỂU ĐẦU TIÊN TRƯỚC KHI HỌC BẤT KỲ THỨ GÌ KHÁC TRONG DDD.**
+
+**Bounded Context (Ranh giới ngữ cảnh)** là ranh giới phân chia một miền nghiệp vụ lớn thành các **phân vùng độc lập**. Trong mỗi phân vùng:
+- Các từ ngữ chỉ có **một nghĩa duy nhất** — không bị lẫn lộn với nghĩa ở phân vùng khác.
+- Mỗi model/class chỉ chứa **đúng những thuộc tính phục vụ ngữ cảnh đó**.
+
+**Ví dụ cụ thể — Từ "Sản phẩm" (Product) trong `commerce-fulfillment-system`:**
+
+| Bounded Context | Từ "Product" có nghĩa là... | Thuộc tính cần |
+|---|---|---|
+| **Catalog** (Danh mục) | Một listing hấp dẫn khách hàng | Tên, hình ảnh, mô tả chi tiết, giá, reviews |
+| **Inventory** (Kho hàng) | Một vật thể vật lý cần quản lý | Mã SKU, vị trí kệ, số lượng tồn |
+| **Order** (Đặt hàng) | Một mục trong giỏ hàng | ProductId, tên hiển thị, giá tại thời điểm đặt |
+
+**Nếu không có Bounded Context:**
+- Bạn tạo 1 class `Product` khổng lồ với 50+ thuộc tính gộp từ cả 3 ngữ cảnh.
+- Phòng Kho sửa logic tính cân nặng → code Bán hàng có thể bị ảnh hưởng.
+
+**Tổng kết:** Bounded Context = "Phòng ban" của hệ thống. Mỗi phòng ban có ngôn ngữ, quy tắc và model riêng.
+
+---
+
+### 1.3 Các Bounded Context trong `commerce-fulfillment-system`
+
+Hệ thống có **6 Bounded Contexts**:
+
+| Context | Trách nhiệm chính |
+|---|---|
+| **Catalog** | Quản lý danh mục sản phẩm, thông tin hiển thị, giá bán |
+| **Order** | Tạo và quản lý vòng đời đơn hàng |
+| **Inventory** | Quản lý tồn kho, giữ chỗ (reservation), nhả chỗ |
+| **Payment** | Xử lý giao dịch thanh toán qua cổng thanh toán |
+| **Fulfillment** | Đóng gói và giao hàng vật lý |
+| **Notification** | Gửi email, SMS, push notification |
+
+**Mỗi Bounded Context sau này sẽ là một Microservice riêng biệt ở Giai đoạn 4.**
+
+---
+
+### 1.4 Ubiquitous Language (Ngôn ngữ thống nhất)
+
+Bộ thuật ngữ chung được **cả kỹ sư và chuyên gia nghiệp vụ** thống nhất dùng trong code, tài liệu và giao tiếp hàng ngày.
+
+Ví dụ: Đừng dùng "insert vào bảng orders" — dùng "Place an Order". Đừng dùng "update stock" — dùng "Reserve Inventory".
+
+---
+
+### 1.5 Cơ chế giao tiếp giữa các Bounded Context
+
+Khi user bấm "Đặt hàng", các Context phải giao tiếp với nhau. Có 2 cơ chế:
+
+#### Command (Đồng bộ — Synchronous)
+- **Là gì:** Hành động bắt buộc phải thành công/thất bại ngay lập tức để quyết định luồng tiếp theo.
+- **Dùng khi:** Kết quả ảnh hưởng trực tiếp đến phản hồi trả về cho user.
+- **Trong luồng đặt hàng:** `Order → Inventory` (tạo đơn + giữ kho phải xong trước khi trả về màn hình xác nhận).
+
+#### Domain Event (Bất đồng bộ — Asynchronous)
+- **Là gì:** Sự kiện mô tả điều đã xảy ra trong quá khứ (ví dụ: `OrderPlacedEvent` — "Đơn hàng đã được đặt"). Các Context khác **lắng nghe và xử lý độc lập**.
+- **Dùng khi:** Kết quả không cần thiết ngay lập tức cho user; lỗi không nên làm gián đoạn luồng chính.
+- **Trong luồng đặt hàng:** `Payment`, `Notification`, `Fulfillment` — user không cần ngồi chờ email bay vào hộp thư mới thấy màn hình đặt hàng thành công.
+
+**Luồng đặt hàng tối ưu trong `commerce-fulfillment-system`:**
+```
+[User bấm "Đặt hàng"]
+        │
+        ▼ (Sync — Command)
+[Order Context] → Tạo đơn hàng → trạng thái: PENDING_PAYMENT
+        │
+        ▼ (Sync — Command)
+[Inventory Context] → Giữ kho (Reserve) → đảm bảo hàng không bị bán cho người khác
+        │
+        ▼ Trả về cho user: "Đơn #123 đã tạo, vui lòng thanh toán"
+        │
+        ▼ (Async — Domain Event: OrderPlacedEvent)
+[Payment Context] ──────► User được chuyển sang trang thanh toán (VNPay/MoMo)
+[Notification Context] ──► Gửi email xác nhận đơn hàng
+[Fulfillment Context] ───► Chuẩn bị phiếu giao hàng khi thanh toán thành công
+```
+
+---
+
+### 1.6 Saga Pattern — Nguyên lý lõi (chi tiết ở Giai đoạn 4)
+
+**Vấn đề:** Nếu user tạo đơn, giữ kho thành công, nhưng 15 phút trôi qua không thanh toán → kho bị "kẹt" trong reservation ảo mãi mãi, khách khác không mua được dù hàng thật vẫn còn.
+
+**Saga Pattern giải quyết điều này bằng 2 thành phần:**
+1. **Chuỗi các bước độc lập (async):** Mỗi bước là một giao dịch riêng, khi xong phát ra Event kích hoạt bước tiếp theo.
+2. **Compensating Transaction (Giao dịch bù):** Mỗi bước đều có hành động hoàn tác nếu bước sau thất bại.
+
+| Bước | Hành động | Compensating Transaction |
+|---|---|---|
+| Tạo đơn hàng | Order tạo với trạng thái PENDING | Chuyển trạng thái sang CANCELLED |
+| Giữ kho | Inventory giảm stock khả dụng | Inventory nhả lại stock (Release Reservation) |
+| Thu tiền | Payment charge thẻ | Payment hoàn tiền (Refund) |
+
+**Chưa có giao dịch bù → chưa phải Saga, chỉ là async thông thường.**
+
+---
+
+### 1.7 Context Map (Sơ đồ ngữ cảnh)
+
+Bản đồ thể hiện mối quan hệ giữa các Bounded Context. Các kiểu quan hệ phổ biến:
+
+| Kiểu quan hệ | Ý nghĩa |
+|---|---|
+| **Customer–Supplier** | Upstream cung cấp dữ liệu; thay đổi ở Upstream ảnh hưởng Downstream |
+| **Shared Kernel** | Hai Context dùng chung một phần model |
+| **Anticorruption Layer (ACL)** | Lớp dịch chuyển bảo vệ Context phía trong khỏi bị "ô nhiễm" bởi model phức tạp từ ngoài |
+
+---
+
+## 2. Tất cả Kiến thức & Insights từ buổi học
+
+- **Inventory Reservation phải chạy sync với Order creation** — vì nếu async, 11 user có thể cùng thấy còn 10 sản phẩm, nhưng khi thanh toán 1 người sẽ bị lỗi (over-selling). Giữ kho ngay lập tức khi tạo đơn loại bỏ race condition này.
+- **Payment KHÔNG chạy sync trong nút "Đặt hàng"** — giống Shopee/Tiki: hệ thống tạo đơn → trả về mã QR → user có 15 phút thanh toán → VNPay/MoMo gọi ngược lại callback khi thành công. Request ban đầu đã kết thúc từ lâu.
+- **Notification và Fulfillment luôn async** — lỗi gửi email không được làm sập giao dịch mua hàng; email retry sau là được.
+- **Domain Core không được biết đến Spring/JPA/DB** — luật nghiệp vụ phải độc lập với công nghệ để khi đổi DB chỉ viết Adapter mới, không sửa lõi.
+
+---
+
+## 3. Lý do tồn tại (Vấn đề DDD giải quyết)
+
+| Nỗi đau | DDD giải quyết như thế nào |
+|---|---|
+| `OrderService` 2000 dòng, sửa tính năng nhỏ làm hỏng tính năng khác | Mỗi luật nghiệp vụ nằm đúng trong Domain class của nó; tầng Application chỉ điều phối |
+| `Product` class có 50 thuộc tính gộp từ Kho + Bán hàng + Giao hàng | Bounded Context tách thành 3 class riêng, mỗi class chỉ chứa đúng thuộc tính của ngữ cảnh đó |
+| Over-selling: 11 người mua 10 sản phẩm cuối cùng | Inventory Reservation đồng bộ ngay khi tạo đơn |
+| Cổng thanh toán chậm làm user timeout và reload | Payment tách ra async, user không cần chờ |
+| Notification chết làm sập toàn bộ giao dịch | Notification async với retry — lỗi tự phục hồi, không ảnh hưởng luồng chính |
+
+---
 
 ## 4. Cách sử dụng & Use cases thực tế
-### Khi nào nên sử dụng
-*   Hệ thống có nghiệp vụ phức tạp, nhiều phòng ban tham gia (ví dụ: Tài chính, Kho vận, CSKH).
-*   Khi cần phát triển hệ thống theo hướng Microservices hoặc Modular Monolith để chia việc cho các team độc lập.
 
-### Trade-offs (Đánh đổi)
-*   **Sự phức tạp của Eventual Consistency (Nhất quán cuối cùng):** Vì thanh toán và giao hàng chạy bất đồng bộ, hệ thống phải xử lý các tình huống phức tạp như: Khách hàng tạo đơn giữ kho thành công nhưng không thanh toán trong 15 phút -> Phải có worker tự động thu hồi/nhả tồn kho (Release Reservation).
-*   **Chi phí tích hợp lớn:** Phải quản lý các Event Broker (Kafka, RabbitMQ) và giải quyết bài toán giao tin cậy (Transactional Outbox Pattern).
+### Khi nào NÊN dùng DDD
+
+- Nhiều team/dev cùng làm, cần ranh giới rõ ràng.
+- Nghiệp vụ phức tạp, nhiều luật, thay đổi liên tục (chính sách giảm giá, hoàn tiền, VIP...).
+- Hệ thống dài hơi (3-5 năm+), có khả năng đổi DB/framework.
+- Định hướng Microservices — mỗi Bounded Context sẽ trở thành 1 service độc lập.
+
+### Khi nào KHÔNG NÊN dùng DDD
+
+- Dự án nhỏ (< 10 class), 1 người làm, nghiệp vụ đơn giản.
+- Prototype/MVP cần delivery nhanh — overhead của DDD là không cần thiết.
+
+### Trade-offs
+
+| Lợi ích | Chi phí |
+|---|---|
+| Code dễ sửa, dễ test, dễ scale | Nhiều file, nhiều interface, phức tạp hơn ban đầu |
+| Thay DB/framework không ảnh hưởng lõi | Phải quản lý Event Broker (Kafka, RabbitMQ) |
+| Lỗi 1 service không kéo sập service khác | Phải xử lý Eventual Consistency — trạng thái hệ thống có thể tạm thời không nhất quán |
+| Dễ tách thành Microservices | Phải implement Compensating Transaction cho mỗi bước trong Saga |
