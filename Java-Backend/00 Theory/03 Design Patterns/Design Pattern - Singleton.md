@@ -1,9 +1,10 @@
 ---
 status: Understood
 tags: [java, design-pattern, concurrency, review]
-sr-due: 2026-07-22
-sr-interval: 4
+sr-due: 2026-08-08
+sr-interval: 11
 sr-ease: 270
+review-count: 2
 ---
 
 # Design Pattern - Singleton

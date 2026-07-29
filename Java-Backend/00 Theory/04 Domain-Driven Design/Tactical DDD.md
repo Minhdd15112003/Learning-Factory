@@ -1,10 +1,10 @@
 ---
-status: Partial
+status: Understood
 tags: [ddd, tactical-design, java, review]
 sr-due: 2026-07-29
 sr-interval: 1
 sr-ease: 230
-review-count: 0
+review-count: 1
 ---
 
 # Tactical Domain-Driven Design (C)

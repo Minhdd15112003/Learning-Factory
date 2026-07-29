@@ -1,10 +1,10 @@
 ---
-status: Partial
+status: Understood
 tags: [architecture, hexagonal, ports-adapters, java, review]
 sr-due: 2026-07-29
 sr-interval: 1
 sr-ease: 230
-review-count: 0
+review-count: 1
 ---
 
 # Hexagonal Architecture (Ports & Adapters) (C)

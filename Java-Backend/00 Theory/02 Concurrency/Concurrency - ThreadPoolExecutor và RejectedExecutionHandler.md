@@ -1,9 +1,10 @@
 ---
 status: Understood
 tags: [java, concurrency, threadpool, review]
-sr-due: 2026-07-22
-sr-interval: 4
-sr-ease: 270
+sr-due: 2026-08-12
+sr-interval: 15
+sr-ease: 290
+review-count: 2
 ---
 
 # Concurrency — ThreadPoolExecutor và RejectedExecutionHandler (C)
